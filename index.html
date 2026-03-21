@@ -6,11 +6,92 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>CreatorProfitLab - Creator Income Calculators</title>
+<title>CreatorProfitLab</title>
 
-<meta name="description" content="Free calculators for YouTube, Instagram and TikTok creators to estimate earnings, engagement rate and sponsorship price.">
+<meta name="description" content="Free calculators for YouTube, Instagram and TikTok creators to estimate earnings, engagement and sponsorship price.">
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#F5F7FB;
+color:#111827;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+nav a{
+margin-left:20px;
+text-decoration:none;
+color:#111827;
+}
+
+.hero{
+text-align:center;
+padding:60px;
+}
+
+.hero h2{
+color:#2563EB;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:40px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 15px rgba(0,0,0,0.05);
+}
+
+button{
+background:#2563EB;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.calculator{
+text-align:center;
+padding:40px;
+}
+
+input{
+padding:10px;
+margin:10px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.ad{
+background:#eee;
+text-align:center;
+padding:30px;
+margin:20px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:white;
+}
+
+</style>
 
 </head>
 
@@ -29,9 +110,9 @@
 
 <section class="hero">
 
-<h2>Creator Income & Engagement Calculators</h2>
+<h2>Creator Income Calculators</h2>
 
-<p>Estimate earnings, engagement and sponsorship value.</p>
+<p>Estimate creator revenue and engagement.</p>
 
 </section>
 
@@ -49,18 +130,8 @@
 </div>
 
 <div class="card">
-<h3>YouTube CPM Calculator</h3>
-<button onclick="setCalc('cpm')">Open</button>
-</div>
-
-<div class="card">
-<h3>Instagram Engagement Rate</h3>
-<button onclick="setCalc('insta_eng')">Open</button>
-</div>
-
-<div class="card">
-<h3>Instagram Influencer Rate</h3>
-<button onclick="setCalc('insta_rate')">Open</button>
+<h3>Instagram Engagement</h3>
+<button onclick="setCalc('instagram')">Open</button>
 </div>
 
 <div class="card">
@@ -69,78 +140,18 @@
 </div>
 
 <div class="card">
-<h3>TikTok Engagement</h3>
-<button onclick="setCalc('tiktok_eng')">Open</button>
-</div>
-
-<div class="card">
-<h3>Brand Deal Price</h3>
+<h3>Brand Deal Calculator</h3>
 <button onclick="setCalc('brand')">Open</button>
 </div>
 
 <div class="card">
-<h3>Affiliate Earnings</h3>
+<h3>Affiliate Income</h3>
 <button onclick="setCalc('affiliate')">Open</button>
 </div>
 
 <div class="card">
-<h3>CPM Calculator</h3>
-<button onclick="setCalc('cpm_calc')">Open</button>
-</div>
-
-<div class="card">
-<h3>CPC Calculator</h3>
-<button onclick="setCalc('cpc')">Open</button>
-</div>
-
-<div class="card">
-<h3>CPV Calculator</h3>
-<button onclick="setCalc('cpv')">Open</button>
-</div>
-
-<div class="card">
-<h3>Creator Monthly Income</h3>
-<button onclick="setCalc('monthly')">Open</button>
-</div>
-
-<div class="card">
-<h3>Creator Yearly Income</h3>
-<button onclick="setCalc('yearly')">Open</button>
-</div>
-
-<div class="card">
-<h3>Subscriber Growth</h3>
-<button onclick="setCalc('subs')">Open</button>
-</div>
-
-<div class="card">
-<h3>Follower Growth</h3>
-<button onclick="setCalc('followers')">Open</button>
-</div>
-
-<div class="card">
-<h3>Audience Growth</h3>
-<button onclick="setCalc('audience')">Open</button>
-</div>
-
-<div class="card">
-<h3>Watch Time Calculator</h3>
-<button onclick="setCalc('watch')">Open</button>
-</div>
-
-<div class="card">
-<h3>Audience Retention</h3>
-<button onclick="setCalc('retention')">Open</button>
-</div>
-
-<div class="card">
-<h3>Creator ROI Calculator</h3>
+<h3>ROI Calculator</h3>
 <button onclick="setCalc('roi')">Open</button>
-</div>
-
-<div class="card">
-<h3>Creator Profit Calculator</h3>
-<button onclick="setCalc('profit')">Open</button>
 </div>
 
 </div>
@@ -149,10 +160,13 @@
 
 <section class="calculator">
 
-<h2>Calculator</h2>
+<h2 id="calcTitle">Calculator</h2>
 
 <input id="input1" placeholder="Enter value 1">
+
 <input id="input2" placeholder="Enter value 2">
+
+<br>
 
 <button onclick="calculate()">Calculate</button>
 
@@ -168,7 +182,74 @@
 
 </footer>
 
-<script src="script.js"></script>
+<script>
+
+let mode="youtube"
+
+function setCalc(type){
+
+mode=type
+
+document.getElementById("result").innerHTML=""
+
+if(type=="youtube")
+document.getElementById("calcTitle").innerText="YouTube Money Calculator"
+
+if(type=="instagram")
+document.getElementById("calcTitle").innerText="Instagram Engagement Calculator"
+
+if(type=="tiktok")
+document.getElementById("calcTitle").innerText="TikTok Money Calculator"
+
+if(type=="brand")
+document.getElementById("calcTitle").innerText="Brand Deal Price Calculator"
+
+if(type=="affiliate")
+document.getElementById("calcTitle").innerText="Affiliate Earnings Calculator"
+
+if(type=="roi")
+document.getElementById("calcTitle").innerText="ROI Calculator"
+
+}
+
+function calculate(){
+
+let a=parseFloat(document.getElementById("input1").value)
+let b=parseFloat(document.getElementById("input2").value)
+
+if(isNaN(a) || isNaN(b)){
+
+document.getElementById("result").innerHTML="Please enter numbers"
+return
+
+}
+
+let result=0
+
+if(mode=="youtube")
+result=(a/1000)*b
+
+else if(mode=="instagram")
+result=((a+b)/10000)*100
+
+else if(mode=="tiktok")
+result=(a/1000)*b*1.2
+
+else if(mode=="brand")
+result=(a/1000)*15
+
+else if(mode=="affiliate")
+result=a*b
+
+else if(mode=="roi")
+result=((b-a)/a)*100
+
+document.getElementById("result").innerHTML="Result: "+result.toFixed(2)
+
+}
+
+</script>
 
 </body>
+
 </html>
