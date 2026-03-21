@@ -72,10 +72,57 @@
         <button onclick="tab(event, 'math')">4. Math & Science</button>
         <button onclick="tab(event, 'utility')">5. Business & Utility</button>
         <button onclick="tab(event, 'lifestyle')">6. Lifestyle & Travel</button>
+        <button onclick="tab(event, 'resources')">📖 Learning Hub</button>
     </nav>
 </aside>
 
 <main>
+
+    <section id="resources" class="tab-content">
+    <article style="max-width: 850px; background: white; padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); line-height: 1.8;">
+        <h2 style="color: var(--brand); margin-bottom: 1.5rem; font-size: 2rem;">The Ultimate Guide to YouTube Earnings & AdSense</h2>
+        
+        <p>Understanding how much money a YouTube channel makes is the first step toward building a sustainable creator business. At <strong>CreatorProfitLab</strong>, we use industry-standard formulas to help you estimate your revenue.</p>
+
+        <h3 style="margin-top: 2rem;">1. What is CPM and RPM?</h3>
+        <p>Most new creators get confused between these two metrics. Here is the breakdown:</p>
+        <ul style="margin-left: 20px; margin-bottom: 1.5rem;">
+            <li><strong>CPM (Cost Per Mille):</strong> This is the amount advertisers pay for every 1,000 views <em>before</em> YouTube takes its 45% cut.</li>
+            <li><strong>RPM (Revenue Per Mille):</strong> This is your actual earnings per 1,000 views after YouTube's share and including other revenue like Memberships or Super Chats.</li>
+        </ul>
+
+        
+
+        <h3 style="margin-top: 2rem;">2. Factors That Influence Your Earnings</h3>
+        <p>Not all views are equal. Your earnings are heavily influenced by three main factors:</p>
+        <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0; border: 1px solid var(--border);">
+            <tr style="background: #f8fafc;">
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">Factor</th>
+                <th style="padding: 10px; border: 1px solid var(--border); text-align: left;">High CPM Niches</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);">Niche/Topic</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">Finance, Tech, Business, Real Estate</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);">Audience Location</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">USA, UK, Canada, Australia</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid var(--border);">Viewer Age</td>
+                <td style="padding: 10px; border: 1px solid var(--border);">25-44 (High purchasing power)</td>
+            </tr>
+        </table>
+
+        <h3 style="margin-top: 2rem;">3. How to Use the CreatorProfitLab Calculator</h3>
+        <p>To get the most accurate estimate, look at your current <strong>Average CPM</strong> in your YouTube Studio. Input that value along with your monthly views into our calculator. Remember, our tool uses a $5.00 default CPM, which is the global average across all niches.</p>
+
+        <div style="background: #eef2ff; border-left: 4px solid var(--brand); padding: 1.5rem; margin-top: 2rem;">
+            <strong>Pro Tip:</strong> To increase your earnings, focus on "High Intent" keywords in your titles. Advertisers bid more to appear on videos where viewers are looking to solve a specific problem or buy a product.
+        </div>
+    </article>
+</section>
+    
     <section id="creator" class="tab-content" style="display:block">
         <div class="grid">
             <div class="card"><h3>YouTube Income</h3><div class="field"><label>Views / CPM ($)</label><div style="display:flex;gap:5px;"><input type="number" id="c1-v" value="100000"><input type="number" id="c1-c" value="5"></div></div><button class="btn-calc" onclick="run('c1')">Estimate Revenue</button><div class="out-box" id="r-c1">$500</div></div>
