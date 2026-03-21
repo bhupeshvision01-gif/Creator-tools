@@ -16,8 +16,11 @@ document.addEventListener('DOMContentLoaded', function(){
 function calculateYouTubeIncome(){
   let views = parseFloat(document.getElementById('ytViews').value);
   let cpm = parseFloat(document.getElementById('ytCPM').value);
-  if(isNaN(views)||isNaN(cpm)){alert('Enter valid numbers'); return;}
-  document.getElementById('ytIncomeResult').innerText = `$${((views/1000)*cpm).toFixed(2)}`;
+  if(isNaN(views) || isNaN(cpm)){
+    alert('Enter valid numbers'); 
+    return;
+  }
+  document.getElementById('ytIncomeResult').innerText = `Estimated Monthly Income: $${((views/1000)*cpm).toFixed(2)}`;
 }
 
 function calculateInstagramEngagement(){
