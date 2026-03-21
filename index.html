@@ -3,22 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ultimate SaaS-style Calculator Hub: 25+ calculators for finance, health, math, units, and price/utility tools. Responsive, fast, and SEO-friendly.">
-<meta name="keywords" content="calculator, finance calculator, health calculator, BMI, EMI, GST, SIP, price comparison, fuel cost, creator income, unit converter, math calculator">
-<title>Ultimate Calculator Hub | 25+ Calculators</title>
-<link rel="canonical" href="https://www.yourwebsite.com/">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-<!-- External CSS -->
+<title>Ultimate Calculator Hub</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <h1>Ultimate Calculator Hub</h1>
-  <p>25+ calculators for finance, health, math, units, and price/utility tools — fast, modern, and responsive.</p>
 </header>
 
 <nav>
@@ -29,56 +20,19 @@
   <button class="tab-link" data-tab="utility">Price & Utility Tools</button>
 </nav>
 
-<!-- Finance Calculators -->
+<!-- Example Tab -->
 <div id="finance" class="tab-content active">
   <h2>Finance Calculators</h2>
-  <!-- EMI Calculator -->
   <div class="calculator">
     <h3>EMI Calculator</h3>
     <input type="number" id="loanAmount" placeholder="Loan Amount">
     <input type="number" id="interestRate" placeholder="Interest Rate (%)">
     <input type="number" id="loanTenure" placeholder="Tenure (Months)">
     <button onclick="calculateEMI()">Calculate EMI</button>
-    <div class="result" id="emiResult"></div>
-  </div>
-  <!-- GST Calculator -->
-  <div class="calculator">
-    <h3>GST Calculator</h3>
-    <input type="number" id="gstAmount" placeholder="Amount">
-    <input type="number" id="gstRate" placeholder="GST Rate (%)">
-    <button onclick="calculateGST()">Calculate GST</button>
-    <div class="result" id="gstResult"></div>
-  </div>
-  <!-- SIP Calculator -->
-  <div class="calculator">
-    <h3>SIP Calculator</h3>
-    <input type="number" id="sipAmount" placeholder="Monthly Investment">
-    <input type="number" id="sipRate" placeholder="Expected Annual Return (%)">
-    <input type="number" id="sipYears" placeholder="Investment Period (Years)">
-    <button onclick="calculateSIP()">Calculate SIP</button>
-    <div class="result" id="sipResult"></div>
-  </div>
-  <!-- FD Calculator -->
-  <div class="calculator">
-    <h3>FD Calculator</h3>
-    <input type="number" id="fdAmount" placeholder="Principal Amount">
-    <input type="number" id="fdRate" placeholder="Interest Rate (%)">
-    <input type="number" id="fdYears" placeholder="Tenure (Years)">
-    <button onclick="calculateFD()">Calculate FD</button>
-    <div class="result" id="fdResult"></div>
-  </div>
-  <!-- Simple Interest -->
-  <div class="calculator">
-    <h3>Simple Interest Calculator</h3>
-    <input type="number" id="siPrincipal" placeholder="Principal">
-    <input type="number" id="siRate" placeholder="Rate (%)">
-    <input type="number" id="siTime" placeholder="Time (Years)">
-    <button onclick="calculateSI()">Calculate SI</button>
-    <div class="result" id="siResult"></div>
+    <div id="emiResult" class="result"></div>
   </div>
 </div>
 
-<!-- Health Calculators -->
 <div id="health" class="tab-content">
   <h2>Health Calculators</h2>
   <!-- BMI -->
@@ -87,38 +41,10 @@
     <input type="number" id="weight" placeholder="Weight (kg)">
     <input type="number" id="height" placeholder="Height (cm)">
     <button onclick="calculateBMI()">Calculate BMI</button>
-    <div class="result" id="bmiResult"></div>
-  </div>
-  <!-- Daily Calorie -->
-  <div class="calculator">
-    <h3>Daily Calorie Needs</h3>
-    <input type="number" id="age" placeholder="Age">
-    <input type="number" id="bmrWeight" placeholder="Weight (kg)">
-    <input type="number" id="bmrHeight" placeholder="Height (cm)">
-    <select id="activityLevel">
-      <option value="1.2">Sedentary</option>
-      <option value="1.375">Lightly Active</option>
-      <option value="1.55">Moderately Active</option>
-      <option value="1.725">Very Active</option>
-      <option value="1.9">Extra Active</option>
-    </select>
-    <button onclick="calculateCalories()">Calculate Calories</button>
-    <div class="result" id="calorieResult"></div>
-  </div>
-  <!-- Ideal Weight -->
-  <div class="calculator">
-    <h3>Ideal Weight Calculator</h3>
-    <input type="number" id="idealHeight" placeholder="Height (cm)">
-    <select id="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option>
-    </select>
-    <button onclick="calculateIdealWeight()">Calculate Ideal Weight</button>
-    <div class="result" id="idealResult"></div>
+    <div id="bmiResult" class="result"></div>
   </div>
 </div>
 
-<!-- Math Calculators -->
 <div id="math" class="tab-content">
   <h2>Math Calculators</h2>
   <!-- Percentage -->
@@ -127,57 +53,12 @@
     <input type="number" id="percentTotal" placeholder="Total Value">
     <input type="number" id="percentValue" placeholder="Value">
     <button onclick="calculatePercentage()">Calculate %</button>
-    <div class="result" id="percentResult"></div>
-  </div>
-  <!-- Age -->
-  <div class="calculator">
-    <h3>Age Calculator</h3>
-    <input type="date" id="dob" placeholder="Date of Birth">
-    <button onclick="calculateAge()">Calculate Age</button>
-    <div class="result" id="ageResult"></div>
-  </div>
-  <!-- Compound Interest -->
-  <div class="calculator">
-    <h3>Compound Interest Calculator</h3>
-    <input type="number" id="ciPrincipal" placeholder="Principal">
-    <input type="number" id="ciRate" placeholder="Rate (%)">
-    <input type="number" id="ciTime" placeholder="Time (Years)">
-    <input type="number" id="ciComp" placeholder="Compounded times/year">
-    <button onclick="calculateCI()">Calculate CI</button>
-    <div class="result" id="ciResult"></div>
+    <div id="percentResult" class="result"></div>
   </div>
 </div>
 
-<!-- Unit Converters -->
 <div id="unit" class="tab-content">
   <h2>Unit Converters</h2>
-  <!-- Length -->
-  <div class="calculator">
-    <h3>Length Converter</h3>
-    <input type="number" id="lengthInput" placeholder="Enter value">
-    <select id="lengthUnit">
-      <option value="m">Meters</option>
-      <option value="cm">Centimeters</option>
-      <option value="km">Kilometers</option>
-      <option value="inch">Inches</option>
-      <option value="ft">Feet</option>
-    </select>
-    <button onclick="convertLength()">Convert</button>
-    <div class="result" id="lengthResult"></div>
-  </div>
-  <!-- Weight -->
-  <div class="calculator">
-    <h3>Weight Converter</h3>
-    <input type="number" id="weightInput" placeholder="Enter value">
-    <select id="weightUnit">
-      <option value="kg">Kg</option>
-      <option value="g">Gram</option>
-      <option value="lb">Pounds</option>
-      <option value="oz">Ounces</option>
-    </select>
-    <button onclick="convertWeight()">Convert</button>
-    <div class="result" id="weightResult"></div>
-  </div>
   <!-- Temperature -->
   <div class="calculator">
     <h3>Temperature Converter</h3>
@@ -188,49 +69,21 @@
       <option value="K">Kelvin</option>
     </select>
     <button onclick="convertTemperature()">Convert</button>
-    <div class="result" id="tempResult"></div>
+    <div id="tempResult" class="result"></div>
   </div>
 </div>
 
-<!-- Utility / Original Idea -->
 <div id="utility" class="tab-content">
   <h2>Price & Utility Tools</h2>
   <div class="calculator">
-    <h3>Price Comparison Calculator</h3>
-    <input type="number" id="price1" placeholder="Price of Product 1">
-    <input type="number" id="price2" placeholder="Price of Product 2">
-    <input type="number" id="price3" placeholder="Price of Product 3">
-    <button onclick="comparePrices()">Compare Prices</button>
-    <div class="result" id="priceResult"></div>
-  </div>
-  <div class="calculator">
-    <h3>Hidden Cost Calculator</h3>
-    <input type="number" id="baseCost" placeholder="Base Cost">
-    <input type="number" id="taxCost" placeholder="Taxes (%)">
-    <input type="number" id="extraCost" placeholder="Extra Charges">
-    <button onclick="calculateHiddenCost()">Calculate Total Cost</button>
-    <div class="result" id="hiddenCostResult"></div>
-  </div>
-  <div class="calculator">
-    <h3>Travel / Fuel Cost Calculator</h3>
-    <input type="number" id="distance" placeholder="Distance (km)">
-    <input type="number" id="fuelPrice" placeholder="Fuel Price (₹/L)">
-    <input type="number" id="fuelEfficiency" placeholder="Vehicle Efficiency (km/L)">
-    <button onclick="calculateTravelCost()">Calculate Fuel Cost</button>
-    <div class="result" id="travelCostResult"></div>
-  </div>
-  <div class="calculator">
-    <h3>Creator Income Calculator</h3>
-    <input type="number" id="views" placeholder="Monthly Views">
-    <input type="number" id="cpm" placeholder="CPM / Cost per 1000 views (₹)">
-    <button onclick="calculateCreatorIncome()">Estimate Income</button>
-    <div class="result" id="creatorIncomeResult"></div>
+    <h3>Price Comparison</h3>
+    <input type="number" id="price1" placeholder="Price 1">
+    <input type="number" id="price2" placeholder="Price 2">
+    <input type="number" id="price3" placeholder="Price 3">
+    <button onclick="comparePrices()">Compare</button>
+    <div id="priceResult" class="result"></div>
   </div>
 </div>
-
-<footer>
-  &copy; 2026 Ultimate Calculator Hub. All Rights Reserved.
-</footer>
 
 <script src="script.js"></script>
 </body>
