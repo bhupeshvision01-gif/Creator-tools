@@ -1,41 +1,63 @@
 let mode = "youtube";
 
-function setCalc(type) {
+function setCalc(type){
     mode = type;
-    alert("Calculator selected: " + type);
+    document.getElementById("result").innerHTML =
+    "Selected calculator: " + type;
 }
 
-function calculate() {
+function calculate(){
 
-    let a = Number(document.getElementById("input1").value);
-    let b = Number(document.getElementById("input2").value);
+let a = parseFloat(document.getElementById("input1").value);
+let b = parseFloat(document.getElementById("input2").value);
 
-    let result = 0;
+if(isNaN(a) || isNaN(b)){
+document.getElementById("result").innerHTML="Please enter numbers";
+return;
+}
 
-    if (mode === "youtube") {
-        result = (a / 1000) * b;
-    }
+let result = 0;
 
-    else if (mode === "insta_eng") {
-        result = ((a + b) / 10000) * 100;
-    }
+switch(mode){
 
-    else if (mode === "tiktok") {
-        result = (a / 1000) * b * 1.2;
-    }
+case "youtube":
+result = (a/1000) * b;
+break;
 
-    else if (mode === "brand") {
-        result = (a / 1000) * 10;
-    }
+case "cpm":
+result = (a/b) * 1000;
+break;
 
-    else if (mode === "affiliate") {
-        result = a * b;
-    }
+case "insta_eng":
+result = ((a+b)/10000) * 100;
+break;
 
-    else {
-        result = a + b;
-    }
+case "tiktok":
+result = (a/1000) * b * 1.2;
+break;
 
-    document.getElementById("result").innerHTML = "Result: " + result;
+case "brand":
+result = (a/1000) * 15;
+break;
+
+case "affiliate":
+result = a * b;
+break;
+
+case "roi":
+result = ((b-a)/a) * 100;
+break;
+
+case "profit":
+result = b - a;
+break;
+
+default:
+result = a + b;
+
+}
+
+document.getElementById("result").innerHTML =
+"Result: " + result.toFixed(2);
 
 }
