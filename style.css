@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CreatorProfitLab - Creator Income & Engagement Calculators</title>
+
+<meta name="description" content="Free creator calculators including YouTube money calculator, Instagram engagement calculator, TikTok earnings calculator and influencer brand deal pricing tools.">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">CreatorProfitLab</div>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#tools">Tools</a>
+<a href="#blog">Blog</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+
+</header>
+
+<section class="hero" id="home">
+
+<h1>Creator Income & Engagement Calculators</h1>
+
+<p>Smart tools to estimate creator earnings, engagement and monetization.</p>
+
+<input id="search" placeholder="Search calculators...">
+
+</section>
+
+<div class="ad">AdSense Banner</div>
+
+<section id="tools">
+
+<h2>Creator Tools</h2>
+
+<div id="toolsGrid" class="grid"></div>
+
+</section>
+
+<div class="ad">AdSense Mid Page</div>
+
+<section id="blog">
+
+<h2>Creator Monetization Guides</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>How Much Do YouTubers Earn?</h3>
+<p>Understand CPM, views and ad revenue.</p>
+</div>
+
+<div class="card">
+<h3>Instagram Engagement Guide</h3>
+<p>Learn how engagement rate affects income.</p>
+</div>
+
+<div class="card">
+<h3>TikTok Creator Earnings</h3>
+<p>Estimate creator fund revenue.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2>About CreatorProfitLab</h2>
+
+<p>
+CreatorProfitLab provides free tools to help creators estimate income,
+engagement and sponsorship pricing.
+</p>
+
+</section>
+
+<section id="contact">
+
+<h2>Newsletter</h2>
+
+<p>Get new creator tools and growth tips.</p>
+
+<input placeholder="Email">
+
+<button>Subscribe</button>
+
+</section>
+
+<footer>
+
+<p>© 2026 CreatorProfitLab</p>
+
+<div class="affiliate">
+Recommended Creator Tools:
+<br>
+Camera | Microphone | Editing Software
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
