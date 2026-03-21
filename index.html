@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>CreatorProfitLab | #1 Earnings & Growth Calculator for Influencers</title>
-    <meta name="description" content="Calculate YouTube income, TikTok earnings, Instagram engagement, and brand deal rates. The ultimate toolkit for digital creators and influencers.">
-    <meta name="keywords" content="CreatorProfitLab, YouTube earnings, TikTok calculator, Brand deal rate, Influencer ROI, CPM calculator">
+    <title>CreatorProfitLab | Professional Creator & Finance Calculators</title>
+    <meta name="description" content="The ultimate laboratory for digital creators. Calculate YouTube revenue, TikTok earnings, Instagram engagement, and ROI with our professional tool suite.">
+    <meta name="keywords" content="YouTube Income Calculator, Instagram Engagement, TikTok Earnings, CPM Calculator, Brand Deal Rate, Influencer ROI">
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     
@@ -30,12 +30,12 @@
             --border: #1e293b;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.3s, border-color 0.3s; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.2s, border-color 0.2s; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
-        .app-wrapper { display: flex; min-height: 100vh; }
+        .app-container { display: flex; min-height: 100vh; }
 
-        /* Sidebar */
+        /* Sidebar Navigation */
         aside {
             width: 280px;
             background: var(--surface);
@@ -45,16 +45,16 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            z-index: 100;
+            z-index: 1000;
         }
 
-        .logo { font-size: 1.4rem; font-weight: 800; color: var(--brand); margin-bottom: 3rem; letter-spacing: -0.5px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--brand); margin-bottom: 3rem; letter-spacing: -1px; }
         .logo span { color: var(--text); }
 
         nav button {
             width: 100%;
-            padding: 0.8rem 1rem;
-            margin-bottom: 0.6rem;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.5rem;
             border: none;
             border-radius: 12px;
             background: transparent;
@@ -64,347 +64,264 @@
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
-        nav button.active { background: var(--brand); color: white; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4); }
+        nav button.active { background: var(--brand); color: white; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
         nav button:hover:not(.active) { background: rgba(99, 102, 241, 0.1); color: var(--brand); }
 
-        /* Main Area */
-        main { flex: 1; margin-left: 280px; padding: 4rem; }
-        .hero { margin-bottom: 3.5rem; }
-        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.5rem; }
+        /* Main Content Area */
+        main { flex: 1; margin-left: 280px; padding: 3rem 4rem; }
+        .hero { margin-bottom: 3rem; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -1px; }
         .hero p { color: var(--text-muted); font-size: 1.1rem; }
 
-        /* Calculator Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+        /* Calculator Layout */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
         .card {
             background: var(--surface);
             padding: 2rem;
-            border-radius: 24px;
+            border-radius: 20px;
             border: 1px solid var(--border);
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
         }
-        .card:hover { border-color: var(--brand); transform: translateY(-2px); }
-        .card h3 { font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; }
+        .card:hover { border-color: var(--brand); transform: translateY(-3px); }
+        .card h3 { font-size: 1rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: 0.5px; }
 
-        .input-group { margin-bottom: 1.2rem; }
-        label { font-size: 0.75rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
+        .input-group { margin-bottom: 1rem; }
+        label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.5rem; }
         input {
             width: 100%;
-            padding: 0.9rem;
-            border-radius: 12px;
-            border: 2px solid var(--border);
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
             background: var(--bg);
             color: var(--text);
             font-weight: 600;
-            font-size: 1rem;
             outline: none;
         }
         input:focus { border-color: var(--brand); }
 
-        .btn-action {
+        .calc-btn {
             width: 100%;
-            padding: 1rem;
+            padding: 0.9rem;
             background: var(--brand);
             color: white;
             border: none;
-            border-radius: 14px;
-            font-weight: 800;
+            border-radius: 12px;
+            font-weight: 700;
             cursor: pointer;
             margin-top: 0.5rem;
         }
 
-        .result-area {
+        .result-box {
             margin-top: 1.5rem;
             padding: 1.2rem;
-            background: rgba(99, 102, 241, 0.08);
-            border-radius: 16px;
+            background: rgba(99, 102, 241, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--brand);
             text-align: center;
         }
-        .result-label { font-size: 0.7rem; font-weight: 800; color: var(--brand); text-transform: uppercase; margin-bottom: 4px; display: block; }
-        .result-val { font-size: 1.5rem; font-weight: 800; color: var(--brand); }
+        .res-label { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); display: block; margin-bottom: 5px; }
+        .res-val { font-size: 1.4rem; font-weight: 800; color: var(--brand); }
 
-        /* Responsive */
+        /* Mobile Adjustments */
         @media (max-width: 1024px) {
-            aside { width: 100%; height: auto; position: relative; padding: 1.5rem; }
+            aside { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
             main { margin-left: 0; padding: 2rem; }
-            .app-wrapper { flex-direction: column; }
+            .app-container { flex-direction: column; }
         }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
-<div class="app-wrapper">
+<div class="app-container">
     <aside>
         <div class="logo">CreatorProfit<span>Lab</span></div>
         <nav>
-            <button class="active" onclick="switchTab(event, 'creator')">Creator Tools</button>
-            <button onclick="switchTab(event, 'finance')">Finance Hub</button>
-            <button onclick="switchTab(event, 'health')">Health Metrics</button>
+            <button class="active" onclick="showTab(event, 'creator-tab')">Creator Tools</button>
+            <button onclick="showTab(event, 'finance-tab')">Finance Suite</button>
+            <button onclick="showTab(event, 'health-tab')">Health Metrics</button>
         </nav>
         <div style="margin-top: auto;">
-            <button onclick="toggleTheme()" style="background: var(--border); color: var(--text); width: 100%; font-size: 0.8rem;" class="active">🌓 Switch Mode</button>
+            <button onclick="toggleMode()" style="background: var(--border); color: var(--text); font-size: 0.8rem;">🌓 Toggle Dark Mode</button>
         </div>
     </aside>
 
     <main>
-        <section id="creator" class="tab-pane">
+        <section id="creator-tab" class="tab-content">
             <div class="hero">
                 <h1>Creator Intelligence</h1>
-                <p>Advanced metrics for YouTube, TikTok, and Instagram monetization.</p>
+                <p>Maximize your digital revenue with data-backed insights.</p>
             </div>
-             <section id="creator" class="tab-pane">
-            <div class="header-box"><h1>Creator Tools</h1><p>Optimize your digital presence and earnings.</p></div>
+            
             <div class="grid">
                 <div class="card">
                     <h3>YouTube Income</h3>
-                    <div class="form-group"><label>Monthly Views</label><input type="number" id="yt-v" value="100000"></div>
-                    <div class="form-group"><label>CPM ($)</label><input type="number" id="yt-c" value="5.00"></div>
-                    <button class="calc-btn" onclick="runCalc('yt')">Calculate</button>
-                    <div class="result-box"><span class="res-text" id="yt-res">$500.00</span><button class="copy-btn" onclick="copy('yt-res')">COPY</button></div>
+                    <div class="input-group"><label>Monthly Views</label><input type="number" id="yt-v" value="100000"></div>
+                    <div class="input-group"><label>CPM ($)</label><input type="number" id="yt-c" value="5.00"></div>
+                    <button class="calc-btn" onclick="calcYT()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated Monthly Income</span><div class="res-val" id="yt-res">$500.00</div></div>
                 </div>
+
                 <div class="card">
                     <h3>Instagram Engagement</h3>
-                    <div class="form-group"><label>Followers</label><input type="number" id="ig-f" value="10000"></div>
-                    <div class="form-group"><label>Likes/Comments</label><input type="number" id="ig-e" value="450"></div>
-                    <button class="calc-btn" onclick="runCalc('ig')">Calculate</button>
-                    <div class="result-box"><span class="res-text" id="ig-res">4.50%</span><button class="copy-btn" onclick="copy('ig-res')">COPY</button></div>
+                    <div class="input-group"><label>Total Followers</label><input type="number" id="ig-f" value="10000"></div>
+                    <div class="input-group"><label>Likes + Comments</label><input type="number" id="ig-e" value="450"></div>
+                    <button class="calc-btn" onclick="calcIG()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated Engagement Rate</span><div class="res-val" id="ig-res">4.50%</div></div>
                 </div>
-                <div class="card">
-                    <h3>Brand Deal Rate</h3>
-                    <div class="form-group"><label>Followers</label><input type="number" id="bd-f" value="50000"></div>
-                    <div class="form-group"><label>Base Rate per 1k ($)</label><input type="number" id="bd-r" value="15"></div>
-                    <button class="calc-btn" onclick="runCalc('bd')">Calculate</button>
-                    <div class="result-box"><span class="res-text" id="bd-res">$750.00</span><button class="copy-btn" onclick="copy('bd-res')">COPY</button></div>
-                </div>
-                <div class="card"><h3>TikTok Earnings</h3><p>Coming Soon...</p></div>
-                <div class="card"><h3>CPM Calculator</h3><p>Coming Soon...</p></div>
-                <div class="card"><h3>Affiliate Income</h3><p>Coming Soon...</p></div>
-                <div class="card"><h3>ROI Tracker</h3><p>Coming Soon...</p></div>
-            </div>
-                  
-            <div class="grid">
+
                 <div class="card">
                     <h3>TikTok Earnings</h3>
-                    <div class="input-group">
-                        <label>Total Video Views</label>
-                        <input type="number" id="tt-v" value="500000">
-                    </div>
-                    <div class="input-group">
-                        <label>Estimated CPM ($)</label>
-                        <input type="number" id="tt-c" value="0.04" step="0.01">
-                    </div>
-                    <button class="btn-action" onclick="calcTT()">Calculate Earnings</button>
-                    <div class="result-area">
-                        <span class="result-label">Est. TikTok Payout</span>
-                        <div class="result-val" id="tt-r">$20.00</div>
-                    </div>
+                    <div class="input-group"><label>Video Views</label><input type="number" id="tt-v" value="1000000"></div>
+                    <div class="input-group"><label>CPM ($)</label><input type="number" id="tt-c" value="0.03" step="0.01"></div>
+                    <button class="calc-btn" onclick="calcTT()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated TikTok Earnings</span><div class="res-val" id="tt-res">$30.00</div></div>
                 </div>
 
                 <div class="card">
                     <h3>CPM Calculator</h3>
-                    <div class="input-group">
-                        <label>Total Revenue ($)</label>
-                        <input type="number" id="cpm-rev" value="1200">
-                    </div>
-                    <div class="input-group">
-                        <label>Total Impressions</label>
-                        <input type="number" id="cpm-imp" value="250000">
-                    </div>
-                    <button class="btn-action" onclick="calcCPM()">Calculate CPM</button>
-                    <div class="result-area">
-                        <span class="result-label">Calculated CPM</span>
-                        <div class="result-val" id="cpm-r">$4.80</div>
-                    </div>
+                    <div class="input-group"><label>Total Revenue ($)</label><input type="number" id="cpm-r" value="1200"></div>
+                    <div class="input-group"><label>Impressions</label><input type="number" id="cpm-i" value="250000"></div>
+                    <button class="calc-btn" onclick="calcCPM()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Calculated CPM</span><div class="res-val" id="cpm-res">$4.80</div></div>
                 </div>
 
                 <div class="card">
-                    <h3>Affiliate Estimator</h3>
-                    <div class="input-group">
-                        <label>Link Clicks</label>
-                        <input type="number" id="af-clk" value="2500">
-                    </div>
-                    <div class="input-group">
-                        <label>Conv. Rate %</label>
-                        <input type="number" id="af-cr" value="2.5">
-                    </div>
-                    <div class="input-group">
-                        <label>Avg. Payout ($)</label>
-                        <input type="number" id="af-pay" value="45">
-                    </div>
-                    <button class="btn-action" onclick="calcAF()">Estimate Income</button>
-                    <div class="result-area">
-                        <span class="result-label">Est. Affiliate Revenue</span>
-                        <div class="result-val" id="af-r">$2,812.50</div>
-                    </div>
+                    <h3>Affiliate Income</h3>
+                    <div class="input-group"><label>Clicks</label><input type="number" id="af-cl" value="5000"></div>
+                    <div class="input-group"><label>Conversion (%)</label><input type="number" id="af-co" value="2.5"></div>
+                    <div class="input-group"><label>Payout ($)</label><input type="number" id="af-pa" value="50"></div>
+                    <button class="calc-btn" onclick="calcAF()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated Affiliate Income</span><div class="res-val" id="af-res">$6,250.00</div></div>
                 </div>
 
                 <div class="card">
-                    <h3>Project ROI</h3>
-                    <div class="input-group">
-                        <label>Total Revenue ($)</label>
-                        <input type="number" id="roi-rev" value="5000">
-                    </div>
-                    <div class="input-group">
-                        <label>Production Cost ($)</label>
-                        <input type="number" id="roi-cost" value="1200">
-                    </div>
-                    <button class="btn-action" onclick="calcROI()">Calculate ROI</button>
-                    <div class="result-area">
-                        <span class="result-label">Estimated ROI</span>
-                        <div class="result-val" id="roi-r">316.67%</div>
-                    </div>
+                    <h3>Brand Deal Rate</h3>
+                    <div class="input-group"><label>Followers</label><input type="number" id="bd-f" value="50000"></div>
+                    <div class="input-group"><label>Rate per 1k ($)</label><input type="number" id="bd-r" value="20"></div>
+                    <button class="calc-btn" onclick="calcBD()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated Brand Deal Rate</span><div class="res-val" id="bd-res">$1,000.00</div></div>
                 </div>
 
                 <div class="card">
-                    <h3>Growth Forecast</h3>
-                    <div class="input-group">
-                        <label>Current Sub Count</label>
-                        <input type="number" id="sg-c" value="10000">
-                    </div>
-                    <div class="input-group">
-                        <label>Monthly Growth %</label>
-                        <input type="number" id="sg-g" value="5">
-                    </div>
-                    <div class="input-group">
-                        <label>Months</label>
-                        <input type="number" id="sg-m" value="12">
-                    </div>
-                    <button class="btn-action" onclick="calcSG()">Project Growth</button>
-                    <div class="result-area">
-                        <span class="result-label">Subs After Period</span>
-                        <div class="result-val" id="sg-r">17,958</div>
-                    </div>
+                    <h3>Creator ROI</h3>
+                    <div class="input-group"><label>Revenue ($)</label><input type="number" id="roi-r" value="5000"></div>
+                    <div class="input-group"><label>Cost ($)</label><input type="number" id="roi-c" value="1500"></div>
+                    <button class="calc-btn" onclick="calcROI()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated ROI</span><div class="res-val" id="roi-res">233.33%</div></div>
+                </div>
+
+                <div class="card">
+                    <h3>Subscriber Growth</h3>
+                    <div class="input-group"><label>Current Subs</label><input type="number" id="sg-s" value="5000"></div>
+                    <div class="input-group"><label>Growth (%)</label><input type="number" id="sg-g" value="10"></div>
+                    <div class="input-group"><label>Months</label><input type="number" id="sg-m" value="6"></div>
+                    <button class="calc-btn" onclick="calcSG()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated Subs After Period</span><div class="res-val" id="sg-res">8,857</div></div>
                 </div>
 
                 <div class="card">
                     <h3>Video Profit</h3>
-                    <div class="input-group">
-                        <label>Ad Revenue ($)</label>
-                        <input type="number" id="vp-ad" value="800">
-                    </div>
-                    <div class="input-group">
-                        <label>Sponsorship ($)</label>
-                        <input type="number" id="vp-sp" value="2000">
-                    </div>
-                    <div class="input-group">
-                        <label>Expenses ($)</label>
-                        <input type="number" id="vp-ex" value="400">
-                    </div>
-                    <button class="btn-action" onclick="calcVP()">Net Profit</button>
-                    <div class="result-area">
-                        <span class="result-label">Est. Video Profit</span>
-                        <div class="result-val" id="vp-r">$2,400.00</div>
-                    </div>
+                    <div class="input-group"><label>Revenue ($)</label><input type="number" id="vp-r" value="2500"></div>
+                    <div class="input-group"><label>Cost ($)</label><input type="number" id="vp-c" value="600"></div>
+                    <button class="calc-btn" onclick="calcVP()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Estimated Video Profit</span><div class="res-val" id="vp-res">$1,900.00</div></div>
                 </div>
 
                 <div class="card">
-                    <h3>Rate Card Suggestion</h3>
-                    <div class="input-group">
-                        <label>Follower Count</label>
-                        <input type="number" id="ir-f" value="100000">
-                    </div>
-                    <div class="input-group">
-                        <label>Engagement Rate %</label>
-                        <input type="number" id="ir-e" value="3.2">
-                    </div>
-                    <button class="btn-action" onclick="calcIR()">Calculate Rate</button>
-                    <div class="result-area">
-                        <span class="result-label">Recommended Rate</span>
-                        <div class="result-val" id="ir-r">$1,250.00</div>
-                    </div>
+                    <h3>Influencer Rate</h3>
+                    <div class="input-group"><label>Followers</label><input type="number" id="ir-f" value="100000"></div>
+                    <div class="input-group"><label>Engagement (%)</label><input type="number" id="ir-e" value="3.5"></div>
+                    <div class="input-group"><label>Base Rate ($)</label><input type="number" id="ir-b" value="250"></div>
+                    <button class="calc-btn" onclick="calcIR()">Calculate</button>
+                    <div class="result-box"><span class="res-label">Recommended Influencer Rate</span><div class="res-val" id="ir-res">$1,125.00</div></div>
                 </div>
             </div>
         </section>
 
-        <section id="finance" class="tab-pane" style="display:none">
-            <div class="hero"><h1>Finance Hub</h1><p>Strategic wealth and debt tools.</p></div>
-            <div class="grid">
-                <div class="card">
-                    <h3>Loan EMI</h3>
-                    <div class="input-group"><label>Principal</label><input type="number" id="f-p" value="10000"></div>
-                    <button class="btn-action">Coming Soon</button>
-                </div>
-            </div>
+        <section id="finance-tab" class="tab-content" style="display:none">
+            <div class="hero"><h1>Finance Suite</h1><p>Professional financial tracking tools.</p></div>
+            <div class="grid"><div class="card"><h3>Loan EMI</h3><p>Calculation engine coming soon...</p></div></div>
         </section>
 
-        <section id="health" class="tab-pane" style="display:none">
-            <div class="hero"><h1>Health Metrics</h1><p>Maintain your peak performance.</p></div>
-            <div class="grid">
-                <div class="card">
-                    <h3>BMI Calculator</h3>
-                    <div class="input-group"><label>Weight (kg)</label><input type="number" id="h-w" value="75"></div>
-                    <button class="btn-action">Coming Soon</button>
-                </div>
-            </div>
+        <section id="health-tab" class="tab-content" style="display:none">
+            <div class="hero"><h1>Health Metrics</h1><p>Scientific metrics for peak performance.</p></div>
+            <div class="grid"><div class="card"><h3>BMI Calculator</h3><p>Standardized BMI metrics coming soon...</p></div></div>
         </section>
     </main>
 </div>
 
 <script>
-    function toggleTheme() {
-        document.body.setAttribute('data-theme', 
-            document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'
-        );
+    function toggleMode() {
+        document.body.setAttribute('data-theme', document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     }
 
-    function switchTab(e, id) {
-        document.querySelectorAll('.tab-pane').forEach(p => p.style.display = 'none');
+    function showTab(e, id) {
+        document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
         document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
         document.getElementById(id).style.display = 'block';
         e.currentTarget.classList.add('active');
     }
 
-    // --- LOGIC ---
+    // --- CALCULATION LOGIC ---
+    function calcYT() {
+        const res = (document.getElementById('yt-v').value / 1000) * document.getElementById('yt-c').value;
+        document.getElementById('yt-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
+    }
+
+    function calcIG() {
+        const res = (document.getElementById('ig-e').value / document.getElementById('ig-f').value) * 100;
+        document.getElementById('ig-res').innerText = res.toFixed(2) + '%';
+    }
+
     function calcTT() {
-        const v = document.getElementById('tt-v').value;
-        const c = document.getElementById('tt-c').value;
-        document.getElementById('tt-r').innerText = '$' + ((v / 1000) * c).toLocaleString(undefined, {minimumFractionDigits: 2});
+        const res = (document.getElementById('tt-v').value / 1000) * document.getElementById('tt-c').value;
+        document.getElementById('tt-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
     }
 
     function calcCPM() {
-        const rev = document.getElementById('cpm-rev').value;
-        const imp = document.getElementById('cpm-imp').value;
-        document.getElementById('cpm-r').innerText = '$' + ((rev / imp) * 1000).toFixed(2);
+        const res = (document.getElementById('cpm-r').value / document.getElementById('cpm-i').value) * 1000;
+        document.getElementById('cpm-res').innerText = '$' + res.toFixed(2);
     }
 
     function calcAF() {
-        const clk = document.getElementById('af-clk').value;
-        const cr = document.getElementById('af-cr').value / 100;
-        const pay = document.getElementById('af-pay').value;
-        document.getElementById('af-r').innerText = '$' + (clk * cr * pay).toLocaleString(undefined, {minimumFractionDigits: 2});
+        const res = document.getElementById('af-cl').value * (document.getElementById('af-co').value / 100) * document.getElementById('af-pa').value;
+        document.getElementById('af-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
+    }
+
+    function calcBD() {
+        const res = (document.getElementById('bd-f').value / 1000) * document.getElementById('bd-r').value;
+        document.getElementById('bd-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
     }
 
     function calcROI() {
-        const rev = document.getElementById('roi-rev').value;
-        const cost = document.getElementById('roi-cost').value;
-        const roi = ((rev - cost) / cost) * 100;
-        document.getElementById('roi-r').innerText = roi.toFixed(2) + '%';
+        const res = ((document.getElementById('roi-r').value - document.getElementById('roi-c').value) / document.getElementById('roi-c').value) * 100;
+        document.getElementById('roi-res').innerText = res.toFixed(2) + '%';
     }
 
     function calcSG() {
-        const c = parseInt(document.getElementById('sg-c').value);
+        const c = parseInt(document.getElementById('sg-s').value);
         const g = document.getElementById('sg-g').value / 100;
         const m = document.getElementById('sg-m').value;
         const res = c * Math.pow((1 + g), m);
-        document.getElementById('sg-r').innerText = Math.round(res).toLocaleString();
+        document.getElementById('sg-res').innerText = Math.round(res).toLocaleString();
     }
 
     function calcVP() {
-        const total = parseFloat(document.getElementById('vp-ad').value) + parseFloat(document.getElementById('vp-sp').value);
-        const profit = total - document.getElementById('vp-ex').value;
-        document.getElementById('vp-r').innerText = '$' + profit.toLocaleString(undefined, {minimumFractionDigits: 2});
+        const res = document.getElementById('vp-r').value - document.getElementById('vp-c').value;
+        document.getElementById('vp-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
     }
 
     function calcIR() {
         const fol = document.getElementById('ir-f').value;
         const eng = document.getElementById('ir-e').value / 100;
-        // Basic Influencer Formula: (Followers * 0.01) + (Followers * Eng * 0.5)
-        const rate = (fol * 0.005) + (fol * eng * 0.25);
-        document.getElementById('ir-r').innerText = '$' + rate.toLocaleString(undefined, {minimumFractionDigits: 2});
+        const base = parseFloat(document.getElementById('ir-b').value);
+        const rate = (fol * 0.005) + (fol * eng * 0.2) + base;
+        document.getElementById('ir-res').innerText = '$' + rate.toLocaleString(undefined, {minimumFractionDigits: 2});
     }
 </script>
 
