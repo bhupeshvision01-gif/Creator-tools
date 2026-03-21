@@ -1,117 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+body{
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+font-family:Arial;
+margin:0;
+background:#F5F7FB;
+color:#111827;
 
-<title>CreatorProfitLab - Creator Income & Engagement Calculators</title>
+}
 
-<meta name="description" content="Free creator calculators including YouTube money calculator, Instagram engagement calculator, TikTok earnings calculator and influencer brand deal pricing tools.">
+header{
 
-<link rel="stylesheet" href="style.css">
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:white;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 
-</head>
+}
 
-<body>
+nav a{
 
-<header>
+margin-left:20px;
+text-decoration:none;
+color:#111827;
+font-weight:500;
 
-<div class="logo">CreatorProfitLab</div>
+}
 
-<nav>
-<a href="#home">Home</a>
-<a href="#tools">Tools</a>
-<a href="#blog">Blog</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
+.hero{
 
-</header>
+text-align:center;
+padding:80px 20px;
 
-<section class="hero" id="home">
+}
 
-<h1>Creator Income & Engagement Calculators</h1>
+.hero h2{
 
-<p>Smart tools to estimate creator earnings, engagement and monetization.</p>
+font-size:36px;
+color:#2563EB;
 
-<input id="search" placeholder="Search calculators...">
+}
 
-</section>
+.hero input{
 
-<div class="ad">AdSense Banner</div>
+margin-top:20px;
+padding:12px;
+width:300px;
+border-radius:8px;
+border:1px solid #ddd;
 
-<section id="tools">
+}
 
-<h2>Creator Tools</h2>
+.tools{
 
-<div id="toolsGrid" class="grid"></div>
+padding:60px 40px;
 
-</section>
+}
 
-<div class="ad">AdSense Mid Page</div>
+.grid{
 
-<section id="blog">
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
 
-<h2>Creator Monetization Guides</h2>
+}
 
-<div class="grid">
+.card{
 
-<div class="card">
-<h3>How Much Do YouTubers Earn?</h3>
-<p>Understand CPM, views and ad revenue.</p>
-</div>
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
 
-<div class="card">
-<h3>Instagram Engagement Guide</h3>
-<p>Learn how engagement rate affects income.</p>
-</div>
+}
 
-<div class="card">
-<h3>TikTok Creator Earnings</h3>
-<p>Estimate creator fund revenue.</p>
-</div>
+.card h3{
 
-</div>
+margin-top:0;
 
-</section>
+}
 
-<section id="about">
+.card a{
 
-<h2>About CreatorProfitLab</h2>
+display:inline-block;
+margin-top:10px;
+background:#2563EB;
+color:white;
+padding:10px 18px;
+border-radius:8px;
+text-decoration:none;
 
-<p>
-CreatorProfitLab provides free tools to help creators estimate income,
-engagement and sponsorship pricing.
-</p>
+}
 
-</section>
+footer{
 
-<section id="contact">
+text-align:center;
+padding:30px;
+background:white;
+margin-top:60px;
 
-<h2>Newsletter</h2>
-
-<p>Get new creator tools and growth tips.</p>
-
-<input placeholder="Email">
-
-<button>Subscribe</button>
-
-</section>
-
-<footer>
-
-<p>© 2026 CreatorProfitLab</p>
-
-<div class="affiliate">
-Recommended Creator Tools:
-<br>
-Camera | Microphone | Editing Software
-</div>
-
-</footer>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+}
