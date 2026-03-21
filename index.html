@@ -3,7 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creator Economy Calculators</title>
+
+<title>Creator & Finance Calculators – YouTube, Instagram, TikTok, Loan, Savings</title>
+<meta name="description" content="Professional calculators for creators and finance: YouTube, Instagram, TikTok, CPM, Affiliate, Brand Deal, ROI, Subscriber Growth, Video Profit, Influencer Rate, Loan EMI, Compound Interest, Savings, Investment, Retirement. All in USD.">
+<meta name="keywords" content="YouTube calculator, Instagram engagement calculator, TikTok earnings, CPM calculator, Affiliate income, Brand deals, Creator ROI, Subscriber growth, Video profit, Influencer rate, Loan EMI calculator, Compound Interest calculator, Savings calculator, Investment calculator, Retirement calculator">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Your Name or Brand">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Creator & Finance Calculators",
+  "url": "https://yourwebsite.com/",
+  "description": "Professional online calculators for creators and finance: YouTube, Instagram, TikTok, CPM, Affiliate, Brand Deal, ROI, Subscriber Growth, Video Profit, Influencer Rate, Loan EMI, Compound Interest, Savings, Investment, Retirement.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://yourwebsite.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 <style>
 body { font-family: Arial, sans-serif; background:#f5f7fa; margin:0; padding:0; }
 header { background:#3f51b5; color:#fff; padding:20px; text-align:center; }
@@ -23,19 +44,20 @@ nav button.active { background:#303f9f; }
 <body>
 
 <header>
-  <h1>Creator Economy Calculators</h1>
+  <h1>Creator & Finance Calculators</h1>
   <p>All monetary calculations in USD ($)</p>
 </header>
 
 <nav>
   <button class="tab-link active" data-tab="creator">Creator Tools</button>
+  <button class="tab-link" data-tab="finance">Finance Calculators</button>
 </nav>
 
+<!-- Creator Tools Tab -->
 <div id="creator" class="tab-content active">
-
   <!-- 1️⃣ YouTube Income -->
   <div class="calculator">
-    <h3>YouTube Income Calculator</h3>
+    <h3>YouTube Income Calculator – Estimate Monthly Earnings</h3>
     <input type="number" id="ytViews" placeholder="Monthly Views">
     <input type="number" id="ytCPM" placeholder="CPM ($ per 1000 views)">
     <button id="ytCalculateBtn">Calculate</button>
@@ -45,7 +67,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 2️⃣ Instagram Engagement -->
   <div class="calculator">
-    <h3>Instagram Engagement Calculator</h3>
+    <h3>Instagram Engagement Calculator – Calculate Engagement Rate</h3>
     <input type="number" id="instaLikes" placeholder="Likes">
     <input type="number" id="instaComments" placeholder="Comments">
     <input type="number" id="instaFollowers" placeholder="Followers">
@@ -56,7 +78,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 3️⃣ TikTok Earnings -->
   <div class="calculator">
-    <h3>TikTok Earnings Calculator</h3>
+    <h3>TikTok Earnings Calculator – Estimate Creator Fund Earnings</h3>
     <input type="number" id="tikViews" placeholder="Video Views">
     <input type="number" id="tikCPM" placeholder="CPM ($ per 1000 views)">
     <button id="tikCalculateBtn">Calculate</button>
@@ -64,9 +86,9 @@ nav button.active { background:#303f9f; }
     <div id="tikEarningsResult" class="result"></div>
   </div>
 
-  <!-- 4️⃣ CPM -->
+  <!-- 4️⃣ CPM Calculator -->
   <div class="calculator">
-    <h3>CPM Calculator</h3>
+    <h3>CPM Calculator – Cost per 1000 Impressions</h3>
     <input type="number" id="cpmRevenue" placeholder="Revenue ($)">
     <input type="number" id="cpmImpressions" placeholder="Impressions">
     <button id="cpmCalculateBtn">Calculate</button>
@@ -76,7 +98,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 5️⃣ Affiliate Income -->
   <div class="calculator">
-    <h3>Affiliate Income Calculator</h3>
+    <h3>Affiliate Income Calculator – Estimate Affiliate Earnings</h3>
     <input type="number" id="affClicks" placeholder="Clicks">
     <input type="number" id="affConversion" placeholder="Conversion Rate (%)">
     <input type="number" id="affPayout" placeholder="Payout per Sale ($)">
@@ -87,7 +109,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 6️⃣ Brand Deal -->
   <div class="calculator">
-    <h3>Brand Deal Calculator</h3>
+    <h3>Brand Deal Calculator – Estimate Sponsored Post Rate</h3>
     <input type="number" id="brandFollowers" placeholder="Followers">
     <input type="number" id="brandRate" placeholder="$ per 1000 followers">
     <button id="brandCalculateBtn">Calculate</button>
@@ -97,7 +119,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 7️⃣ Creator ROI -->
   <div class="calculator">
-    <h3>Creator ROI Calculator</h3>
+    <h3>Creator ROI Calculator – Return on Investment (%)</h3>
     <input type="number" id="roiRevenue" placeholder="Revenue ($)">
     <input type="number" id="roiCost" placeholder="Cost ($)">
     <button id="roiCalculateBtn">Calculate</button>
@@ -107,7 +129,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 8️⃣ Subscriber Growth -->
   <div class="calculator">
-    <h3>Subscriber Growth Calculator</h3>
+    <h3>Subscriber Growth Calculator – Project Future Subscribers</h3>
     <input type="number" id="subsCurrent" placeholder="Current Subscribers">
     <input type="number" id="subsRate" placeholder="Monthly Growth Rate (%)">
     <input type="number" id="subsMonths" placeholder="Months">
@@ -118,7 +140,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 9️⃣ Video Profit -->
   <div class="calculator">
-    <h3>Video Profit Calculator</h3>
+    <h3>Video Profit Calculator – Net Profit from Video</h3>
     <input type="number" id="vidRevenue" placeholder="Revenue ($)">
     <input type="number" id="vidCost" placeholder="Production Cost ($)">
     <button id="vidCalculateBtn">Calculate</button>
@@ -128,7 +150,7 @@ nav button.active { background:#303f9f; }
 
   <!-- 🔟 Influencer Rate -->
   <div class="calculator">
-    <h3>Influencer Rate Calculator</h3>
+    <h3>Influencer Rate Calculator – Recommended Rate for Sponsored Content</h3>
     <input type="number" id="inflFollowers" placeholder="Followers">
     <input type="number" id="inflEngagement" placeholder="Engagement Rate (%)">
     <input type="number" id="inflBase" placeholder="$ per 1k followers">
@@ -136,7 +158,66 @@ nav button.active { background:#303f9f; }
     <div class="formula">Formula: Rate = (Followers/1000) × Base × (Engagement%/100)</div>
     <div id="inflResult" class="result"></div>
   </div>
+</div>
 
+<!-- Finance Tab -->
+<div id="finance" class="tab-content">
+  <!-- 1️⃣ Loan EMI -->
+  <div class="calculator">
+    <h3>Loan EMI Calculator – Estimate Monthly Payment</h3>
+    <input type="number" id="loanAmount" placeholder="Loan Amount ($)">
+    <input type="number" id="loanRate" placeholder="Annual Interest Rate (%)">
+    <input type="number" id="loanTenure" placeholder="Tenure (Months)">
+    <button id="loanCalculateBtn">Calculate</button>
+    <div class="formula">EMI = [P × R × (1+R)^N]/[(1+R)^N -1]</div>
+    <div id="loanResult" class="result"></div>
+  </div>
+
+  <!-- 2️⃣ Compound Interest -->
+  <div class="calculator">
+    <h3>Compound Interest Calculator – Estimate Future Value</h3>
+    <input type="number" id="ciPrincipal" placeholder="Principal ($)">
+    <input type="number" id="ciRate" placeholder="Annual Rate (%)">
+    <input type="number" id="ciTime" placeholder="Years">
+    <input type="number" id="ciFrequency" placeholder="Compounds per Year">
+    <button id="ciCalculateBtn">Calculate</button>
+    <div class="formula">A = P × (1 + r/n)^(n×t)</div>
+    <div id="ciResult" class="result"></div>
+  </div>
+
+  <!-- 3️⃣ Savings -->
+  <div class="calculator">
+    <h3>Savings Calculator – Project Future Savings</h3>
+    <input type="number" id="savMonthly" placeholder="Monthly Savings ($)">
+    <input type="number" id="savRate" placeholder="Annual Interest Rate (%)">
+    <input type="number" id="savYears" placeholder="Years">
+    <button id="savCalculateBtn">Calculate</button>
+    <div class="formula">Future Value = P × [(1 + r)^n - 1]/r</div>
+    <div id="savResult" class="result"></div>
+  </div>
+
+  <!-- 4️⃣ Investment Return -->
+  <div class="calculator">
+    <h3>Investment Return Calculator – Estimate Future Value</h3>
+    <input type="number" id="invPrincipal" placeholder="Investment Amount ($)">
+    <input type="number" id="invRate" placeholder="Expected Annual Return (%)">
+    <input type="number" id="invYears" placeholder="Years">
+    <button id="invCalculateBtn">Calculate</button>
+    <div class="formula">Future Value = P × (1 + r)^t</div>
+    <div id="invResult" class="result"></div>
+  </div>
+
+  <!-- 5️⃣ Retirement -->
+  <div class="calculator">
+    <h3>Retirement Calculator – Estimate Retirement Savings</h3>
+    <input type="number" id="retCurrent" placeholder="Current Savings ($)">
+    <input type="number" id="retMonthly" placeholder="Monthly Contribution ($)">
+    <input type="number" id="retRate" placeholder="Annual Growth Rate (%)">
+    <input type="number" id="retYears" placeholder="Years to Retirement">
+    <button id="retCalculateBtn">Calculate</button>
+    <div class="formula">FV = P(1+r)^t + PMT × [(1+r)^t -1]/r</div>
+    <div id="retResult" class="result"></div>
+  </div>
 </div>
 
 <script src="script.js"></script>
