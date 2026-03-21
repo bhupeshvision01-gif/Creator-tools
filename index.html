@@ -3,42 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ultimate SaaS-style Calculator Hub: 25+ calculators for finance, health, math, and unit conversions. Responsive, fast, and SEO-friendly.">
-<meta name="keywords" content="calculator, finance calculator, health calculator, BMI, EMI, GST, SIP, unit converter, math calculator, startup tools">
+<meta name="description" content="Ultimate SaaS-style Calculator Hub: 25+ calculators for finance, health, math, units, and price/utility tools. Responsive, fast, and SEO-friendly.">
+<meta name="keywords" content="calculator, finance calculator, health calculator, BMI, EMI, GST, SIP, price comparison, fuel cost, creator income, unit converter, math calculator">
 <title>Ultimate Calculator Hub | 25+ Calculators</title>
 <link rel="canonical" href="https://www.yourwebsite.com/">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-<style>
-/* Reset */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
-body{background:#f7f8fb;color:#333;line-height:1.6;}
-header{background:#4f46e5;color:#fff;padding:50px 20px;text-align:center;}
-header h1{font-size:2.5rem;margin-bottom:10px;}
-header p{font-size:1.1rem;color:#ddd;}
-nav{display:flex;flex-wrap:wrap;justify-content:center;background:#3730a3;}
-nav button{background:none;border:none;padding:15px 25px;color:#fff;cursor:pointer;font-weight:500;transition:0.3s;font-size:1rem;}
-nav button:hover, nav button.active{background:#1e1b4b;border-radius:5px;}
-.tab-content{display:none;padding:30px;max-width:1000px;margin:30px auto;background:#fff;border-radius:10px;box-shadow:0 4px 15px rgba(0,0,0,0.05);}
-.tab-content.active{display:block;}
-.calculator{margin-bottom:30px;}
-.calculator h3{margin-bottom:10px;font-size:1.2rem;color:#4f46e5;}
-.calculator input, .calculator select{padding:10px;margin:8px 0;width:100%;max-width:300px;border:1px solid #ddd;border-radius:5px;outline:none;}
-.calculator input:focus, .calculator select:focus{border-color:#4f46e5;box-shadow:0 0 5px rgba(79,70,229,0.3);}
-.calculator button{padding:10px 20px;margin-top:10px;background:#4f46e5;color:#fff;border:none;border-radius:5px;cursor:pointer;transition:0.3s;}
-.calculator button:hover{background:#3730a3;}
-.result{margin-top:10px;font-weight:600;color:#4f46e5;font-size:1.1rem;}
-footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:50px;font-size:0.9rem;}
-@media(max-width:768px){nav button{padding:12px 15px;font-size:0.9rem;}}
-</style>
+<!-- External CSS -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   <h1>Ultimate Calculator Hub</h1>
-  <p>25+ calculators for finance, health, math, and units — fast, modern, and responsive.</p>
+  <p>25+ calculators for finance, health, math, units, and price/utility tools — fast, modern, and responsive.</p>
 </header>
 
 <nav>
@@ -46,12 +26,13 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
   <button class="tab-link" data-tab="health">Health</button>
   <button class="tab-link" data-tab="math">Math</button>
   <button class="tab-link" data-tab="unit">Unit Converter</button>
+  <button class="tab-link" data-tab="utility">Price & Utility Tools</button>
 </nav>
 
 <!-- Finance Calculators -->
 <div id="finance" class="tab-content active">
   <h2>Finance Calculators</h2>
-
+  <!-- EMI Calculator -->
   <div class="calculator">
     <h3>EMI Calculator</h3>
     <input type="number" id="loanAmount" placeholder="Loan Amount">
@@ -60,7 +41,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateEMI()">Calculate EMI</button>
     <div class="result" id="emiResult"></div>
   </div>
-
+  <!-- GST Calculator -->
   <div class="calculator">
     <h3>GST Calculator</h3>
     <input type="number" id="gstAmount" placeholder="Amount">
@@ -68,7 +49,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateGST()">Calculate GST</button>
     <div class="result" id="gstResult"></div>
   </div>
-
+  <!-- SIP Calculator -->
   <div class="calculator">
     <h3>SIP Calculator</h3>
     <input type="number" id="sipAmount" placeholder="Monthly Investment">
@@ -77,7 +58,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateSIP()">Calculate SIP</button>
     <div class="result" id="sipResult"></div>
   </div>
-
+  <!-- FD Calculator -->
   <div class="calculator">
     <h3>FD Calculator</h3>
     <input type="number" id="fdAmount" placeholder="Principal Amount">
@@ -86,7 +67,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateFD()">Calculate FD</button>
     <div class="result" id="fdResult"></div>
   </div>
-
+  <!-- Simple Interest -->
   <div class="calculator">
     <h3>Simple Interest Calculator</h3>
     <input type="number" id="siPrincipal" placeholder="Principal">
@@ -95,14 +76,12 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateSI()">Calculate SI</button>
     <div class="result" id="siResult"></div>
   </div>
-
-  <!-- More finance calculators can be added -->
 </div>
 
 <!-- Health Calculators -->
 <div id="health" class="tab-content">
   <h2>Health Calculators</h2>
-
+  <!-- BMI -->
   <div class="calculator">
     <h3>BMI Calculator</h3>
     <input type="number" id="weight" placeholder="Weight (kg)">
@@ -110,7 +89,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateBMI()">Calculate BMI</button>
     <div class="result" id="bmiResult"></div>
   </div>
-
+  <!-- Daily Calorie -->
   <div class="calculator">
     <h3>Daily Calorie Needs</h3>
     <input type="number" id="age" placeholder="Age">
@@ -126,7 +105,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateCalories()">Calculate Calories</button>
     <div class="result" id="calorieResult"></div>
   </div>
-
+  <!-- Ideal Weight -->
   <div class="calculator">
     <h3>Ideal Weight Calculator</h3>
     <input type="number" id="idealHeight" placeholder="Height (cm)">
@@ -137,14 +116,12 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculateIdealWeight()">Calculate Ideal Weight</button>
     <div class="result" id="idealResult"></div>
   </div>
-
-  <!-- Add more health calculators here -->
 </div>
 
 <!-- Math Calculators -->
 <div id="math" class="tab-content">
   <h2>Math Calculators</h2>
-
+  <!-- Percentage -->
   <div class="calculator">
     <h3>Percentage Calculator</h3>
     <input type="number" id="percentTotal" placeholder="Total Value">
@@ -152,14 +129,14 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="calculatePercentage()">Calculate %</button>
     <div class="result" id="percentResult"></div>
   </div>
-
+  <!-- Age -->
   <div class="calculator">
     <h3>Age Calculator</h3>
     <input type="date" id="dob" placeholder="Date of Birth">
     <button onclick="calculateAge()">Calculate Age</button>
     <div class="result" id="ageResult"></div>
   </div>
-
+  <!-- Compound Interest -->
   <div class="calculator">
     <h3>Compound Interest Calculator</h3>
     <input type="number" id="ciPrincipal" placeholder="Principal">
@@ -171,10 +148,10 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
   </div>
 </div>
 
-<!-- Unit Converter -->
+<!-- Unit Converters -->
 <div id="unit" class="tab-content">
   <h2>Unit Converters</h2>
-
+  <!-- Length -->
   <div class="calculator">
     <h3>Length Converter</h3>
     <input type="number" id="lengthInput" placeholder="Enter value">
@@ -188,7 +165,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="convertLength()">Convert</button>
     <div class="result" id="lengthResult"></div>
   </div>
-
+  <!-- Weight -->
   <div class="calculator">
     <h3>Weight Converter</h3>
     <input type="number" id="weightInput" placeholder="Enter value">
@@ -201,7 +178,7 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="convertWeight()">Convert</button>
     <div class="result" id="weightResult"></div>
   </div>
-
+  <!-- Temperature -->
   <div class="calculator">
     <h3>Temperature Converter</h3>
     <input type="number" id="tempInput" placeholder="Enter value">
@@ -213,156 +190,48 @@ footer{text-align:center;padding:25px;background:#1e1b4b;color:#fff;margin-top:5
     <button onclick="convertTemperature()">Convert</button>
     <div class="result" id="tempResult"></div>
   </div>
+</div>
 
-  <!-- More unit converters can be added -->
+<!-- Utility / Original Idea -->
+<div id="utility" class="tab-content">
+  <h2>Price & Utility Tools</h2>
+  <div class="calculator">
+    <h3>Price Comparison Calculator</h3>
+    <input type="number" id="price1" placeholder="Price of Product 1">
+    <input type="number" id="price2" placeholder="Price of Product 2">
+    <input type="number" id="price3" placeholder="Price of Product 3">
+    <button onclick="comparePrices()">Compare Prices</button>
+    <div class="result" id="priceResult"></div>
+  </div>
+  <div class="calculator">
+    <h3>Hidden Cost Calculator</h3>
+    <input type="number" id="baseCost" placeholder="Base Cost">
+    <input type="number" id="taxCost" placeholder="Taxes (%)">
+    <input type="number" id="extraCost" placeholder="Extra Charges">
+    <button onclick="calculateHiddenCost()">Calculate Total Cost</button>
+    <div class="result" id="hiddenCostResult"></div>
+  </div>
+  <div class="calculator">
+    <h3>Travel / Fuel Cost Calculator</h3>
+    <input type="number" id="distance" placeholder="Distance (km)">
+    <input type="number" id="fuelPrice" placeholder="Fuel Price (₹/L)">
+    <input type="number" id="fuelEfficiency" placeholder="Vehicle Efficiency (km/L)">
+    <button onclick="calculateTravelCost()">Calculate Fuel Cost</button>
+    <div class="result" id="travelCostResult"></div>
+  </div>
+  <div class="calculator">
+    <h3>Creator Income Calculator</h3>
+    <input type="number" id="views" placeholder="Monthly Views">
+    <input type="number" id="cpm" placeholder="CPM / Cost per 1000 views (₹)">
+    <button onclick="calculateCreatorIncome()">Estimate Income</button>
+    <div class="result" id="creatorIncomeResult"></div>
+  </div>
 </div>
 
 <footer>
   &copy; 2026 Ultimate Calculator Hub. All Rights Reserved.
 </footer>
 
-<script>
-// Tab navigation
-const tabs = document.querySelectorAll('.tab-link');
-const contents = document.querySelectorAll('.tab-content');
-
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    contents.forEach(c => c.classList.remove('active'));
-    tab.classList.add('active');
-    document.getElementById(tab.dataset.tab).classList.add('active');
-  });
-});
-
-// Finance Calculators
-function calculateEMI() {
-  const P = parseFloat(document.getElementById('loanAmount').value);
-  const R = parseFloat(document.getElementById('interestRate').value)/12/100;
-  const N = parseInt(document.getElementById('loanTenure').value);
-  const EMI = (P * R * Math.pow(1+R, N))/(Math.pow(1+R, N)-1);
-  document.getElementById('emiResult').innerText = 'EMI: ₹' + EMI.toFixed(2);
-}
-
-function calculateGST() {
-  const amount = parseFloat(document.getElementById('gstAmount').value);
-  const rate = parseFloat(document.getElementById('gstRate').value);
-  const gst = (amount * rate)/100;
-  const total = amount + gst;
-  document.getElementById('gstResult').innerText = 'GST: ₹'+gst.toFixed(2)+', Total: ₹'+total.toFixed(2);
-}
-
-function calculateSIP() {
-  const P = parseFloat(document.getElementById('sipAmount').value);
-  const r = parseFloat(document.getElementById('sipRate').value)/100/12;
-  const n = parseInt(document.getElementById('sipYears').value)*12;
-  const fv = P * (Math.pow(1+r,n)-1)/r*(1+r);
-  document.getElementById('sipResult').innerText = 'Future Value: ₹'+fv.toFixed(2);
-}
-
-function calculateFD() {
-  const P = parseFloat(document.getElementById('fdAmount').value);
-  const r = parseFloat(document.getElementById('fdRate').value)/100;
-  const t = parseInt(document.getElementById('fdYears').value);
-  const amount = P * Math.pow((1+r),t);
-  document.getElementById('fdResult').innerText = 'Maturity Amount: ₹'+amount.toFixed(2);
-}
-
-function calculateSI() {
-  const P = parseFloat(document.getElementById('siPrincipal').value);
-  const R = parseFloat(document.getElementById('siRate').value);
-  const T = parseFloat(document.getElementById('siTime').value);
-  const SI = (P*R*T)/100;
-  document.getElementById('siResult').innerText = 'Simple Interest: ₹'+SI.toFixed(2);
-}
-
-// Health Calculators
-function calculateBMI() {
-  const weight = parseFloat(document.getElementById('weight').value);
-  const height = parseFloat(document.getElementById('height').value)/100;
-  const bmi = weight / (height*height);
-  document.getElementById('bmiResult').innerText = 'BMI: '+bmi.toFixed(2);
-}
-
-function calculateCalories() {
-  const age = parseFloat(document.getElementById('age').value);
-  const weight = parseFloat(document.getElementById('bmrWeight').value);
-  const height = parseFloat(document.getElementById('bmrHeight').value);
-  const activity = parseFloat(document.getElementById('activityLevel').value);
-  const bmr = 10*weight + 6.25*height - 5*age + 5;
-  const calories = bmr * activity;
-  document.getElementById('calorieResult').innerText = 'Daily Calories: '+calories.toFixed(0)+' kcal';
-}
-
-function calculateIdealWeight() {
-  const height = parseFloat(document.getElementById('idealHeight').value);
-  const gender = document.getElementById('gender').value;
-  const ideal = gender==='male' ? 50 + 0.91*(height-152.4) : 45.5 + 0.91*(height-152.4);
-  document.getElementById('idealResult').innerText = 'Ideal Weight: '+ideal.toFixed(2)+' kg';
-}
-
-// Math Calculators
-function calculatePercentage() {
-  const total = parseFloat(document.getElementById('percentTotal').value);
-  const value = parseFloat(document.getElementById('percentValue').value);
-  const percent = (value/total)*100;
-  document.getElementById('percentResult').innerText = 'Percentage: '+percent.toFixed(2)+'%';
-}
-
-function calculateAge() {
-  const dob = new Date(document.getElementById('dob').value);
-  const diff = Date.now() - dob.getTime();
-  const age = new Date(diff).getUTCFullYear() - 1970;
-  document.getElementById('ageResult').innerText = 'Age: '+age+' years';
-}
-
-function calculateCI() {
-  const P = parseFloat(document.getElementById('ciPrincipal').value);
-  const R = parseFloat(document.getElementById('ciRate').value)/100;
-  const T = parseFloat(document.getElementById('ciTime').value);
-  const n = parseFloat(document.getElementById('ciComp').value);
-  const CI = P * Math.pow((1+R/n), n*T) - P;
-  document.getElementById('ciResult').innerText = 'Compound Interest: ₹'+CI.toFixed(2);
-}
-
-// Unit Converters
-function convertLength() {
-  const value = parseFloat(document.getElementById('lengthInput').value);
-  const unit = document.getElementById('lengthUnit').value;
-  let result;
-  switch(unit){
-    case 'm': result = value + ' m'; break;
-    case 'cm': result = value*100 + ' cm'; break;
-    case 'km': result = value/1000 + ' km'; break;
-    case 'inch': result = value*39.3701 + ' inch'; break;
-    case 'ft': result = value*3.28084 + ' ft'; break;
-  }
-  document.getElementById('lengthResult').innerText = 'Converted: '+result;
-}
-
-function convertWeight() {
-  const value = parseFloat(document.getElementById('weightInput').value);
-  const unit = document.getElementById('weightUnit').value;
-  let result;
-  switch(unit){
-    case 'kg': result = value + ' kg'; break;
-    case 'g': result = value*1000 + ' g'; break;
-    case 'lb': result = value*2.20462 + ' lb'; break;
-    case 'oz': result = value*35.274 + ' oz'; break;
-  }
-  document.getElementById('weightResult').innerText = 'Converted: '+result;
-}
-
-function convertTemperature() {
-  const value = parseFloat(document.getElementById('tempInput').value);
-  const unit = document.getElementById('tempUnit').value;
-  let result;
-  if(unit==='C'){ result = value+' °C'; }
-  else if(unit==='F'){ result = (value*9/5+32).toFixed(2)+' °F'; }
-  else if(unit==='K'){ result = (value+273.15).toFixed(2)+' K'; }
-  document.getElementById('tempResult').innerText = 'Converted: '+result;
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
