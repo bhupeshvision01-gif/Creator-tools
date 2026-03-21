@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Creator Economy Calculators in USD. YouTube, TikTok, Instagram, CPM, Affiliate, Brand Deals, ROI, Video Profit, Influencer Rate.">
+<title>Creator Economy Calculators</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Creator Economy Calculators</h1>
+  <p>All monetary calculations are in USD ($)</p>
+</header>
+
+<nav>
+  <button class="tab-link active" data-tab="creator">Creator Tools</button>
+  <button class="tab-link" data-tab="finance">Finance</button>
+  <button class="tab-link" data-tab="health">Health</button>
+  <button class="tab-link" data-tab="math">Math</button>
+  <button class="tab-link" data-tab="unit">Unit Converter</button>
+  <button class="tab-link" data-tab="utility">Utility Tools</button>
+</nav>
+
+<!-- Creator Economy Tab -->
 <div id="creator" class="tab-content active">
   <h2>Creator Economy Calculators</h2>
 
@@ -5,12 +31,9 @@
   <div class="calculator">
     <h3>YouTube Income Calculator</h3>
     <input type="number" id="ytViews" placeholder="Monthly Views">
-    <input type="number" id="ytCPM" placeholder="CPM (per 1000 views in $)">
+    <input type="number" id="ytCPM" placeholder="CPM ($ per 1000 views)">
     <button onclick="calculateYouTubeIncome()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Income = (Views / 1000) × CPM</code><br>
-      Example: 100,000 views × $2 CPM → $200
-    </div>
+    <div class="formula">Formula: <code>Income = (Views / 1000) × CPM</code><br>Example: 100,000 views × $2 CPM → $200</div>
     <div id="ytIncomeResult" class="result"></div>
   </div>
 
@@ -18,12 +41,9 @@
   <div class="calculator">
     <h3>TikTok Earnings Calculator</h3>
     <input type="number" id="tikViews" placeholder="Views">
-    <input type="number" id="tikCPM" placeholder="CPM (per 1000 views in $)">
+    <input type="number" id="tikCPM" placeholder="CPM ($ per 1000 views)">
     <button onclick="calculateTikTokEarnings()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Earnings = (Views / 1000) × CPM</code><br>
-      Example: 50,000 views × $1.5 CPM → $75
-    </div>
+    <div class="formula">Formula: <code>Earnings = (Views / 1000) × CPM</code><br>Example: 50,000 views × $1.5 CPM → $75</div>
     <div id="tikEarningsResult" class="result"></div>
   </div>
 
@@ -34,23 +54,16 @@
     <input type="number" id="affiliateConversion" placeholder="Conversion %">
     <input type="number" id="affiliateCommission" placeholder="Commission per Sale ($)">
     <button onclick="calculateAffiliateIncome()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Income = Clicks × (Conversion % / 100) × Commission</code><br>
-      Example: 500 clicks × 5% conversion × $10 → $250
-    </div>
+    <div class="formula">Formula: <code>Income = Clicks × (Conversion % / 100) × Commission</code><br>Example: 500 clicks × 5% × $10 → $250</div>
     <div id="affiliateResult" class="result"></div>
   </div>
 
   <!-- Brand Deal -->
   <div class="calculator">
     <h3>Brand Deal Calculator</h3>
-    <input type="number" id="brandFollowers" placeholder="Followers">
     <input type="number" id="brandRate" placeholder="Rate per Post ($)">
     <button onclick="calculateBrandDeal()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Brand Deal = Rate per Post</code><br>
-      Example: $500 per post → $500
-    </div>
+    <div class="formula">Formula: <code>Brand Deal = Rate per Post</code><br>Example: $500 per post → $500</div>
     <div id="brandDealResult" class="result"></div>
   </div>
 
@@ -60,10 +73,7 @@
     <input type="number" id="videoRevenue" placeholder="Revenue ($)">
     <input type="number" id="videoCost" placeholder="Cost ($)">
     <button onclick="calculateVideoProfit()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Profit = Revenue − Cost</code><br>
-      Example: $300 revenue − $100 cost → $200
-    </div>
+    <div class="formula">Formula: <code>Profit = Revenue − Cost</code><br>Example: $300 revenue − $100 cost → $200</div>
     <div id="videoProfitResult" class="result"></div>
   </div>
 
@@ -73,10 +83,7 @@
     <input type="number" id="infFollowers" placeholder="Followers">
     <input type="number" id="infEngagement" placeholder="Engagement %">
     <button onclick="calculateInfluencerRate()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Rate = Followers × (Engagement % / 100) × 0.1</code><br>
-      Example: 10,000 followers × 5% engagement × 0.1 → $50
-    </div>
+    <div class="formula">Formula: <code>Rate = Followers × (Engagement % / 100) × 0.1</code><br>Example: 10,000 followers × 5% → $50</div>
     <div id="influencerRateResult" class="result"></div>
   </div>
 
@@ -87,10 +94,7 @@
     <input type="number" id="instaComments" placeholder="Comments">
     <input type="number" id="instaFollowers" placeholder="Followers">
     <button onclick="calculateInstagramEngagement()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Engagement % = ((Likes + Comments) / Followers) × 100</code><br>
-      Example: 200 likes + 20 comments / 5,000 followers → 4.4%
-    </div>
+    <div class="formula">Formula: <code>Engagement % = ((Likes + Comments) / Followers) × 100</code><br>Example: 200 likes + 20 comments / 5,000 followers → 4.4%</div>
     <div id="instaEngagementResult" class="result"></div>
   </div>
 
@@ -100,10 +104,7 @@
     <input type="number" id="creatorRevenue" placeholder="Revenue ($)">
     <input type="number" id="creatorCost" placeholder="Cost ($)">
     <button onclick="calculateCreatorROI()">Calculate</button>
-    <div class="formula">
-      Formula: <code>ROI % = ((Revenue − Cost) / Cost) × 100</code><br>
-      Example: $500 revenue − $200 cost → 150%
-    </div>
+    <div class="formula">Formula: <code>ROI % = ((Revenue − Cost) / Cost) × 100</code><br>Example: $500 revenue − $200 cost → 150%</div>
     <div id="creatorROIResult" class="result"></div>
   </div>
 
@@ -114,10 +115,7 @@
     <input type="number" id="subMonthly" placeholder="Monthly Gain">
     <input type="number" id="subMonths" placeholder="Months">
     <button onclick="calculateSubscriberGrowth()">Calculate</button>
-    <div class="formula">
-      Formula: <code>Subscribers after Months = Current + (Monthly Gain × Months)</code><br>
-      Example: 1,000 current + 200/month × 6 months → 2,200
-    </div>
+    <div class="formula">Formula: <code>Subscribers after Months = Current + (Monthly Gain × Months)</code><br>Example: 1,000 current + 200/month × 6 months → 2,200</div>
     <div id="subscriberGrowthResult" class="result"></div>
   </div>
 
@@ -127,11 +125,19 @@
     <input type="number" id="cpmViews" placeholder="Views">
     <input type="number" id="cpmRevenue" placeholder="Revenue ($)">
     <button onclick="calculateCPM()">Calculate</button>
-    <div class="formula">
-      Formula: <code>CPM = (Revenue / Views) × 1000</code><br>
-      Example: $200 revenue / 100,000 views → $2 CPM
-    </div>
+    <div class="formula">Formula: <code>CPM = (Revenue / Views) × 1000</code><br>Example: $200 revenue / 100,000 views → $2 CPM</div>
     <div id="cpmResult" class="result"></div>
   </div>
 
 </div>
+
+<!-- Placeholder tabs -->
+<div id="finance" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="health" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="math" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="unit" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="utility" class="tab-content"><h3>Coming Soon</h3></div>
+
+<script src="script.js"></script>
+</body>
+</html>
