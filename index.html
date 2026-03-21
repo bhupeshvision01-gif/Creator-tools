@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatorProfitLab | Professional Suite</title>
+    <title>ProfitLab | All-in-One Professional Suite</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --brand: #6366f1; --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0; }
@@ -11,14 +11,14 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); }
         .app-wrapper { display: flex; min-height: 100vh; }
-        aside { width: 260px; background: var(--surface); border-right: 1px solid var(--border); padding: 2rem; position: fixed; height: 100vh; display: flex; flex-direction: column; }
+        aside { width: 260px; background: var(--surface); border-right: 1px solid var(--border); padding: 2rem; position: fixed; height: 100vh; display: flex; flex-direction: column; z-index: 100; }
         .logo { font-size: 1.4rem; font-weight: 800; color: var(--brand); margin-bottom: 2.5rem; }
         nav button { width: 100%; padding: 0.8rem 1rem; margin-bottom: 0.5rem; border: none; border-radius: 12px; background: transparent; color: var(--text-muted); font-weight: 700; text-align: left; cursor: pointer; }
         nav button.active { background: var(--brand); color: white; }
         main { flex: 1; margin-left: 260px; padding: 3rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--surface); padding: 1.8rem; border-radius: 20px; border: 1px solid var(--border); }
-        .card h3 { font-size: 1rem; margin-bottom: 1.2rem; font-weight: 800; color: var(--brand); }
+        .card { background: var(--surface); padding: 1.8rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .card h3 { font-size: 1rem; margin-bottom: 1.2rem; font-weight: 800; color: var(--brand); border-bottom: 1px solid var(--border); padding-bottom: 8px; }
         .field { margin-bottom: 0.8rem; }
         label { font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px; }
         input, select { width: 100%; padding: 0.7rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-weight: 600; outline: none; }
@@ -43,88 +43,30 @@
     <main>
         <section id="creator-lab" class="tab-pane">
             <div class="grid">
-                <div class="card"><h3>YouTube Revenue</h3><div class="field"><label>Views</label><input type="number" id="yt-v" value="100000"></div><button class="btn-calc" onclick="run('yt')">Calculate</button><div class="output-box"><div class="out-val" id="yt-r">$450</div></div></div>
+                <div class="card"><h3>YouTube Revenue</h3><div class="field"><label>Views</label><input type="number" id="yt-v" value="100000"></div><div class="field"><label>CPM ($)</label><input type="number" id="yt-c" value="5"></div><button class="btn-calc" onclick="run('yt')">Calculate</button><div class="output-box"><div class="out-val" id="yt-r">$500</div></div></div>
+                <div class="card"><h3>Engagement Rate</h3><div class="field"><label>Followers</label><input type="number" id="ig-f" value="10000"></div><div class="field"><label>Total Likes/Comments</label><input type="number" id="ig-e" value="500"></div><button class="btn-calc" onclick="run('ig')">Calculate %</button><div class="output-box"><div class="out-val" id="ig-r">5.0%</div></div></div>
+                <div class="card"><h3>Sponsorship Rate</h3><div class="field"><label>Avg Views</label><input type="number" id="sp-v" value="50000"></div><button class="btn-calc" onclick="run('sp')">Quote Price</button><div class="output-box"><div class="out-val" id="sp-r">$1,250</div></div></div>
             </div>
         </section>
 
         <section id="finance-lab" class="tab-pane" style="display:none">
             <div class="grid">
-                <div class="card"><h3>Loan EMI</h3><div class="field"><label>Principal</label><input type="number" id="f-p" value="10000"></div><button class="btn-calc" onclick="run('f-emi')">Calculate</button><div class="output-box"><div class="out-val" id="f-r">$879</div></div></div>
+                <div class="card"><h3>Loan EMI</h3><div class="field"><label>Principal ($)</label><input type="number" id="emi-p" value="10000"></div><div class="field"><label>Annual Interest %</label><input type="number" id="emi-r" value="10"></div><div class="field"><label>Months</label><input type="number" id="emi-m" value="12"></div><button class="btn-calc" onclick="run('f-emi')">Calculate EMI</button><div class="output-box"><div class="out-val" id="emi-res">$879.16</div></div></div>
+                <div class="card"><h3>SIP Wealth</h3><div class="field"><label>Monthly Investment</label><input type="number" id="sip-m" value="500"></div><div class="field"><label>Expected Return %</label><input type="number" id="sip-r" value="12"></div><div class="field"><label>Years</label><input type="number" id="sip-y" value="10"></div><button class="btn-calc" onclick="run('f-sip')">Calculate FV</button><div class="output-box"><div class="out-val" id="sip-res">$116,170</div></div></div>
+                <div class="card"><h3>Compound Interest</h3><div class="field"><label>Principal</label><input type="number" id="ci-p" value="5000"></div><div class="field"><label>Years</label><input type="number" id="ci-y" value="5"></div><button class="btn-calc" onclick="run('f-ci')">Calculate</button><div class="output-box"><div class="out-val" id="ci-res">$8,052</div></div></div>
             </div>
         </section>
 
         <section id="health-lab" class="tab-pane" style="display:none">
             <div class="grid">
-                <div class="card">
-                    <h3>BMI Calculator</h3>
-                    <div class="field"><label>Weight (kg)</label><input type="number" id="h-bmi-w" value="70"></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-bmi-h" value="175"></div>
-                    <button class="btn-calc" onclick="run('h-bmi')">Calculate BMI</button>
-                    <div class="output-box"><div class="out-val" id="res-bmi">22.9</div></div>
-                </div>
-
-                <div class="card">
-                    <h3>BMR (Mifflin-St Jeor)</h3>
-                    <div class="field"><label>Gender</label><select id="h-bmr-g"><option value="m">Male</option><option value="f">Female</option></select></div>
-                    <div class="field"><label>Weight (kg)</label><input type="number" id="h-bmr-w" value="70"></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-bmr-h" value="175"></div>
-                    <div class="field"><label>Age</label><input type="number" id="h-bmr-a" value="25"></div>
-                    <button class="btn-calc" onclick="run('h-bmr')">Calculate BMR</button>
-                    <div class="output-box"><div class="out-val" id="res-bmr">1,682 kcal</div></div>
-                </div>
-
-                <div class="card">
-                    <h3>Daily Calorie (TDEE)</h3>
-                    <div class="field">
-                        <label>Activity Level</label>
-                        <select id="h-tdee-a">
-                            <option value="1.2">Sedentary (Office job)</option>
-                            <option value="1.375">Lightly Active</option>
-                            <option value="1.55" selected>Moderate (3-5 days/week)</option>
-                            <option value="1.725">Very Active</option>
-                        </select>
-                    </div>
-                    <button class="btn-calc" onclick="run('h-tdee')">Calculate Intake</button>
-                    <div class="output-box"><div class="out-val" id="res-tdee">2,607 kcal</div></div>
-                </div>
-
-                <div class="card">
-                    <h3>Ideal Weight (Devine)</h3>
-                    <div class="field"><label>Gender</label><select id="h-iw-g"><option value="m">Male</option><option value="f">Female</option></select></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-iw-h" value="175"></div>
-                    <button class="btn-calc" onclick="run('h-iw')">Find Target</button>
-                    <div class="output-box"><div class="out-val" id="res-iw">70.4 kg</div></div>
-                </div>
-
-                <div class="card">
-                    <h3>Body Fat (Navy Method)</h3>
-                    <div class="field"><label>Waist (cm)</label><input type="number" id="h-fat-w" value="85"></div>
-                    <div class="field"><label>Neck (cm)</label><input type="number" id="h-fat-n" value="38"></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-fat-h" value="175"></div>
-                    <button class="btn-calc" onclick="run('h-fat')">Analyze Fat %</button>
-                    <div class="output-box"><div class="out-val" id="res-fat">18.2%</div></div>
-                </div>
-
-                <div class="card">
-                    <h3>Water Intake</h3>
-                    <div class="field"><label>Weight (kg)</label><input type="number" id="h-wa-w" value="70"></div>
-                    <button class="btn-calc" onclick="run('h-wa')">Calculate Daily L</button>
-                    <div class="output-box"><div class="out-val" id="res-wa">2.3 Liters</div></div>
-                </div>
-
-                <div class="card">
-                    <h3>Heart Rate Zones</h3>
-                    <div class="field"><label>Age</label><input type="number" id="h-hr-a" value="25"></div>
-                    <button class="btn-calc" onclick="run('h-hr')">Get Zones</button>
-                    <div class="output-box"><div class="out-val" id="res-hr">136 - 165 bpm</div></div>
-                </div>
-
-                <div class="card">
-                    <h3>Pregnancy Due Date</h3>
-                    <div class="field"><label>Last Period Start</label><input type="date" id="h-preg-d"></div>
-                    <button class="btn-calc" onclick="run('h-preg')">Predict Date</button>
-                    <div class="output-box"><div class="out-val" id="res-preg">--/--/--</div></div>
-                </div>
+                <div class="card"><h3>BMI Calculator</h3><div class="field"><label>Weight (kg)</label><input type="number" id="h-bmi-w" value="70"></div><div class="field"><label>Height (cm)</label><input type="number" id="h-bmi-h" value="175"></div><button class="btn-calc" onclick="run('h-bmi')">Calculate</button><div class="output-box"><div class="out-val" id="res-bmi">22.9</div></div></div>
+                <div class="card"><h3>BMR (Mifflin-St Jeor)</h3><div class="field"><label>Gender</label><select id="h-bmr-g"><option value="m">Male</option><option value="f">Female</option></select></div><div class="field"><label>Weight (kg)</label><input type="number" id="h-bmr-w" value="70"></div><div class="field"><label>Height (cm)</label><input type="number" id="h-bmr-h" value="175"></div><div class="field"><label>Age</label><input type="number" id="h-bmr-a" value="25"></div><button class="btn-calc" onclick="run('h-bmr')">Calculate</button><div class="output-box"><div class="out-val" id="res-bmr">1,682 kcal</div></div></div>
+                <div class="card"><h3>Daily Calorie (TDEE)</h3><div class="field"><label>Activity Level</label><select id="h-tdee-a"><option value="1.2">Sedentary</option><option value="1.375">Lightly Active</option><option value="1.55" selected>Moderate</option><option value="1.725">Very Active</option></select></div><button class="btn-calc" onclick="run('h-tdee')">Calculate</button><div class="output-box"><div class="out-val" id="res-tdee">2,607 kcal</div></div></div>
+                <div class="card"><h3>Ideal Weight (Devine)</h3><div class="field"><label>Gender</label><select id="h-iw-g"><option value="m">Male</option><option value="f">Female</option></select></div><div class="field"><label>Height (cm)</label><input type="number" id="h-iw-h" value="175"></div><button class="btn-calc" onclick="run('h-iw')">Find Target</button><div class="output-box"><div class="out-val" id="res-iw">70.4 kg</div></div></div>
+                <div class="card"><h3>Body Fat (Navy)</h3><div class="field"><label>Waist (cm)</label><input type="number" id="h-fat-w" value="85"></div><div class="field"><label>Neck (cm)</label><input type="number" id="h-fat-n" value="38"></div><div class="field"><label>Height (cm)</label><input type="number" id="h-fat-h" value="175"></div><button class="btn-calc" onclick="run('h-fat')">Analyze %</button><div class="output-box"><div class="out-val" id="res-fat">18.2%</div></div></div>
+                <div class="card"><h3>Water Intake</h3><div class="field"><label>Weight (kg)</label><input type="number" id="h-wa-w" value="70"></div><button class="btn-calc" onclick="run('h-wa')">Calculate</button><div class="output-box"><div class="out-val" id="res-wa">2.3 L</div></div></div>
+                <div class="card"><h3>Heart Rate Zones</h3><div class="field"><label>Age</label><input type="number" id="h-hr-a" value="25"></div><button class="btn-calc" onclick="run('h-hr')">Get Zones</button><div class="output-box"><div class="out-val" id="res-hr">136 - 165 bpm</div></div></div>
+                <div class="card"><h3>Pregnancy Due Date</h3><div class="field"><label>Last Period Start</label><input type="date" id="h-preg-d"></div><button class="btn-calc" onclick="run('h-preg')">Predict</button><div class="output-box"><div class="out-val" id="res-preg">--/--/--</div></div></div>
             </div>
         </section>
     </main>
@@ -139,58 +81,61 @@
     }
 
     function run(type) {
-        // --- CREATOR/FINANCE STUBS ---
-        if(type==='yt') document.getElementById('yt-r').innerText = '$' + (document.getElementById('yt-v').value * 0.0045).toFixed(0);
-        
-        // --- HEALTH LOGIC ---
+        // --- CREATOR ---
+        if(type==='yt') document.getElementById('yt-r').innerText = '$' + (document.getElementById('yt-v').value * (document.getElementById('yt-c').value/1000)).toFixed(0);
+        if(type==='ig') document.getElementById('ig-r').innerText = ((document.getElementById('ig-e').value / document.getElementById('ig-f').value) * 100).toFixed(1) + '%';
+        if(type==='sp') document.getElementById('sp-r').innerText = '$' + (document.getElementById('sp-v').value * 0.025).toLocaleString();
+
+        // --- FINANCE ---
+        if(type==='f-emi') {
+            let p = document.getElementById('emi-p').value, r = (document.getElementById('emi-r').value/12)/100, n = document.getElementById('emi-m').value;
+            let emi = p * r * (Math.pow(1+r, n) / (Math.pow(1+r, n)-1));
+            document.getElementById('emi-res').innerText = '$' + emi.toFixed(2);
+        }
+        if(type==='f-sip') {
+            let p = document.getElementById('sip-m').value, r = (document.getElementById('sip-r').value/12)/100, n = document.getElementById('sip-y').value * 12;
+            let fv = p * ((Math.pow(1+r, n)-1)/r) * (1+r);
+            document.getElementById('sip-res').innerText = '$' + Math.round(fv).toLocaleString();
+        }
+        if(type==='f-ci') {
+            let p = document.getElementById('ci-p').value, y = document.getElementById('ci-y').value;
+            let res = p * Math.pow((1 + 0.10), y); // Defaulting to 10% for example
+            document.getElementById('ci-res').innerText = '$' + Math.round(res).toLocaleString();
+        }
+
+        // --- HEALTH ---
         if(type==='h-bmi') {
-            let w = document.getElementById('h-bmi-w').value;
-            let h = document.getElementById('h-bmi-h').value / 100;
+            let w = document.getElementById('h-bmi-w').value, h = document.getElementById('h-bmi-h').value / 100;
             document.getElementById('res-bmi').innerText = (w / (h * h)).toFixed(1);
         }
         if(type==='h-bmr') {
-            let w = parseFloat(document.getElementById('h-bmr-w').value);
-            let h = parseFloat(document.getElementById('h-bmr-h').value);
-            let a = parseFloat(document.getElementById('h-bmr-a').value);
+            let w = parseFloat(document.getElementById('h-bmr-w').value), h = parseFloat(document.getElementById('h-bmr-h').value), a = parseFloat(document.getElementById('h-bmr-a').value);
             let s = document.getElementById('h-bmr-g').value === 'm' ? 5 : -161;
             let bmr = (10 * w) + (6.25 * h) - (5 * a) + s;
             document.getElementById('res-bmr').innerText = Math.round(bmr).toLocaleString() + " kcal";
         }
         if(type==='h-tdee') {
-            let bmrStr = document.getElementById('res-bmr').innerText.replace(/\D/g,'');
-            let bmr = parseInt(bmrStr) || 1600;
-            let act = parseFloat(document.getElementById('h-tdee-a').value);
-            document.getElementById('res-tdee').innerText = Math.round(bmr * act).toLocaleString() + " kcal";
+            let bmr = parseInt(document.getElementById('res-bmr').innerText.replace(/\D/g,'')) || 1600;
+            document.getElementById('res-tdee').innerText = Math.round(bmr * document.getElementById('h-tdee-a').value).toLocaleString() + " kcal";
         }
         if(type==='h-iw') {
             let h_in = document.getElementById('h-iw-h').value / 2.54;
-            let g = document.getElementById('h-iw-g').value;
-            let base = (g === 'm') ? 50 : 45.5;
-            let iw = base + 2.3 * (h_in - 60);
-            document.getElementById('res-iw').innerText = iw.toFixed(1) + " kg";
+            let base = (document.getElementById('h-iw-g').value === 'm') ? 50 : 45.5;
+            document.getElementById('res-iw').innerText = (base + 2.3 * (h_in - 60)).toFixed(1) + " kg";
         }
         if(type==='h-fat') {
-            let wa = document.getElementById('h-fat-w').value;
-            let ne = document.getElementById('h-fat-n').value;
-            let he = document.getElementById('h-fat-h').value;
+            let wa = document.getElementById('h-fat-w').value, ne = document.getElementById('h-fat-n').value, he = document.getElementById('h-fat-h').value;
             let fat = 495 / (1.0324 - 0.19077 * Math.log10(wa - ne) + 0.15456 * Math.log10(he)) - 450;
             document.getElementById('res-fat').innerText = Math.abs(fat).toFixed(1) + "%";
         }
-        if(type==='h-wa') {
-            let w = document.getElementById('h-wa-w').value;
-            document.getElementById('res-wa').innerText = (w * 0.033).toFixed(1) + " Liters";
-        }
+        if(type==='h-wa') document.getElementById('res-wa').innerText = (document.getElementById('h-wa-w').value * 0.033).toFixed(1) + " L";
         if(type==='h-hr') {
-            let age = document.getElementById('h-hr-a').value;
-            let max = 220 - age;
+            let age = document.getElementById('h-hr-a').value, max = 220 - age;
             document.getElementById('res-hr').innerText = Math.round(max*0.7) + " - " + Math.round(max*0.85) + " bpm";
         }
         if(type==='h-preg') {
             let d = new Date(document.getElementById('h-preg-d').value);
-            if(!isNaN(d)) {
-                d.setDate(d.getDate() + 280);
-                document.getElementById('res-preg').innerText = d.toLocaleDateString();
-            }
+            if(!isNaN(d)) { d.setDate(d.getDate() + 280); document.getElementById('res-preg').innerText = d.toLocaleDateString(); }
         }
     }
 </script>
