@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcHub Ultra | 50+ Professional Calculators</title>
+    <meta name="description" content="Professional-grade calculators for Creators, Finance, and Health.">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand: #6366f1;
+            --brand-dark: #4f46e5;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.2s, border-color 0.2s; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+        /* Navigation */
+        .wrapper { display: flex; min-height: 100vh; }
+        aside { width: 280px; background: var(--surface); border-right: 1px solid var(--border); padding: 2rem 1.5rem; position: fixed; height: 100vh; z-index: 100; }
+        .main-content { flex: 1; margin-left: 280px; padding: 3rem; }
+
+        .logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 2.5rem; color: var(--brand); display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--text); }
+
+        nav button { width: 100%; padding: 0.8rem 1rem; margin-bottom: 0.5rem; border: none; border-radius: 12px; background: transparent; color: var(--text-muted); font-weight: 600; text-align: left; cursor: pointer; transition: 0.2s; }
+        nav button.active { background: var(--brand); color: white; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
+        nav button:hover:not(.active) { background: rgba(99, 102, 241, 0.1); color: var(--brand); }
+
+        /* Theme Toggle */
+        .theme-switch { position: absolute; bottom: 2rem; width: calc(100% - 3rem); padding: 0.8rem; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; font-weight: 700; }
+
+        /* Grid & Cards */
+        .header-box { margin-bottom: 3rem; }
+        .header-box h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -1px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow); }
+        .card h3 { font-size: 1rem; margin-bottom: 1rem; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.4rem; }
+        input { width: 100%; padding: 0.7rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-weight: 600; outline: none; }
+        input:focus { border-color: var(--brand); }
+
+        .calc-btn { width: 100%; padding: 0.8rem; background: var(--brand); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; margin-top: 0.5rem; }
+        .calc-btn:hover { background: var(--brand-dark); }
+
+        .result-box { margin-top: 1.2rem; padding: 1rem; background: rgba(99, 102, 241, 0.05); border-radius: 10px; border-left: 4px solid var(--brand); display: flex; justify-content: space-between; align-items: center; }
+        .res-text { font-size: 1.1rem; font-weight: 800; color: var(--brand); }
+        .copy-btn { font-size: 0.65rem; font-weight: 800; color: var(--brand); cursor: pointer; border: none; background: transparent; }
+
+        @media (max-width: 1024px) { aside { width: 100%; height: auto; position: relative; } .main-content { margin-left: 0; padding: 1.5rem; } .wrapper { flex-direction: column; } }
+    </style>
+</head>
+<body data-theme="light">
+
+<div class="wrapper">
+    <aside>
+        <div class="logo"><div>🚀</div>CalcHub<span>Ultra</span></div>
+        <nav id="sidebar-nav">
+            <button class="active" onclick="switchTab(event, 'creator')">Creator Tools</button>
+            <button onclick="switchTab(event, 'finance')">Finance Suite</button>
+            <button onclick="switchTab(event, 'health')">Health & Fitness</button>
+        </nav>
+        <button class="theme-switch" onclick="toggleTheme()">🌓 Toggle Mode</button>
+    </aside>
+
+    <main class="main-content">
+        <section id="creator" class="tab-pane">
+            <div class="header-box"><h1>Creator Tools</h1><p>Optimize your digital presence and earnings.</p></div>
+            <div class="grid">
+                <div class="card">
+                    <h3>YouTube Income</h3>
+                    <div class="form-group"><label>Monthly Views</label><input type="number" id="yt-v" value="100000"></div>
+                    <div class="form-group"><label>CPM ($)</label><input type="number" id="yt-c" value="5.00"></div>
+                    <button class="calc-btn" onclick="runCalc('yt')">Calculate</button>
+                    <div class="result-box"><span class="res-text" id="yt-res">$500.00</span><button class="copy-btn" onclick="copy('yt-res')">COPY</button></div>
+                </div>
+                <div class="card">
+                    <h3>Instagram Engagement</h3>
+                    <div class="form-group"><label>Followers</label><input type="number" id="ig-f" value="10000"></div>
+                    <div class="form-group"><label>Likes/Comments</label><input type="number" id="ig-e" value="450"></div>
+                    <button class="calc-btn" onclick="runCalc('ig')">Calculate</button>
+                    <div class="result-box"><span class="res-text" id="ig-res">4.50%</span><button class="copy-btn" onclick="copy('ig-res')">COPY</button></div>
+                </div>
+                <div class="card">
+                    <h3>Brand Deal Rate</h3>
+                    <div class="form-group"><label>Followers</label><input type="number" id="bd-f" value="50000"></div>
+                    <div class="form-group"><label>Base Rate per 1k ($)</label><input type="number" id="bd-r" value="15"></div>
+                    <button class="calc-btn" onclick="runCalc('bd')">Calculate</button>
+                    <div class="result-box"><span class="res-text" id="bd-res">$750.00</span><button class="copy-btn" onclick="copy('bd-res')">COPY</button></div>
+                </div>
+                <div class="card"><h3>TikTok Earnings</h3><p>Coming Soon...</p></div>
+                <div class="card"><h3>CPM Calculator</h3><p>Coming Soon...</p></div>
+                <div class="card"><h3>Affiliate Income</h3><p>Coming Soon...</p></div>
+                <div class="card"><h3>ROI Tracker</h3><p>Coming Soon...</p></div>
+            </div>
+        </section>
+
+        <section id="finance" class="tab-pane" style="display:none">
+            <div class="header-box"><h1>Finance Suite</h1><p>Professional tools for wealth and debt management.</p></div>
+            <div class="grid">
+                <div class="card">
+                    <h3>Loan EMI</h3>
+                    <div class="form-group"><label>Principal Amount ($)</label><input type="number" id="emi-p" value="10000"></div>
+                    <div class="form-group"><label>Interest Rate %</label><input type="number" id="emi-r" value="7"></div>
+                    <div class="form-group"><label>Months</label><input type="number" id="emi-m" value="12"></div>
+                    <button class="calc-btn" onclick="runCalc('emi')">Calculate</button>
+                    <div class="result-box"><span class="res-text" id="emi-res">$865.27</span><button class="copy-btn" onclick="copy('emi-res')">COPY</button></div>
+                </div>
+                <div class="card">
+                    <h3>Compound Interest</h3>
+                    <div class="form-group"><label>Initial Principal ($)</label><input type="number" id="ci-p" value="1000"></div>
+                    <div class="form-group"><label>Rate %</label><input type="number" id="ci-r" value="5"></div>
+                    <div class="form-group"><label>Years</label><input type="number" id="ci-y" value="10"></div>
+                    <button class="calc-btn" onclick="runCalc('ci')">Calculate</button>
+                    <div class="result-box"><span class="res-text" id="ci-res">$1,628.89</span><button class="copy-btn" onclick="copy('ci-res')">COPY</button></div>
+                </div>
+                <div class="card"><h3>Tax Calculator</h3><p>Coming Soon...</p></div>
+                <div class="card"><h3>Inflation Adjuster</h3><p>Coming Soon...</p></div>
+                <div class="card"><h3>Net Worth Tracker</h3><p>Coming Soon...</p></div>
+            </div>
+        </section>
+
+        <section id="health" class="tab-pane" style="display:none">
+            <div class="header-box"><h1>Health & Fitness</h1><p>Scientific metrics for a better lifestyle.</p></div>
+            <div class="grid">
+                <div class="card">
+                    <h3>BMI Calculator</h3>
+                    <div class="form-group"><label>Weight (kg)</label><input type="number" id="bmi-w" value="70"></div>
+                    <div class="form-group"><label>Height (cm)</label><input type="number" id="bmi-h" value="175"></div>
+                    <button class="calc-btn" onclick="runCalc('bmi')">Calculate</button>
+                    <div class="result-box"><span class="res-text" id="bmi-res">22.9</span><button class="copy-btn" onclick="copy('bmi-res')">COPY</button></div>
+                </div>
+                <div class="card">
+                    <h3>Water Intake</h3>
+                    <div class="form-group"><label>Weight (kg)</label><input type="number" id="h2o-w" value="70"></div>
+                    <button class="calc-btn" onclick="runCalc('h2o')">Calculate</button>
+                    <div class="result-box"><span class="res-text" id="h2o-res">2.31 Liters</span><button class="copy-btn" onclick="copy('h2o-res')">COPY</button></div>
+                </div>
+                <div class="card"><h3>BMR Estimator</h3><p>Coming Soon...</p></div>
+                <div class="card"><h3>Protein Needs</h3><p>Coming Soon...</p></div>
+                <div class="card"><h3>Heart Rate Zones</h3><p>Coming Soon...</p></div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script>
+    // Tab switching
+    function switchTab(e, tabId) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.style.display = 'none');
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).style.display = 'block';
+        e.currentTarget.classList.add('active');
+    }
+
+    // Theme toggle
+    function toggleTheme() {
+        const body = document.body;
+        body.setAttribute('data-theme', body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+
+    // Logic Engine
+    function runCalc(type) {
+        let res = 0;
+        let display = "";
+
+        if (type === 'yt') {
+            res = (document.getElementById('yt-v').value / 1000) * document.getElementById('yt-c').value;
+            display = "$" + res.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('yt-res').innerText = display;
+        }
+        if (type === 'ig') {
+            res = (document.getElementById('ig-e').value / document.getElementById('ig-f').value) * 100;
+            display = res.toFixed(2) + "%";
+            document.getElementById('ig-res').innerText = display;
+        }
+        if (type === 'bd') {
+            res = (document.getElementById('bd-f').value / 1000) * document.getElementById('bd-r').value;
+            display = "$" + res.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('bd-res').innerText = display;
+        }
+        if (type === 'emi') {
+            let p = document.getElementById('emi-p').value;
+            let r = (document.getElementById('emi-r').value / 12) / 100;
+            let n = document.getElementById('emi-m').value;
+            res = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+            display = "$" + res.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('emi-res').innerText = display;
+        }
+        if (type === 'ci') {
+            let p = document.getElementById('ci-p').value;
+            let r = (document.getElementById('ci-r').value / 100);
+            let t = document.getElementById('ci-y').value;
+            res = p * Math.pow((1 + r), t);
+            display = "$" + res.toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('ci-res').innerText = display;
+        }
+        if (type === 'bmi') {
+            let h = document.getElementById('bmi-h').value / 100;
+            res = document.getElementById('bmi-w').value / (h * h);
+            document.getElementById('bmi-res').innerText = res.toFixed(1);
+        }
+        if (type === 'h2o') {
+            res = document.getElementById('h2o-w').value * 0.033;
+            document.getElementById('h2o-res').innerText = res.toFixed(2) + " Liters";
+        }
+    }
+
+    // Copy Tool
+    function copy(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        alert('Copied: ' + text);
+    }
+</script>
+
+</body>
+</html>
