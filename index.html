@@ -3,16 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Ultimate Calculator Hub: 50+ calculators including YouTube, Instagram, TikTok earnings, finance, health, unit, and utility tools. SEO optimized, mobile-friendly, modern design.">
-<meta name="keywords" content="calculator, finance calculator, BMI, EMI, SIP, GST, YouTube income, Instagram engagement, TikTok earnings, CPM, affiliate income, brand deals, influencer calculator, unit converter, math calculator">
-<title>Ultimate Calculator Hub</title>
+<meta name="description" content="Creator Economy Calculators: YouTube, Instagram, TikTok earnings, CPM, Affiliate, Brand Deals, ROI, Video Profit, Influencer Rate. All in USD.">
+<title>Creator Economy Calculators</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  <h1>Ultimate Calculator Hub</h1>
-  <p>50+ calculators including creator economy, finance, health, math, units, and utility tools</p>
+  <h1>Creator Economy Calculators</h1>
+  <p>All earnings and calculations shown in USD ($)</p>
 </header>
 
 <nav>
@@ -24,16 +23,17 @@
   <button class="tab-link" data-tab="utility">Utility Tools</button>
 </nav>
 
-<!-- Creator Economy Calculators -->
 <div id="creator" class="tab-content active">
   <h2>Creator Economy Calculators</h2>
+
   <div class="calculator">
     <h3>YouTube Income Calculator</h3>
     <input type="number" id="ytViews" placeholder="Monthly Views">
-    <input type="number" id="ytCPM" placeholder="CPM (₹ per 1000 views)">
+    <input type="number" id="ytCPM" placeholder="CPM (per 1000 views in $)">
     <button onclick="calculateYouTubeIncome()">Calculate</button>
     <div id="ytIncomeResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>Instagram Engagement Calculator</h3>
     <input type="number" id="instaLikes" placeholder="Likes">
@@ -42,42 +42,48 @@
     <button onclick="calculateInstagramEngagement()">Calculate</button>
     <div id="instaEngagementResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>TikTok Earnings Calculator</h3>
     <input type="number" id="tikViews" placeholder="Views">
-    <input type="number" id="tikCPM" placeholder="CPM">
+    <input type="number" id="tikCPM" placeholder="CPM (per 1000 views in $)">
     <button onclick="calculateTikTokEarnings()">Calculate</button>
     <div id="tikEarningsResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>CPM Calculator</h3>
     <input type="number" id="cpmViews" placeholder="Views">
-    <input type="number" id="cpmRevenue" placeholder="Revenue (₹)">
+    <input type="number" id="cpmRevenue" placeholder="Revenue ($)">
     <button onclick="calculateCPM()">Calculate</button>
     <div id="cpmResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>Affiliate Income Calculator</h3>
     <input type="number" id="affiliateClicks" placeholder="Clicks">
     <input type="number" id="affiliateConversion" placeholder="Conversion %">
-    <input type="number" id="affiliateCommission" placeholder="Commission per Sale (₹)">
+    <input type="number" id="affiliateCommission" placeholder="Commission per Sale ($)">
     <button onclick="calculateAffiliateIncome()">Calculate</button>
     <div id="affiliateResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>Brand Deal Calculator</h3>
     <input type="number" id="brandFollowers" placeholder="Followers">
-    <input type="number" id="brandRate" placeholder="Rate per Post (₹)">
+    <input type="number" id="brandRate" placeholder="Rate per Post ($)">
     <button onclick="calculateBrandDeal()">Calculate</button>
     <div id="brandDealResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>Creator ROI Calculator</h3>
-    <input type="number" id="creatorRevenue" placeholder="Revenue Earned (₹)">
-    <input type="number" id="creatorCost" placeholder="Time/Cost Invested (₹)">
+    <input type="number" id="creatorRevenue" placeholder="Revenue ($)">
+    <input type="number" id="creatorCost" placeholder="Cost ($)">
     <button onclick="calculateCreatorROI()">Calculate</button>
     <div id="creatorROIResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>Subscriber Growth Calculator</h3>
     <input type="number" id="subCurrent" placeholder="Current Subscribers">
@@ -86,13 +92,15 @@
     <button onclick="calculateSubscriberGrowth()">Calculate</button>
     <div id="subscriberGrowthResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>Video Profit Calculator</h3>
-    <input type="number" id="videoRevenue" placeholder="Revenue (₹)">
-    <input type="number" id="videoCost" placeholder="Cost (₹)">
+    <input type="number" id="videoRevenue" placeholder="Revenue ($)">
+    <input type="number" id="videoCost" placeholder="Cost ($)">
     <button onclick="calculateVideoProfit()">Calculate</button>
     <div id="videoProfitResult" class="result"></div>
   </div>
+
   <div class="calculator">
     <h3>Influencer Rate Calculator</h3>
     <input type="number" id="infFollowers" placeholder="Followers">
@@ -100,9 +108,15 @@
     <button onclick="calculateInfluencerRate()">Calculate</button>
     <div id="influencerRateResult" class="result"></div>
   </div>
+
 </div>
 
-<!-- Finance, Health, Math, Unit, Utility sections will follow the same structure -->
+<!-- Empty placeholders for other tabs -->
+<div id="finance" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="health" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="math" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="unit" class="tab-content"><h3>Coming Soon</h3></div>
+<div id="utility" class="tab-content"><h3>Coming Soon</h3></div>
 
 <script src="script.js"></script>
 </body>
