@@ -8,7 +8,7 @@
 
 <title>CreatorProfitLab - Creator Income Calculators</title>
 
-<meta name="description" content="Free creator income calculators for YouTube, Instagram, TikTok and influencers. Estimate CPM, engagement rate, sponsorship price and revenue.">
+<meta name="description" content="Free calculators for YouTube, Instagram and TikTok creators to estimate earnings, engagement rate and sponsorship price.">
 
 <link rel="stylesheet" href="style.css">
 
@@ -23,73 +23,152 @@
 <nav>
 <a href="#">Home</a>
 <a href="#tools">Tools</a>
-<a href="#blog">Blog</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
 </nav>
 
 </header>
 
 <section class="hero">
 
-<h2>Smart tools to estimate creator income</h2>
+<h2>Creator Income & Engagement Calculators</h2>
 
-<p>Free calculators for YouTube, Instagram, TikTok and influencer marketing.</p>
-
-<input type="text" placeholder="Search calculator...">
+<p>Estimate earnings, engagement and sponsorship value.</p>
 
 </section>
 
-<section id="tools" class="tools">
+<div class="ad">AdSense Space</div>
 
-<h2>Popular Creator Calculators</h2>
+<section id="tools">
+
+<h2>Creator Tools</h2>
 
 <div class="grid">
 
 <div class="card">
 <h3>YouTube Money Calculator</h3>
-<p>Estimate revenue from YouTube views.</p>
-<a href="tools/youtube-money.html">Open Calculator</a>
+<button onclick="setCalc('youtube')">Open</button>
+</div>
+
+<div class="card">
+<h3>YouTube CPM Calculator</h3>
+<button onclick="setCalc('cpm')">Open</button>
 </div>
 
 <div class="card">
 <h3>Instagram Engagement Rate</h3>
-<p>Calculate engagement percentage.</p>
-<a href="tools/instagram-engagement.html">Open Calculator</a>
+<button onclick="setCalc('insta_eng')">Open</button>
+</div>
+
+<div class="card">
+<h3>Instagram Influencer Rate</h3>
+<button onclick="setCalc('insta_rate')">Open</button>
 </div>
 
 <div class="card">
 <h3>TikTok Money Calculator</h3>
-<p>Estimate TikTok creator earnings.</p>
-<a href="tools/tiktok-money.html">Open Calculator</a>
+<button onclick="setCalc('tiktok')">Open</button>
 </div>
 
 <div class="card">
-<h3>Brand Deal Price Calculator</h3>
-<p>Calculate influencer sponsorship price.</p>
-<a href="tools/brand-deal.html">Open Calculator</a>
+<h3>TikTok Engagement</h3>
+<button onclick="setCalc('tiktok_eng')">Open</button>
+</div>
+
+<div class="card">
+<h3>Brand Deal Price</h3>
+<button onclick="setCalc('brand')">Open</button>
+</div>
+
+<div class="card">
+<h3>Affiliate Earnings</h3>
+<button onclick="setCalc('affiliate')">Open</button>
+</div>
+
+<div class="card">
+<h3>CPM Calculator</h3>
+<button onclick="setCalc('cpm_calc')">Open</button>
+</div>
+
+<div class="card">
+<h3>CPC Calculator</h3>
+<button onclick="setCalc('cpc')">Open</button>
+</div>
+
+<div class="card">
+<h3>CPV Calculator</h3>
+<button onclick="setCalc('cpv')">Open</button>
+</div>
+
+<div class="card">
+<h3>Creator Monthly Income</h3>
+<button onclick="setCalc('monthly')">Open</button>
+</div>
+
+<div class="card">
+<h3>Creator Yearly Income</h3>
+<button onclick="setCalc('yearly')">Open</button>
+</div>
+
+<div class="card">
+<h3>Subscriber Growth</h3>
+<button onclick="setCalc('subs')">Open</button>
+</div>
+
+<div class="card">
+<h3>Follower Growth</h3>
+<button onclick="setCalc('followers')">Open</button>
+</div>
+
+<div class="card">
+<h3>Audience Growth</h3>
+<button onclick="setCalc('audience')">Open</button>
+</div>
+
+<div class="card">
+<h3>Watch Time Calculator</h3>
+<button onclick="setCalc('watch')">Open</button>
+</div>
+
+<div class="card">
+<h3>Audience Retention</h3>
+<button onclick="setCalc('retention')">Open</button>
+</div>
+
+<div class="card">
+<h3>Creator ROI Calculator</h3>
+<button onclick="setCalc('roi')">Open</button>
+</div>
+
+<div class="card">
+<h3>Creator Profit Calculator</h3>
+<button onclick="setCalc('profit')">Open</button>
 </div>
 
 </div>
 
 </section>
 
-<section class="seo">
+<section class="calculator">
 
-<h2>How Much Do Creators Earn?</h2>
+<h2>Calculator</h2>
 
-<p>
-Creators earn money through ads, sponsorships, affiliate marketing and brand deals.
-Our calculators help estimate potential income based on views, engagement and audience size.
-</p>
+<input id="input1" placeholder="Enter value 1">
+<input id="input2" placeholder="Enter value 2">
+
+<button onclick="calculate()">Calculate</button>
+
+<h3 id="result"></h3>
 
 </section>
+
+<div class="ad">AdSense Space</div>
 
 <footer>
 
 <p>© 2026 CreatorProfitLab</p>
 
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
