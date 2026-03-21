@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CalcHub Ultra | Professional Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand: #6366f1;
+            --brand-soft: rgba(99, 102, 241, 0.1);
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --brand-soft: rgba(99, 102, 241, 0.2);
+        }
+
+        * { box-sizing: border-box; margin: 0; transition: background 0.3s, color 0.3s; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+        /* Layout Architecture */
+        .wrapper { display: flex; min-height: 100vh; }
+        
+        aside {
+            width: 260px;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            padding: 2rem 1rem;
+            position: fixed;
+            height: 100vh;
+            z-index: 1000;
+        }
+
+        .main-content { flex: 1; margin-left: 260px; padding: 2rem 4rem; }
+
+        /* Navigation */
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-muted);
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+        .nav-item.active { background: var(--brand); color: white; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
+        .nav-item:hover:not(.active) { background: var(--brand-soft); color: var(--brand); }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: absolute;
+            bottom: 2rem;
+            left: 1rem;
+            right: 1rem;
+            padding: 0.8rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero { margin-bottom: 3rem; animation: slideUp 0.5s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Calculator Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+        .card {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--brand); }
+
+        .input-box { margin-bottom: 1.2rem; }
+        label { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-weight: 600;
+            outline: none;
+        }
+        input:focus { border-color: var(--brand); }
+
+        .calc-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--brand);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 1.5rem;
+        }
+        .calc-btn:active { transform: scale(0.98); }
+
+        /* Result Area */
+        .res-container {
+            background: var(--brand-soft);
+            padding: 1.2rem;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .res-val { font-size: 1.4rem; font-weight: 800; color: var(--brand); }
+        .copy-btn { background: none; border: none; color: var(--brand); cursor: pointer; font-size: 0.8rem; font-weight: 700; }
+
+        /* Responsive Mobile */
+        @media (max-width: 900px) {
+            aside { width: 100%; height: auto; position: relative; }
+            .main-content { margin-left: 0; padding: 1.5rem; }
+            .wrapper { flex-direction: column; }
+        }
+    </style>
+</head>
+<body data-theme="light">
+
+<div class="wrapper">
+    <aside>
+        <h2 style="margin-bottom: 2rem; padding: 0 1rem; font-weight: 800;">CALC<span style="color:var(--brand)">HUB</span></h2>
+        <nav>
+            <button class="nav-item active" onclick="tab(event, 'c')">Creator Tools</button>
+            <button class="nav-item" onclick="tab(event, 'f')">Finance Suite</button>
+            <button class="nav-item" onclick="tab(event, 'h')">Health Metrics</button>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()">🌙 Toggle Theme</button>
+    </aside>
+
+    <main class="main-content">
+        <div id="c" class="tab-pane">
+            <div class="hero">
+                <h1>Creator Tools</h1>
+                <p>Data analytics for modern digital entrepreneurs.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <label class="tag">Social ROI</label>
+                    <h3 style="margin-bottom:1.5rem">TikTok Earnings</h3>
+                    <div class="input-box">
+                        <label>Total Video Views</label>
+                        <input type="number" id="tt-v" placeholder="1000000">
+                    </div>
+                    <div class="input-box">
+                        <label>Creator Fund CPM ($)</label>
+                        <input type="number" id="tt-c" value="0.03" step="0.01">
+                    </div>
+                    <button class="calc-btn" onclick="calcTT()">Analyze Earnings</button>
+                    <div class="res-container">
+                        <div>
+                            <span style="font-size: 0.7rem; display:block">ESTIMATED PAYOUT</span>
+                            <span class="res-val" id="tt-res">$0.00</span>
+                        </div>
+                        <button class="copy-btn" onclick="copy('tt-res')">COPY</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <label class="tag">Audience</label>
+                    <h3 style="margin-bottom:1.5rem">Engagement Rate</h3>
+                    <div class="input-box">
+                        <label>Total Followers</label>
+                        <input type="number" id="ig-f" placeholder="50000">
+                    </div>
+                    <div class="input-box">
+                        <label>Average Likes/Comments</label>
+                        <input type="number" id="ig-e" placeholder="1200">
+                    </div>
+                    <button class="calc-btn" onclick="calcIG()">Check Engagement</button>
+                    <div class="res-container">
+                        <div>
+                            <span style="font-size: 0.7rem; display:block">ENGAGEMENT %</span>
+                            <span class="res-val" id="ig-res">0.00%</span>
+                        </div>
+                        <button class="copy-btn" onclick="copy('ig-res')">COPY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="f" class="tab-pane" style="display:none">
+            <div class="hero"><h1>Finance Suite</h1><p>Wealth management tools.</p></div>
+            <div class="grid"><div class="card"><h3>Compound Interest</h3><p>Use our advanced math engine.</p></div></div>
+        </div>
+        <div id="h" class="tab-pane" style="display:none">
+            <div class="hero"><h1>Health & Fitness</h1><p>Vitals tracking tools.</p></div>
+            <div class="grid"><div class="card"><h3>BMI Tracker</h3><p>Standard and Metric systems supported.</p></div></div>
+        </div>
+    </main>
+</div>
+
+<script>
+    // Theme Engine
+    function toggleTheme() {
+        const body = document.body;
+        const current = body.getAttribute('data-theme');
+        body.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+
+    // Tab Engine
+    function tab(e, id) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.style.display = 'none');
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById(id).style.display = 'block';
+        e.currentTarget.classList.add('active');
+    }
+
+    // Logic Functions
+    function calcTT() {
+        const v = document.getElementById('tt-v').value;
+        const c = document.getElementById('tt-c').value;
+        const res = (v / 1000) * c;
+        document.getElementById('tt-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
+    }
+
+    function calcIG() {
+        const f = document.getElementById('ig-f').value;
+        const e = document.getElementById('ig-e').value;
+        const res = (e / f) * 100;
+        document.getElementById('ig-res').innerText = res.toFixed(2) + '%';
+    }
+
+    // Copy to Clipboard
+    function copy(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        alert('Result copied to clipboard!');
+    }
+</script>
+</body>
+</html>
