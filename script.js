@@ -214,3 +214,99 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 });
+
+// ---------------- HEALTH CALCULATORS ----------------
+  // 1️⃣ BMI
+  document.getElementById('bmiCalculateBtn').addEventListener('click', function() {
+    let w=parseFloat(document.getElementById('bmiWeight').value);
+    let h=parseFloat(document.getElementById('bmiHeight').value)/100;
+    if(isNaN(w)||isNaN(h)||h===0){ alert('Enter valid numbers'); return; }
+    document.getElementById('bmiResult').innerText=`Estimated BMI: ${(w/(h*h)).toFixed(2)}`;
+  });
+
+  // 2️⃣ BMR
+  document.getElementById('bmrCalculateBtn').addEventListener('click', function() {
+    let w=parseFloat(document.getElementById('bmrWeight').value);
+    let h=parseFloat(document.getElementById('bmrHeight').value);
+    let a=parseFloat(document.getElementById('bmrAge').value);
+    let g=document.getElementById('bmrGender').value;
+    if(isNaN(w)||isNaN(h)||isNaN(a)){ alert('Enter valid numbers'); return; }
+    let BMR = g==='male'? (10*w+6.25*h-5*a+5):(10*w+6.25*h-5*a-161);
+    document.getElementById('bmrResult').innerText=`Estimated BMR: ${BMR.toFixed(2)} kcal/day`;
+  });
+
+  // 3️⃣ Body Fat %
+  document.getElementById('bfCalculateBtn').addEventListener('click', function() {
+    let w=parseFloat(document.getElementById('bfWeight').value);
+    let waist=parseFloat(document.getElementById('bfWaist').value);
+    let neck=parseFloat(document.getElementById('bfNeck').value);
+    let hip=parseFloat(document.getElementById('bfHip').value);
+    let g=document.getElementById('bfGender').value;
+    if(isNaN(w)||isNaN(waist)||isNaN(neck)|| (g==='female' && isNaN(hip)) ){ alert('Enter valid numbers'); return; }
+    let bf = g==='male'? (495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(h)))-450
+                         : (495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(h)))-450;
+    document.getElementById('bfResult').innerText=`Estimated Body Fat: ${bf.toFixed(2)}%`;
+  });
+
+  // 4️⃣ Ideal Weight
+  document.getElementById('iwCalculateBtn').addEventListener('click', function() {
+    let h=parseFloat(document.getElementById('iwHeight').value);
+    let g=document.getElementById('iwGender').value;
+    if(isNaN(h)){ alert('Enter valid numbers'); return; }
+    let iw = g==='male'? h-100 : h-100-5;
+    document.getElementById('iwResult').innerText=`Estimated Ideal Weight: ${iw} kg`;
+  });
+
+  // 5️⃣ Calorie Needs
+  document.getElementById('calCalculateBtn').addEventListener('click', function() {
+    let w=parseFloat(document.getElementById('calWeight').value);
+    let h=parseFloat(document.getElementById('calHeight').value);
+    let a=parseFloat(document.getElementById('calAge').value);
+    let g=document.getElementById('calGender').value;
+    let activity=parseFloat(document.getElementById('calActivity').value);
+    if(isNaN(w)||isNaN(h)||isNaN(a)||isNaN(activity)){ alert('Enter valid numbers'); return; }
+    let BMR = g==='male'? (10*w+6.25*h-5*a+5):(10*w+6.25*h-5*a-161);
+    document.getElementById('calResult').innerText=`Daily Calorie Needs: ${Math.round(BMR*activity)} kcal/day`;
+  });
+
+  // 6️⃣ Waist-to-Hip Ratio
+  document.getElementById('whrCalculateBtn').addEventListener('click', function() {
+    let waist=parseFloat(document.getElementById('whrWaist').value);
+    let hip=parseFloat(document.getElementById('whrHip').value);
+    if(isNaN(waist)||isNaN(hip)||hip===0){ alert('Enter valid numbers'); return; }
+    document.getElementById('whrResult').innerText=`Waist-to-Hip Ratio: ${(waist/hip).toFixed(2)}`;
+  });
+
+  // 7️⃣ Water Intake
+  document.getElementById('waterCalculateBtn').addEventListener('click', function() {
+    let w=parseFloat(document.getElementById('waterWeight').value);
+    if(isNaN(w)){ alert('Enter valid numbers'); return; }
+    document.getElementById('waterResult').innerText=`Recommended Water Intake: ${(w*0.033).toFixed(2)} L/day`;
+  });
+
+  // 8️⃣ Heart Rate Zone
+  document.getElementById('hrCalculateBtn').addEventListener('click', function() {
+    let a=parseFloat(document.getElementById('hrAge').value);
+    if(isNaN(a)){ alert('Enter valid numbers'); return; }
+    let maxHR = 220-a;
+    document.getElementById('hrResult').innerText=`Target Heart Rate Zone: ${Math.round(maxHR*0.5)}-${Math.round(maxHR*0.85)} bpm`;
+  });
+
+  // 9️⃣ Body Surface Area
+  document.getElementById('bsaCalculateBtn').addEventListener('click', function() {
+    let w=parseFloat(document.getElementById('bsaWeight').value);
+    let h=parseFloat(document.getElementById('bsaHeight').value);
+    if(isNaN(w)||isNaN(h)){ alert('Enter valid numbers'); return; }
+    let BSA=Math.sqrt((h*w)/3600);
+    document.getElementById('bsaResult').innerText=`Estimated Body Surface Area: ${BSA.toFixed(2)} m²`;
+  });
+
+  // 🔟 Protein Intake
+  document.getElementById('protCalculateBtn').addEventListener('click', function() {
+    let w=parseFloat(document.getElementById('protWeight').value);
+    let act=parseFloat(document.getElementById('protActivity').value);
+    if(isNaN(w)||isNaN(act)){ alert('Enter valid numbers'); return; }
+    document.getElementById('protResult').innerText=`Recommended Protein Intake: ${(w*act).toFixed(2)} g/day`;
+  });
+
+});
