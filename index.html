@@ -215,6 +215,50 @@
         }
         if(t==='l6') document.getElementById('r-l6').innerText = (document.getElementById('l6-a').value * document.getElementById('l6-r').value).toFixed(2);
     }
+
+<script>
+    function tab(e, id) {
+        document.querySelectorAll('.tab-content').forEach(x => x.style.display = 'none');
+        document.querySelectorAll('nav button').forEach(x => x.classList.remove('active'));
+        document.getElementById(id).style.display = 'block';
+        e.currentTarget.classList.add('active');
+    }
+
+    function run(t) {
+        // --- SOCIAL STRATEGY ---
+        if(t==='s1') {
+            let total = parseFloat(document.getElementById('s1-e').value) + parseFloat(document.getElementById('s1-s').value);
+            let hours = parseFloat(document.getElementById('s1-h').value);
+            document.getElementById('r-s1').innerText = '$' + (total/hours).toFixed(2) + ' / hr';
+        }
+        if(t==='s2') {
+            let len = document.getElementById('s2-l').value;
+            let hook = len < 30 ? 2 : 5;
+            document.getElementById('r-s2').innerText = 'First ' + hook + ' Seconds';
+        }
+        if(t==='s3') {
+            document.getElementById('r-s3').innerText = "Priority: " + document.getElementById('s3-t').value;
+        }
+
+        // --- CONTENT & SEO ---
+        if(t==='seo1') {
+            let text = document.getElementById('seo-t').value.toLowerCase();
+            let kw = document.getElementById('seo-k').value.toLowerCase();
+            if(!kw) return;
+            let count = text.split(kw).length - 1;
+            let words = text.split(' ').length;
+            document.getElementById('r-seo1').innerText = ((count/words)*100).toFixed(1) + '% Density';
+        }
+        if(t==='seo2') {
+            let words = document.getElementById('seo-w').value.split(' ').length;
+            document.getElementById('r-seo2').innerText = Math.ceil(words/225) + " min read";
+        }
+
+        // --- CREATOR ECONOMY ---
+        if(t==='c1') document.getElementById('r-c1').innerText = '$' + (document.getElementById('c1-v').value/1000 * document.getElementById('c1-c').value).toLocaleString();
+        if(t==='c2') document.getElementById('r-c2').innerText = (document.getElementById('c2-i').value / document.getElementById('c2-r').value * 100).toFixed(1) + '%';
+    }
+    
 </script>
 </body>
 </html>
