@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorProfitLab | #1 Professional Calculator Suite for Digital Assets</title>
+    <meta name="description" content="The definitive lab for digital entrepreneurs. Calculate YouTube earnings, TikTok ROI, SIP investments, Crypto profits, and Loan EMIs in one place.">
+    <meta name="keywords" content="YouTube Income Calculator, SIP Calculator, GST Calculator India, Crypto Profit Calculator, TikTok Earnings, EMI Calculator">
     
-    <title>CreatorProfitLab | Professional Creator & Finance Calculators</title>
-    <meta name="description" content="The ultimate laboratory for digital creators. Calculate YouTube revenue, TikTok earnings, Instagram engagement, and ROI with our professional tool suite.">
-    <meta name="keywords" content="YouTube Income Calculator, Instagram Engagement, TikTok Earnings, CPM Calculator, Brand Deal Rate, Influencer ROI">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -20,6 +19,7 @@
             --text-muted: #64748b;
             --border: #e2e8f0;
             --shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+            --card-radius: 24px;
         }
 
         [data-theme="dark"] {
@@ -28,14 +28,15 @@
             --text: #f1f5f9;
             --text-muted: #94a3b8;
             --border: #1e293b;
+            --shadow: 0 10px 15px -3px rgba(0,0,0,0.3);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; transition: background 0.2s, border-color 0.2s; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
 
-        .app-container { display: flex; min-height: 100vh; }
+        .app-wrapper { display: flex; min-height: 100vh; }
 
-        /* Sidebar Navigation */
+        /* Navigation Sidebar */
         aside {
             width: 280px;
             background: var(--surface);
@@ -48,280 +49,410 @@
             z-index: 1000;
         }
 
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--brand); margin-bottom: 3rem; letter-spacing: -1px; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--brand); margin-bottom: 3rem; letter-spacing: -1px; display: flex; align-items: center; gap: 8px; }
         .logo span { color: var(--text); }
 
         nav button {
             width: 100%;
-            padding: 0.8rem 1.2rem;
-            margin-bottom: 0.5rem;
+            padding: 0.9rem 1.2rem;
+            margin-bottom: 0.6rem;
             border: none;
-            border-radius: 12px;
+            border-radius: 14px;
             background: transparent;
             color: var(--text-muted);
             font-weight: 700;
             text-align: left;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            transition: 0.2s;
         }
 
-        nav button.active { background: var(--brand); color: white; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
+        nav button.active { background: var(--brand); color: white; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4); }
         nav button:hover:not(.active) { background: rgba(99, 102, 241, 0.1); color: var(--brand); }
 
-        /* Main Content Area */
-        main { flex: 1; margin-left: 280px; padding: 3rem 4rem; }
-        .hero { margin-bottom: 3rem; }
-        .hero h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -1px; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; }
-
-        /* Calculator Layout */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-        .card {
-            background: var(--surface);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-        }
-        .card:hover { border-color: var(--brand); transform: translateY(-3px); }
-        .card h3 { font-size: 1rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--brand); text-transform: uppercase; letter-spacing: 0.5px; }
-
-        .input-group { margin-bottom: 1rem; }
-        label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 0.5rem; }
-        input {
-            width: 100%;
+        .theme-switch {
+            margin-top: auto;
             padding: 0.8rem;
-            border-radius: 10px;
+            border-radius: 12px;
             border: 1px solid var(--border);
             background: var(--bg);
             color: var(--text);
-            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        /* Content Area */
+        main { flex: 1; margin-left: 280px; padding: 4rem; }
+        .hero { margin-bottom: 3.5rem; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.5rem; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; }
+
+        /* Calculator Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
+        .card {
+            background: var(--surface);
+            padding: 2.2rem;
+            border-radius: var(--card-radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover { border-color: var(--brand); transform: translateY(-3px); }
+        .card h3 { font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 800; color: var(--text); }
+
+        /* Form Styling */
+        .field { margin-bottom: 1.2rem; }
+        label { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; display: block; letter-spacing: 0.05em; }
+        input {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 12px;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-weight: 700;
             outline: none;
+            font-size: 0.95rem;
         }
         input:focus { border-color: var(--brand); }
 
-        .calc-btn {
+        .btn-calc {
             width: 100%;
-            padding: 0.9rem;
+            padding: 1rem;
             background: var(--brand);
             color: white;
             border: none;
-            border-radius: 12px;
-            font-weight: 700;
+            border-radius: 14px;
+            font-weight: 800;
             cursor: pointer;
             margin-top: 0.5rem;
+            transition: 0.2s;
         }
+        .btn-calc:hover { background: var(--brand-dark); }
 
-        .result-box {
+        /* Output Box */
+        .output-box {
             margin-top: 1.5rem;
             padding: 1.2rem;
-            background: rgba(99, 102, 241, 0.05);
-            border-radius: 12px;
-            border-left: 4px solid var(--brand);
+            background: rgba(99, 102, 241, 0.08);
+            border-radius: 16px;
             text-align: center;
+            border: 1px dashed var(--brand);
         }
-        .res-label { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); display: block; margin-bottom: 5px; }
-        .res-val { font-size: 1.4rem; font-weight: 800; color: var(--brand); }
+        .out-label { font-size: 0.7rem; font-weight: 800; color: var(--brand); text-transform: uppercase; display: block; margin-bottom: 4px; }
+        .out-val { font-size: 1.6rem; font-weight: 800; color: var(--brand); }
 
-        /* Mobile Adjustments */
         @media (max-width: 1024px) {
-            aside { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); }
+            aside { width: 100%; height: auto; position: relative; padding: 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
             main { margin-left: 0; padding: 2rem; }
-            .app-container { flex-direction: column; }
+            .app-wrapper { flex-direction: column; }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body data-theme="light">
 
-<div class="app-container">
+<div class="app-wrapper">
     <aside>
-        <div class="logo">CreatorProfit<span>Lab</span></div>
+        <div class="logo">🚀 CreatorProfit<span>Lab</span></div>
         <nav>
-            <button class="active" onclick="showTab(event, 'creator-tab')">Creator Tools</button>
-            <button onclick="showTab(event, 'finance-tab')">Finance Suite</button>
-            <button onclick="showTab(event, 'health-tab')">Health Metrics</button>
+            <button class="active" onclick="tab(event, 'creator-lab')">Creator Tools</button>
+            <button onclick="tab(event, 'finance-lab')">Finance Suite</button>
+            <button onclick="tab(event, 'health-lab')">Health & Stats</button>
         </nav>
-        <div style="margin-top: auto;">
-            <button onclick="toggleMode()" style="background: var(--border); color: var(--text); font-size: 0.8rem;">🌓 Toggle Dark Mode</button>
-        </div>
+        <button class="theme-switch" onclick="toggleTheme()">🌓 Toggle Dark Mode</button>
     </aside>
 
     <main>
-        <section id="creator-tab" class="tab-content">
+        <section id="creator-lab" class="tab-pane">
             <div class="hero">
                 <h1>Creator Intelligence</h1>
-                <p>Maximize your digital revenue with data-backed insights.</p>
+                <p>Advanced metrics for professional YouTubers, TikTokers, and Digital Influencers.</p>
             </div>
-            
             <div class="grid">
                 <div class="card">
                     <h3>YouTube Income</h3>
-                    <div class="input-group"><label>Monthly Views</label><input type="number" id="yt-v" value="100000"></div>
-                    <div class="input-group"><label>CPM ($)</label><input type="number" id="yt-c" value="5.00"></div>
-                    <button class="calc-btn" onclick="calcYT()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated Monthly Income</span><div class="res-val" id="yt-res">$500.00</div></div>
+                    <div class="field"><label>Monthly Views</label><input type="number" id="yt-v" value="100000"></div>
+                    <div class="field"><label>CPM ($)</label><input type="number" id="yt-c" value="4.50"></div>
+                    <button class="btn-calc" onclick="run('yt')">Calculate</button>
+                    <div class="output-box"><span class="out-label">Monthly Income</span><div class="out-val" id="yt-r">$450.00</div></div>
                 </div>
-
                 <div class="card">
                     <h3>Instagram Engagement</h3>
-                    <div class="input-group"><label>Total Followers</label><input type="number" id="ig-f" value="10000"></div>
-                    <div class="input-group"><label>Likes + Comments</label><input type="number" id="ig-e" value="450"></div>
-                    <button class="calc-btn" onclick="calcIG()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated Engagement Rate</span><div class="res-val" id="ig-res">4.50%</div></div>
+                    <div class="field"><label>Followers</label><input type="number" id="ig-f" value="10000"></div>
+                    <div class="field"><label>Likes + Comments</label><input type="number" id="ig-e" value="350"></div>
+                    <button class="btn-calc" onclick="run('ig')">Analyze Rate</button>
+                    <div class="output-box"><span class="out-label">Engagement Rate</span><div class="out-val" id="ig-r">3.50%</div></div>
                 </div>
-
                 <div class="card">
                     <h3>TikTok Earnings</h3>
-                    <div class="input-group"><label>Video Views</label><input type="number" id="tt-v" value="1000000"></div>
-                    <div class="input-group"><label>CPM ($)</label><input type="number" id="tt-c" value="0.03" step="0.01"></div>
-                    <button class="calc-btn" onclick="calcTT()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated TikTok Earnings</span><div class="res-val" id="tt-res">$30.00</div></div>
+                    <div class="field"><label>Video Views</label><input type="number" id="tt-v" value="1000000"></div>
+                    <div class="field"><label>CPM ($)</label><input type="number" id="tt-c" value="0.03" step="0.01"></div>
+                    <button class="btn-calc" onclick="run('tt')">Estimate Earnings</button>
+                    <div class="output-box"><span class="out-label">Payout Estimate</span><div class="out-val" id="tt-r">$30.00</div></div>
                 </div>
-
                 <div class="card">
                     <h3>CPM Calculator</h3>
-                    <div class="input-group"><label>Total Revenue ($)</label><input type="number" id="cpm-r" value="1200"></div>
-                    <div class="input-group"><label>Impressions</label><input type="number" id="cpm-i" value="250000"></div>
-                    <button class="calc-btn" onclick="calcCPM()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Calculated CPM</span><div class="res-val" id="cpm-res">$4.80</div></div>
+                    <div class="field"><label>Total Ad Cost ($)</label><input type="number" id="cpm-co" value="1200"></div>
+                    <div class="field"><label>Impressions</label><input type="number" id="cpm-im" value="250000"></div>
+                    <button class="btn-calc" onclick="run('cpm')">Calculate CPM</button>
+                    <div class="output-box"><span class="out-label">Calculated CPM</span><div class="out-val" id="cpm-r">$4.80</div></div>
                 </div>
-
                 <div class="card">
                     <h3>Affiliate Income</h3>
-                    <div class="input-group"><label>Clicks</label><input type="number" id="af-cl" value="5000"></div>
-                    <div class="input-group"><label>Conversion (%)</label><input type="number" id="af-co" value="2.5"></div>
-                    <div class="input-group"><label>Payout ($)</label><input type="number" id="af-pa" value="50"></div>
-                    <button class="calc-btn" onclick="calcAF()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated Affiliate Income</span><div class="res-val" id="af-res">$6,250.00</div></div>
+                    <div class="field"><label>Clicks</label><input type="number" id="af-cl" value="5000"></div>
+                    <div class="field"><label>Conversion %</label><input type="number" id="af-cr" value="2.0"></div>
+                    <div class="field"><label>Payout/Sale ($)</label><input type="number" id="af-pa" value="50"></div>
+                    <button class="btn-calc" onclick="run('af')">Project Revenue</button>
+                    <div class="output-box"><span class="out-label">Affiliate Income</span><div class="out-val" id="af-r">$5,000.00</div></div>
                 </div>
-
                 <div class="card">
                     <h3>Brand Deal Rate</h3>
-                    <div class="input-group"><label>Followers</label><input type="number" id="bd-f" value="50000"></div>
-                    <div class="input-group"><label>Rate per 1k ($)</label><input type="number" id="bd-r" value="20"></div>
-                    <button class="calc-btn" onclick="calcBD()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated Brand Deal Rate</span><div class="res-val" id="bd-res">$1,000.00</div></div>
+                    <div class="field"><label>Followers</label><input type="number" id="bd-f" value="50000"></div>
+                    <div class="field"><label>Rate per 1k ($)</label><input type="number" id="bd-p" value="20"></div>
+                    <button class="btn-calc" onclick="run('bd')">Quote Price</button>
+                    <div class="output-box"><span class="out-label">Suggested Quote</span><div class="out-val" id="bd-r">$1,000.00</div></div>
                 </div>
-
                 <div class="card">
                     <h3>Creator ROI</h3>
-                    <div class="input-group"><label>Revenue ($)</label><input type="number" id="roi-r" value="5000"></div>
-                    <div class="input-group"><label>Cost ($)</label><input type="number" id="roi-c" value="1500"></div>
-                    <button class="calc-btn" onclick="calcROI()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated ROI</span><div class="res-val" id="roi-res">233.33%</div></div>
+                    <div class="field"><label>Revenue ($)</label><input type="number" id="roi-r" value="3500"></div>
+                    <div class="field"><label>Production Cost ($)</label><input type="number" id="roi-c" value="1000"></div>
+                    <button class="btn-calc" onclick="run('roi')">Check ROI</button>
+                    <div class="output-box"><span class="out-label">Return on Investment</span><div class="out-val" id="roi-res">250.00%</div></div>
                 </div>
-
                 <div class="card">
                     <h3>Subscriber Growth</h3>
-                    <div class="input-group"><label>Current Subs</label><input type="number" id="sg-s" value="5000"></div>
-                    <div class="input-group"><label>Growth (%)</label><input type="number" id="sg-g" value="10"></div>
-                    <div class="input-group"><label>Months</label><input type="number" id="sg-m" value="6"></div>
-                    <button class="calc-btn" onclick="calcSG()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated Subs After Period</span><div class="res-val" id="sg-res">8,857</div></div>
+                    <div class="field"><label>Current Subs</label><input type="number" id="sg-c" value="5000"></div>
+                    <div class="field"><label>Growth Rate %</label><input type="number" id="sg-g" value="10"></div>
+                    <div class="field"><label>Months</label><input type="number" id="sg-m" value="12"></div>
+                    <button class="btn-calc" onclick="run('sg')">Project Subs</button>
+                    <div class="output-box"><span class="out-label">Subs After Period</span><div class="out-val" id="sg-r">15,692</div></div>
                 </div>
-
                 <div class="card">
                     <h3>Video Profit</h3>
-                    <div class="input-group"><label>Revenue ($)</label><input type="number" id="vp-r" value="2500"></div>
-                    <div class="input-group"><label>Cost ($)</label><input type="number" id="vp-c" value="600"></div>
-                    <button class="calc-btn" onclick="calcVP()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Estimated Video Profit</span><div class="res-val" id="vp-res">$1,900.00</div></div>
+                    <div class="field"><label>Ad Rev + Sponsorship ($)</label><input type="number" id="vp-r" value="2500"></div>
+                    <div class="field"><label>Total Expenses ($)</label><input type="number" id="vp-e" value="450"></div>
+                    <button class="btn-calc" onclick="run('vp')">Calc Net Profit</button>
+                    <div class="output-box"><span class="out-label">Net Video Profit</span><div class="out-val" id="vp-r-res">$2,050.00</div></div>
                 </div>
-
                 <div class="card">
                     <h3>Influencer Rate</h3>
-                    <div class="input-group"><label>Followers</label><input type="number" id="ir-f" value="100000"></div>
-                    <div class="input-group"><label>Engagement (%)</label><input type="number" id="ir-e" value="3.5"></div>
-                    <div class="input-group"><label>Base Rate ($)</label><input type="number" id="ir-b" value="250"></div>
-                    <button class="calc-btn" onclick="calcIR()">Calculate</button>
-                    <div class="result-box"><span class="res-label">Recommended Influencer Rate</span><div class="res-val" id="ir-res">$1,125.00</div></div>
+                    <div class="field"><label>Followers</label><input type="number" id="ir-f" value="100000"></div>
+                    <div class="field"><label>Eng. Rate %</label><input type="number" id="ir-e" value="4.0"></div>
+                    <div class="field"><label>Base Charge ($)</label><input type="number" id="ir-b" value="300"></div>
+                    <button class="btn-calc" onclick="run('ir')">Market Value</button>
+                    <div class="output-box"><span class="out-label">Recommended Rate</span><div class="out-val" id="ir-r">$1,250.00</div></div>
                 </div>
             </div>
         </section>
 
-        <section id="finance-tab" class="tab-content" style="display:none">
-            <div class="hero"><h1>Finance Suite</h1><p>Professional financial tracking tools.</p></div>
-            <div class="grid"><div class="card"><h3>Loan EMI</h3><p>Calculation engine coming soon...</p></div></div>
+        <section id="finance-lab" class="tab-pane" style="display:none">
+            <div class="hero">
+                <h1>Finance Suite</h1>
+                <p>Professional investment, debt, and tax calculation tools for smart wealth management.</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>EMI Calculator</h3>
+                    <div class="field"><label>Principal ($)</label><input type="number" id="f-emi-p" value="10000"></div>
+                    <div class="field"><label>Annual Rate %</label><input type="number" id="f-emi-r" value="8"></div>
+                    <div class="field"><label>Months</label><input type="number" id="f-emi-m" value="12"></div>
+                    <button class="btn-calc" onclick="run('f-emi')">Calculate EMI</button>
+                    <div class="output-box"><span class="out-label">Monthly EMI</span><div class="out-val" id="f-emi-res">$869.88</div></div>
+                </div>
+                <div class="card">
+                    <h3>SIP (Mutual Funds)</h3>
+                    <div class="field"><label>Monthly Deposit ($)</label><input type="number" id="sip-m" value="500"></div>
+                    <div class="field"><label>Expected Return %</label><input type="number" id="sip-r" value="12"></div>
+                    <div class="field"><label>Years</label><input type="number" id="sip-y" value="10"></div>
+                    <button class="btn-calc" onclick="run('f-sip')">Future Value</button>
+                    <div class="output-box"><span class="out-label">Estimated Wealth</span><div class="out-val" id="sip-res">$116,170</div></div>
+                </div>
+                <div class="card">
+                    <h3>Fixed Deposit (FD)</h3>
+                    <div class="field"><label>Principal ($)</label><input type="number" id="fd-p" value="10000"></div>
+                    <div class="field"><label>Annual Rate %</label><input type="number" id="fd-r" value="7.5"></div>
+                    <div class="field"><label>Years</label><input type="number" id="fd-y" value="5"></div>
+                    <button class="btn-calc" onclick="run('f-fd')">Maturity Value</button>
+                    <div class="output-box"><span class="out-label">Maturity Amount</span><div class="out-val" id="fd-res">$14,356</div></div>
+                </div>
+                <div class="card">
+                    <h3>Recurring Deposit (RD)</h3>
+                    <div class="field"><label>Monthly Amount ($)</label><input type="number" id="rd-m" value="1000"></div>
+                    <div class="field"><label>Interest Rate %</label><input type="number" id="rd-r" value="6.5"></div>
+                    <div class="field"><label>Months</label><input type="number" id="rd-n" value="24"></div>
+                    <button class="btn-calc" onclick="run('f-rd')">Project RD</button>
+                    <div class="output-box"><span class="out-label">Total Maturity</span><div class="out-val" id="rd-res">$25,683</div></div>
+                </div>
+                <div class="card">
+                    <h3>GST Calculator</h3>
+                    <div class="field"><label>Base Amount ($)</label><input type="number" id="gst-a" value="1000"></div>
+                    <div class="field"><label>GST Rate %</label><input type="number" id="gst-r" value="18"></div>
+                    <button class="btn-calc" onclick="run('f-gst')">Calculate Total</button>
+                    <div class="output-box"><span class="out-label">Total with Tax</span><div class="out-val" id="gst-res">$1,180.00</div></div>
+                </div>
+                <div class="card">
+                    <h3>Income Tax Estimate</h3>
+                    <div class="field"><label>Annual Income ($)</label><input type="number" id="tax-i" value="100000"></div>
+                    <div class="field"><label>Deductions ($)</label><input type="number" id="tax-d" value="5000"></div>
+                    <button class="btn-calc" onclick="run('f-tax')">Annual Tax</button>
+                    <div class="output-box"><span class="out-label">Estimated Tax Liability</span><div class="out-val" id="tax-res">$22,450</div></div>
+                </div>
+                <div class="card">
+                    <h3>Crypto Profit</h3>
+                    <div class="field"><label>Buy Price ($)</label><input type="number" id="cry-b" value="45000"></div>
+                    <div class="field"><label>Sell Price ($)</label><input type="number" id="cry-s" value="65000"></div>
+                    <div class="field"><label>Units Owned</label><input type="number" id="cry-u" value="0.5"></div>
+                    <button class="btn-calc" onclick="run('f-cry')">Net Profit</button>
+                    <div class="output-box"><span class="out-label">Crypto Gains</span><div class="out-val" id="cry-res">$10,000.00</div></div>
+                </div>
+                <div class="card">
+                    <h3>Compound Interest</h3>
+                    <div class="field"><label>Principal ($)</label><input type="number" id="ci-p" value="5000"></div>
+                    <div class="field"><label>Annual Rate %</label><input type="number" id="ci-r" value="10"></div>
+                    <div class="field"><label>Years</label><input type="number" id="ci-y" value="10"></div>
+                    <button class="btn-calc" onclick="run('f-ci')">Total Value</button>
+                    <div class="output-box"><span class="out-label">Accumulated Value</span><div class="out-val" id="ci-res">$12,968</div></div>
+                </div>
+                <div class="card"><h3>Home Loan</h3><p>Use EMI Calculator with custom rate.</p></div>
+                <div class="card"><h3>Personal Loan</h3><p>Use EMI Calculator with custom rate.</p></div>
+                <div class="card"><h3>Mortgage Calc</h3><p>Use EMI Calculator with custom rate.</p></div>
+                <div class="card"><h3>Currency Converter</h3><p>Real-time Forex coming soon...</p></div>
+            </div>
         </section>
 
-        <section id="health-tab" class="tab-content" style="display:none">
-            <div class="hero"><h1>Health Metrics</h1><p>Scientific metrics for peak performance.</p></div>
-            <div class="grid"><div class="card"><h3>BMI Calculator</h3><p>Standardized BMI metrics coming soon...</p></div></div>
+        <section id="health-lab" class="tab-pane" style="display:none">
+            <div class="hero"><h1>Health & Vitality</h1><p>Physical stats for peak creator performance.</p></div>
+            <div class="grid"><div class="card"><h3>BMI Tracker</h3><p>Clinical metrics coming soon...</p></div></div>
         </section>
     </main>
 </div>
 
 <script>
-    function toggleMode() {
-        document.body.setAttribute('data-theme', document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    // Theme Engine
+    function toggleTheme() {
+        const b = document.body;
+        const current = b.getAttribute('data-theme');
+        b.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
     }
 
-    function showTab(e, id) {
-        document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+    // Tab Engine
+    function tab(e, id) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.style.display = 'none');
         document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
         document.getElementById(id).style.display = 'block';
         e.currentTarget.classList.add('active');
+        window.scrollTo(0,0);
     }
 
-    // --- CALCULATION LOGIC ---
-    function calcYT() {
-        const res = (document.getElementById('yt-v').value / 1000) * document.getElementById('yt-c').value;
-        document.getElementById('yt-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
-    }
+    // Logic Engine
+    function run(type) {
+        let val = 0;
+        let out = "";
 
-    function calcIG() {
-        const res = (document.getElementById('ig-e').value / document.getElementById('ig-f').value) * 100;
-        document.getElementById('ig-res').innerText = res.toFixed(2) + '%';
-    }
+        // CREATOR LOGIC
+        if(type === 'yt') {
+            val = (document.getElementById('yt-v').value / 1000) * document.getElementById('yt-c').value;
+            document.getElementById('yt-r').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'ig') {
+            val = (document.getElementById('ig-e').value / document.getElementById('ig-f').value) * 100;
+            document.getElementById('ig-r').innerText = val.toFixed(2) + '%';
+        }
+        if(type === 'tt') {
+            val = (document.getElementById('tt-v').value / 1000) * document.getElementById('tt-c').value;
+            document.getElementById('tt-r').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'cpm') {
+            val = (document.getElementById('cpm-co').value / document.getElementById('cpm-im').value) * 1000;
+            document.getElementById('cpm-r').innerText = '$' + val.toFixed(2);
+        }
+        if(type === 'af') {
+            val = document.getElementById('af-cl').value * (document.getElementById('af-cr').value / 100) * document.getElementById('af-pa').value;
+            document.getElementById('af-r').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'bd') {
+            val = (document.getElementById('bd-f').value / 1000) * document.getElementById('bd-p').value;
+            document.getElementById('bd-r').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'roi') {
+            val = ((document.getElementById('roi-r').value - document.getElementById('roi-c').value) / document.getElementById('roi-c').value) * 100;
+            document.getElementById('roi-res').innerText = val.toFixed(2) + '%';
+        }
+        if(type === 'sg') {
+            let c = parseFloat(document.getElementById('sg-c').value);
+            let g = document.getElementById('sg-g').value / 100;
+            let m = document.getElementById('sg-m').value;
+            val = c * Math.pow((1 + g), m);
+            document.getElementById('sg-r').innerText = Math.round(val).toLocaleString();
+        }
+        if(type === 'vp') {
+            val = document.getElementById('vp-r').value - document.getElementById('vp-e').value;
+            document.getElementById('vp-r-res').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'ir') {
+            let fol = document.getElementById('ir-f').value;
+            let eng = document.getElementById('ir-e').value / 100;
+            let base = parseFloat(document.getElementById('ir-b').value);
+            val = (fol * 0.005) + (fol * eng * 0.15) + base;
+            document.getElementById('ir-r').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
 
-    function calcTT() {
-        const res = (document.getElementById('tt-v').value / 1000) * document.getElementById('tt-c').value;
-        document.getElementById('tt-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
-    }
-
-    function calcCPM() {
-        const res = (document.getElementById('cpm-r').value / document.getElementById('cpm-i').value) * 1000;
-        document.getElementById('cpm-res').innerText = '$' + res.toFixed(2);
-    }
-
-    function calcAF() {
-        const res = document.getElementById('af-cl').value * (document.getElementById('af-co').value / 100) * document.getElementById('af-pa').value;
-        document.getElementById('af-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
-    }
-
-    function calcBD() {
-        const res = (document.getElementById('bd-f').value / 1000) * document.getElementById('bd-r').value;
-        document.getElementById('bd-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
-    }
-
-    function calcROI() {
-        const res = ((document.getElementById('roi-r').value - document.getElementById('roi-c').value) / document.getElementById('roi-c').value) * 100;
-        document.getElementById('roi-res').innerText = res.toFixed(2) + '%';
-    }
-
-    function calcSG() {
-        const c = parseInt(document.getElementById('sg-s').value);
-        const g = document.getElementById('sg-g').value / 100;
-        const m = document.getElementById('sg-m').value;
-        const res = c * Math.pow((1 + g), m);
-        document.getElementById('sg-res').innerText = Math.round(res).toLocaleString();
-    }
-
-    function calcVP() {
-        const res = document.getElementById('vp-r').value - document.getElementById('vp-c').value;
-        document.getElementById('vp-res').innerText = '$' + res.toLocaleString(undefined, {minimumFractionDigits: 2});
-    }
-
-    function calcIR() {
-        const fol = document.getElementById('ir-f').value;
-        const eng = document.getElementById('ir-e').value / 100;
-        const base = parseFloat(document.getElementById('ir-b').value);
-        const rate = (fol * 0.005) + (fol * eng * 0.2) + base;
-        document.getElementById('ir-res').innerText = '$' + rate.toLocaleString(undefined, {minimumFractionDigits: 2});
+        // FINANCE LOGIC
+        if(type === 'f-emi') {
+            let p = document.getElementById('f-emi-p').value;
+            let r = (document.getElementById('f-emi-r').value / 12) / 100;
+            let n = document.getElementById('f-emi-m').value;
+            val = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+            document.getElementById('f-emi-res').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'f-sip') {
+            let p = document.getElementById('sip-m').value;
+            let r = (document.getElementById('sip-r').value / 12) / 100;
+            let n = document.getElementById('sip-y').value * 12;
+            val = p * [ (Math.pow(1 + r, n) - 1) / r ] * (1 + r);
+            document.getElementById('sip-res').innerText = '$' + Math.round(val).toLocaleString();
+        }
+        if(type === 'f-fd') {
+            let p = parseFloat(document.getElementById('fd-p').value);
+            let r = document.getElementById('fd-r').value / 100;
+            let t = document.getElementById('fd-y').value;
+            val = p * Math.pow((1 + r/4), 4*t); // Quarterly compounding
+            document.getElementById('fd-res').innerText = '$' + Math.round(val).toLocaleString();
+        }
+        if(type === 'f-rd') {
+            let p = document.getElementById('rd-m').value;
+            let r = (document.getElementById('rd-r').value / 100);
+            let n = document.getElementById('rd-n').value / 12;
+            val = (p * 12 * n) + (p * 12 * n * (12*n + 1) * r / 240); // Simplified interest
+            document.getElementById('rd-res').innerText = '$' + Math.round(val).toLocaleString();
+        }
+        if(type === 'f-gst') {
+            let a = parseFloat(document.getElementById('gst-a').value);
+            let r = document.getElementById('gst-r').value / 100;
+            val = a + (a * r);
+            document.getElementById('gst-res').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'f-cry') {
+            let units = document.getElementById('cry-u').value;
+            val = (document.getElementById('cry-s').value - document.getElementById('cry-b').value) * units;
+            document.getElementById('cry-res').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
+        }
+        if(type === 'f-ci') {
+            let p = parseFloat(document.getElementById('ci-p').value);
+            let r = document.getElementById('ci-r').value / 100;
+            let t = document.getElementById('ci-y').value;
+            val = p * Math.pow((1 + r), t);
+            document.getElementById('ci-res').innerText = '$' + Math.round(val).toLocaleString();
+        }
+        if(type === 'f-tax') {
+            let inc = document.getElementById('tax-i').value - document.getElementById('tax-d').value;
+            if(inc <= 50000) val = inc * 0.05;
+            else if(inc <= 100000) val = 2500 + (inc - 50000) * 0.20;
+            else val = 12500 + (inc - 100000) * 0.30;
+            document.getElementById('tax-res').innerText = '$' + Math.round(val).toLocaleString();
+        }
     }
 </script>
 
