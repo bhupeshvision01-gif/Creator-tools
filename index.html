@@ -1,255 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="All-in-one utility calculators: finance, health, math, unit conversions, and more. 25+ calculators in one website.">
+  <meta name="keywords" content="calculators, finance calculator, health calculator, math calculator, unit converter, BMI, loan, GST, EMI">
+  <title>Ultimate Calculator Hub | 25+ Calculators</title>
+  
+  <!-- SEO-friendly URL -->
+  <link rel="canonical" href="https://www.yourwebsite.com/">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CreatorProfitLab</title>
-
-<meta name="description" content="Free calculators for YouTube, Instagram and TikTok creators to estimate earnings, engagement and sponsorship price.">
-
-<style>
-
-body{
-font-family:Arial;
-margin:0;
-background:#F5F7FB;
-color:#111827;
-}
-
-header{
-display:flex;
-justify-content:space-between;
-padding:20px 40px;
-background:white;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-}
-
-nav a{
-margin-left:20px;
-text-decoration:none;
-color:#111827;
-}
-
-.hero{
-text-align:center;
-padding:60px;
-}
-
-.hero h2{
-color:#2563EB;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:40px;
-}
-
-.card{
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 4px 15px rgba(0,0,0,0.05);
-}
-
-button{
-background:#2563EB;
-color:white;
-border:none;
-padding:10px 18px;
-border-radius:8px;
-cursor:pointer;
-margin-top:10px;
-}
-
-.calculator{
-text-align:center;
-padding:40px;
-}
-
-input{
-padding:10px;
-margin:10px;
-border:1px solid #ccc;
-border-radius:6px;
-}
-
-.ad{
-background:#eee;
-text-align:center;
-padding:30px;
-margin:20px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-background:white;
-}
-
-</style>
-
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f7f7;
+      color: #333;
+    }
+    header {
+      background: #007BFF;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #0056b3;
+    }
+    nav button {
+      background: none;
+      border: none;
+      padding: 12px 20px;
+      color: #fff;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    nav button.active {
+      background: #003f7f;
+    }
+    .tab-content {
+      display: none;
+      padding: 20px;
+      background: #fff;
+      max-width: 900px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .calculator {
+      margin-bottom: 20px;
+    }
+    .calculator input, .calculator select {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+      max-width: 300px;
+      display: block;
+    }
+    .calculator button {
+      padding: 10px 15px;
+      margin-top: 10px;
+      background: #007BFF;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #007BFF;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #333;
+      color: #fff;
+      margin-top: 20px;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-
-<h1>CreatorProfitLab</h1>
-
-<nav>
-<a href="#">Home</a>
-<a href="#tools">Tools</a>
-</nav>
-
+  <h1>Ultimate Calculator Hub</h1>
+  <p>25+ important calculators: finance, health, math, and more!</p>
 </header>
 
-<section class="hero">
+<nav>
+  <button class="tab-link active" data-tab="finance">Finance</button>
+  <button class="tab-link" data-tab="health">Health</button>
+  <button class="tab-link" data-tab="math">Math</button>
+  <button class="tab-link" data-tab="unit">Unit Converter</button>
+</nav>
 
-<h2>Creator Income Calculators</h2>
+<!-- Finance Calculators -->
+<div id="finance" class="tab-content active">
+  <h2>Finance Calculators</h2>
 
-<p>Estimate creator revenue and engagement.</p>
+  <!-- EMI Calculator -->
+  <div class="calculator">
+    <h3>EMI Calculator</h3>
+    <input type="number" id="loanAmount" placeholder="Loan Amount">
+    <input type="number" id="interestRate" placeholder="Interest Rate (%)">
+    <input type="number" id="loanTenure" placeholder="Tenure (Months)">
+    <button onclick="calculateEMI()">Calculate EMI</button>
+    <div class="result" id="emiResult"></div>
+  </div>
 
-</section>
+  <!-- GST Calculator -->
+  <div class="calculator">
+    <h3>GST Calculator</h3>
+    <input type="number" id="gstAmount" placeholder="Amount">
+    <input type="number" id="gstRate" placeholder="GST Rate (%)">
+    <button onclick="calculateGST()">Calculate GST</button>
+    <div class="result" id="gstResult"></div>
+  </div>
 
-<div class="ad">AdSense Space</div>
-
-<section id="tools">
-
-<h2>Creator Tools</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>YouTube Money Calculator</h3>
-<button onclick="setCalc('youtube')">Open</button>
+  <!-- Add more finance calculators here -->
 </div>
 
-<div class="card">
-<h3>Instagram Engagement</h3>
-<button onclick="setCalc('instagram')">Open</button>
+<!-- Health Calculators -->
+<div id="health" class="tab-content">
+  <h2>Health Calculators</h2>
+
+  <!-- BMI Calculator -->
+  <div class="calculator">
+    <h3>BMI Calculator</h3>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <div class="result" id="bmiResult"></div>
+  </div>
+
+  <!-- Calorie Calculator -->
+  <div class="calculator">
+    <h3>Daily Calorie Needs</h3>
+    <input type="number" id="age" placeholder="Age">
+    <input type="number" id="bmrWeight" placeholder="Weight (kg)">
+    <input type="number" id="bmrHeight" placeholder="Height (cm)">
+    <select id="activityLevel">
+      <option value="1.2">Sedentary</option>
+      <option value="1.375">Lightly Active</option>
+      <option value="1.55">Moderately Active</option>
+      <option value="1.725">Very Active</option>
+      <option value="1.9">Extra Active</option>
+    </select>
+    <button onclick="calculateCalories()">Calculate Calories</button>
+    <div class="result" id="calorieResult"></div>
+  </div>
+
+  <!-- Add more health calculators here -->
 </div>
 
-<div class="card">
-<h3>TikTok Money Calculator</h3>
-<button onclick="setCalc('tiktok')">Open</button>
+<!-- Math Calculators -->
+<div id="math" class="tab-content">
+  <h2>Math Calculators</h2>
+
+  <!-- Percentage Calculator -->
+  <div class="calculator">
+    <h3>Percentage Calculator</h3>
+    <input type="number" id="percentTotal" placeholder="Total Value">
+    <input type="number" id="percentValue" placeholder="Value">
+    <button onclick="calculatePercentage()">Calculate %</button>
+    <div class="result" id="percentResult"></div>
+  </div>
+
+  <!-- Age Calculator -->
+  <div class="calculator">
+    <h3>Age Calculator</h3>
+    <input type="date" id="dob" placeholder="Date of Birth">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div class="result" id="ageResult"></div>
+  </div>
+
+  <!-- Add more math calculators here -->
 </div>
 
-<div class="card">
-<h3>Brand Deal Calculator</h3>
-<button onclick="setCalc('brand')">Open</button>
+<!-- Unit Converter Calculators -->
+<div id="unit" class="tab-content">
+  <h2>Unit Converters</h2>
+
+  <!-- Length Converter -->
+  <div class="calculator">
+    <h3>Length Converter</h3>
+    <input type="number" id="lengthInput" placeholder="Enter value">
+    <select id="lengthUnit">
+      <option value="m">Meters</option>
+      <option value="cm">Centimeters</option>
+      <option value="km">Kilometers</option>
+      <option value="inch">Inches</option>
+      <option value="ft">Feet</option>
+    </select>
+    <button onclick="convertLength()">Convert</button>
+    <div class="result" id="lengthResult"></div>
+  </div>
+
+  <!-- Weight Converter -->
+  <div class="calculator">
+    <h3>Weight Converter</h3>
+    <input type="number" id="weightInput" placeholder="Enter value">
+    <select id="weightUnit">
+      <option value="kg">Kg</option>
+      <option value="g">Gram</option>
+      <option value="lb">Pounds</option>
+      <option value="oz">Ounces</option>
+    </select>
+    <button onclick="convertWeight()">Convert</button>
+    <div class="result" id="weightResult"></div>
+  </div>
+
+  <!-- Add more converters here -->
 </div>
-
-<div class="card">
-<h3>Affiliate Income</h3>
-<button onclick="setCalc('affiliate')">Open</button>
-</div>
-
-<div class="card">
-<h3>ROI Calculator</h3>
-<button onclick="setCalc('roi')">Open</button>
-</div>
-
-</div>
-
-</section>
-
-<section class="calculator">
-
-<h2 id="calcTitle">Calculator</h2>
-
-<input id="input1" placeholder="Enter value 1">
-
-<input id="input2" placeholder="Enter value 2">
-
-<br>
-
-<button onclick="calculate()">Calculate</button>
-
-<h3 id="result"></h3>
-
-</section>
-
-<div class="ad">AdSense Space</div>
 
 <footer>
-
-<p>© 2026 CreatorProfitLab</p>
-
+  &copy; 2026 Ultimate Calculator Hub. All Rights Reserved.
 </footer>
 
 <script>
+  // Tab Navigation
+  const tabs = document.querySelectorAll('.tab-link');
+  const contents = document.querySelectorAll('.tab-content');
 
-let mode="youtube"
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
 
-function setCalc(type){
+  // Finance Calculators
+  function calculateEMI() {
+    const P = parseFloat(document.getElementById('loanAmount').value);
+    const R = parseFloat(document.getElementById('interestRate').value)/12/100;
+    const N = parseInt(document.getElementById('loanTenure').value);
+    const EMI = (P * R * Math.pow(1+R, N))/(Math.pow(1+R, N)-1);
+    document.getElementById('emiResult').innerText = 'EMI: ₹' + EMI.toFixed(2);
+  }
 
-mode=type
+  function calculateGST() {
+    const amount = parseFloat(document.getElementById('gstAmount').value);
+    const rate = parseFloat(document.getElementById('gstRate').value);
+    const gst = (amount * rate)/100;
+    const total = amount + gst;
+    document.getElementById('gstResult').innerText = 'GST: ₹'+gst.toFixed(2)+', Total: ₹'+total.toFixed(2);
+  }
 
-document.getElementById("result").innerHTML=""
+  // Health Calculators
+  function calculateBMI() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value)/100;
+    const bmi = weight / (height*height);
+    document.getElementById('bmiResult').innerText = 'BMI: '+bmi.toFixed(2);
+  }
 
-if(type=="youtube")
-document.getElementById("calcTitle").innerText="YouTube Money Calculator"
+  function calculateCalories() {
+    const age = parseFloat(document.getElementById('age').value);
+    const weight = parseFloat(document.getElementById('bmrWeight').value);
+    const height = parseFloat(document.getElementById('bmrHeight').value);
+    const activity = parseFloat(document.getElementById('activityLevel').value);
+    const bmr = 10*weight + 6.25*height - 5*age + 5; // Male
+    const calories = bmr * activity;
+    document.getElementById('calorieResult').innerText = 'Daily Calories: '+calories.toFixed(0)+' kcal';
+  }
 
-if(type=="instagram")
-document.getElementById("calcTitle").innerText="Instagram Engagement Calculator"
+  // Math Calculators
+  function calculatePercentage() {
+    const total = parseFloat(document.getElementById('percentTotal').value);
+    const value = parseFloat(document.getElementById('percentValue').value);
+    const percent = (value/total)*100;
+    document.getElementById('percentResult').innerText = 'Percentage: '+percent.toFixed(2)+'%';
+  }
 
-if(type=="tiktok")
-document.getElementById("calcTitle").innerText="TikTok Money Calculator"
+  function calculateAge() {
+    const dob = new Date(document.getElementById('dob').value);
+    const diff = Date.now() - dob.getTime();
+    const age = new Date(diff).getUTCFullYear() - 1970;
+    document.getElementById('ageResult').innerText = 'Age: '+age+' years';
+  }
 
-if(type=="brand")
-document.getElementById("calcTitle").innerText="Brand Deal Price Calculator"
+  // Unit Converters
+  function convertLength() {
+    const value = parseFloat(document.getElementById('lengthInput').value);
+    const unit = document.getElementById('lengthUnit').value;
+    let result;
+    switch(unit){
+      case 'm': result = value + ' m'; break;
+      case 'cm': result = value*100 + ' cm'; break;
+      case 'km': result = value/1000 + ' km'; break;
+      case 'inch': result = value*39.3701 + ' inch'; break;
+      case 'ft': result = value*3.28084 + ' ft'; break;
+    }
+    document.getElementById('lengthResult').innerText = 'Converted: '+result;
+  }
 
-if(type=="affiliate")
-document.getElementById("calcTitle").innerText="Affiliate Earnings Calculator"
-
-if(type=="roi")
-document.getElementById("calcTitle").innerText="ROI Calculator"
-
-}
-
-function calculate(){
-
-let a=parseFloat(document.getElementById("input1").value)
-let b=parseFloat(document.getElementById("input2").value)
-
-if(isNaN(a) || isNaN(b)){
-
-document.getElementById("result").innerHTML="Please enter numbers"
-return
-
-}
-
-let result=0
-
-if(mode=="youtube")
-result=(a/1000)*b
-
-else if(mode=="instagram")
-result=((a+b)/10000)*100
-
-else if(mode=="tiktok")
-result=(a/1000)*b*1.2
-
-else if(mode=="brand")
-result=(a/1000)*15
-
-else if(mode=="affiliate")
-result=a*b
-
-else if(mode=="roi")
-result=((b-a)/a)*100
-
-document.getElementById("result").innerHTML="Result: "+result.toFixed(2)
-
-}
-
+  function convertWeight() {
+    const value = parseFloat(document.getElementById('weightInput').value);
+    const unit = document.getElementById('weightUnit').value;
+    let result;
+    switch(unit){
+      case 'kg': result = value + ' kg'; break;
+      case 'g': result = value*1000 + ' g'; break;
+      case 'lb': result = value*2.20462 + ' lb'; break;
+      case 'oz': result = value*35.274 + ' oz'; break;
+    }
+    document.getElementById('weightResult').innerText = 'Converted: '+result;
+  }
 </script>
 
 </body>
-
 </html>
