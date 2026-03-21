@@ -70,4 +70,68 @@ function calculateIdealWeight() {
 // Math
 function calculatePercentage(){
   const total=parseFloat(document.getElementById('percentTotal').value);
-  const val=parseFloat(document.getElementById
+  const val=parseFloat(document.getElementById('percentValue').value);
+  document.getElementById('percentResult').innerText='Percentage: '+((val/total)*100).toFixed(2)+'%';
+}
+function calculateAge(){
+  const dob=new Date(document.getElementById('dob').value);
+  const diff=Date.now()-dob.getTime();
+  document.getElementById('ageResult').innerText='Age: '+(new Date(diff).getUTCFullYear()-1970)+' years';
+}
+function calculateCI(){
+  const P=parseFloat(document.getElementById('ciPrincipal').value);
+  const R=parseFloat(document.getElementById('ciRate').value)/100;
+  const T=parseFloat(document.getElementById('ciTime').value);
+  const n=parseFloat(document.getElementById('ciComp').value);
+  document.getElementById('ciResult').innerText='Compound Interest: ₹'+(P*Math.pow(1+R/n,n*T)-P).toFixed(2);
+}
+
+// Unit
+function convertLength(){
+  const v=parseFloat(document.getElementById('lengthInput').value);
+  const u=document.getElementById('lengthUnit').value;
+  let r;
+  switch(u){case 'm':r=v+' m';break;case 'cm':r=v*100+' cm';break;case 'km':r=v/1000+' km';break;case 'inch':r=v*39.3701+' inch';break;case 'ft':r=v*3.28084+' ft';}
+  document.getElementById('lengthResult').innerText='Converted: '+r;
+}
+function convertWeight(){
+  const v=parseFloat(document.getElementById('weightInput').value);
+  const u=document.getElementById('weightUnit').value;
+  let r;
+  switch(u){case 'kg':r=v+' kg';break;case 'g':r=v*1000+' g';break;case 'lb':r=v*2.20462+' lb';break;case 'oz':r=v*35.274+' oz';}
+  document.getElementById('weightResult').innerText='Converted: '+r;
+}
+function convertTemperature(){
+  const v=parseFloat(document.getElementById('tempInput').value);
+  const u=document.getElementById('tempUnit').value;
+  let r;
+  if(u==='C')r=v+' °C';
+  else if(u==='F')r=(v*9/5+32).toFixed(2)+' °F';
+  else if(u==='K')r=(v+273.15).toFixed(2)+' K';
+  document.getElementById('tempResult').innerText='Converted: '+r;
+}
+
+// Utility / Original Idea
+function comparePrices(){
+  const p1=parseFloat(document.getElementById('price1').value);
+  const p2=parseFloat(document.getElementById('price2').value);
+  const p3=parseFloat(document.getElementById('price3').value);
+  document.getElementById('priceResult').innerText='Cheapest Price: ₹'+Math.min(p1,p2,p3);
+}
+function calculateHiddenCost(){
+  const base=parseFloat(document.getElementById('baseCost').value);
+  const tax=parseFloat(document.getElementById('taxCost').value);
+  const extra=parseFloat(document.getElementById('extraCost').value);
+  document.getElementById('hiddenCostResult').innerText='Total Cost: ₹'+(base+base*tax/100+extra).toFixed(2);
+}
+function calculateTravelCost(){
+  const d=parseFloat(document.getElementById('distance').value);
+  const price=parseFloat(document.getElementById('fuelPrice').value);
+  const eff=parseFloat(document.getElementById('fuelEfficiency').value);
+  document.getElementById('travelCostResult').innerText='Fuel Cost: ₹'+((d/eff)*price).toFixed(2);
+}
+function calculateCreatorIncome(){
+  const v=parseFloat(document.getElementById('views').value);
+  const cpm=parseFloat(document.getElementById('cpm').value);
+  document.getElementById('creatorIncomeResult').innerText='Estimated Income: ₹'+((v/1000)*cpm).toFixed(2);
+}
