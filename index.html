@@ -350,4 +350,19 @@ function convertWeight() {
     case 'lb': result = value*2.20462 + ' lb'; break;
     case 'oz': result = value*35.274 + ' oz'; break;
   }
-  document.getElementById('weightResult').innerText = 'Converted
+  document.getElementById('weightResult').innerText = 'Converted: '+result;
+}
+
+function convertTemperature() {
+  const value = parseFloat(document.getElementById('tempInput').value);
+  const unit = document.getElementById('tempUnit').value;
+  let result;
+  if(unit==='C'){ result = value+' °C'; }
+  else if(unit==='F'){ result = (value*9/5+32).toFixed(2)+' °F'; }
+  else if(unit==='K'){ result = (value+273.15).toFixed(2)+' K'; }
+  document.getElementById('tempResult').innerText = 'Converted: '+result;
+}
+</script>
+
+</body>
+</html>
