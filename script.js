@@ -1,7 +1,7 @@
 let mode="youtube"
 
 function setCalc(type){
-mode=type
+mode=type;
 }
 
 function calculate(){
