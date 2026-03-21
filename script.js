@@ -1,4 +1,18 @@
-// YouTube
+// Tab Switching
+document.addEventListener('DOMContentLoaded', function(){
+  const tabs = document.querySelectorAll('.tab-link');
+  const contents = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+    });
+  });
+});
+
+// --- Creator Calculators ---
 function calculateYouTubeIncome(){
   let views = parseFloat(document.getElementById('ytViews').value);
   let cpm = parseFloat(document.getElementById('ytCPM').value);
@@ -6,7 +20,6 @@ function calculateYouTubeIncome(){
   document.getElementById('ytIncomeResult').innerText = `$${((views/1000)*cpm).toFixed(2)}`;
 }
 
-// Instagram
 function calculateInstagramEngagement(){
   let likes = parseFloat(document.getElementById('instaLikes').value);
   let comments = parseFloat(document.getElementById('instaComments').value);
@@ -16,7 +29,6 @@ function calculateInstagramEngagement(){
   document.getElementById('instaEngagementResult').innerText = `${engagement.toFixed(2)}%`;
 }
 
-// TikTok
 function calculateTikTokEarnings(){
   let views = parseFloat(document.getElementById('tikViews').value);
   let cpm = parseFloat(document.getElementById('tikCPM').value);
@@ -24,7 +36,6 @@ function calculateTikTokEarnings(){
   document.getElementById('tikEarningsResult').innerText = `$${((views/1000)*cpm).toFixed(2)}`;
 }
 
-// CPM
 function calculateCPM(){
   let cost = parseFloat(document.getElementById('cpmTotalCost').value);
   let impressions = parseFloat(document.getElementById('cpmImpressions').value);
@@ -33,7 +44,6 @@ function calculateCPM(){
   document.getElementById('cpmResult').innerText = `$${cpm.toFixed(2)}`;
 }
 
-// Affiliate
 function calculateAffiliateIncome(){
   let clicks = parseFloat(document.getElementById('affiliateClicks').value);
   let conv = parseFloat(document.getElementById('affiliateConversion').value)/100;
@@ -42,14 +52,12 @@ function calculateAffiliateIncome(){
   document.getElementById('affiliateResult').innerText = `$${(clicks*conv*commission).toFixed(2)}`;
 }
 
-// Brand Deal
 function calculateBrandDeal(){
   let rate = parseFloat(document.getElementById('brandRate').value);
   if(isNaN(rate)){alert('Enter valid number'); return;}
   document.getElementById('brandDealResult').innerText = `$${rate.toFixed(2)}`;
 }
 
-// Creator ROI
 function calculateCreatorROI(){
   let revenue = parseFloat(document.getElementById('roiRevenue').value);
   let cost = parseFloat(document.getElementById('roiCost').value);
@@ -58,7 +66,6 @@ function calculateCreatorROI(){
   document.getElementById('roiResult').innerText = `${roi.toFixed(2)}%`;
 }
 
-// Subscriber Growth
 function calculateSubscriberGrowth(){
   let current = parseFloat(document.getElementById('subCurrent').value);
   let monthly = parseFloat(document.getElementById('subMonthly').value);
@@ -67,7 +74,6 @@ function calculateSubscriberGrowth(){
   document.getElementById('subscriberGrowthResult').innerText = `${current + (monthly*months)}`;
 }
 
-// Video Profit
 function calculateVideoProfit(){
   let revenue = parseFloat(document.getElementById('videoRevenue').value);
   let cost = parseFloat(document.getElementById('videoCost').value);
@@ -75,7 +81,6 @@ function calculateVideoProfit(){
   document.getElementById('videoProfitResult').innerText = `$${(revenue-cost).toFixed(2)}`;
 }
 
-// Influencer Rate
 function calculateInfluencerRate(){
   let followers = parseFloat(document.getElementById('influencerFollowers').value);
   let engagement = parseFloat(document.getElementById('influencerEngagement').value)/100;
