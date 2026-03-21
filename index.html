@@ -74,9 +74,9 @@
             <div class="card"><h3>Daily Calorie Intake (TDEE)</h3><div class="field"><label>Activity Level</label><select id="h3-a"><option value="1.2">Sedentary</option><option value="1.375">Lightly Active</option><option value="1.55" selected>Moderately Active</option><option value="1.725">Very Active</option></select></div><button class="btn-calc" onclick="run('h3')">Calculate TDEE</button><div class="out-box" id="r-h3">2,607 kcal</div></div>
             <div class="card"><h3>Ideal Body Weight (Devine)</h3><div class="field"><label>Gender/Height</label><div style="display:flex;gap:5px;"><select id="h4-g"><option value="m">M</option><option value="f">F</option></select><input type="number" id="h4-h" value="175"></div></div><button class="btn-calc" onclick="run('h4')">Calculate Target</button><div class="out-box" id="r-h4">70.4 kg</div></div>
             <div class="card"><h3>Pregnancy Due Date Predictor</h3><div class="field"><label>Last Period Start Date</label><input type="date" id="h5-d"></div><button class="btn-calc" onclick="run('h5')">Predict Due Date</button><div class="out-box" id="r-h5">--/--/--</div></div>
-            <div class="card"><h3>Body Fat Percentage (Navy)</h3><div class="field"><label>Waist/Neck Circumference</label><div style="display:flex;gap:5px;"><input type="number" id="h6-w" value="85"><input type="number" id="h6-n" value="38"></div></div><button class="btn-calc" onclick="run('h6')">Analyze Fat %</button><div class="out-box" id="r-h6">18.2%</div></div>
+            <div class="card"><h3>Body Fat Percentage (Navy)</h3><div class="field"><label>Waist/Neck/Hip (cm)</label><div style="display:flex;gap:5px;"><input type="number" id="h6-w" value="85" title="Waist"><input type="number" id="h6-n" value="38" title="Neck"><input type="number" id="h6-hi" value="95" title="Hip (Females Only)"></div></div><button class="btn-calc" onclick="run('h6')">Analyze Fat %</button><div class="out-box" id="r-h6">18.2%</div></div>
             <div class="card"><h3>Daily Water Intake Needs</h3><div class="field"><label>Current Weight (kg)</label><input type="number" id="h7-w" value="70"></div><button class="btn-calc" onclick="run('h7')">Calculate Liters</button><div class="out-box" id="r-h7">2.3 L</div></div>
-            <div class="card"><h3>Target Heart Rate Zones</h3><div class="field"><label>Age</label><input type="number" id="h8-a" value="25"></div><button class="btn-calc" onclick="run('h8')">Calculate Zones</button><div class="out-box" id="r-h8">136 - 165 bpm</div></div>
+            <div class="card"><h3>Target Heart Rate Zones</h3><div class="field"><label>Age / Resting HR</label><div style="display:flex;gap:5px;"><input type="number" id="h8-a" value="25"><input type="number" id="h8-rhr" value="70"></div></div><button class="btn-calc" onclick="run('h8')">Calculate Zones</button><div class="out-box" id="r-h8">136 - 165 bpm</div></div>
         </div>
     </section>
 </main>
@@ -102,7 +102,7 @@
         if(t==='c9') document.getElementById('r-c9').innerText = '$' + (document.getElementById('c9-r').value - document.getElementById('c9-c').value).toLocaleString();
         if(t==='c10') { let f = document.getElementById('c10-f').value; document.getElementById('r-c10').innerText = '$' + Math.round(f * (f<100000?0.012:0.01)).toLocaleString(); }
 
-        // --- FINANCE LOGIC (Strict Math) ---
+        // --- FINANCE LOGIC ---
         if(t==='f1') { 
             let p=document.getElementById('f1-p').value, r=(document.getElementById('f1-r').value/12)/100, n=document.getElementById('f1-m').value; 
             let emi = p * r * (Math.pow(1+r, n) / (Math.pow(1+r, n)-1));
@@ -132,28 +132,50 @@
             document.getElementById('r-f8').innerText = '$'+Math.round(p*Math.pow(1+r,y)).toLocaleString(); 
         }
 
-        // --- HEALTH LOGIC (Medical Standards) ---
+        // --- UPDATED HEALTH LOGIC ---
         if(t==='h1') { let w=document.getElementById('h1-w').value, h=document.getElementById('h1-h').value/100; document.getElementById('r-h1').innerText = (w/(h*h)).toFixed(1); }
+        
         if(t==='h2') { 
             let w=document.getElementById('h2-w').value, h=document.getElementById('h2-h').value, a=document.getElementById('h2-a').value, s=document.getElementById('h2-g').value==='m'?5:-161; 
             let bmr = (10*w) + (6.25*h) - (5*a) + s; 
             document.getElementById('r-h2').innerText = Math.round(bmr)+' kcal'; 
         }
+        
         if(t==='h3') { 
-            let bmr=parseInt(document.getElementById('r-h2').innerText)||1600; 
-            document.getElementById('r-h3').innerText = Math.round(bmr*document.getElementById('h3-a').value).toLocaleString()+' kcal'; 
+            // Calculate BMR first or pull from BMR card
+            let w=document.getElementById('h2-w').value, h=document.getElementById('h2-h').value, a=document.getElementById('h2-a').value, s=document.getElementById('h2-g').value==='m'?5:-161;
+            let bmr = (10*w) + (6.25*h) - (5*a) + s;
+            document.getElementById('r-h3').innerText = Math.round(bmr * document.getElementById('h3-a').value).toLocaleString()+' kcal'; 
         }
+        
         if(t==='h4') { 
             let h_in=document.getElementById('h4-h').value/2.54, base=document.getElementById('h4-g').value==='m'?50:45.5; 
             document.getElementById('r-h4').innerText = (base+2.3*(h_in-60)).toFixed(1)+' kg'; 
         }
+        
         if(t==='h5') { let d=new Date(document.getElementById('h5-d').value); if(!isNaN(d)){d.setDate(d.getDate()+280); document.getElementById('r-h5').innerText = d.toLocaleDateString();} }
+        
         if(t==='h6') { 
-            let wa=document.getElementById('h6-w').value, ne=document.getElementById('h6-n').value, he=175; 
-            document.getElementById('r-h6').innerText = Math.abs(495/(1.0324-0.19*Math.log10(wa-ne)+0.15*Math.log10(he))-450).toFixed(1)+'%'; 
+            let wa=document.getElementById('h6-w').value, ne=document.getElementById('h6-n').value, hi=document.getElementById('h6-hi').value, he=document.getElementById('h2-h').value, g=document.getElementById('h2-g').value; 
+            let bf;
+            if(g==='m') bf = 495 / (1.0324 - 0.19077 * Math.log10(wa-ne) + 0.15456 * Math.log10(he)) - 450;
+            else bf = 495 / (1.29579 - 0.35004 * Math.log10(parseFloat(wa)+parseFloat(hi)-ne) + 0.22100 * Math.log10(he)) - 450;
+            document.getElementById('r-h6').innerText = Math.abs(bf).toFixed(1)+'%'; 
         }
-        if(t==='h7') document.getElementById('r-h7').innerText = (document.getElementById('h7-w').value*0.033).toFixed(1)+' L';
-        if(t==='h8') { let age=document.getElementById('h8-a').value; document.getElementById('r-h8').innerText = Math.round((220-age)*0.7)+' - '+Math.round((220-age)*0.85)+' bpm'; }
+        
+        if(t==='h7') {
+            let weight = document.getElementById('h7-w').value;
+            document.getElementById('r-h7').innerText = (weight * 0.033).toFixed(1)+' L';
+        }
+        
+        if(t==='h8') { 
+            let age=document.getElementById('h8-a').value, rhr=document.getElementById('h8-rhr').value; 
+            let mhr = 220 - age;
+            let hrr = mhr - rhr;
+            let low = (hrr * 0.6) + parseInt(rhr);
+            let high = (hrr * 0.8) + parseInt(rhr);
+            document.getElementById('r-h8').innerText = Math.round(low)+' - '+Math.round(high)+' bpm'; 
+        }
     }
 </script>
 </body>
