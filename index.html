@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatorProfitLab | 40+ Precision Tool Suite</title>
+    <title>CreatorProfitLab | Professional 35-Tool Suite</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --brand: #4f46e5; --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0; }
@@ -14,16 +14,16 @@
         nav button { width: 100%; padding: 0.9rem 1.2rem; margin-bottom: 0.6rem; border: none; border-radius: 12px; background: transparent; color: var(--text-muted); font-weight: 700; text-align: left; cursor: pointer; transition: 0.2s; }
         nav button.active { background: var(--brand); color: white; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
         main { flex: 1; margin-left: 280px; padding: 3rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--surface); padding: 1.8rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
-        .card h3 { font-size: 0.95rem; margin-bottom: 1.2rem; color: var(--brand); font-weight: 800; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; min-height: 2.5rem; }
-        .field { margin-bottom: 1rem; }
-        label { font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 5px; }
-        input, select { width: 100%; padding: 0.7rem; border-radius: 10px; border: 1px solid var(--border); background: #fdfdfd; color: var(--text); font-weight: 600; font-size: 0.95rem; outline: none; }
-        input:focus { border-color: var(--brand); }
-        .btn-calc { width: 100%; padding: 0.9rem; background: var(--brand); color: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; margin-top: 10px; transition: transform 0.1s; }
-        .btn-calc:active { transform: scale(0.98); }
-        .out-box { margin-top: 1.2rem; padding: 1rem; background: #f5f7ff; border-radius: 12px; text-align: center; font-weight: 800; color: var(--brand); border: 2px dashed #e0e7ff; font-size: 1.1rem; }
+        .tab-content { display: none; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--surface); padding: 1.5rem; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); }
+        .card h3 { font-size: 0.9rem; margin-bottom: 1rem; color: var(--brand); font-weight: 800; border-bottom: 2px solid #f1f5f9; padding-bottom: 8px; }
+        .field { margin-bottom: 0.8rem; }
+        label { font-size: 0.6rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px; }
+        input, select { width: 100%; padding: 0.6rem; border-radius: 8px; border: 1px solid var(--border); background: #fdfdfd; font-weight: 600; font-size: 0.9rem; outline: none; }
+        .btn-calc { width: 100%; padding: 0.8rem; background: var(--brand); color: white; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; margin-top: 10px; }
+        .out-box { margin-top: 1rem; padding: 0.8rem; background: #f5f7ff; border-radius: 10px; text-align: center; font-weight: 800; color: var(--brand); border: 2px dashed #e0e7ff; }
         @media (max-width: 1024px) { aside { width: 100%; height: auto; position: relative; } main { margin-left: 0; padding: 1.5rem; } body { flex-direction: column; } }
     </style>
 </head>
@@ -41,54 +41,53 @@
 </aside>
 
 <main>
-    <section id="creator" class="tab-content">
+    <section id="creator" class="tab-content" style="display:block">
         <div class="grid">
-            <div class="card"><h3>YouTube Ad Revenue</h3><div class="field"><label>Total Views</label><input type="number" id="c1-v" value="100000"></div><div class="field"><label>Average CPM ($)</label><input type="number" id="c1-c" value="5"></div><button class="btn-calc" onclick="run('c1')">Calculate</button><div class="out-box" id="r-c1">$500</div></div>
-            <div class="card"><h3>Engagement Rate</h3><div class="field"><label>Total Followers</label><input type="number" id="c2-f" value="10000"></div><div class="field"><label>Total Interactions</label><input type="number" id="c2-e" value="500"></div><button class="btn-calc" onclick="run('c2')">Calculate</button><div class="out-box" id="r-c2">5.0%</div></div>
-            <div class="card"><h3>Sponsorship Quote</h3><div class="field"><label>Follower Count</label><input type="number" id="c6-f" value="50000"></div><button class="btn-calc" onclick="run('c6')">Calculate</button><div class="out-box" id="r-c6">$1,250</div></div>
+            <div class="card"><h3>YouTube Revenue</h3><div class="field"><label>Views</label><input type="number" id="c1-v" value="100000"></div><div class="field"><label>CPM ($)</label><input type="number" id="c1-c" value="5"></div><button class="btn-calc" onclick="run('c1')">Calculate</button><div class="out-box" id="r-c1">$500</div></div>
+            <div class="card"><h3>Engagement Rate</h3><div class="field"><label>Followers</label><input type="number" id="c2-f" value="10000"></div><div class="field"><label>Interactions</label><input type="number" id="c2-e" value="500"></div><button class="btn-calc" onclick="run('c2')">Calculate</button><div class="out-box" id="r-c2">5.0%</div></div>
+            <div class="card"><h3>TikTok Payout</h3><div class="field"><label>Views</label><input type="number" id="c3-v" value="1000000"></div><button class="btn-calc" onclick="run('c3')">Calculate</button><div class="out-box" id="r-c3">$30</div></div>
         </div>
     </section>
 
-    <section id="finance" class="tab-content" style="display:none">
+    <section id="finance" class="tab-content">
         <div class="grid">
-            <div class="card"><h3>Loan EMI Calculator</h3><div class="field"><label>Principal ($)</label><input type="number" id="f1-p" value="10000"></div><div class="field"><label>Annual Rate %</label><input type="number" id="f1-r" value="10"></div><div class="field"><label>Months</label><input type="number" id="f1-m" value="12"></div><button class="btn-calc" onclick="run('f1')">Calculate</button><div class="out-box" id="r-f1">$879.16</div></div>
-            <div class="card"><h3>Compound Interest</h3><div class="field"><label>Initial Principal</label><input type="number" id="f8-p" value="5000"></div><div class="field"><label>Rate %</label><input type="number" id="f8-r" value="10"></div><div class="field"><label>Years</label><input type="number" id="f8-y" value="5"></div><button class="btn-calc" onclick="run('f8')">Calculate</button><div class="out-box" id="r-f8">$8,052</div></div>
+            <div class="card"><h3>Loan EMI</h3><div class="field"><label>Principal</label><input type="number" id="f1-p" value="10000"></div><div class="field"><label>Rate %</label><input type="number" id="f1-r" value="10"></div><div class="field"><label>Months</label><input type="number" id="f1-m" value="12"></div><button class="btn-calc" onclick="run('f1')">Calculate</button><div class="out-box" id="r-f1">$879.16</div></div>
+            <div class="card"><h3>Tax Estimator</h3><div class="field"><label>Income</label><input type="number" id="f7-i" value="80000"></div><button class="btn-calc" onclick="run('f7')">Calculate</button><div class="out-box" id="r-f7">$13,000</div></div>
         </div>
     </section>
 
-    <section id="health" class="tab-content" style="display:none">
+    <section id="health" class="tab-content">
         <div class="grid">
-            <div class="card"><h3>Body Mass Index (BMI)</h3><div class="field"><label>Weight (kg)</label><input type="number" id="h1-w" value="70"></div><div class="field"><label>Height (cm)</label><input type="number" id="h1-h" value="175"></div><button class="btn-calc" onclick="run('h1')">Check BMI</button><div class="out-box" id="r-h1">22.9</div></div>
-            <div class="card"><h3>Water Intake</h3><div class="field"><label>Weight (kg)</label><input type="number" id="h7-w" value="70"></div><button class="btn-calc" onclick="run('h7')">Calculate</button><div class="out-box" id="r-h7">2.3 L</div></div>
+            <div class="card"><h3>BMI Calculator</h3><div class="field"><label>W (kg) / H (cm)</label><div style="display:flex;gap:5px;"><input type="number" id="h1-w" value="70"><input type="number" id="h1-h" value="175"></div></div><button class="btn-calc" onclick="run('h1')">Calculate</button><div class="out-box" id="r-h1">22.9</div></div>
         </div>
     </section>
 
-    <section id="math" class="tab-content" style="display:none">
+    <section id="math" class="tab-content">
         <div class="grid">
-            <div class="card"><h3>Percentage Calc</h3><div class="field"><label>Obtained / Total</label><div style="display:flex;gap:5px;"><input type="number" id="m1-o" value="450"><input type="number" id="m1-t" value="500"></div></div><button class="btn-calc" onclick="run('m1')">Calculate</button><div class="out-box" id="r-m1">90%</div></div>
-            <div class="card"><h3>Unit Converter</h3><div class="field"><label>Value / Category</label><div style="display:flex;gap:5px;"><input type="number" id="m6-v" value="1"><select id="m6-c"><option value="km-mi">Km to Miles</option><option value="kg-lb">Kg to Lbs</option></select></div></div><button class="btn-calc" onclick="run('m6')">Convert</button><div class="out-box" id="r-m6">0.62 mi</div></div>
+            <div class="card"><h3>Age Calculator</h3><div class="field"><label>DOB</label><input type="date" id="m2-d"></div><button class="btn-calc" onclick="run('m2')">Calculate</button><div class="out-box" id="r-m2">-- Years</div></div>
+            <div class="card"><h3>Unit Converter</h3><div class="field"><label>Value</label><input type="number" id="m6-v" value="1"></div><div class="field"><label>Mode</label><select id="m6-c"><option value="km-mi">Km to Miles</option><option value="kg-lb">Kg to Lbs</option></select></div><button class="btn-calc" onclick="run('m6')">Convert</button><div class="out-box" id="r-m6">0.62 mi</div></div>
         </div>
     </section>
 
-    <section id="utility" class="tab-content" style="display:none">
+    <section id="utility" class="tab-content">
         <div class="grid">
-            <div class="card"><h3>Break-even Calc</h3><div class="field"><label>Fixed Costs / Price</label><div style="display:flex;gap:5px;"><input type="number" id="u5-f" value="2000"><input type="number" id="u5-p" value="50"></div></div><div class="field"><label>Variable Cost/Unit</label><input type="number" id="u5-v" value="20"></div><button class="btn-calc" onclick="run('u5')">Find Units</button><div class="out-box" id="r-u5">67 Units</div></div>
-            <div class="card"><h3>Discount / Sale</h3><div class="field"><label>Price / Discount %</label><div style="display:flex;gap:5px;"><input type="number" id="u9-p" value="120"><input type="number" id="u9-d" value="25"></div></div><button class="btn-calc" onclick="run('u9')">Final Price</button><div class="out-box" id="r-u9">$90.00</div></div>
+            <div class="card"><h3>Price Comparison</h3><div class="field"><label>Item A: $/Qty</label><div style="display:flex;gap:5px;"><input type="number" id="u1-p1" value="10"><input type="number" id="u1-q1" value="2"></div></div><div class="field"><label>Item B: $/Qty</label><div style="display:flex;gap:5px;"><input type="number" id="u1-p2" value="18"><input type="number" id="u1-q2" value="4"></div></div><button class="btn-calc" onclick="run('u1')">Compare</button><div class="out-box" id="r-u1">Item B is cheaper</div></div>
+            <div class="card"><h3>Hidden Cost</h3><div class="field"><label>Base Price</label><input type="number" id="u2-b" value="100"></div><div class="field"><label>Tax% + Fees$</label><div style="display:flex;gap:5px;"><input type="number" id="u2-t" value="8"><input type="number" id="u2-f" value="15"></div></div><button class="btn-calc" onclick="run('u2')">Calculate</button><div class="out-box" id="r-u2">$123.00</div></div>
+            <div class="card"><h3>Fuel Cost</h3><div class="field"><label>Dist / Eff / Fuel$</label><div style="display:flex;gap:5px;"><input type="number" id="u3-d" value="500"><input type="number" id="u3-e" value="15"><input type="number" id="u3-p" value="1.5"></div></div><button class="btn-calc" onclick="run('u3')">Calculate</button><div class="out-box" id="r-u3">$50.00</div></div>
+            <div class="card"><h3>Website ROI</h3><div class="field"><label>Cost / Revenue</label><div style="display:flex;gap:5px;"><input type="number" id="u4-c" value="500"><input type="number" id="u4-r" value="1500"></div></div><button class="btn-calc" onclick="run('u4')">Calculate</button><div class="out-box" id="r-u4">200% ROI</div></div>
+            <div class="card"><h3>Break-even</h3><div class="field"><label>Fixed Cost / Price</label><div style="display:flex;gap:5px;"><input type="number" id="u5-f" value="2000"><input type="number" id="u5-p" value="50"></div></div><div class="field"><label>Var Cost/Unit</label><input type="number" id="u5-v" value="20"></div><button class="btn-calc" onclick="run('u5')">Calculate</button><div class="out-box" id="r-u5">67 Units</div></div>
+            <div class="card"><h3>Startup Value</h3><div class="field"><label>Profit / Growth%</label><div style="display:flex;gap:5px;"><input type="number" id="u6-p" value="5000"><input type="number" id="u6-g" value="10"></div></div><button class="btn-calc" onclick="run('u6')">Estimate</button><div class="out-box" id="r-u6">$300,000</div></div>
+            <div class="card"><h3>Loan Eligibility</h3><div class="field"><label>Income / EMI</label><div style="display:flex;gap:5px;"><input type="number" id="u7-i" value="5000"><input type="number" id="u7-e" value="500"></div></div><button class="btn-calc" onclick="run('u7')">Calculate</button><div class="out-box" id="r-u7">$180,000</div></div>
+            <div class="card"><h3>Retirement</h3><div class="field"><label>Current / Target / Save</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="u8-s" value="10000"><input type="number" id="u8-t" value="500000"><input type="number" id="u8-c" value="1000"></div></div><button class="btn-calc" onclick="run('u8')">Check Gap</button><div class="out-box" id="r-u8">$490,000</div></div>
+            <div class="card"><h3>Discount Calc</h3><div class="field"><label>Price / Disc %</label><div style="display:flex;gap:5px;"><input type="number" id="u9-p" value="120"><input type="number" id="u9-d" value="25"></div></div><button class="btn-calc" onclick="run('u9')">Final Price</button><div class="out-box" id="r-u9">$90.00</div></div>
         </div>
     </section>
 </main>
 
 <script>
     function tab(e, id) {
-        // Hide all sections
-        const sections = document.querySelectorAll('.tab-content');
-        sections.forEach(sec => sec.style.display = 'none');
-        
-        // Remove active class from all buttons
-        const buttons = document.querySelectorAll('nav button');
-        buttons.forEach(btn => btn.classList.remove('active'));
-        
-        // Show the selected section and highlight button
+        document.querySelectorAll('.tab-content').forEach(x => x.style.display = 'none');
+        document.querySelectorAll('nav button').forEach(x => x.classList.remove('active'));
         document.getElementById(id).style.display = 'block';
         e.currentTarget.classList.add('active');
     }
@@ -97,39 +96,22 @@
         // Creator Logic
         if(t==='c1') document.getElementById('r-c1').innerText = '$' + (document.getElementById('c1-v').value/1000 * document.getElementById('c1-c').value).toLocaleString();
         if(t==='c2') document.getElementById('r-c2').innerText = (document.getElementById('c2-e').value / document.getElementById('c2-f').value * 100).toFixed(1) + '%';
-        if(t==='c6') document.getElementById('r-c6').innerText = '$' + (document.getElementById('c6-f').value * 0.025).toLocaleString();
-
-        // Finance Logic
-        if(t==='f1') { 
-            let p=document.getElementById('f1-p').value, r=(document.getElementById('f1-r').value/12)/100, n=document.getElementById('f1-m').value; 
-            let emi = p * r * (Math.pow(1+r, n) / (Math.pow(1+r, n)-1));
-            document.getElementById('r-f1').innerText = '$' + emi.toFixed(2); 
-        }
-        if(t==='f8') {
-            let p=parseFloat(document.getElementById('f8-p').value), r=document.getElementById('f8-r').value/100, y=document.getElementById('f8-y').value; 
-            document.getElementById('r-f8').innerText = '$'+Math.round(p*Math.pow(1+r,y)).toLocaleString(); 
-        }
-
-        // Health Logic
+        if(t==='c3') document.getElementById('r-c3').innerText = '$' + (document.getElementById('c3-v').value * 0.00003).toLocaleString();
+        
+        // Finance & Health
+        if(t==='f1') { let p=document.getElementById('f1-p').value, r=(document.getElementById('f1-r').value/12)/100, n=document.getElementById('f1-m').value; let emi = p * r * (Math.pow(1+r, n) / (Math.pow(1+r, n)-1)); document.getElementById('r-f1').innerText = '$' + emi.toFixed(2); }
         if(t==='h1') { let w=document.getElementById('h1-w').value, h=document.getElementById('h1-h').value/100; document.getElementById('r-h1').innerText = (w/(h*h)).toFixed(1); }
-        if(t==='h7') { document.getElementById('r-h7').innerText = (document.getElementById('h7-w').value * 0.033).toFixed(1)+' L'; }
-
-        // Math Logic
-        if(t==='m1') document.getElementById('r-m1').innerText = (document.getElementById('m1-o').value / document.getElementById('m1-t').value * 100).toFixed(1) + '%';
-        if(t==='m6') {
-            let v = parseFloat(document.getElementById('m6-v').value), c = document.getElementById('m6-c').value;
-            document.getElementById('r-m6').innerText = (c==='km-mi' ? (v*0.62).toFixed(2)+' mi' : (v*2.2).toFixed(2)+' lbs');
-        }
-
+        
         // Utility Logic
-        if(t==='u5') {
-            let units = document.getElementById('u5-f').value / (document.getElementById('u5-p').value - document.getElementById('u5-v').value);
-            document.getElementById('r-u5').innerText = Math.ceil(units) + " Units";
-        }
-        if(t==='u9') {
-            let final = document.getElementById('u9-p').value * (1 - document.getElementById('u9-d').value/100);
-            document.getElementById('r-u9').innerText = "$" + final.toFixed(2);
-        }
+        if(t==='u1') { let u1 = document.getElementById('u1-p1').value / document.getElementById('u1-q1').value; let u2 = document.getElementById('u1-p2').value / document.getElementById('u1-q2').value; document.getElementById('r-u1').innerText = u1 < u2 ? "Item A is cheaper" : "Item B is cheaper"; }
+        if(t==='u2') { let total = parseFloat(document.getElementById('u2-b').value) * (1 + document.getElementById('u2-t').value/100) + parseFloat(document.getElementById('u2-f').value); document.getElementById('r-u2').innerText = "$" + total.toFixed(2); }
+        if(t==='u3') { let cost = (document.getElementById('u3-d').value / document.getElementById('u3-e').value) * document.getElementById('u3-p').value; document.getElementById('r-u3').innerText = "$" + cost.toFixed(2); }
+        if(t==='u4') { let roi = ((document.getElementById('u4-r').value - document.getElementById('u4-c').value) / document.getElementById('u4-c').value) * 100; document.getElementById('r-u4').innerText = roi.toFixed(0) + "% ROI"; }
+        if(t==='u5') { let units = document.getElementById('u5-f').value / (document.getElementById('u5-p').value - document.getElementById('u5-v').value); document.getElementById('r-u5').innerText = Math.ceil(units) + " Units"; }
+        if(t==='u6') { let val = (document.getElementById('u6-p').value * 12) * (document.getElementById('u6-g').value / 2); document.getElementById('r-u6').innerText = "$" + Math.round(val).toLocaleString(); }
+        if(t==='u7') { let disp = (document.getElementById('u7-i').value * 0.4) - document.getElementById('u7-e').value; document.getElementById('r-u7').innerText = "$" + Math.round(disp * 100).toLocaleString(); }
+        if(t==='u8') { document.getElementById('r-u8').innerText = "Gap: $" + (document.getElementById('u8-t').value - document.getElementById('u8-s').value).toLocaleString(); }
+        if(t==='u9') { let final = document.getElementById('u9-p').value * (1 - document.getElementById('u9-d').value/100); document.getElementById('r-u9').innerText = "$" + final.toFixed(2); }
     }
 </script>
 </body>
