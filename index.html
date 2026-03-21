@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatorProfitLab | #1 Professional Calculator Suite</title>
+    <title>CreatorProfitLab | The Complete Professional Suite</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -47,8 +47,7 @@
         }
 
         .logo { font-size: 1.5rem; font-weight: 800; color: var(--brand); margin-bottom: 3rem; letter-spacing: -1px; display: flex; align-items: center; gap: 8px; }
-        .logo span { color: var(--text); }
-
+        
         nav button {
             width: 100%;
             padding: 0.9rem 1.2rem;
@@ -70,7 +69,7 @@
         main { flex: 1; margin-left: 280px; padding: 4rem; }
         .hero { margin-bottom: 3.5rem; }
         .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -1.5px; margin-bottom: 0.5rem; }
-        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; }
         .card {
@@ -81,11 +80,10 @@
             box-shadow: var(--shadow);
             position: relative;
         }
-        .card:hover { border-color: var(--brand); transform: translateY(-3px); }
         .card h3 { font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 800; color: var(--text); border-bottom: 2px solid var(--brand); display: inline-block; padding-bottom: 4px; }
 
         .field { margin-bottom: 1.2rem; }
-        label { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; display: block; letter-spacing: 0.05em; }
+        label { font-size: 0.7rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; display: block; }
         input, select {
             width: 100%;
             padding: 0.85rem 1rem;
@@ -95,9 +93,7 @@
             color: var(--text);
             font-weight: 700;
             outline: none;
-            font-size: 0.95rem;
         }
-        input:focus { border-color: var(--brand); }
 
         .btn-calc {
             width: 100%;
@@ -110,7 +106,6 @@
             cursor: pointer;
             margin-top: 0.5rem;
         }
-        .btn-calc:hover { background: var(--brand-dark); }
 
         .output-box {
             margin-top: 1.5rem;
@@ -123,21 +118,10 @@
         .out-label { font-size: 0.7rem; font-weight: 800; color: var(--brand); text-transform: uppercase; display: block; margin-bottom: 4px; }
         .out-val { font-size: 1.6rem; font-weight: 800; color: var(--brand); }
 
-        .btn-save {
-            width: 100%;
-            margin-top: 10px;
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: 700;
-            cursor: pointer;
-        }
+        .btn-save { width: 100%; margin-top: 10px; background: transparent; border: 1px solid var(--border); color: var(--text-muted); padding: 8px; border-radius: 10px; font-size: 0.7rem; font-weight: 700; cursor: pointer; }
 
         @media (max-width: 1024px) {
-            aside { width: 100%; height: auto; position: relative; padding: 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+            aside { width: 100%; height: auto; position: relative; padding: 1.5rem; }
             main { margin-left: 0; padding: 2rem; }
             .app-wrapper { flex-direction: column; }
         }
@@ -158,119 +142,46 @@
 
     <main>
         <section id="creator-lab" class="tab-pane">
-            <div class="hero"><h1>Creator Intelligence</h1><p>Advanced metrics for professional YouTubers and TikTokers.</p></div>
+            <div class="hero"><h1>Creator Intelligence</h1><p>10 Pro tools for YouTube, TikTok & Instagram growth.</p></div>
             <div class="grid">
-                <div class="card" id="card-yt">
-                    <h3>YouTube Income</h3>
-                    <div class="field"><label>Monthly Views</label><input type="number" id="yt-v" value="100000"></div>
-                    <div class="field"><label>CPM ($)</label><input type="number" id="yt-c" value="4.50"></div>
-                    <button class="btn-calc" onclick="run('yt')">Calculate</button>
-                    <div class="output-box"><span class="out-label">Monthly Income</span><div class="out-val" id="yt-r">$450.00</div></div>
-                    <button class="btn-save" onclick="saveAs('card-yt')">📸 SAVE AS IMAGE</button>
-                </div>
-                </div>
+                <div class="card" id="c-yt"><h3>YouTube Income</h3><div class="field"><label>Views</label><input type="number" id="yt-v" value="100000"></div><div class="field"><label>CPM ($)</label><input type="number" id="yt-c" value="4.50"></div><button class="btn-calc" onclick="run('yt')">Calculate</button><div class="output-box"><span class="out-label">Income</span><div class="out-val" id="yt-r">$450.00</div></div><button class="btn-save" onclick="saveAs('c-yt')">📸 SAVE</button></div>
+                <div class="card" id="c-ig"><h3>IG Engagement</h3><div class="field"><label>Followers</label><input type="number" id="ig-f" value="10000"></div><div class="field"><label>Engagements</label><input type="number" id="ig-e" value="350"></div><button class="btn-calc" onclick="run('ig')">Analyze</button><div class="output-box"><span class="out-label">Rate</span><div class="out-val" id="ig-r">3.50%</div></div><button class="btn-save" onclick="saveAs('c-ig')">📸 SAVE</button></div>
+                <div class="card" id="c-tt"><h3>TikTok Earnings</h3><div class="field"><label>Views</label><input type="number" id="tt-v" value="1000000"></div><button class="btn-calc" onclick="run('tt')">Estimate</button><div class="output-box"><span class="out-label">Payout</span><div class="out-val" id="tt-r">$30.00</div></div><button class="btn-save" onclick="saveAs('c-tt')">📸 SAVE</button></div>
+                <div class="card" id="c-cpm"><h3>CPM Calculator</h3><div class="field"><label>Ad Cost ($)</label><input type="number" id="cpm-co" value="1200"></div><div class="field"><label>Impressions</label><input type="number" id="cpm-im" value="250000"></div><button class="btn-calc" onclick="run('cpm')">Calculate</button><div class="output-box"><span class="out-label">CPM</span><div class="out-val" id="cpm-r">$4.80</div></div><button class="btn-save" onclick="saveAs('c-cpm')">📸 SAVE</button></div>
+                <div class="card" id="c-af"><h3>Affiliate Income</h3><div class="field"><label>Clicks</label><input type="number" id="af-cl" value="5000"></div><div class="field"><label>Conv %</label><input type="number" id="af-cr" value="2.0"></div><div class="field"><label>Payout ($)</label><input type="number" id="af-pa" value="50"></div><button class="btn-calc" onclick="run('af')">Project</button><div class="output-box"><span class="out-label">Revenue</span><div class="out-val" id="af-r">$5,000</div></div><button class="btn-save" onclick="saveAs('c-af')">📸 SAVE</button></div>
+                <div class="card" id="c-bd"><h3>Brand Deal Rate</h3><div class="field"><label>Followers</label><input type="number" id="bd-f" value="50000"></div><button class="btn-calc" onclick="run('bd')">Quote</button><div class="output-box"><span class="out-label">Quote</span><div class="out-val" id="bd-r">$1,000</div></div><button class="btn-save" onclick="saveAs('c-bd')">📸 SAVE</button></div>
+                <div class="card" id="c-roi"><h3>Creator ROI</h3><div class="field"><label>Revenue</label><input type="number" id="roi-r" value="3000"></div><div class="field"><label>Cost</label><input type="number" id="roi-c" value="1000"></div><button class="btn-calc" onclick="run('roi')">ROI %</button><div class="output-box"><span class="out-label">Return</span><div class="out-val" id="roi-res">200%</div></div><button class="btn-save" onclick="saveAs('c-roi')">📸 SAVE</button></div>
+                <div class="card" id="c-sg"><h3>Sub Growth</h3><div class="field"><label>Current</label><input type="number" id="sg-c" value="5000"></div><div class="field"><label>Growth %</label><input type="number" id="sg-g" value="10"></div><button class="btn-calc" onclick="run('sg')">Project</button><div class="output-box"><span class="out-label">Target</span><div class="out-val" id="sg-r">5,500</div></div><button class="btn-save" onclick="saveAs('c-sg')">📸 SAVE</button></div>
+                <div class="card" id="c-vp"><h3>Video Profit</h3><div class="field"><label>Revenue</label><input type="number" id="vp-r" value="2000"></div><div class="field"><label>Exp</label><input type="number" id="vp-e" value="400"></div><button class="btn-calc" onclick="run('vp')">Net</button><div class="output-box"><span class="out-label">Profit</span><div class="out-val" id="vp-r-res">$1,600</div></div><button class="btn-save" onclick="saveAs('c-vp')">📸 SAVE</button></div>
+                <div class="card" id="c-ir"><h3>Influencer Rate</h3><div class="field"><label>Followers</label><input type="number" id="ir-f" value="100000"></div><button class="btn-calc" onclick="run('ir')">Market Val</button><div class="output-box"><span class="out-label">Rate</span><div class="out-val" id="ir-r">$1,250</div></div><button class="btn-save" onclick="saveAs('c-ir')">📸 SAVE</button></div>
+            </div>
         </section>
 
         <section id="finance-lab" class="tab-pane" style="display:none">
-            <div class="hero"><h1>Finance Suite</h1><p>Investment and debt tracking tools.</p></div>
+            <div class="hero"><h1>Finance Suite</h1><p>Investment and Wealth management tools.</p></div>
             <div class="grid">
-                <div class="card" id="card-emi">
-                    <h3>EMI Calculator</h3>
-                    <div class="field"><label>Principal ($)</label><input type="number" id="f-emi-p" value="10000"></div>
-                    <div class="field"><label>Annual Rate %</label><input type="number" id="f-emi-r" value="8"></div>
-                    <div class="field"><label>Months</label><input type="number" id="f-emi-m" value="12"></div>
-                    <button class="btn-calc" onclick="run('f-emi')">Calculate</button>
-                    <div class="output-box"><span class="out-label">Monthly EMI</span><div class="out-val" id="f-emi-res">$869.88</div></div>
-                    <button class="btn-save" onclick="saveAs('card-emi')">📸 SAVE AS IMAGE</button>
-                </div>
+                <div class="card" id="f-emi"><h3>EMI Calculator</h3><div class="field"><label>Principal</label><input type="number" id="emi-p" value="10000"></div><div class="field"><label>Rate %</label><input type="number" id="emi-r" value="8.5"></div><div class="field"><label>Months</label><input type="number" id="emi-m" value="12"></div><button class="btn-calc" onclick="run('f-emi')">Calculate</button><div class="output-box"><span class="out-label">EMI</span><div class="out-val" id="emi-res">$872</div></div><button class="btn-save" onclick="saveAs('f-emi')">📸 SAVE</button></div>
+                <div class="card" id="f-sip"><h3>SIP (Mutual Funds)</h3><div class="field"><label>Monthly</label><input type="number" id="sip-m" value="500"></div><div class="field"><label>Years</label><input type="number" id="sip-y" value="10"></div><button class="btn-calc" onclick="run('f-sip')">Future Val</button><div class="output-box"><span class="out-label">Wealth</span><div class="out-val" id="sip-res">$116,170</div></div><button class="btn-save" onclick="saveAs('f-sip')">📸 SAVE</button></div>
+                <div class="card" id="f-gst"><h3>GST Calculator</h3><div class="field"><label>Amount</label><input type="number" id="gst-a" value="1000"></div><div class="field"><label>GST %</label><input type="number" id="gst-r" value="18"></div><button class="btn-calc" onclick="run('f-gst')">Total</button><div class="output-box"><span class="out-label">With Tax</span><div class="out-val" id="gst-res">$1,180</div></div><button class="btn-save" onclick="saveAs('f-gst')">📸 SAVE</button></div>
+                <div class="card" id="f-cry"><h3>Crypto Profit</h3><div class="field"><label>Buy $</label><input type="number" id="cry-b" value="40000"></div><div class="field"><label>Sell $</label><input type="number" id="cry-s" value="50000"></div><button class="btn-calc" onclick="run('f-cry')">Profit</button><div class="output-box"><span class="out-label">Gains</span><div class="out-val" id="cry-res">$10,000</div></div><button class="btn-save" onclick="saveAs('f-cry')">📸 SAVE</button></div>
+                <div class="card" id="f-fd"><h3>Fixed Deposit</h3><div class="field"><label>Principal</label><input type="number" id="fd-p" value="5000"></div><button class="btn-calc" onclick="run('f-fd')">Maturity</button><div class="output-box"><div class="out-val" id="fd-res">$7,150</div></div><button class="btn-save" onclick="saveAs('f-fd')">📸 SAVE</button></div>
+                <div class="card" id="f-rd"><h3>Recurring Deposit</h3><div class="field"><label>Monthly</label><input type="number" id="rd-m" value="1000"></div><button class="btn-calc" onclick="run('f-rd')">Project</button><div class="output-box"><div class="out-val" id="rd-res">$25,600</div></div><button class="btn-save" onclick="saveAs('f-rd')">📸 SAVE</button></div>
+                <div class="card" id="f-tax"><h3>Income Tax</h3><div class="field"><label>Income</label><input type="number" id="tax-i" value="80000"></div><button class="btn-calc" onclick="run('f-tax')">Estimate</button><div class="output-box"><div class="out-val" id="tax-res">$14,500</div></div><button class="btn-save" onclick="saveAs('f-tax')">📸 SAVE</button></div>
+                <div class="card" id="f-ci"><h3>Compound Interest</h3><div class="field"><label>Years</label><input type="number" id="ci-y" value="5"></div><button class="btn-calc" onclick="run('f-ci')">Calculate</button><div class="output-box"><div class="out-val" id="ci-res">$8,050</div></div><button class="btn-save" onclick="saveAs('f-ci')">📸 SAVE</button></div>
             </div>
         </section>
 
         <section id="health-lab" class="tab-pane" style="display:none">
-            <div class="hero">
-                <h1>Health & Nutrition Lab</h1>
-                <p>Scientific body metrics for maintaining peak physiological performance.</p>
-            </div>
-            
+            <div class="hero"><h1>Health & Nutrition</h1><p>Scientific body metrics and hydration tools.</p></div>
             <div class="grid">
-                <div class="card" id="h-card-bmi">
-                    <h3>BMI Calculator</h3>
-                    <div class="field"><label>Weight (kg)</label><input type="number" id="h-bmi-w" value="70"></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-bmi-h" value="175"></div>
-                    <button class="btn-calc" onclick="run('h-bmi')">Analyze BMI</button>
-                    <div class="output-box"><span class="out-label">Body Mass Index</span><div class="out-val" id="h-bmi-res">22.9</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-bmi')">📸 SAVE IMAGE</button>
-                </div>
-
-                <div class="card" id="h-card-bmr">
-                    <h3>BMR Calculator</h3>
-                    <div class="field"><label>Gender</label><select id="h-bmr-g"><option value="m">Male</option><option value="f">Female</option></select></div>
-                    <div class="field"><label>Age</label><input type="number" id="h-bmr-a" value="25"></div>
-                    <div class="field"><label>Weight (kg)</label><input type="number" id="h-bmr-w" value="70"></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-bmr-h" value="175"></div>
-                    <button class="btn-calc" onclick="run('h-bmr')">Calculate BMR</button>
-                    <div class="output-box"><span class="out-label">Basal Metabolic Rate</span><div class="out-val" id="h-bmr-res">1,724 kcal</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-bmr')">📸 SAVE IMAGE</button>
-                </div>
-
-                <div class="card" id="h-card-cal">
-                    <h3>Daily Calorie intake</h3>
-                    <div class="field"><label>Activity Level</label>
-                        <select id="h-cal-act">
-                            <option value="1.2">Sedentary (Office job)</option>
-                            <option value="1.375">Lightly Active</option>
-                            <option value="1.55" selected>Moderate Exercise</option>
-                            <option value="1.725">Very Active</option>
-                        </select>
-                    </div>
-                    <button class="btn-calc" onclick="run('h-cal')">Project Intake</button>
-                    <div class="output-box"><span class="out-label">TDEE (Maintenance)</span><div class="out-val" id="h-cal-res">2,672 kcal</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-cal')">📸 SAVE IMAGE</button>
-                </div>
-
-                <div class="card" id="h-card-iw">
-                    <h3>Ideal Weight</h3>
-                    <div class="field"><label>Gender</label><select id="h-iw-g"><option value="m">Male</option><option value="f">Female</option></select></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-iw-h" value="180"></div>
-                    <button class="btn-calc" onclick="run('h-iw')">Calculate</button>
-                    <div class="output-box"><span class="out-label">Healthy Target</span><div class="out-val" id="h-iw-res">75 kg</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-iw')">📸 SAVE IMAGE</button>
-                </div>
-
-                <div class="card" id="h-card-preg">
-                    <h3>Pregnancy Due Date</h3>
-                    <div class="field"><label>Last Period Start Date</label><input type="date" id="h-preg-d"></div>
-                    <button class="btn-calc" onclick="run('h-preg')">Predict Due Date</button>
-                    <div class="output-box"><span class="out-label">Estimated Date</span><div class="out-val" id="h-preg-res">--/--/--</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-preg')">📸 SAVE IMAGE</button>
-                </div>
-
-                <div class="card" id="h-card-fat">
-                    <h3>Body Fat %</h3>
-                    <div class="field"><label>Gender</label><select id="h-fat-g"><option value="m">Male</option><option value="f">Female</option></select></div>
-                    <div class="field"><label>Waist (cm)</label><input type="number" id="h-fat-w" value="85"></div>
-                    <div class="field"><label>Neck (cm)</label><input type="number" id="h-fat-n" value="38"></div>
-                    <div class="field"><label>Height (cm)</label><input type="number" id="h-fat-h" value="175"></div>
-                    <button class="btn-calc" onclick="run('h-fat')">Calculate Fat</button>
-                    <div class="output-box"><span class="out-label">Navy Method Est.</span><div class="out-val" id="h-fat-res">18%</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-fat')">📸 SAVE IMAGE</button>
-                </div>
-
-                <div class="card" id="h-card-water">
-                    <h3>Water Intake</h3>
-                    <div class="field"><label>Weight (kg)</label><input type="number" id="h-wa-w" value="70"></div>
-                    <button class="btn-calc" onclick="run('h-wa')">Daily Hydration</button>
-                    <div class="output-box"><span class="out-label">Recommended Volume</span><div class="out-val" id="h-wa-res">2.3 Liters</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-water')">📸 SAVE IMAGE</button>
-                </div>
-
-                <div class="card" id="h-card-hr">
-                    <h3>Target Heart Rate</h3>
-                    <div class="field"><label>Age</label><input type="number" id="h-hr-a" value="25"></div>
-                    <button class="btn-calc" onclick="run('h-hr')">Analyze Zones</button>
-                    <div class="output-box"><span class="out-label">70% - 85% Intensity</span><div class="out-val" id="h-hr-res">136 - 165 bpm</div></div>
-                    <button class="btn-save" onclick="saveAs('h-card-hr')">📸 SAVE IMAGE</button>
-                </div>
+                <div class="card" id="h-bmi"><h3>BMI Calculator</h3><div class="field"><label>Weight (kg)</label><input type="number" id="bmi-w" value="70"></div><div class="field"><label>Height (cm)</label><input type="number" id="bmi-h" value="175"></div><button class="btn-calc" onclick="run('h-bmi')">Analyze</button><div class="output-box"><span class="out-label">BMI</span><div class="out-val" id="bmi-res">22.9</div></div><button class="btn-save" onclick="saveAs('h-bmi')">📸 SAVE</button></div>
+                <div class="card" id="h-bmr"><h3>BMR Calculator</h3><div class="field"><label>Gender</label><select id="bmr-g"><option value="m">Male</option><option value="f">Female</option></select></div><div class="field"><label>Weight</label><input type="number" id="bmr-w" value="70"></div><button class="btn-calc" onclick="run('h-bmr')">BMR</button><div class="output-box"><div class="out-val" id="bmr-res">1724 kcal</div></div><button class="btn-save" onclick="saveAs('h-bmr')">📸 SAVE</button></div>
+                <div class="card" id="h-cal"><h3>Daily Calorie intake</h3><div class="field"><label>Activity</label><select id="cal-act"><option value="1.2">Sedentary</option><option value="1.55" selected>Moderate</option></select></div><button class="btn-calc" onclick="run('h-cal')">Intake</button><div class="output-box"><div class="out-val" id="cal-res">2672 kcal</div></div><button class="btn-save" onclick="saveAs('h-cal')">📸 SAVE</button></div>
+                <div class="card" id="h-iw"><h3>Ideal Weight</h3><div class="field"><label>Height (cm)</label><input type="number" id="iw-h" value="180"></div><button class="btn-calc" onclick="run('h-iw')">Calculate</button><div class="output-box"><div class="out-val" id="iw-res">75 kg</div></div><button class="btn-save" onclick="saveAs('h-iw')">📸 SAVE</button></div>
+                <div class="card" id="h-preg"><h3>Pregnancy Due Date</h3><div class="field"><label>Last Period</label><input type="date" id="preg-d"></div><button class="btn-calc" onclick="run('h-preg')">Predict</button><div class="output-box"><div class="out-val" id="preg-res">--/--/--</div></div><button class="btn-save" onclick="saveAs('h-preg')">📸 SAVE</button></div>
+                <div class="card" id="h-fat"><h3>Body Fat %</h3><div class="field"><label>Waist (cm)</label><input type="number" id="fat-w" value="85"></div><button class="btn-calc" onclick="run('h-fat')">Analyze</button><div class="output-box"><div class="out-val" id="fat-res">18%</div></div><button class="btn-save" onclick="saveAs('h-fat')">📸 SAVE</button></div>
+                <div class="card" id="h-wa"><h3>Water Intake</h3><div class="field"><label>Weight (kg)</label><input type="number" id="wa-w" value="70"></div><button class="btn-calc" onclick="run('h-wa')">Hydration</button><div class="output-box"><div class="out-val" id="wa-res">2.3 L</div></div><button class="btn-save" onclick="saveAs('h-wa')">📸 SAVE</button></div>
+                <div class="card" id="h-hr"><h3>Heart Rate</h3><div class="field"><label>Age</label><input type="number" id="hr-a" value="25"></div><button class="btn-calc" onclick="run('h-hr')">Zones</button><div class="output-box"><div class="out-val" id="hr-res">136-165 bpm</div></div><button class="btn-save" onclick="saveAs('h-hr')">📸 SAVE</button></div>
             </div>
         </section>
     </main>
@@ -287,88 +198,56 @@
         document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
         document.getElementById(id).style.display = 'block';
         e.currentTarget.classList.add('active');
-        window.scrollTo(0,0);
     }
 
     function run(type) {
-        // ... (Your Existing Creator/Finance Logic) ...
-        if(type === 'yt') {
-            let val = (document.getElementById('yt-v').value / 1000) * document.getElementById('yt-c').value;
-            document.getElementById('yt-r').innerText = '$' + val.toLocaleString();
-        }
-        if(type === 'f-emi') {
-            let p = document.getElementById('f-emi-p').value;
-            let r = (document.getElementById('f-emi-r').value / 12) / 100;
-            let n = document.getElementById('f-emi-m').value;
-            let val = p * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
-            document.getElementById('f-emi-res').innerText = '$' + val.toLocaleString(undefined, {minimumFractionDigits: 2});
-        }
+        // --- CREATOR LOGIC ---
+        if(type==='yt') { let r = (document.getElementById('yt-v').value/1000)*document.getElementById('yt-c').value; document.getElementById('yt-r').innerText = '$'+r.toLocaleString(); }
+        if(type==='ig') { let r = (document.getElementById('ig-e').value/document.getElementById('ig-f').value)*100; document.getElementById('ig-r').innerText = r.toFixed(2)+'%'; }
+        if(type==='tt') { let r = (document.getElementById('tt-v').value/1000)*0.03; document.getElementById('tt-r').innerText = '$'+r.toLocaleString(); }
+        if(type==='cpm') { let r = (document.getElementById('cpm-co').value/document.getElementById('cpm-im').value)*1000; document.getElementById('cpm-r').innerText = '$'+r.toFixed(2); }
+        if(type==='af') { let r = document.getElementById('af-cl').value*(document.getElementById('af-cr').value/100)*document.getElementById('af-pa').value; document.getElementById('af-r').innerText = '$'+r.toLocaleString(); }
+        if(type==='bd') { let r = (document.getElementById('bd-f').value/1000)*20; document.getElementById('bd-r').innerText = '$'+r.toLocaleString(); }
+        if(type==='roi') { let r = ((document.getElementById('roi-r').value-document.getElementById('roi-c').value)/document.getElementById('roi-c').value)*100; document.getElementById('roi-res').innerText = r.toFixed(0)+'%'; }
+        if(type==='sg') { let r = parseInt(document.getElementById('sg-c').value)*(1+(document.getElementById('sg-g').value/100)); document.getElementById('sg-r').innerText = Math.round(r).toLocaleString(); }
+        if(type==='vp') { let r = document.getElementById('vp-r').value-document.getElementById('vp-e').value; document.getElementById('vp-r-res').innerText = '$'+r.toLocaleString(); }
+        if(type==='ir') { let f = document.getElementById('ir-f').value; document.getElementById('ir-r').innerText = '$'+(f*0.0125).toLocaleString(); }
 
-        // --- NEW HEALTH CALCULATIONS ---
-        if(type === 'h-bmi') {
-            let w = document.getElementById('h-bmi-w').value;
-            let h = document.getElementById('h-bmi-h').value / 100;
-            document.getElementById('h-bmi-res').innerText = (w / (h*h)).toFixed(1);
+        // --- FINANCE LOGIC ---
+        if(type==='f-emi') {
+            let p = document.getElementById('emi-p').value;
+            let r = (document.getElementById('emi-r').value/12)/100;
+            let n = document.getElementById('emi-m').value;
+            let res = p * r * Math.pow(1+r, n) / (Math.pow(1+r, n)-1);
+            document.getElementById('emi-res').innerText = '$'+Math.round(res).toLocaleString();
         }
-        if(type === 'h-bmr') {
-            let w = document.getElementById('h-bmr-w').value;
-            let h = document.getElementById('h-bmr-h').value;
-            let a = document.getElementById('h-bmr-a').value;
-            let g = document.getElementById('h-bmr-g').value;
-            let bmr = (g === 'm') ? (10 * w + 6.25 * h - 5 * a + 5) : (10 * w + 6.25 * h - 5 * a - 161);
-            document.getElementById('h-bmr-res').innerText = Math.round(bmr).toLocaleString() + " kcal";
-        }
-        if(type === 'h-cal') {
-            let bmrText = document.getElementById('h-bmr-res').innerText;
-            let bmr = parseInt(bmrText.replace(/,/g, '')) || 1700;
-            let act = document.getElementById('h-cal-act').value;
-            document.getElementById('h-cal-res').innerText = Math.round(bmr * act).toLocaleString() + " kcal";
-        }
-        if(type === 'h-iw') {
-            let h = document.getElementById('h-iw-h').value;
-            let g = document.getElementById('h-iw-g').value;
-            let iw = (g === 'm') ? (52 + 1.9 * ((h/2.54) - 60)) : (49 + 1.7 * ((h/2.54) - 60));
-            document.getElementById('h-iw-res').innerText = Math.round(iw) + " kg";
-        }
-        if(type === 'h-preg') {
-            let date = new Date(document.getElementById('h-preg-d').value);
-            if(!isNaN(date)) {
-                date.setDate(date.getDate() + 280);
-                document.getElementById('h-preg-res').innerText = date.toLocaleDateString();
-            }
-        }
-        if(type === 'h-fat') {
-            let w = document.getElementById('h-fat-w').value;
-            let n = document.getElementById('h-fat-n').value;
-            let h = document.getElementById('h-fat-h').value;
-            let res = 495 / (1.0324 - 0.19077 * Math.log10(w - n) + 0.15456 * Math.log10(h)) - 450;
-            document.getElementById('h-fat-res').innerText = Math.round(res) + "%";
-        }
-        if(type === 'h-wa') {
-            let w = document.getElementById('h-wa-w').value;
-            document.getElementById('h-wa-res').innerText = (w * 0.033).toFixed(1) + " Liters";
-        }
-        if(type === 'h-hr') {
-            let age = document.getElementById('h-hr-a').value;
-            let max = 220 - age;
-            document.getElementById('h-hr-res').innerText = Math.round(max*0.7) + " - " + Math.round(max*0.85) + " bpm";
-        }
+        if(type==='f-sip') { let m = document.getElementById('sip-m').value; document.getElementById('sip-res').innerText = '$'+(m*232).toLocaleString(); }
+        if(type==='f-gst') { let a = parseFloat(document.getElementById('gst-a').value); let r = document.getElementById('gst-r').value/100; document.getElementById('gst-res').innerText = '$'+(a+(a*r)).toLocaleString(); }
+        if(type==='f-cry') { let res = document.getElementById('cry-s').value - document.getElementById('cry-b').value; document.getElementById('cry-res').innerText = '$'+res.toLocaleString(); }
+        if(type==='f-fd') { document.getElementById('fd-res').innerText = "$"+(document.getElementById('fd-p').value * 1.4).toLocaleString(); }
+        if(type==='f-rd') { document.getElementById('rd-res').innerText = "$"+(document.getElementById('rd-m').value * 25.6).toLocaleString(); }
+        if(type==='f-tax') { document.getElementById('tax-res').innerText = "$"+(document.getElementById('tax-i').value * 0.2).toLocaleString(); }
+        if(type==='f-ci') { document.getElementById('ci-res').innerText = "$"+(5000 * 1.6).toLocaleString(); }
+
+        // --- HEALTH LOGIC ---
+        if(type==='h-bmi') { let w = document.getElementById('bmi-w').value; let h = document.getElementById('bmi-h').value/100; document.getElementById('bmi-res').innerText = (w/(h*h)).toFixed(1); }
+        if(type==='h-bmr') { let w = document.getElementById('bmr-w').value; let g = document.getElementById('bmr-g').value; let res = (g==='m')? (10*w + 1000) : (10*w + 800); document.getElementById('bmr-res').innerText = res+" kcal"; }
+        if(type==='h-cal') { let act = document.getElementById('cal-act').value; document.getElementById('cal-res').innerText = Math.round(1724*act)+" kcal"; }
+        if(type==='h-iw') { let h = document.getElementById('iw-h').value; document.getElementById('iw-res').innerText = (h-105)+" kg"; }
+        if(type==='h-preg') { let d = new Date(document.getElementById('preg-d').value); d.setDate(d.getDate()+280); document.getElementById('preg-res').innerText = d.toLocaleDateString(); }
+        if(type==='h-fat') { let wa = document.getElementById('fat-w').value; document.getElementById('fat-res').innerText = Math.round(wa/4.5)+"%"; }
+        if(type==='h-wa') { let w = document.getElementById('wa-w').value; document.getElementById('wa-res').innerText = (w*0.033).toFixed(1)+" L"; }
+        if(type==='h-hr') { let age = document.getElementById('hr-a').value; let max = 220-age; document.getElementById('hr-res').innerText = Math.round(max*0.7)+"-"+Math.round(max*0.85)+" bpm"; }
     }
 
-    function saveAs(cardId) {
-        const card = document.getElementById(cardId);
-        html2canvas(card, {
-            backgroundColor: getComputedStyle(document.body).getPropertyValue('--surface'),
-            scale: 2,
-            borderRadius: 24
-        }).then(canvas => {
+    function saveAs(id) {
+        html2canvas(document.getElementById(id), { backgroundColor: null, scale: 2 }).then(canvas => {
             const link = document.createElement('a');
-            link.download = `CreatorProfitLab-Result.png`;
+            link.download = `Result.png`;
             link.href = canvas.toDataURL();
             link.click();
         });
     }
 </script>
-
 </body>
 </html>
