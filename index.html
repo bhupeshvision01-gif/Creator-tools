@@ -3,152 +3,141 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="All-in-One Calculator Hub with 50+ calculators: Creator, Finance, Health, Math, Unit Converter, Utility Tools. USD outputs, formulas, examples.">
-<title>All-in-One Calculator Hub</title>
-<link rel="stylesheet" href="style.css">
+<title>Creator Economy Calculators</title>
+<style>
+body { font-family: Arial, sans-serif; background:#f5f7fa; margin:0; padding:0; }
+header { background:#3f51b5; color:#fff; padding:20px; text-align:center; }
+nav { display:flex; justify-content:center; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+nav button { margin:5px; padding:10px 20px; cursor:pointer; border:none; background:#3f51b5; color:#fff; border-radius:5px; }
+nav button.active { background:#303f9f; }
+.tab-content { display:none; padding:20px; max-width:900px; margin:20px auto; background:#fff; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.1);}
+.tab-content.active { display:block; }
+.calculator { margin-bottom:30px; padding:15px; border:1px solid #ddd; border-radius:8px; background:#fafafa; }
+.calculator input { margin:5px 0; padding:8px; width:calc(50% - 10px); }
+.calculator button { padding:8px 15px; margin-top:5px; cursor:pointer; border:none; background:#4caf50; color:#fff; border-radius:5px; }
+.result { margin-top:10px; font-weight:bold; font-size:16px; }
+.formula { font-size:13px; color:#555; margin-top:5px; }
+@media(max-width:600px){ .calculator input{ width:100%; } }
+</style>
 </head>
 <body>
 
 <header>
-  <h1>All-in-One Calculator Hub</h1>
+  <h1>Creator Economy Calculators</h1>
   <p>All monetary calculations in USD ($)</p>
 </header>
 
 <nav>
   <button class="tab-link active" data-tab="creator">Creator Tools</button>
-  <button class="tab-link" data-tab="finance">Finance</button>
-  <button class="tab-link" data-tab="health">Health</button>
-  <button class="tab-link" data-tab="math">Math</button>
-  <button class="tab-link" data-tab="unit">Unit Converter</button>
-  <button class="tab-link" data-tab="utility">Utility Tools</button>
 </nav>
 
-<!-- ================= CREATOR TOOLS ================= -->
 <div id="creator" class="tab-content active">
-  <h2>Creator Economy Calculators</h2>
 
-  <!-- YouTube Income -->
+  <!-- 1️⃣ YouTube Income -->
   <div class="calculator">
     <h3>YouTube Income Calculator</h3>
-    <p>Estimate your potential YouTube earnings based on monthly views and CPM rates.</p>
     <input type="number" id="ytViews" placeholder="Monthly Views">
     <input type="number" id="ytCPM" placeholder="CPM ($ per 1000 views)">
-    <button onclick="calculateYouTubeIncome()">Calculate</button>
-    <div class="formula">Formula: <code>Income = (Views / 1000) × CPM</code><br>Example: 100,000 × $2 → $200</div>
+    <button id="ytCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Income = (Views / 1000) × CPM</div>
     <div id="ytIncomeResult" class="result"></div>
   </div>
 
-  <!-- Instagram Engagement -->
+  <!-- 2️⃣ Instagram Engagement -->
   <div class="calculator">
     <h3>Instagram Engagement Calculator</h3>
-    <p>Calculate engagement rate based on likes, comments, and followers.</p>
     <input type="number" id="instaLikes" placeholder="Likes">
     <input type="number" id="instaComments" placeholder="Comments">
     <input type="number" id="instaFollowers" placeholder="Followers">
-    <button onclick="calculateInstagramEngagement()">Calculate</button>
-    <div class="formula">Formula: <code>Engagement % = ((Likes + Comments)/Followers) × 100</code></div>
+    <button id="instaCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Engagement % = ((Likes + Comments)/Followers) × 100</div>
     <div id="instaEngagementResult" class="result"></div>
   </div>
 
-  <!-- TikTok Earnings -->
+  <!-- 3️⃣ TikTok Earnings -->
   <div class="calculator">
     <h3>TikTok Earnings Calculator</h3>
-    <p>Estimate TikTok Creator Fund earnings based on video views.</p>
     <input type="number" id="tikViews" placeholder="Video Views">
     <input type="number" id="tikCPM" placeholder="CPM ($ per 1000 views)">
-    <button onclick="calculateTikTokEarnings()">Calculate</button>
-    <div class="formula">Formula: <code>Earnings = (Views / 1000) × CPM</code></div>
+    <button id="tikCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Earnings = (Views / 1000) × CPM</div>
     <div id="tikEarningsResult" class="result"></div>
   </div>
 
-  <!-- CPM Calculator -->
+  <!-- 4️⃣ CPM -->
   <div class="calculator">
     <h3>CPM Calculator</h3>
-    <p>Calculate Cost Per Mille (per 1000 impressions).</p>
     <input type="number" id="cpmRevenue" placeholder="Revenue ($)">
     <input type="number" id="cpmImpressions" placeholder="Impressions">
-    <button onclick="calculateCPM()">Calculate</button>
-    <div class="formula">Formula: <code>CPM = Revenue / (Impressions/1000)</code></div>
+    <button id="cpmCalculateBtn">Calculate</button>
+    <div class="formula">Formula: CPM = Revenue / (Impressions/1000)</div>
     <div id="cpmResult" class="result"></div>
   </div>
 
-  <!-- Affiliate Income -->
+  <!-- 5️⃣ Affiliate Income -->
   <div class="calculator">
     <h3>Affiliate Income Calculator</h3>
-    <p>Estimate potential affiliate marketing earnings.</p>
     <input type="number" id="affClicks" placeholder="Clicks">
     <input type="number" id="affConversion" placeholder="Conversion Rate (%)">
     <input type="number" id="affPayout" placeholder="Payout per Sale ($)">
-    <button onclick="calculateAffiliateIncome()">Calculate</button>
-    <div class="formula">Formula: <code>Income = Clicks × (Conversion%/100) × Payout</code></div>
+    <button id="affCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Income = Clicks × (Conversion%/100) × Payout</div>
     <div id="affResult" class="result"></div>
   </div>
 
-  <!-- Brand Deal -->
+  <!-- 6️⃣ Brand Deal -->
   <div class="calculator">
     <h3>Brand Deal Calculator</h3>
-    <p>Estimate sponsored post rates based on follower count.</p>
     <input type="number" id="brandFollowers" placeholder="Followers">
     <input type="number" id="brandRate" placeholder="$ per 1000 followers">
-    <button onclick="calculateBrandDeal()">Calculate</button>
-    <div class="formula">Formula: <code>Rate = (Followers / 1000) × Rate per 1000</code></div>
+    <button id="brandCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Rate = (Followers / 1000) × Rate per 1000</div>
     <div id="brandResult" class="result"></div>
   </div>
 
-  <!-- Creator ROI -->
+  <!-- 7️⃣ Creator ROI -->
   <div class="calculator">
     <h3>Creator ROI Calculator</h3>
-    <p>Calculate return on investment for content creation.</p>
     <input type="number" id="roiRevenue" placeholder="Revenue ($)">
     <input type="number" id="roiCost" placeholder="Cost ($)">
-    <button onclick="calculateROI()">Calculate</button>
-    <div class="formula">Formula: <code>ROI % = ((Revenue - Cost)/Cost) × 100</code></div>
+    <button id="roiCalculateBtn">Calculate</button>
+    <div class="formula">Formula: ROI % = ((Revenue - Cost)/Cost) × 100</div>
     <div id="roiResult" class="result"></div>
   </div>
 
-  <!-- Subscriber Growth -->
+  <!-- 8️⃣ Subscriber Growth -->
   <div class="calculator">
     <h3>Subscriber Growth Calculator</h3>
-    <p>Project subscriber growth with compound growth rate.</p>
     <input type="number" id="subsCurrent" placeholder="Current Subscribers">
     <input type="number" id="subsRate" placeholder="Monthly Growth Rate (%)">
     <input type="number" id="subsMonths" placeholder="Months">
-    <button onclick="calculateSubscriberGrowth()">Calculate</button>
-    <div class="formula">Formula: <code>Future Subs = Current × (1 + Rate/100)^Months</code></div>
+    <button id="subsCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Future Subs = Current × (1 + Rate/100)^Months</div>
     <div id="subsResult" class="result"></div>
   </div>
 
-  <!-- Video Profit -->
+  <!-- 9️⃣ Video Profit -->
   <div class="calculator">
     <h3>Video Profit Calculator</h3>
-    <p>Calculate net profit from video production costs and earnings.</p>
     <input type="number" id="vidRevenue" placeholder="Revenue ($)">
     <input type="number" id="vidCost" placeholder="Production Cost ($)">
-    <button onclick="calculateVideoProfit()">Calculate</button>
-    <div class="formula">Formula: <code>Profit = Revenue - Cost</code></div>
+    <button id="vidCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Profit = Revenue - Cost</div>
     <div id="vidResult" class="result"></div>
   </div>
 
-  <!-- Influencer Rate -->
+  <!-- 🔟 Influencer Rate -->
   <div class="calculator">
     <h3>Influencer Rate Calculator</h3>
-    <p>Calculate ideal rates for sponsored content based on engagement.</p>
     <input type="number" id="inflFollowers" placeholder="Followers">
     <input type="number" id="inflEngagement" placeholder="Engagement Rate (%)">
     <input type="number" id="inflBase" placeholder="$ per 1k followers">
-    <button onclick="calculateInfluencerRate()">Calculate</button>
-    <div class="formula">Formula: <code>Rate = (Followers/1000) × Base × (Engagement%/100)</code></div>
+    <button id="inflCalculateBtn">Calculate</button>
+    <div class="formula">Formula: Rate = (Followers/1000) × Base × (Engagement%/100)</div>
     <div id="inflResult" class="result"></div>
   </div>
 
 </div>
-
-<!-- Remaining tabs -->
-<div id="finance" class="tab-content"><h2>Finance Calculators</h2></div>
-<div id="health" class="tab-content"><h2>Health Calculators</h2></div>
-<div id="math" class="tab-content"><h2>Math Calculators</h2></div>
-<div id="unit" class="tab-content"><h2>Unit Converters</h2></div>
-<div id="utility" class="tab-content"><h2>Utility Tools</h2></div>
 
 <script src="script.js"></script>
 </body>
