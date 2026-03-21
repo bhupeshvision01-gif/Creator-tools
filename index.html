@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Professional All-in-One Calculator Hub: Creator Economy, Finance, Health, Math, Unit Converter, Utility Tools.">
+<meta name="description" content="All-in-One Calculator Hub: Creator Economy, Finance, Health, Math, Unit Converter, Utility Tools. USD-based outputs, formulas and examples included.">
 <title>All-in-One Calculator Hub</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -23,10 +23,11 @@
   <button class="tab-link" data-tab="utility">Utility Tools</button>
 </nav>
 
-<!-- Creator Tab -->
+<!-- Tabs -->
 <div id="creator" class="tab-content active">
   <h2>Creator Economy Calculators</h2>
-  <!-- Example: YouTube Income -->
+
+  <!-- YouTube Income -->
   <div class="calculator">
     <h3>YouTube Income Calculator</h3>
     <input type="number" id="ytViews" placeholder="Monthly Views">
@@ -73,7 +74,7 @@
     <input type="number" id="subMonthly" placeholder="Monthly Gain">
     <input type="number" id="subMonths" placeholder="Months">
     <button onclick="calculateSubscriberGrowth()">Calculate</button>
-    <div class="formula">Formula: <code>Subscribers after Months = Current + (Monthly Gain × Months)</code><br>Example: 1,000 current + 200/month × 6 months → 2,200</div>
+    <div class="formula">Formula: <code>Subscribers after Months = Current + (Monthly Gain × Months)</code><br>Example: 1,000 + 200×6 → 2,200</div>
     <div id="subscriberGrowthResult" class="result"></div>
   </div>
 
@@ -102,7 +103,7 @@
     <input type="number" id="ciTimes" placeholder="Times Compounded per Year">
     <input type="number" id="ciYears" placeholder="Years">
     <button onclick="calculateCompoundInterest()">Calculate</button>
-    <div class="formula">Formula: <code>A = P × (1 + r/n)^(n×t)</code><br>Example: $5,000, 5% rate, compounded 4 times/year, 3 years → $5,796.38</div>
+    <div class="formula">Formula: <code>A = P × (1 + r/n)^(n×t)</code><br>Example: $5,000, 5% rate, 4 times/year, 3 years → $5,796.38</div>
     <div id="ciResult" class="result"></div>
   </div>
 
