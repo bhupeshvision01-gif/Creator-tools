@@ -51,6 +51,7 @@
         <button onclick="tab(event, 'health')">3. Health & Nutrition</button>
         <button onclick="tab(event, 'math')">4. Math & Science</button>
         <button onclick="tab(event, 'utility')">5. Business & Utility</button>
+        <button onclick="tab(event, 'lifestyle')">6. Lifestyle & Travel</button>
     </nav>
 </aside>
 
@@ -67,6 +68,17 @@
             <div class="card"><h3>Sub Growth Projector</h3><div class="field"><label>Current / Growth %</label><div style="display:flex;gap:5px;"><input type="number" id="c8-c" value="5000"><input type="number" id="c8-g" value="10"></div></div><button class="btn-calc" onclick="run('c8')">Project Next Month</button><div class="out-box" id="r-c8">5,500</div></div>
             <div class="card"><h3>Video Net Profit</h3><div class="field"><label>Revenue / Production Cost</label><div style="display:flex;gap:5px;"><input type="number" id="c9-r" value="1000"><input type="number" id="c9-c" value="200"></div></div><button class="btn-calc" onclick="run('c9')">Calculate Net</button><div class="out-box" id="r-c9">$800</div></div>
             <div class="card"><h3>Influencer Rate</h3><div class="field"><label>Avg Post Reach</label><input type="number" id="c10-r" value="100000"></div><button class="btn-calc" onclick="run('c10')">Estimate Rate</button><div class="out-box" id="r-c10">$1,000</div></div>
+        </div>
+    </section>
+
+    <section id="lifestyle" class="tab-content">
+        <div class="grid">
+            <div class="card"><h3>Carpet / Paint Calc</h3><div class="field"><label>Length (ft) / Width (ft)</label><div style="display:flex;gap:5px;"><input type="number" id="l1-l" value="12"><input type="number" id="l1-w" value="15"></div></div><button class="btn-calc" onclick="run('l1')">Calculate Area</button><div class="out-box" id="r-l1">180 sq ft</div></div>
+            <div class="card"><h3>Room Dimension</h3><div class="field"><label>Room Area / Furniture Area</label><div style="display:flex;gap:5px;"><input type="number" id="l2-r" value="200"><input type="number" id="l2-f" value="50"></div></div><button class="btn-calc" onclick="run('l2')">Check Fit</button><div class="out-box" id="r-l2">25% Occupied</div></div>
+            <div class="card"><h3>Land Converter</h3><div class="field"><label>Value / From</label><div style="display:flex;gap:5px;"><input type="number" id="l3-v" value="1"><select id="l3-f"><option value="ac-sqft">Acres to SqFt</option><option value="sqm-sqft">SqM to SqFt</option></select></div></div><button class="btn-calc" onclick="run('l3')">Convert</button><div class="out-box" id="r-l3">43,560 sq ft</div></div>
+            <div class="card"><h3>Trip Budgeter</h3><div class="field"><label>Fuel + Tolls + Hotel</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="l4-f" value="50"><input type="number" id="l4-t" value="20"><input type="number" id="l4-h" value="150"></div></div><button class="btn-calc" onclick="run('l4')">Total Cost</button><div class="out-box" id="r-l4">$220</div></div>
+            <div class="card"><h3>Maintenance/Tyre</h3><div class="field"><label>Last Service (KM)</label><input type="number" id="l5-k" value="45000"></div><button class="btn-calc" onclick="run('l5')">Check Status</button><div class="out-box" id="r-l5">Service in 5k KM</div></div>
+            <div class="card"><h3>Travel Currency</h3><div class="field"><label>Amt / Rate (1 local = ?)</label><div style="display:flex;gap:5px;"><input type="number" id="l6-a" value="100"><input type="number" id="l6-r" value="1.1"></div></div><button class="btn-calc" onclick="run('l6')">Convert</button><div class="out-box" id="r-l6">110.00</div></div>
         </div>
     </section>
 
@@ -118,7 +130,24 @@
     }
 
     function run(t) {
-        // Creator Logic
+        // --- LIFESTYLE LOGIC ---
+        if(t==='l1') document.getElementById('r-l1').innerText = (document.getElementById('l1-l').value * document.getElementById('l1-w').value) + " sq ft";
+        if(t==='l2') document.getElementById('r-l2').innerText = Math.round((document.getElementById('l2-f').value / document.getElementById('l2-r').value) * 100) + "% Occupied";
+        if(t==='l3') {
+            let v = document.getElementById('l3-v').value, f = document.getElementById('l3-f').value;
+            document.getElementById('r-l3').innerText = (f==='ac-sqft' ? (v*43560).toLocaleString() : (v*10.764).toFixed(2)) + " sq ft";
+        }
+        if(t==='l4') {
+            let total = parseFloat(document.getElementById('l4-f').value) + parseFloat(document.getElementById('l4-t').value) + parseFloat(document.getElementById('l4-h').value);
+            document.getElementById('r-l4').innerText = "$" + total.toLocaleString();
+        }
+        if(t==='l5') {
+            let next = Math.ceil(document.getElementById('l5-k').value / 5000) * 5000;
+            document.getElementById('r-l5').innerText = "Service in " + (next - document.getElementById('l5-k').value) + " KM";
+        }
+        if(t==='l6') document.getElementById('r-l6').innerText = (document.getElementById('l6-a').value * document.getElementById('l6-r').value).toFixed(2);
+
+        // --- PREVIOUS LOGIC ---
         if(t==='c1') document.getElementById('r-c1').innerText = '$' + (document.getElementById('c1-v').value/1000 * document.getElementById('c1-c').value).toLocaleString();
         if(t==='c2') document.getElementById('r-c2').innerText = (document.getElementById('c2-i').value / document.getElementById('c2-r').value * 100).toFixed(1) + '%';
         if(t==='c3') document.getElementById('r-c3').innerText = '$' + (document.getElementById('c3-v').value * 0.00003).toLocaleString();
@@ -130,7 +159,6 @@
         if(t==='c9') document.getElementById('r-c9').innerText = '$' + (document.getElementById('c9-r').value - document.getElementById('c9-c').value).toLocaleString();
         if(t==='c10') document.getElementById('r-c10').innerText = '$' + (document.getElementById('c10-r').value * 0.01).toLocaleString();
 
-        // Finance Logic
         if(t==='f1') { 
             let p=document.getElementById('f1-p').value, r=(document.getElementById('f1-r').value/12)/100, n=document.getElementById('f1-m').value; 
             let emi = p * r * (Math.pow(1+r, n) / (Math.pow(1+r, n)-1));
@@ -142,17 +170,14 @@
         if(t==='f10') document.getElementById('r-f10').innerText = '$' + (document.getElementById('f10-i').value * 0.16).toLocaleString();
         if(t==='f12') document.getElementById('r-f12').innerText = (document.getElementById('f12-s').value >= document.getElementById('f12-b').value ? '+' : '-') + '$' + Math.abs(document.getElementById('f12-s').value - document.getElementById('f12-b').value).toLocaleString();
 
-        // Health Logic
         if(t==='h1') { let w=document.getElementById('h1-w').value, h=document.getElementById('h1-h').value/100; document.getElementById('r-h1').innerText = (w/(h*h)).toFixed(1); }
         if(t==='h2') { let w=document.getElementById('h2-w').value, h=document.getElementById('h2-h').value, a=document.getElementById('h2-a').value; let bmr = (document.getElementById('h2-g').value==='m') ? (10*w + 6.25*h - 5*a + 5) : (10*w + 6.25*h - 5*a - 161); document.getElementById('r-h2').innerText = Math.round(bmr) + " kcal"; }
         if(t==='h7') document.getElementById('r-h7').innerText = (document.getElementById('h7-w').value * 0.033).toFixed(1) + " L";
 
-        // Math Logic
         if(t==='m1') document.getElementById('r-m1').innerText = (document.getElementById('m1-o').value / document.getElementById('m1-t').value * 100).toFixed(1) + '%';
         if(t==='m2') { let b = new Date(document.getElementById('m2-d').value); if(!isNaN(b)) document.getElementById('r-m2').innerText = (new Date().getFullYear() - b.getFullYear()) + " Years"; }
         if(t==='m6') { let v = parseFloat(document.getElementById('m6-v').value), c = document.getElementById('m6-c').value; document.getElementById('r-m6').innerText = (c==='km-mi' ? (v*0.62).toFixed(2)+' mi' : (v*2.2).toFixed(2)+' lbs'); }
 
-        // Utility Logic
         if(t==='u1') { let u1=document.getElementById('u1-p1').value/document.getElementById('u1-q1').value, u2=document.getElementById('u1-p2').value/document.getElementById('u1-q2').value; document.getElementById('r-u1').innerText = u1 < u2 ? "Item A is cheaper" : "Item B is cheaper"; }
         if(t==='u3') { let res = (document.getElementById('u3-d').value / document.getElementById('u3-e').value) * document.getElementById('u3-p').value; document.getElementById('r-u3').innerText = "$" + res.toFixed(2); }
         if(t==='u5') { let be = document.getElementById('u5-f').value / (document.getElementById('u5-p').value - document.getElementById('u5-v').value); document.getElementById('r-u5').innerText = Math.ceil(be) + " Units"; }
