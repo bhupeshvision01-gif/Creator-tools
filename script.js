@@ -1,241 +1,364 @@
-document.addEventListener('DOMContentLoaded', function() {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ultimate Calculator Hub: 25+ working calculators including finance, health, math, and unit converters. Free and SEO-friendly.">
+  <meta name="keywords" content="calculators, EMI, GST, BMI, Age, BMR, Loan, SIP, FD, Discount, Percentage, Length, Weight, Temperature, Speed, Currency">
+  <title>Ultimate Calculator Hub | 25+ Calculators</title>
+  <link rel="canonical" href="https://www.yourwebsite.com/">
 
-  // ---------------- TAB SWITCHING ----------------
-  document.querySelectorAll('.tab-link').forEach(button => {
-    button.addEventListener('click', () => {
-      let tab = button.getAttribute('data-tab');
-      document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-      button.classList.add('active');
-      document.getElementById(tab).classList.add('active');
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Roboto', sans-serif; margin:0; padding:0; background:#f7f7f7; color:#333; }
+    header { background:#007BFF; color:#fff; padding:15px; text-align:center; }
+    nav { display:flex; flex-wrap:wrap; justify-content:center; background:#0056b3; }
+    nav button { background:none; border:none; padding:12px 20px; color:#fff; cursor:pointer; font-weight:500; }
+    nav button.active { background:#003f7f; }
+    .tab-content { display:none; padding:20px; background:#fff; max-width:900px; margin:20px auto; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+    .tab-content.active { display:block; }
+    .calculator { margin-bottom:20px; }
+    .calculator input, .calculator select { padding:8px; margin:5px 0; width:100%; max-width:300px; display:block; }
+    .calculator button { padding:10px 15px; margin-top:10px; background:#007BFF; border:none; color:white; cursor:pointer; border-radius:5px; }
+    .result { margin-top:10px; font-weight:bold; color:#007BFF; }
+    footer { text-align:center; padding:15px; background:#333; color:#fff; margin-top:20px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Ultimate Calculator Hub</h1>
+  <p>25+ important calculators: finance, health, math, and more!</p>
+</header>
+
+<nav>
+  <button class="tab-link active" data-tab="finance">Finance</button>
+  <button class="tab-link" data-tab="health">Health</button>
+  <button class="tab-link" data-tab="math">Math</button>
+  <button class="tab-link" data-tab="unit">Unit Converter</button>
+</nav>
+
+<!-- Finance Calculators -->
+<div id="finance" class="tab-content active">
+  <h2>Finance Calculators</h2>
+
+  <!-- EMI Calculator -->
+  <div class="calculator">
+    <h3>EMI Calculator</h3>
+    <input type="number" id="loanAmount" placeholder="Loan Amount">
+    <input type="number" id="interestRate" placeholder="Interest Rate (%)">
+    <input type="number" id="loanTenure" placeholder="Tenure (Months)">
+    <button onclick="calculateEMI()">Calculate EMI</button>
+    <div class="result" id="emiResult"></div>
+  </div>
+
+  <!-- GST Calculator -->
+  <div class="calculator">
+    <h3>GST Calculator</h3>
+    <input type="number" id="gstAmount" placeholder="Amount">
+    <input type="number" id="gstRate" placeholder="GST Rate (%)">
+    <button onclick="calculateGST()">Calculate GST</button>
+    <div class="result" id="gstResult"></div>
+  </div>
+
+  <!-- SIP Calculator -->
+  <div class="calculator">
+    <h3>SIP Calculator</h3>
+    <input type="number" id="sipAmount" placeholder="Monthly SIP Amount">
+    <input type="number" id="sipRate" placeholder="Expected Annual Return (%)">
+    <input type="number" id="sipPeriod" placeholder="Period (Years)">
+    <button onclick="calculateSIP()">Calculate SIP</button>
+    <div class="result" id="sipResult"></div>
+  </div>
+
+  <!-- FD Calculator -->
+  <div class="calculator">
+    <h3>Fixed Deposit Calculator</h3>
+    <input type="number" id="fdPrincipal" placeholder="Principal Amount">
+    <input type="number" id="fdRate" placeholder="Interest Rate (%)">
+    <input type="number" id="fdYears" placeholder="Time (Years)">
+    <button onclick="calculateFD()">Calculate FD</button>
+    <div class="result" id="fdResult"></div>
+  </div>
+
+  <!-- Discount Calculator -->
+  <div class="calculator">
+    <h3>Discount Calculator</h3>
+    <input type="number" id="originalPrice" placeholder="Original Price">
+    <input type="number" id="discountRate" placeholder="Discount (%)">
+    <button onclick="calculateDiscount()">Calculate Discount</button>
+    <div class="result" id="discountResult"></div>
+  </div>
+</div>
+
+<!-- Health Calculators -->
+<div id="health" class="tab-content">
+  <h2>Health Calculators</h2>
+
+  <!-- BMI Calculator -->
+  <div class="calculator">
+    <h3>BMI Calculator</h3>
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <div class="result" id="bmiResult"></div>
+  </div>
+
+  <!-- BMR Calculator -->
+  <div class="calculator">
+    <h3>BMR Calculator</h3>
+    <input type="number" id="bmrWeight" placeholder="Weight (kg)">
+    <input type="number" id="bmrHeight" placeholder="Height (cm)">
+    <input type="number" id="bmrAge" placeholder="Age">
+    <select id="bmrGender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+    <button onclick="calculateBMR()">Calculate BMR</button>
+    <div class="result" id="bmrResult"></div>
+  </div>
+
+  <!-- Calorie Calculator -->
+  <div class="calculator">
+    <h3>Daily Calorie Needs</h3>
+    <input type="number" id="calAge" placeholder="Age">
+    <input type="number" id="calWeight" placeholder="Weight (kg)">
+    <input type="number" id="calHeight" placeholder="Height (cm)">
+    <select id="activityLevel">
+      <option value="1.2">Sedentary</option>
+      <option value="1.375">Lightly Active</option>
+      <option value="1.55">Moderately Active</option>
+      <option value="1.725">Very Active</option>
+      <option value="1.9">Extra Active</option>
+    </select>
+    <button onclick="calculateCalories()">Calculate Calories</button>
+    <div class="result" id="calorieResult"></div>
+  </div>
+
+  <!-- Water Intake Calculator -->
+  <div class="calculator">
+    <h3>Water Intake Calculator</h3>
+    <input type="number" id="waterWeight" placeholder="Weight (kg)">
+    <button onclick="calculateWater()">Daily Water Intake</button>
+    <div class="result" id="waterResult"></div>
+  </div>
+</div>
+
+<!-- Math Calculators -->
+<div id="math" class="tab-content">
+  <h2>Math Calculators</h2>
+
+  <!-- Percentage Calculator -->
+  <div class="calculator">
+    <h3>Percentage Calculator</h3>
+    <input type="number" id="percentTotal" placeholder="Total Value">
+    <input type="number" id="percentValue" placeholder="Value">
+    <button onclick="calculatePercentage()">Calculate %</button>
+    <div class="result" id="percentResult"></div>
+  </div>
+
+  <!-- Age Calculator -->
+  <div class="calculator">
+    <h3>Age Calculator</h3>
+    <input type="date" id="dob">
+    <button onclick="calculateAge()">Calculate Age</button>
+    <div class="result" id="ageResult"></div>
+  </div>
+
+  <!-- Simple Interest Calculator -->
+  <div class="calculator">
+    <h3>Simple Interest Calculator</h3>
+    <input type="number" id="siPrincipal" placeholder="Principal">
+    <input type="number" id="siRate" placeholder="Rate (%)">
+    <input type="number" id="siTime" placeholder="Time (Years)">
+    <button onclick="calculateSI()">Calculate SI</button>
+    <div class="result" id="siResult"></div>
+  </div>
+
+  <!-- Compound Interest Calculator -->
+  <div class="calculator">
+    <h3>Compound Interest Calculator</h3>
+    <input type="number" id="ciPrincipal" placeholder="Principal">
+    <input type="number" id="ciRate" placeholder="Rate (%)">
+    <input type="number" id="ciTime" placeholder="Time (Years)">
+    <input type="number" id="ciCompounds" placeholder="Compounds per Year">
+    <button onclick="calculateCI()">Calculate CI</button>
+    <div class="result" id="ciResult"></div>
+  </div>
+</div>
+
+<!-- Unit Converter Calculators -->
+<div id="unit" class="tab-content">
+  <h2>Unit Converters</h2>
+
+  <!-- Length Converter -->
+  <div class="calculator">
+    <h3>Length Converter</h3>
+    <input type="number" id="lengthInput" placeholder="Enter value">
+    <select id="lengthUnit">
+      <option value="m">Meters</option>
+      <option value="cm">Centimeters</option>
+      <option value="km">Kilometers</option>
+      <option value="inch">Inches</option>
+      <option value="ft">Feet</option>
+    </select>
+    <button onclick="convertLength()">Convert</button>
+    <div class="result" id="lengthResult"></div>
+  </div>
+
+  <!-- Weight Converter -->
+  <div class="calculator">
+    <h3>Weight Converter</h3>
+    <input type="number" id="weightInput" placeholder="Enter value">
+    <select id="weightUnit">
+      <option value="kg">Kg</option>
+      <option value="g">Gram</option>
+      <option value="lb">Pounds</option>
+      <option value="oz">Ounces</option>
+    </select>
+    <button onclick="convertWeight()">Convert</button>
+    <div class="result" id="weightResult"></div>
+  </div>
+
+  <!-- Temperature Converter -->
+  <div class="calculator">
+    <h3>Temperature Converter</h3>
+    <input type="number" id="tempInput" placeholder="Enter value">
+    <select id="tempUnit">
+      <option value="C">Celsius</option>
+      <option value="F">Fahrenheit</option>
+      <option value="K">Kelvin</option>
+    </select>
+    <button onclick="convertTemp()">Convert</button>
+    <div class="result" id="tempResult"></div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 Ultimate Calculator Hub. All Rights Reserved.
+</footer>
+
+<script>
+  // Tab Navigation
+  const tabs = document.querySelectorAll('.tab-link');
+  const contents = document.querySelectorAll('.tab-content');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
     });
   });
 
-  // ---------------- CREATOR CALCULATORS ----------------
-  // YouTube Income
-  document.getElementById('ytCalculateBtn').addEventListener('click', function() {
-    let views = parseFloat(document.getElementById('ytViews').value);
-    let cpm = parseFloat(document.getElementById('ytCPM').value);
-    if(isNaN(views)||isNaN(cpm)){ alert('Enter valid numbers'); return; }
-    document.getElementById('ytIncomeResult').innerText = `Estimated Monthly Income: $${((views/1000)*cpm).toFixed(2)}`;
-  });
+  // Finance
+  function calculateEMI() {
+    const P = parseFloat(document.getElementById('loanAmount').value);
+    const R = parseFloat(document.getElementById('interestRate').value)/12/100;
+    const N = parseInt(document.getElementById('loanTenure').value);
+    const EMI = (P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
+    document.getElementById('emiResult').innerText = 'EMI: ₹'+EMI.toFixed(2);
+  }
+  function calculateGST() {
+    const amount=parseFloat(document.getElementById('gstAmount').value);
+    const rate=parseFloat(document.getElementById('gstRate').value);
+    const gst=(amount*rate)/100;
+    const total=amount+gst;
+    document.getElementById('gstResult').innerText='GST: ₹'+gst.toFixed(2)+', Total: ₹'+total.toFixed(2);
+  }
+  function calculateSIP(){
+    const P=parseFloat(document.getElementById('sipAmount').value);
+    const r=parseFloat(document.getElementById('sipRate').value)/100/12;
+    const n=parseFloat(document.getElementById('sipPeriod').value)*12;
+    const fv = P * ( (Math.pow(1+r,n)-1)/r )*(1+r);
+    document.getElementById('sipResult').innerText='SIP Value: ₹'+fv.toFixed(2);
+  }
+  function calculateFD(){
+    const P=parseFloat(document.getElementById('fdPrincipal').value);
+    const r=parseFloat(document.getElementById('fdRate').value)/100;
+    const t=parseFloat(document.getElementById('fdYears').value);
+    const A = P*Math.pow(1+r,t);
+    document.getElementById('fdResult').innerText='FD Maturity: ₹'+A.toFixed(2);
+  }
+  function calculateDiscount(){
+    const price=parseFloat(document.getElementById('originalPrice').value);
+    const rate=parseFloat(document.getElementById('discountRate').value);
+    const discount=price*rate/100;
+    const finalPrice=price-discount;
+    document.getElementById('discountResult').innerText='Discount: ₹'+discount.toFixed(2)+', Final Price: ₹'+finalPrice.toFixed(2);
+  }
 
-  // Instagram Engagement
-  document.getElementById('instaCalculateBtn').addEventListener('click', function() {
-    let likes=parseFloat(document.getElementById('instaLikes').value);
-    let comments=parseFloat(document.getElementById('instaComments').value);
-    let followers=parseFloat(document.getElementById('instaFollowers').value);
-    if(isNaN(likes)||isNaN(comments)||isNaN(followers)||followers===0){ alert('Enter valid numbers'); return; }
-    document.getElementById('instaEngagementResult').innerText = `Estimated Engagement Rate: ${((likes+comments)/followers*100).toFixed(2)}%`;
-  });
+  // Health
+  function calculateBMI(){
+    const weight=parseFloat(document.getElementById('weight').value);
+    const height=parseFloat(document.getElementById('height').value)/100;
+    const bmi=weight/(height*height);
+    document.getElementById('bmiResult').innerText='BMI: '+bmi.toFixed(2);
+  }
+  function calculateBMR(){
+    const w=parseFloat(document.getElementById('bmrWeight').value);
+    const h=parseFloat(document.getElementById('bmrHeight').value);
+    const age=parseFloat(document.getElementById('bmrAge').value);
+    const gender=document.getElementById('bmrGender').value;
+    let bmr;
+    if(gender=='male'){
+      bmr=10*w+6.25*h-5*age+5;
+    } else {
+      bmr=10*w+6.25*h-5*age-161;
+    }
+    document.getElementById('bmrResult').innerText='BMR: '+bmr.toFixed(0)+' kcal/day';
+  }
+  function calculateCalories(){
+    const age=parseFloat(document.getElementById('calAge').value);
+    const w=parseFloat(document.getElementById('calWeight').value);
+    const h=parseFloat(document.getElementById('calHeight').value);
+    const activity=parseFloat(document.getElementById('activityLevel').value);
+    const bmr=10*w+6.25*h-5*age+5;
+    const calories=bmr*activity;
+    document.getElementById('calorieResult').innerText='Daily Calories: '+calories.toFixed(0)+' kcal';
+  }
+  function calculateWater(){
+    const w=parseFloat(document.getElementById('waterWeight').value);
+    const water=w*35; // ml per kg
+    document.getElementById('waterResult').innerText='Daily Water Intake: '+(water/1000).toFixed(2)+' L';
+  }
 
-  // TikTok Earnings
-  document.getElementById('tikCalculateBtn').addEventListener('click', function() {
-    let views=parseFloat(document.getElementById('tikViews').value);
-    let cpm=parseFloat(document.getElementById('tikCPM').value);
-    if(isNaN(views)||isNaN(cpm)){ alert('Enter valid numbers'); return; }
-    document.getElementById('tikEarningsResult').innerText = `Estimated TikTok Earnings: $${((views/1000)*cpm).toFixed(2)}`;
-  });
+  // Math
+  function calculatePercentage(){
+    const total=parseFloat(document.getElementById('percentTotal').value);
+    const value=parseFloat(document.getElementById('percentValue').value);
+    const percent=(value/total)*100;
+    document.getElementById('percentResult').innerText='Percentage: '+percent.toFixed(2)+'%';
+  }
+  function calculateAge(){
+    const dob=new Date(document.getElementById('dob').value);
+    const diff=Date.now()-dob.getTime();
+    const age=new Date(diff).getUTCFullYear()-1970;
+    document.getElementById('ageResult').innerText='Age: '+age+' years';
+  }
+  function calculateSI(){
+    const P=parseFloat(document.getElementById('siPrincipal').value);
+    const R=parseFloat(document.getElementById('siRate').value);
+    const T=parseFloat(document.getElementById('siTime').value);
+    const SI=(P*R*T)/100;
+    document.getElementById('siResult').innerText='Simple Interest: ₹'+SI.toFixed(2);
+  }
+  function calculateCI(){
+    const P=parseFloat(document.getElementById('ciPrincipal').value);
+    const R=parseFloat(document.getElementById('ciRate').value)/100;
+    const T=parseFloat(document.getElementById('ciTime').value);
+    const n=parseFloat(document.getElementById('ciCompounds').value);
+    const A=P*Math.pow(1+R/n,n*T);
+    document.getElementById('ciResult').innerText='Compound Interest: ₹'+A.toFixed(2);
+  }
 
-  // CPM Calculator
-  document.getElementById('cpmCalculateBtn').addEventListener('click', function() {
-    let revenue=parseFloat(document.getElementById('cpmRevenue').value);
-    let impressions=parseFloat(document.getElementById('cpmImpressions').value);
-    if(isNaN(revenue)||isNaN(impressions)||impressions===0){ alert('Enter valid numbers'); return; }
-    document.getElementById('cpmResult').innerText = `Calculated CPM: $${(revenue/(impressions/1000)).toFixed(2)}`;
-  });
-
-  // Affiliate Income
-  document.getElementById('affCalculateBtn').addEventListener('click', function() {
-    let clicks=parseFloat(document.getElementById('affClicks').value);
-    let conv=parseFloat(document.getElementById('affConversion').value);
-    let payout=parseFloat(document.getElementById('affPayout').value);
-    if(isNaN(clicks)||isNaN(conv)||isNaN(payout)){ alert('Enter valid numbers'); return; }
-    document.getElementById('affResult').innerText = `Estimated Affiliate Income: $${(clicks*(conv/100)*payout).toFixed(2)}`;
-  });
-
-  // Brand Deal
-  document.getElementById('brandCalculateBtn').addEventListener('click', function() {
-    let followers=parseFloat(document.getElementById('brandFollowers').value);
-    let rate=parseFloat(document.getElementById('brandRate').value);
-    if(isNaN(followers)||isNaN(rate)){ alert('Enter valid numbers'); return; }
-    document.getElementById('brandResult').innerText = `Estimated Brand Deal Rate: $${(followers/1000*rate).toFixed(2)}`;
-  });
-
-  // Creator ROI
-  document.getElementById('roiCalculateBtn').addEventListener('click', function() {
-    let revenue=parseFloat(document.getElementById('roiRevenue').value);
-    let cost=parseFloat(document.getElementById('roiCost').value);
-    if(isNaN(revenue)||isNaN(cost)||cost===0){ alert('Enter valid numbers'); return; }
-    document.getElementById('roiResult').innerText = `Estimated ROI: ${((revenue-cost)/cost*100).toFixed(2)}%`;
-  });
-
-  // Subscriber Growth
-  document.getElementById('subsCalculateBtn').addEventListener('click', function() {
-    let current=parseFloat(document.getElementById('subsCurrent').value);
-    let rate=parseFloat(document.getElementById('subsRate').value);
-    let months=parseFloat(document.getElementById('subsMonths').value);
-    if(isNaN(current)||isNaN(rate)||isNaN(months)){ alert('Enter valid numbers'); return; }
-    document.getElementById('subsResult').innerText = `Estimated Subscribers After ${months} Months: ${(current*Math.pow(1+rate/100,months)).toFixed(0)}`;
-  });
-
-  // Video Profit
-  document.getElementById('vidCalculateBtn').addEventListener('click', function() {
-    let revenue=parseFloat(document.getElementById('vidRevenue').value);
-    let cost=parseFloat(document.getElementById('vidCost').value);
-    if(isNaN(revenue)||isNaN(cost)){ alert('Enter valid numbers'); return; }
-    document.getElementById('vidResult').innerText = `Estimated Video Profit: $${(revenue-cost).toFixed(2)}`;
-  });
-
-  // Influencer Rate
-  document.getElementById('inflCalculateBtn').addEventListener('click', function() {
-    let followers=parseFloat(document.getElementById('inflFollowers').value);
-    let engagement=parseFloat(document.getElementById('inflEngagement').value);
-    let base=parseFloat(document.getElementById('inflBase').value);
-    if(isNaN(followers)||isNaN(engagement)||isNaN(base)){ alert('Enter valid numbers'); return; }
-    document.getElementById('inflResult').innerText = `Recommended Influencer Rate: $${(followers/1000*base*(engagement/100)).toFixed(2)}`;
-  });
-
-  // ---------------- FINANCE CALCULATORS ----------------
-  document.getElementById('loanCalculateBtn').addEventListener('click', function() {
-    let P=parseFloat(document.getElementById('loanAmount').value);
-    let rate=parseFloat(document.getElementById('loanRate').value)/12/100;
-    let n=parseFloat(document.getElementById('loanTenure').value);
-    if(isNaN(P)||isNaN(rate)||isNaN(n)||n===0){ alert('Enter valid numbers'); return; }
-    let EMI=(P*rate*Math.pow(1+rate,n))/(Math.pow(1+rate,n)-1);
-    document.getElementById('loanResult').innerText=`Estimated EMI: $${EMI.toFixed(2)}`;
-  });
-
-  document.getElementById('ciCalculateBtn').addEventListener('click', function() {
-    let P=parseFloat(document.getElementById('ciPrincipal').value);
-    let r=parseFloat(document.getElementById('ciRate').value)/100;
-    let t=parseFloat(document.getElementById('ciTime').value);
-    let n=parseFloat(document.getElementById('ciFrequency').value);
-    if(isNaN(P)||isNaN(r)||isNaN(t)||isNaN(n)||n===0){ alert('Enter valid numbers'); return; }
-    let A=P*Math.pow(1+r/n,n*t);
-    document.getElementById('ciResult').innerText=`Estimated Amount: $${A.toFixed(2)}`;
-  });
-
-  document.getElementById('savCalculateBtn').addEventListener('click', function() {
-    let P=parseFloat(document.getElementById('savMonthly').value);
-    let r=parseFloat(document.getElementById('savRate').value)/100/12;
-    let n=parseFloat(document.getElementById('savYears').value)*12;
-    if(isNaN(P)||isNaN(r)||isNaN(n)){ alert('Enter valid numbers'); return; }
-    let FV=P*((Math.pow(1+r,n)-1)/r);
-    document.getElementById('savResult').innerText=`Estimated Future Value: $${FV.toFixed(2)}`;
-  });
-
-  document.getElementById('invCalculateBtn').addEventListener('click', function() {
-    let P=parseFloat(document.getElementById('invPrincipal').value);
-    let r=parseFloat(document.getElementById('invRate').value)/100;
-    let t=parseFloat(document.getElementById('invYears').value);
-    if(isNaN(P)||isNaN(r)||isNaN(t)){ alert('Enter valid numbers'); return; }
-    let FV=P*Math.pow(1+r,t);
-    document.getElementById('invResult').innerText=`Estimated Future Value: $${FV.toFixed(2)}`;
-  });
-
-  document.getElementById('retCalculateBtn').addEventListener('click', function() {
-    let P=parseFloat(document.getElementById('retCurrent').value);
-    let PMT=parseFloat(document.getElementById('retMonthly').value);
-    let r=parseFloat(document.getElementById('retRate').value)/100/12;
-    let n=parseFloat(document.getElementById('retYears').value)*12;
-    if(isNaN(P)||isNaN(PMT)||isNaN(r)||isNaN(n)){ alert('Enter valid numbers'); return; }
-    let FV=P*Math.pow(1+r,n)+PMT*((Math.pow(1+r,n)-1)/r);
-    document.getElementById('retResult').innerText=`Estimated Retirement Savings: $${FV.toFixed(2)}`;
-  });
-
-  // ---------------- HEALTH CALCULATORS ----------------
-  // 1️⃣ BMI
-  document.getElementById('bmiCalculateBtn').addEventListener('click', function() {
-    let w=parseFloat(document.getElementById('bmiWeight').value);
-    let h=parseFloat(document.getElementById('bmiHeight').value)/100;
-    if(isNaN(w)||isNaN(h)||h===0){ alert('Enter valid numbers'); return; }
-    document.getElementById('bmiResult').innerText=`Estimated BMI: ${(w/(h*h)).toFixed(2)}`;
-  });
-
-  // 2️⃣ BMR
-  document.getElementById('bmrCalculateBtn').addEventListener('click', function() {
-    let w=parseFloat(document.getElementById('bmrWeight').value);
-    let h=parseFloat(document.getElementById('bmrHeight').value);
-    let a=parseFloat(document.getElementById('bmrAge').value);
-    let g=document.getElementById('bmrGender').value;
-    if(isNaN(w)||isNaN(h)||isNaN(a)){ alert('Enter valid numbers'); return; }
-    let BMR = g==='male'? (10*w+6.25*h-5*a+5):(10*w+6.25*h-5*a-161);
-    document.getElementById('bmrResult').innerText=`Estimated BMR: ${BMR.toFixed(2)} kcal/day`;
-  });
-
-  // 3️⃣ Body Fat %
-  document.getElementById('bfCalculateBtn').addEventListener('click', function() {
-    let w=parseFloat(document.getElementById('bfWeight').value);
-    let waist=parseFloat(document.getElementById('bfWaist').value);
-    let neck=parseFloat(document.getElementById('bfNeck').value);
-    let hip=parseFloat(document.getElementById('bfHip').value);
-    let g=document.getElementById('bfGender').value;
-    if(isNaN(w)||isNaN(waist)||isNaN(neck)|| (g==='female' && isNaN(hip)) ){ alert('Enter valid numbers'); return; }
-    let bf = g==='male'? (495/(1.0324-0.19077*Math.log10(waist-neck)+0.15456*Math.log10(h)))-450
-                         : (495/(1.29579-0.35004*Math.log10(waist+hip-neck)+0.22100*Math.log10(h)))-450;
-    document.getElementById('bfResult').innerText=`Estimated Body Fat: ${bf.toFixed(2)}%`;
-  });
-
-  // 4️⃣ Ideal Weight
-  document.getElementById('iwCalculateBtn').addEventListener('click', function() {
-    let h=parseFloat(document.getElementById('iwHeight').value);
-    let g=document.getElementById('iwGender').value;
-    if(isNaN(h)){ alert('Enter valid numbers'); return; }
-    let iw = g==='male'? h-100 : h-100-5;
-    document.getElementById('iwResult').innerText=`Estimated Ideal Weight: ${iw} kg`;
-  });
-
-  // 5️⃣ Calorie Needs
-  document.getElementById('calCalculateBtn').addEventListener('click', function() {
-    let w=parseFloat(document.getElementById('calWeight').value);
-    let h=parseFloat(document.getElementById('calHeight').value);
-    let a=parseFloat(document.getElementById('calAge').value);
-    let g=document.getElementById('calGender').value;
-    let activity=parseFloat(document.getElementById('calActivity').value);
-    if(isNaN(w)||isNaN(h)||isNaN(a)||isNaN(activity)){ alert('Enter valid numbers'); return; }
-    let BMR = g==='male'? (10*w+6.25*h-5*a+5):(10*w+6.25*h-5*a-161);
-    document.getElementById('calResult').innerText=`Daily Calorie Needs: ${Math.round(BMR*activity)} kcal/day`;
-  });
-
-  // 6️⃣ Waist-to-Hip Ratio
-  document.getElementById('whrCalculateBtn').addEventListener('click', function() {
-    let waist=parseFloat(document.getElementById('whrWaist').value);
-    let hip=parseFloat(document.getElementById('whrHip').value);
-    if(isNaN(waist)||isNaN(hip)||hip===0){ alert('Enter valid numbers'); return; }
-    document.getElementById('whrResult').innerText=`Waist-to-Hip Ratio: ${(waist/hip).toFixed(2)}`;
-  });
-
-  // 7️⃣ Water Intake
-  document.getElementById('waterCalculateBtn').addEventListener('click', function() {
-    let w=parseFloat(document.getElementById('waterWeight').value);
-    if(isNaN(w)){ alert('Enter valid numbers'); return; }
-    document.getElementById('waterResult').innerText=`Recommended Water Intake: ${(w*0.033).toFixed(2)} L/day`;
-  });
-
-  // 8️⃣ Heart Rate Zone
-  document.getElementById('hrCalculateBtn').addEventListener('click', function() {
-    let a=parseFloat(document.getElementById('hrAge').value);
-    if(isNaN(a)){ alert('Enter valid numbers'); return; }
-    let maxHR = 220-a;
-    document.getElementById('hrResult').innerText=`Target Heart Rate Zone: ${Math.round(maxHR*0.5)}-${Math.round(maxHR*0.85)} bpm`;
-  });
-
-  // 9️⃣ Body Surface Area
-  document.getElementById('bsaCalculateBtn').addEventListener('click', function() {
-    let w=parseFloat(document.getElementById('bsaWeight').value);
-    let h=parseFloat(document.getElementById('bsaHeight').value);
-    if(isNaN(w)||isNaN(h)){ alert('Enter valid numbers'); return; }
-    let BSA=Math.sqrt((h*w)/3600);
-    document.getElementById('bsaResult').innerText=`Estimated Body Surface Area: ${BSA.toFixed(2)} m²`;
-  });
-
-  // 🔟 Protein Intake
-  document.getElementById('protCalculateBtn').addEventListener('click', function() {
-    let w=parseFloat(document.getElementById('protWeight').value);
-    let act=parseFloat(document.getElementById('protActivity').value);
-    if(isNaN(w)||isNaN(act)){ alert('Enter valid numbers'); return; }
-    document.getElementById('protResult').innerText=`Recommended Protein Intake: ${(w*act).toFixed(2)} g/day`;
-  });
-
-});
+  // Unit Converters
+  function convertLength(){
+    const value=parseFloat(document.getElementById('lengthInput').value);
+    const unit=document.getElementById('lengthUnit').value;
+    let result;
+    switch(unit){
+      case 'm': result=value+' m'; break;
+      case 'cm': result=value*100+' cm'; break;
+      case 'km': result=value/
