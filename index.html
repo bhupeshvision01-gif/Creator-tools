@@ -83,8 +83,14 @@
         .result-box { background: var(--brand); color: white; padding: 35px; border-radius: 24px; text-align: center; margin: 30px 0; }
         .result-box h2 { font-size: 2.5rem; font-weight: 800; margin: 0; }
         .legal-content { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); }
+        .legal-content h1 { margin-bottom: 20px; color: var(--brand); }
+        .legal-content h2 { margin: 25px 0 10px 0; font-size: 1.2rem; }
         footer { border-top: 1px solid var(--border); padding: 50px 0; margin-top: 60px; text-align: center; }
         .f-links a { margin: 0 15px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; }
+        .faq-section { padding: 60px 20px; max-width: 800px; margin: auto; border-top: 1px solid var(--border); }
+        .faq-item { margin-bottom: 30px; }
+        .faq-item h3 { color: var(--text); margin-bottom: 10px; font-size: 1.1rem; }
+        .faq-item p { color: var(--text-muted); }
     </style>
 </head>
 <body>
@@ -118,6 +124,26 @@
     </div>
 </div>
 
+<section id="faq-display" class="faq-section container">
+    <h2 style="margin-bottom: 30px; text-align: center;">Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <h3>What is a good SIP amount for a beginner creator?</h3>
+        <p>Starting with even $50 a month can build massive wealth due to compound interest. As your channel or freelance business grows, you can scale this amount.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Can I use an SIP to plan for my YouTube equipment upgrades?</h3>
+        <p>Yes! By using our SIP calculator, you can estimate how much to save monthly to afford high-end cameras or studio gear in 2-3 years using market returns instead of just savings.</p>
+    </div>
+    <div class="faq-item">
+        <h3>How does the EMI calculator help freelance creators?</h3>
+        <p>Freelancers often have fluctuating income. Our EMI tool helps you understand the maximum monthly commitment you can safely afford before taking a loan for a home office or vehicle.</p>
+    </div>
+    <div class="faq-item">
+        <h3>Why should creators care about compound interest?</h3>
+        <p>Compound interest is the 'secret sauce' for creators. Since creator careers can be hit-or-miss, investing early allows your money to work for you even during months when views are low.</p>
+    </div>
+</section>
+
 <footer>
     <div class="container">
         <div class="f-links">
@@ -132,8 +158,6 @@
 </footer>
 
 <script>
-    // [The long _0x4f22 and TOOLS arrays from your original code remain here...]
-    // I am skipping the re-print of the array for brevity, keep your original TOOLS array.
     const _0x4f22 = ['yt-income', 'Creator', 'YouTube Revenue', '(v/1000)*c*a', 'tk-earn', 'TikTok Fund', '(v/1000000)*35', 'ig-eng', 'InstaGram Engagement', '((l+c)/r)*100', 'aff-income', 'Affiliate Sales', 'cl*(cr/100)*com', 'spon-post', 'Sponsorship Rate', '(r/1000)*25', 'twitch-earn', 'Twitch Revenue', '(s*2.5)+(b*0.01)', 'cpm-calc', 'CPM Calculator', '(cost/views)*1000', 'brand-deal', 'Brand Deal Estimator', 'f*(r/100)', 'creator-roi', 'Creator ROI', 'rev/(hours*rate)', 'sub-growth', 'Growth Projection', 'c+(g*m)', 'vid-profit', 'Video Net Profit', 'r-(e+p+m)', 'inf-rate', 'Ideal Influencer Rate', '(v*0.03)+(e*0.50)', 'x-post-calc', 'X Post Value', '((i/1000)*c)+((e+r)*a)', 'emi-calc', 'Finance', 'Loan EMI', '(p*(r/1200)*((1+r/1200)**n))/(((1+r/1200)**n)-1)', 'sip-calc', 'SIP / Mutual Fund', 'p*((((1+r/1200)**n)-1)/(r/1200))*(1+r/1200)', 'crypto-roi', 'Crypto ROI', '(amt/buy)*sell - amt', 'fd-calc', 'Fixed Deposit', 'p+(p*r*t/100)', 'gst-calc', 'Tax / GST', 'p+(p*t/100)', 'compound-int', 'Compound Interest', 'p*(1+(r/100))**t', 'inflation-calc', 'Inflation', 'p/(1+(r/100))**t', 'mortgage-calc', 'Mortgage', '((p-d)*(r/1200)*((1+r/1200)**n))/(((1+r/1200)**n)-1)', 'bmi-calc', 'Health', 'BMI Calculator', 'w/((h/100)**2)', 'bmr-calc', 'BMR (Calories)', '(10*w)+(6.25*h)-(5*a)+5', 'water-goal', 'Daily Water', 'w*0.033', 'max-hr', 'Max Heart Rate', '220-a', 'ideal-weight', 'Ideal Weight', '50+2.3*((h/2.54)-60)', 'startup-val', 'Business', 'Valuation', 'r*m', 'cac-calc', 'CAC', 's/c', 'break-even', 'Break-Even', 'f/(s-v)', 'roas-calc', 'ROAS', 'r/s', 'profit-margin', 'Net Margin', '((r-c)/r)*100', 'clv-calc', 'CLV', 'v*t', 'trip-calc', 'Lifestyle', 'Trip Budget', '((d/m)*p)+h', 'acre-sqft', 'Land Convert', 'a*43560', 'temp-conv', 'Celsius to F', '(c*9/5)+32', 'km-miles', 'KM to Miles', 'k*0.621', 'kg-lbs', 'Weight Convert', 'k*2.204', 'hourly-sal', 'Sal to Hourly', 's/2080', 'tip-split', 'Tip & Split', '(b*(1+t/100))/p', 'age-days', 'Age in Days', 'y*365', 'perc-diff', 'Math', 'Perc. Change', '((n-o)/o)*100', 'prob-calc', 'Probability', '(s/t)*100', 'avg-calc', 'Average', '(a+b+c)/3', 'sq-root', 'Square Root', 'Math.sqrt(n)', 'perc-of', 'X of Y', '(p/100)*t'];
     const TOOLS = [
         { id: _0x4f22[0], cat: _0x4f22[1], name: _0x4f22[2], desc: "Views × CPM × Ads per video.", unit: "$", formula: _0x4f22[3], inputs: [{id:"v", l:"Monthly Views", v:100000}, {id:"c", l:"CPM ($)", v:5}, {id:"a", l:"Ads per video", v:1.5}] },
@@ -186,6 +210,7 @@
     let currentCat = "Creator";
     const view = document.getElementById('view');
     const homeInfo = document.getElementById('home-info');
+    const faqDisplay = document.getElementById('faq-display');
 
     function init() {
         renderTabs();
@@ -208,6 +233,7 @@
 
     function renderHome() {
         homeInfo.style.display = 'block';
+        faqDisplay.style.display = 'block';
         document.getElementById('tabs').parentElement.parentElement.style.display = 'block';
         const filtered = TOOLS.filter(t => t.cat === currentCat);
         let html = `<div class="grid">`;
@@ -230,6 +256,7 @@
     function renderTool(tool) {
         if(!tool) { renderHome(); return; }
         homeInfo.style.display = 'none';
+        faqDisplay.style.display = 'none';
         document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
         view.innerHTML = `
             <div class="calc-main">
@@ -266,6 +293,7 @@
         const q = document.getElementById('toolSearch').value.toLowerCase();
         if(q.length > 0) {
             homeInfo.style.display = 'none';
+            faqDisplay.style.display = 'none';
             document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
             const matches = TOOLS.filter(t => t.name.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q));
             view.innerHTML = `<div class="grid">${matches.map(t => `<a href="?id=${t.id}" class="card" onclick="event.preventDefault(); navigate('id=${t.id}')"><span class="badge">${t.cat}</span><h3>${t.name}</h3><p>${t.desc}</p></a>`).join('')}</div>`;
@@ -281,16 +309,28 @@
             renderTool(TOOLS.find(t => t.id === id));
         } else if (page) {
             homeInfo.style.display = 'none';
+            faqDisplay.style.display = 'none';
             document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
-            const titles = {about: "About Us", contact: "Contact", privacy: "Privacy Policy", terms: "Terms"};
-            view.innerHTML = `<div class="legal-content"><h1>${titles[page] || 'Page'}</h1><p>Content for ${page} goes here.</p></div>`;
+            
+            const content = {
+                about: `<h1>About Us</h1>
+                        <p>Welcome to <strong>CreatorProfitLab</strong>, the dedicated financial toolkit for the modern digital entrepreneur. We understand that creator income isn't like a 9-to-5—it’s fluctuating, exciting, and full of potential. Our mission is to provide simple, transparent, and high-accuracy calculators to help YouTubers, freelancers, and influencers turn their passion into a sustainable business.</p>`,
+                contact: `<h1>Contact</h1><p>Have questions or tool suggestions? Reach out to us at support@creatorprofitlab.com. We aim to respond to all creator inquiries within 48 hours.</p>`,
+                privacy: `<h1>Privacy Policy</h1>
+                        <h2>1. Data Collection</h2><p>CreatorProfitLab does not collect or store any financial data you enter into our calculators. All calculations are performed locally in your browser.</p>
+                        <h2>2. Third-Party Services</h2><p>We may use services like Google Analytics to improve user experience. These partners may use cookies to serve relevant content.</p>`,
+                terms: `<h1>Terms of Service</h1>
+                        <h2>1. Informational Purposes</h2><p>All calculators are for educational purposes. They do not constitute professional financial advice.</p>
+                        <h2>2. Accuracy</h2><p>While we strive for precision, results are estimates based on market averages.</p>`
+            };
+            
+            view.innerHTML = `<div class="legal-content">${content[page] || '<h1>Page Not Found</h1>'}</div>`;
         } else {
             renderHome();
         }
     }
 
     window.onpopstate = router;
-    // Security Layer
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
         if (e.ctrlKey && (e.key === 'u' || e.key === 'i' || e.key === 'j')) e.preventDefault();
@@ -298,18 +338,6 @@
 
     init();
 </script>
-
-<section id="faq-section" style="padding: 20px; max-width: 800px; margin: auto;">
-    <h2>Frequently Asked Questions for Creators</h2>
-    <div>
-        <h3>What is a good SIP amount for a beginner creator?</h3>
-        <p>Starting with even $50 a month can build massive wealth due to compound interest...</p>
-    </div>
-    <div>
-        <h3>Can I use an SIP to plan for my YouTube equipment upgrades?</h3>
-        <p>Yes! By using our SIP calculator, you can estimate how much to save monthly...</p>
-    </div>
-    </section>
     
 </body>
 </html>
