@@ -1,0 +1,21 @@
+[
+  {
+    "id": "youtube-money",
+    "title": "YouTube Money Calculator",
+    "category": "Creator Economy",
+    "keywords": "youtube earnings calculator, youtube money per view",
+    "description": "Estimate your YouTube revenue based on views and CPM.",
+    "icon": "📊",
+    "inputs": [
+      {"id": "views", "label": "Daily Views", "type": "number", "default": 10000},
+      {"id": "cpm", "label": "Estimated CPM ($)", "type": "number", "default": 5}
+    ],
+    "formula": "(views / 1000) * cpm",
+    "unit": "$",
+    "content": "<h2>How much does YouTube pay?</h2><p>YouTube creators earn money via the Partner Program...</p>",
+    "faqs": [
+      {"q": "What is CPM?", "a": "Cost Per Mille (1,000 views)."}
+    ],
+    "affiliate": {"name": "TubeBuddy", "link": "https://tubebuddy.com/yourid", "text": "Optimize your channel with TubeBuddy"}
+  }
+]
