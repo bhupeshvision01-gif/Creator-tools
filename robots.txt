@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bhupeshvision01-gif.github.io/creator-profit-lab/sitemap.xml
