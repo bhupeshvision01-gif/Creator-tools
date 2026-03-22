@@ -177,6 +177,99 @@
             <div class="card"><h3>Travel Currency</h3><div class="field"><label>Amt / Rate (1 loc = ?)</label><div style="display:flex;gap:5px;"><input type="number" id="l6-a" value="100"><input type="number" id="l6-r" value="1.1"></div></div><button class="btn-calc" onclick="run('l6')">Convert</button><div class="out-box" id="r-l6">110.00</div></div>
         </div>
     </section>
+
+
+
+    <section id="content" class="tab-content">
+
+        <div class="grid">
+
+            <div class="card"><h3>Keyword Density</h3><div class="field"><label>Text / Keyword</label><textarea id="s1-t" placeholder="Paste text here..." style="height:80px"></textarea><input type="text" id="s1-k" placeholder="Keyword" style="margin-top:5px;"></div><button class="btn-calc" onclick="run('s1')">Calculate %</button><div class="out-box" id="r-s1">0%</div></div>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="res-yt" class="tab-content">
+
+        <div class="content-center">
+
+            <h2>The Creator Economy: Decoding YouTube AdSense</h2>
+
+            
+
+            <p>To maximize earnings, creators must understand the difference between <strong>CPM</strong> (what advertisers pay) and <strong>RPM</strong> (what you actually keep). High CPM niches like Finance often pay 5x more than lifestyle vlogs.</p>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="res-fin" class="tab-content">
+
+        <div class="content-center">
+
+            <h2>Mastering Your Money</h2>
+
+            
+
+            <p>Compound interest is the foundation of wealth. Starting your investment journey early results in exponential growth that builds long-term security.</p>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="res-health" class="tab-content">
+
+        <div class="content-center">
+
+            <h2>Nutrition & Body Metrics</h2>
+
+            
+
+            <p>Health is more than just a number. Using tools like <strong>TDEE</strong> helps you understand the caloric fuel your body needs based on your specific activity levels.</p>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="about" class="tab-content">
+
+        <div class="content-center">
+
+            <h2>About CreatorProfitLab</h2>
+
+            <p>CreatorProfitLab is a digital toolkit dedicated to transparency and accuracy. Our goal is to provide high-performance calculators that help entrepreneurs and creators make better data-driven decisions.</p>
+
+        </div>
+
+    </section>
+
+
+
+    <section id="privacy" class="tab-content">
+
+        <div class="content-center">
+
+            <h2>Privacy Policy</h2>
+
+            <p>We respect your privacy. <strong>All calculations are performed on your local machine.</strong> No data entered into these tools is stored on our servers. We use Google AdSense for monetization.</p>
+
+        </div>
+
+    </section>
+
+
+
+    
+    
 </main>
 
 <script>
@@ -268,6 +361,12 @@
         }
         if(t==='l6') document.getElementById('r-l6').innerText = (document.getElementById('l6-a').value * document.getElementById('l6-r').value).toFixed(2);
     }
+
+     // --- SEO ---
+
+        if(t==='s1') { let txt = document.getElementById('s1-t').value.toLowerCase(); let kw = document.getElementById('s1-k').value.toLowerCase(); if(!kw) return; let count = txt.split(kw).length - 1; let words = txt.split(/\s+/).length; document.getElementById('r-s1').innerText = ((count/words)*100).toFixed(1) + '%'; }
+
+
 </script>
 </body>
 </html>
