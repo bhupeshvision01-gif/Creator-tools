@@ -92,12 +92,12 @@
 <aside>
     <div class="logo">🚀 CreatorProfitLab</div>
     <nav>
-        <button class="active" onclick="tab(event, 'creator')">1. Creator Economy</button>
-        <button onclick="tab(event, 'finance')">2. Finance & Money</button>
-        <button onclick="tab(event, 'health')">3. Health & Nutrition</button>
-        <button onclick="tab(event, 'math')">4. Math & Science</button>
-        <button onclick="tab(event, 'utility')">5. Business & Utility</button>
-        <button onclick="tab(event, 'lifestyle')">6. Lifestyle & Travel</button>
+        <button class="active" onclick="tab(event, 'creator')">Creator Economy</button>
+        <button onclick="tab(event, 'finance')">Finance & Money</button>
+        <button onclick="tab(event, 'health')">Health & Nutrition</button>
+        <button onclick="tab(event, 'math')">Math & Science</button>
+        <button onclick="tab(event, 'utility')">Business & Utility</button>
+        <button onclick="tab(event, 'lifestyle')">Lifestyle & Travel</button>
         <button onclick="tab(event, 'resources')">📖 Learning Hub</button>
         <button onclick="tab(event, 'finance-guide')">💰 Finance Masterclass</button>
         <button onclick="tab(event, 'health-guide')">🥗 Health & Vitality</button>
@@ -294,7 +294,7 @@
             <div class="card"><h3>Room Dimension</h3><div class="field"><label>Room Area / Furniture Area</label><div style="display:flex;gap:5px;"><input type="number" id="l2-r" value="200"><input type="number" id="l2-f" value="50"></div></div><button class="btn-calc" onclick="run('l2')">Check Fit</button><div class="out-box" id="r-l2">25% Occupied</div></div>
             <div class="card"><h3>Land Converter</h3><div class="field"><label>Value / From</label><div style="display:flex;gap:5px;"><input type="number" id="l3-v" value="1"><select id="l3-f"><option value="ac-sqft">Acres to SqFt</option><option value="sqm-sqft">SqM to SqFt</option></select></div></div><button class="btn-calc" onclick="run('l3')">Convert</button><div class="out-box" id="r-l3">43,560 sq ft</div></div>
             <div class="card"><h3>Trip Budgeter</h3><div class="field"><label>Fuel + Tolls + Hotel</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="l4-f" value="50"><input type="number" id="l4-t" value="20"><input type="number" id="l4-h" value="150"></div></div><button class="btn-calc" onclick="run('l4')">Total Cost</button><div class="out-box" id="r-l4">$220</div></div>
-           // <div class="card"><h3>Maintenance Check</h3><div class="field"><label>Last Service (KM)</label><input type="number" id="l5-k" value="45000"></div><button class="btn-calc" onclick="run('l5')">Check Status</button><div class="out-box" id="r-l5">Service in 5k KM</div></div> //
+            <div class="card"><h3>Maintenance Check</h3><div class="field"><label>Last Service (KM)</label><input type="number" id="l5-k" value="45000"></div><button class="btn-calc" onclick="run('l5')">Check Status</button><div class="out-box" id="r-l5">Service in 5k KM</div></div>
             <div class="card"><h3>Travel Currency</h3><div class="field"><label>Amt / Rate (1 loc = ?)</label><div style="display:flex;gap:5px;"><input type="number" id="l6-a" value="100"><input type="number" id="l6-r" value="1.1"></div></div><button class="btn-calc" onclick="run('l6')">Convert</button><div class="out-box" id="r-l6">110.00</div></div>
         </div>
     </section>
