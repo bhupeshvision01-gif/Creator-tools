@@ -38,6 +38,46 @@
         .btn-calc { width: 100%; padding: 0.8rem; background: var(--brand); color: white; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; margin-top: 5px; }
         .out-box { margin-top: 1rem; padding: 0.9rem; background: #f5f7ff; border-radius: 10px; text-align: center; font-weight: 800; color: var(--brand); border: 2px dashed #dbeafe; font-size: 1.1rem; min-height: 50px; display: flex; align-items: center; justify-content: center; }
 
+        
+        /* Calculator Cards */
+
+        .card { background: var(--surface); padding: 1.5rem; border-radius: 16px; border: 1px solid var(--border); transition: 0.3s; display: flex; flex-direction: column; height: 100%; }
+
+        .card:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+
+        .card h3 { font-size: 0.95rem; margin-bottom: 1rem; font-weight: 800; color: var(--text); border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; }
+
+        .field { margin-bottom: 0.8rem; }
+
+        label { font-size: 0.65rem; font-weight: 800; color: var(--text-muted); text-transform: uppercase; display: block; margin-bottom: 4px; }
+
+        input, select, textarea { width: 100%; padding: 0.65rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; font-size: 0.9rem; outline: none; transition: 0.2s; background: #fff; }
+
+        input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
+
+        .btn-calc { width: 100%; padding: 0.8rem; background: var(--brand); color: white; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; margin-top: auto; }
+
+        .out-box { margin-top: 1rem; padding: 0.9rem; background: #f5f7ff; border-radius: 10px; text-align: center; font-weight: 800; color: var(--brand); border: 2px dashed #dbeafe; min-height: 54px; display: flex; align-items: center; justify-content: center; }
+
+
+
+        /* Content Centering (Legal/Guides) */
+
+        .content-center { max-width: 850px; margin: 0 auto; background: var(--surface); padding: 3rem; border-radius: 20px; border: 1px solid var(--border); line-height: 1.8; }
+
+        .content-center h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; color: var(--brand); }
+
+        .content-center h3 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.25rem; }
+
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+
+
+        @media (max-width: 1024px) { aside { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); } main { margin-left: 0; padding: 1.5rem; } body { flex-direction: column; } }
+
+
         @media (max-width: 1024px) { aside { width: 100%; height: auto; position: relative; } main { margin-left: 0; padding: 1rem; } body { flex-direction: column; } }
     </style>
 </head>
