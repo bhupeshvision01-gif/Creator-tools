@@ -109,9 +109,9 @@
     </nav>
 </aside>
 
+
+
 <main>
-
-
 
 <section id="health-guide" class="tab-content">
     <div class="content-center">
@@ -122,7 +122,7 @@
         <h3>1. Understanding BMI vs. Body Fat %</h3>
         <p><strong>Body Mass Index (BMI)</strong> is a simple calculation using your height and weight. While it is a great general starting point, it doesn't account for muscle mass. For a deeper look, use our <strong>Navy Body Fat Calculator</strong>, which uses neck and waist measurements to estimate your actual body composition.</p>
 
-        
+     
 
         <h3>2. What is TDEE?</h3>
         <p>Your <strong>Total Daily Energy Expenditure (TDEE)</strong> is the number of calories you burn in a day. It is calculated by taking your Basal Metabolic Rate (BMR) and multiplying it by an activity factor.</p>
@@ -236,7 +236,11 @@
         </div>
     </article>
 </section>
+ 
 
+
+
+    
 
 
     
@@ -400,5 +404,13 @@
         if(t==='l6') document.getElementById('r-l6').innerText = (document.getElementById('l6-a').value * document.getElementById('l6-r').value).toFixed(2);
     }
 </script>
+
+    
+
+<nav>
+    <hr style="margin: 10px 0; border: 0; border-top: 1px solid var(--border);">
+    <button onclick="tab(event, 'about')">ℹ️ About CreatorProfitLab</button>
+    <button onclick="tab(event, 'privacy')">🔒 Privacy Policy</button>
+</nav>
 </body>
 </html>
