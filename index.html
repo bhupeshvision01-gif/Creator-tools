@@ -112,7 +112,7 @@
                 <a href="index.html" style="text-decoration:none; color:var(--brand); font-weight:800; font-size:0.8rem;">← HOME</a>
                 <h1 style="margin:10px 0;">${tool.name}</h1>
                 ${tool.inputs.map(i => `<div class="input-group"><label>${i.l}</label><input type="number" id="${i.id}" value="${i.v}" oninput="calc()"></div>`).join('')}
-                <div class="result-box"><p>Total Result (USD)</p><h2 id="res">--</h2></div>
+                <div class="result-box"><p>Total Result</p><h2 id="res">--</h2></div>
                 <div style="background:#f1f5f9; padding:20px; border-radius:15px; font-size:0.9rem;">
                     <strong>About ${tool.name}:</strong> This professional tool helps you calculate financial metrics in USD based on standard global formulas.
                 </div>
