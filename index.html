@@ -1,18 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatorProfitLab | 50+ Global Professional Tools</title>
-    <meta name="google-site-verification" content="googlecfe26209c15065b3" />
-    <meta name="description" content="Free professional calculators for YouTube, Finance, Business, and Health. Calculate EMI, SIP, Creator Earnings, and BMI instantly.">
-    
+
+<title>CreatorProfitLab | 50+ Free YouTube & Finance Calculators</title>
+
+
+<meta name="google-site-verification" content="PASTE_YOUR_CODE_HERE" />
+    <title>CreatorProfitLab</title><meta name="google-site-verification" content="googlecfe26209c15065b3" />
+    <title>CreatorProfitLab</title>
+
+    <meta name="title" content="CreatorProfitLab | 50+ Free YouTube & Finance Calculators">
+    <meta name="description" content="Calculate YouTube earnings, Brand Deal rates, EMI, SIP, and BMI with CreatorProfitLab. The all-in-one professional toolset for creators and entrepreneurs. 100% Free & Private.">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.creatorprofitlab.com/">
     <meta property="og:title" content="CreatorProfitLab | 50+ Professional Tools">
     <meta property="og:description" content="Instant YouTube Revenue, Finance, and Health calculations. Stop guessing, start calculating.">
     <meta property="og:image" content="https://bhupeshvision01-gif.github.io/Creator-tools/og-image.jpg">
 
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://bhupeshvision01-gif.github.io/Creator-tools/">
+    <meta property="twitter:title" content="CreatorProfitLab | 50+ Professional Tools">
+    <meta property="twitter:description" content="Calculate YouTube earnings, Brand Deal rates, EMI, SIP, and BMI instantly.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatorProfitLab | 50+ Global Professional Tools</title>
+    <meta name="description" content="Free professional calculators for YouTube, Finance, Business, and Health. Calculate EMI, SIP, Creator Earnings, and BMI instantly.">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root { --brand: #4f46e5; --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0; --accent: #f1f5f9; }
@@ -56,23 +74,6 @@
 
 <div id="view" class="container"></div>
 
-<div class="container" style="margin-top: 60px; padding: 40px; background: #fff; border-radius: 20px; border: 1px solid var(--border);">
-    <h2 style="margin-bottom: 15px;">Professional Tools for the Modern Creator Economy</h2>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">
-        Welcome to <strong>CreatorProfitLab</strong>, your primary destination for high-precision digital tools.
-    </p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem; color: var(--text-muted);">
-        <div>
-            <h4 style="color: var(--text); margin-bottom: 5px;">📈 Creator & Social Media</h4>
-            <p>Calculate YouTube CPM, Instagram Engagement, and Brand Deal valuations instantly.</p>
-        </div>
-        <div>
-            <h4 style="color: var(--text); margin-bottom: 5px;">💰 Finance & Business</h4>
-            <p>Accurate EMI, GST, Startup Valuation, and CAC calculators for data-driven decisions.</p>
-        </div>
-    </div>
-</div>
-
 <footer>
     <div class="container">
         <div class="f-links">
@@ -86,7 +87,188 @@
     </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+    const TOOLS = [
+        // CREATOR ECONOMY
+        { id: "yt-income", cat: "Creator", name: "YouTube Revenue", desc: "Views × CPM × Ads per video.", unit: "$", formula: "(v/1000)*c*a", inputs: [{id:"v", l:"Monthly Views", v:100000}, {id:"c", l:"CPM ($)", v:5}, {id:"a", l:"Ads per Video", v:1.5}] },
+        { id: "tk-earn", cat: "Creator", name: "TikTok Fund", desc: "Creator Fund payouts.", unit: "$", formula: "(v/1000000)*35", inputs: [{id:"v", l:"Monthly Views", v:1000000}] },
+        { id: "ig-eng", cat: "Creator", name: "InstaGram Engagement", desc: "Likes + Comments vs Reach.", unit: "%", formula: "((l+c)/r)*100", inputs: [{id:"l", l:"Total Likes", v:1500}, {id:"c", l:"Comments", v:120}, {id:"r", l:"Total Reach", v:25000}] },
+        { id: "aff-income", cat: "Creator", name: "Affiliate Sales", desc: "Projected link commissions.", unit: "$", formula: "cl*(cr/100)*com", inputs: [{id:"cl", l:"Link Clicks", v:5000}, {id:"cr", l:"Conv. %", v:2.5}, {id:"com", l:"Commission ($)", v:20}] },
+        { id: "spon-post", cat: "Creator", name: "Sponsorship Rate", desc: "Suggested pricing based on reach.", unit: "$", formula: "(r/1000)*25", inputs: [{id:"r", l:"Avg Reach/Video", v:20000}] },
+        { id: "twitch-earn", cat: "Creator", name: "Twitch Revenue", desc: "Subs and bits income.", unit: "$", formula: "(s*2.5)+(b*0.01)", inputs: [{id:"s", l:"Active Subs", v:50}, {id:"b", l:"Total Bits", v:1000}] },
+        { id: "cpm-calc", cat: "Creator", name: "CPM Calculator", desc: "Cost per 1,000 impressions.", unit: "$ CPM", formula: "(cost/views)*1000", inputs: [{id:"cost", l:"Total Ad Spend ($)", v:500}, {id:"views", l:"Total Views", v:100000}] },
+        { id: "brand-deal", cat: "Creator", name: "Brand Deal Estimator", desc: "Post value based on followers.", unit: "$", formula: "f*(r/100)", inputs: [{id:"f", l:"Total Followers", v:50000}, {id:"r", l:"Rate Per Follower ($)", v:0.02}] },
+        { id: "creator-roi", cat: "Creator", name: "Creator ROI", desc: "Revenue vs Time investment.", unit: " ROI", formula: "rev/(hours*rate)", inputs: [{id:"rev", l:"Total Revenue ($)", v:1000}, {id:"hours", l:"Hours Worked", v:10}, {id:"rate", l:"Your Hourly Rate ($)", v:50}] },
+        { id: "sub-growth", cat: "Creator", name: "Growth Projection", desc: "Project future subscribers.", unit: " Subs", formula: "c+(g*m)", inputs: [{id:"c", l:"Current Subs", v:5000}, {id:"g", l:"Monthly Growth", v:500}, {id:"m", l:"Months", v:12}] },
+        { id: "vid-profit", cat: "Creator", name: "Video Net Profit", desc: "Revenue minus production costs.", unit: "$", formula: "r-(e+p+m)", inputs: [{id:"r", l:"Total Revenue ($)", v:1500}, {id:"e", l:"Editing Cost ($)", v:200}, {id:"p", l:"Props/Gear ($)", v:50}, {id:"m", l:"Marketing ($)", v:100}] },
+        { id: "inf-rate", cat: "Creator", name: "Ideal Influencer Rate", desc: "Fair rate based on views.", unit: "$", formula: "(v*0.03)+(e*0.50)", inputs: [{id:"v", l:"Avg. Video Views", v:10000}, {id:"e", l:"Avg. Engagements", v:800}] },
+        { id: "x-post-calc", cat: "Creator", name: "X Post Value", desc: "Media value of an X post.", unit: "$", formula: "((i/1000)*c)+((e+r)*a)", inputs: [{id:"i", l:"Impressions", v:5000}, {id:"c", l:"CPM Rate ($)", v:6}, {id:"e", l:"Likes/Comments", v:150}, {id:"r", l:"Retweets", v:20}, {id:"a", l:"Bonus ($)", v:0.50}] },
 
+        // FINANCE
+        { id: "emi-calc", cat: "Finance", name: "Loan EMI", desc: "Monthly installments.", unit: "$/mo", formula: "(p*(r/1200)*((1+r/1200)**n))/(((1+r/1200)**n)-1)", inputs: [{id:"p", l:"Principal ($)", v:10000}, {id:"r", l:"Rate (%)", v:10}, {id:"n", l:"Months", v:24}] },
+        { id: "sip-calc", cat: "Finance", name: "SIP / Mutual Fund", desc: "Wealth growth calculation.", unit: "$", formula: "p*((((1+r/1200)**n)-1)/(r/1200))*(1+r/1200)", inputs: [{id:"p", l:"Monthly Inv ($)", v:500}, {id:"r", l:"Return (%)", v:12}, {id:"n", l:"Months", v:120}] },
+        { id: "crypto-roi", cat: "Finance", name: "Crypto ROI", desc: "Profit/Loss on crypto assets.", unit: "$", formula: "(amt/buy)*sell - amt", inputs: [{id:"amt", l:"Invested ($)", v:1000}, {id:"buy", l:"Buy Price ($)", v:45000}, {id:"sell", l:"Sell Price ($)", v:65000}] },
+        { id: "fd-calc", cat: "Finance", name: "Fixed Deposit", desc: "Final amount with interest.", unit: "$", formula: "p+(p*r*t/100)", inputs: [{id:"p", l:"Deposit ($)", v:5000}, {id:"r", l:"Rate (%)", v:7}, {id:"t", l:"Years", v:5}] },
+        { id: "gst-calc", cat: "Finance", name: "Tax / GST", desc: "Price including tax.", unit: "$", formula: "p+(p*t/100)", inputs: [{id:"p", l:"Net Price ($)", v:1000}, {id:"t", l:"Tax %", v:18}] },
+        { id: "compound-int", cat: "Finance", name: "Compound Interest", desc: "Yearly compounding wealth.", unit: "$", formula: "p*(1+(r/100))**t", inputs: [{id:"p", l:"Principal ($)", v:5000}, {id:"r", l:"Yearly Rate (%)", v:8}, {id:"t", l:"Years", v:10}] },
+        { id: "inflation-calc", cat: "Finance", name: "Inflation", desc: "Future value of today's cash.", unit: "$", formula: "p/(1+(r/100))**t", inputs: [{id:"p", l:"Today's Cash ($)", v:1000}, {id:"r", l:"Inflation %", v:5}, {id:"t", l:"Years", v:10}] },
+        { id: "mortgage-calc", cat: "Finance", name: "Mortgage", desc: "Monthly home loan payments.", unit: "$/mo", formula: "((p-d)*(r/1200)*((1+r/1200)**n))/(((1+r/1200)**n)-1)", inputs: [{id:"p", l:"Home Price ($)", v:350000}, {id:"d", l:"Down Payment ($)", v:70000}, {id:"r", l:"Rate (%)", v:6.5}, {id:"n", l:"Months", v:360}] },
+
+        // HEALTH
+        { id: "bmi-calc", cat: "Health", name: "BMI Calculator", desc: "Body Mass Index metric.", unit: " BMI", formula: "w/((h/100)**2)", inputs: [{id:"w", l:"Weight (kg)", v:70}, {id:"h", l:"Height (cm)", v:175}] },
+        { id: "bmr-calc", cat: "Health", name: "BMR (Calories)", desc: "Metabolism at rest.", unit: " kcal", formula: "(10*w)+(6.25*h)-(5*a)+5", inputs: [{id:"w", l:"Weight (kg)", v:70}, {id:"h", l:"Height (cm)", v:175}, {id:"a", l:"Age", v:25}] },
+        { id: "water-goal", cat: "Health", name: "Daily Water", desc: "Ideal daily water intake.", unit: " L/day", formula: "w*0.033", inputs: [{id:"w", l:"Weight (kg)", v:70}] },
+        { id: "max-hr", cat: "Health", name: "Max Heart Rate", desc: "Safe exercise limit.", unit: " bpm", formula: "220-a", inputs: [{id:"a", l:"Age", v:25}] },
+        { id: "ideal-weight", cat: "Health", name: "Ideal Weight", desc: "Miller Formula estimate.", unit: " kg", formula: "50+2.3*((h/2.54)-60)", inputs: [{id:"h", l:"Height (cm)", v:180}] },
+
+        // BUSINESS
+        { id: "startup-val", cat: "Business", name: "Valuation", desc: "Multi-year revenue projection.", unit: "$", formula: "r*m", inputs: [{id:"r", l:"Annual Revenue ($)", v:200000}, {id:"m", l:"Multiplier", v:5}] },
+        { id: "cac-calc", cat: "Business", name: "CAC", desc: "Cost to acquire a customer.", unit: "$", formula: "s/c", inputs: [{id:"s", l:"Marketing Spend ($)", v:10000}, {id:"c", l:"New Customers", v:250}] },
+        { id: "break-even", cat: "Business", name: "Break-Even", desc: "Units needed for profit.", unit: " Units", formula: "f/(s-v)", inputs: [{id:"f", l:"Fixed Cost ($)", v:5000}, {id:"s", l:"Sales Price ($)", v:100}, {id:"v", l:"Variable Cost ($)", v:40}] },
+        { id: "roas-calc", cat: "Business", name: "ROAS", desc: "Return on ad spend.", unit: "x", formula: "r/s", inputs: [{id:"r", l:"Ad Revenue ($)", v:15000}, {id:"s", l:"Ad Spend ($)", v:3000}] },
+        { id: "profit-margin", cat: "Business", name: "Net Margin", desc: "Profitability percentage.", unit: "%", formula: "((r-c)/r)*100", inputs: [{id:"r", l:"Total Revenue ($)", v:50000}, {id:"c", l:"Total Expenses ($)", v:32000}] },
+        { id: "clv-calc", cat: "Business", name: "CLV", desc: "Customer Lifetime Value.", unit: "$", formula: "v*t", inputs: [{id:"v", l:"Avg Revenue/Year ($)", v:200}, {id:"t", l:"Customer Life (Yrs)", v:5}] },
+
+        // LIFESTYLE & MATH
+        { id: "trip-calc", cat: "Lifestyle", name: "Trip Budget", desc: "Full cost for a road trip.", unit: "$", formula: "((d/m)*p)+h", inputs: [{id:"d", l:"Distance (km)", v:600}, {id:"m", l:"Mileage (km/l)", v:15}, {id:"p", l:"Fuel Price/L", v:1.5}, {id:"h", l:"Hotel/Food $", v:200}] },
+        { id: "acre-sqft", cat: "Lifestyle", name: "Land Convert", desc: "Acre to Square Feet.", unit: " SqFt", formula: "a*43560", inputs: [{id:"a", l:"Acres", v:2.5}] },
+        { id: "temp-conv", cat: "Lifestyle", name: "Celsius to F", desc: "Temperature converter.", unit: "°F", formula: "(c*9/5)+32", inputs: [{id:"c", l:"Celsius (°C)", v:25}] },
+        { id: "km-miles", cat: "Lifestyle", name: "KM to Miles", desc: "Distance converter.", unit: " Miles", formula: "k*0.621", inputs: [{id:"k", l:"Kilometers", v:10}] },
+        { id: "kg-lbs", cat: "Lifestyle", name: "Weight Convert", desc: "KG to Pounds.", unit: " Lbs", formula: "k*2.204", inputs: [{id:"k", l:"Kilograms", v:70}] },
+        { id: "hourly-sal", cat: "Lifestyle", name: "Sal to Hourly", desc: "Annual pay to hourly rate.", unit: "$/hr", formula: "s/2080", inputs: [{id:"s", l:"Annual Salary ($)", v:75000}] },
+        { id: "tip-split", cat: "Lifestyle", name: "Tip & Split", desc: "Bill splitting with friends.", unit: "$", formula: "(b*(1+t/100))/p", inputs: [{id:"b", l:"Bill Amount ($)", v:200}, {id:"t", l:"Tip %", v:15}, {id:"p", l:"People", v:4}] },
+        { id: "age-days", cat: "Lifestyle", name: "Age in Days", desc: "Total days lived.", unit: " Days", formula: "y*365", inputs: [{id:"y", l:"Age (Years)", v:25}] },
+        { id: "perc-diff", cat: "Math", name: "Perc. Change", desc: "Increase/Decrease %.", unit: "%", formula: "((n-o)/o)*100", inputs: [{id:"o", l:"Old Value", v:100}, {id:"n", l:"New Value", v:135}] },
+        { id: "prob-calc", cat: "Math", name: "Probability", desc: "Event chance ratio.", unit: "%", formula: "(s/t)*100", inputs: [{id:"s", l:"Success Outcomes", v:1}, {id:"t", l:"Total Outcomes", v:6}] },
+        { id: "avg-calc", cat: "Math", name: "Average", desc: "Simple mean of 3 numbers.", unit: " Avg", formula: "(a+b+c)/3", inputs: [{id:"a", l:"Val 1", v:10}, {id:"b", l:"Val 2", v:20}, {id:"c", l:"Val 3", v:30}] },
+        { id: "sq-root", cat: "Math", name: "Square Root", desc: "Root calculator.", unit: " Root", formula: "Math.sqrt(n)", inputs: [{id:"n", l:"Number", v:144}] },
+        { id: "perc-of", cat: "Math", name: "X of Y", desc: "Percentage of total.", unit: " Result", formula: "(p/100)*t", inputs: [{id:"p", l:"Percentage %", v:15}, {id:"t", l:"Total", v:500}] }
+    ];
+
+    let currentCat = "Creator";
+    const view = document.getElementById('view');
+
+    function init() {
+        renderTabs();
+        router();
+    }
+
+    function renderTabs() {
+        const categories = [...new Set(TOOLS.map(t => t.cat))];
+        document.getElementById('tabs').innerHTML = categories.map(cat => 
+            `<button class="tab-btn ${cat === currentCat ? 'active' : ''}" onclick="setCategory('${cat}')">${cat}</button>`
+        ).join('');
+    }
+
+    function setCategory(cat) {
+        currentCat = cat;
+        renderTabs();
+        window.history.pushState({}, '', './');
+        renderHome();
+    }
+
+    function renderHome() {
+        document.getElementById('tabs').parentElement.parentElement.style.display = 'block';
+        const filtered = TOOLS.filter(t => t.cat === currentCat);
+        let html = `<div class="grid">`;
+        html += filtered.map(t => `
+            <a href="?id=${t.id}" class="card">
+                <span class="badge">${t.cat}</span>
+                <h3>${t.name}</h3>
+                <p>${t.desc}</p>
+                <div style="color:var(--brand); font-weight:700; font-size:0.8rem; margin-top:auto;">USE TOOL →</div>
+            </a>`).join('');
+        html += `</div>`;
+        view.innerHTML = html;
+    }
+
+    function renderTool(tool) {
+        if(!tool) { renderHome(); return; }
+        document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+        view.innerHTML = `
+            <div class="calc-main">
+                <a href="./" class="back-btn">← Back to Explore</a>
+                <h1>${tool.name}</h1>
+                <p style="margin-bottom:30px; color:var(--text-muted)">${tool.desc}</p>
+                ${tool.inputs.map(i => `
+                    <div class="input-group">
+                        <label>${i.l}</label>
+                        <input type="number" id="${i.id}" value="${i.v}" oninput="calc()">
+                    </div>
+                `).join('')}
+                <div class="result-box"><p>Estimated Result</p><h2 id="res">--</h2></div>
+            </div>`;
+        window.activeTool = tool;
+        calc();
+    }
+
+    function calc() {
+        const t = window.activeTool;
+        let expr = t.formula;
+        t.inputs.forEach(i => {
+            const val = parseFloat(document.getElementById(i.id).value) || 0;
+            expr = expr.replace(new RegExp(`\\b${i.id}\\b`, 'g'), val);
+        });
+        try {
+            const result = eval(expr);
+            const formatted = result.toLocaleString(undefined, {maximumFractionDigits: 2});
+            document.getElementById('res').innerText = (t.unit.includes('$') ? '$' : '') + formatted + (!t.unit.includes('$') ? t.unit : '');
+        } catch(e) { document.getElementById('res').innerText = "0"; }
+    }
+
+    function doSearch() {
+        const q = document.getElementById('toolSearch').value.toLowerCase();
+        if(q.length > 0) {
+            document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+            const matches = TOOLS.filter(t => t.name.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q));
+            view.innerHTML = `<div class="grid">${matches.map(t => `<a href="?id=${t.id}" class="card"><span class="badge">${t.cat}</span><h3>${t.name}</h3><p>${t.desc}</p></a>`).join('')}</div>`;
+        } else { renderHome(); }
+    }
+
+    function router() {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const page = params.get('page');
+
+        if (id) {
+            renderTool(TOOLS.find(t => t.id === id));
+        } else if (page === 'about') {
+            document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+            view.innerHTML = `<div class="legal-content"><h1>About Us</h1><p>CreatorProfitLab provides high-precision digital calculators tailored for the creator economy, finance, and health professionals.</p></div>`;
+        } else if (page === 'contact') {
+            document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+            view.innerHTML = `<div class="legal-content"><h1>Contact Us</h1><p>Email: support@creatorprofitlab.com</p></div>`;
+        } else if (page === 'privacy') {
+            document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+            view.innerHTML = `<div class="legal-content"><h1>Privacy Policy</h1><p>We do not store your data. All calculations are private and local.</p></div>`;
+        } else if (page === 'terms') {
+            document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+            view.innerHTML = `<div class="legal-content"><h1>Terms of Service</h1><p>Calculations are estimates only.</p></div>`;
+        } else {
+            renderHome();
+        }
+    }
+
+    window.onpopstate = router;
+    init();
+</script>
 </body>
 </html>
+
+
+<div class="container" style="margin-top: 60px; padding: 40px; background: #fff; border-radius: 20px; border: 1px solid var(--border);">
+    <h2 style="margin-bottom: 15px;">Professional Tools for the Modern Creator Economy</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">
+        Welcome to <strong>CreatorProfitLab</strong>, your primary destination for high-precision digital tools. Whether you are a YouTuber looking to calculate <strong>AdSense revenue</strong>, a business owner calculating <strong>Net Profit Margins</strong>, or an investor tracking <strong>SIP and Compound Interest</strong>, we have a professional calculator for you.
+    </p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.9rem; color: var(--text-muted);">
+        <div>
+            <h4 style="color: var(--text); margin-bottom: 5px;">📈 Creator & Social Media</h4>
+            <p>Calculate YouTube CPM, Instagram Engagement, and Brand Deal valuations instantly.</p>
+        </div>
+        <div>
+            <h4 style="color: var(--text); margin-bottom: 5px;">💰 Finance & Business</h4>
+            <p>Accurate EMI, GST, Startup Valuation, and CAC calculators for data-driven decisions.</p>
+        </div>
+    </div>
+</div>
