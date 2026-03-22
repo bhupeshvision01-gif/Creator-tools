@@ -189,17 +189,59 @@
         } else { renderHome(); }
     }
 
-    function router() {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
-        const page = params.get('page');
-        if(id) renderTool(TOOLS.find(t => t.id === id));
-        else if(page) {
-            document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
-            view.innerHTML = `<div class="legal-content"><h1>${page.toUpperCase()}</h1><p>CreatorProfitLab provides professional tools for estimation purposes. Please consult experts for financial or health advice.</p></div>`;
-        }
-        else renderHome();
+   function router() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const page = params.get('page');
+
+    if (id) {
+        renderTool(TOOLS.find(t => t.id === id));
+    } else if (page === 'about') {
+        document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+        view.innerHTML = `
+            <div class="legal-content">
+                <h1>About CreatorProfitLab</h1>
+                <p><strong>CreatorProfitLab</strong> is a premier global utility platform offering 50+ high-precision digital calculators tailored for the modern creator economy, finance professionals, and health enthusiasts.</p>
+                <p>Our mission is to provide 100% free, private, and instant tools that help you make data-driven decisions—whether you are calculating your next YouTube brand deal, planning a home loan EMI, or tracking your fitness journey.</p>
+                <p>We use industry-standard formulas updated for 2026 to ensure accuracy across all global markets.</p>
+            </div>`;
+    } else if (page === 'contact') {
+        document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+        view.innerHTML = `
+            <div class="legal-content">
+                <h1>Contact Us</h1>
+                <p>Have a question, feedback, or a suggestion for a new tool? We’d love to hear from you!</p>
+                <p><strong>Email:</strong> support@creatorprofitlab.com</p>
+                <p><strong>Response Time:</strong> We typically respond to all inquiries within 24–48 business hours.</p>
+                <p><strong>Location:</strong> Operating Globally | Dedicated to the Creator Community.</p>
+            </div>`;
+    } else if (page === 'privacy') {
+        document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+        view.innerHTML = `
+            <div class="legal-content">
+                <h1>Privacy Policy</h1>
+                <p>At CreatorProfitLab, your privacy is our top priority. Here is how we handle your information:</p>
+                <ul>
+                    <li><strong>Data Processing:</strong> All calculations are performed locally in your browser via JavaScript. We do NOT store your input data on our servers.</li>
+                    <li><strong>Cookies:</strong> We use standard cookies for Google AdSense and basic site analytics to improve user experience.</li>
+                    <li><strong>Third Parties:</strong> We do not sell or share user data with third-party marketing firms.</li>
+                </ul>
+                <p>By using our tools, you agree to the collection of non-personal data for performance monitoring.</p>
+            </div>`;
+    } else if (page === 'terms') {
+        document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+        view.innerHTML = `
+            <div class="legal-content">
+                <h1>Terms of Service</h1>
+                <p>By accessing CreatorProfitLab, you agree to the following terms:</p>
+                <p><strong>1. Estimates Only:</strong> Our tools provide estimates based on general formulas. They do not constitute professional financial, medical, or legal advice.</p>
+                <p><strong>2. Accuracy:</strong> While we strive for 100% accuracy, CreatorProfitLab is not responsible for any financial loss or health issues resulting from the use of these tools.</p>
+                <p><strong>3. Use of Service:</strong> Users agree to use these tools for personal or professional modeling purposes and not for any illegal activity.</p>
+            </div>`;
+    } else {
+        renderHome();
     }
+}
 
     window.onpopstate = router;
     init();
