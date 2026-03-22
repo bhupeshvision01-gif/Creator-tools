@@ -20,20 +20,17 @@
         
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         
-        /* Header & Search */
         header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1rem 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
         .nav-content { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
         .logo { font-weight: 800; font-size: 1.5rem; color: var(--brand); text-decoration: none; letter-spacing: -0.5px; }
         #toolSearch { flex-grow: 1; max-width: 400px; padding: 12px 20px; border-radius: 50px; border: 1px solid var(--border); outline: none; transition: 0.3s; background: var(--accent); }
         #toolSearch:focus { border-color: var(--brand); background: #fff; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1); }
 
-        /* Tabs System */
         .tabs-container { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
         .tabs-container::-webkit-scrollbar { display: none; }
         .tab-btn { padding: 10px 22px; background: var(--accent); border: 1px solid transparent; border-radius: 50px; cursor: pointer; white-space: nowrap; font-weight: 600; color: var(--text-muted); transition: 0.2s; font-size: 0.9rem; }
         .tab-btn.active { background: var(--brand); color: white; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3); }
 
-        /* Tool Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-top: 30px; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
@@ -43,7 +40,6 @@
         .card p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px; }
         .card .badge { align-self: flex-start; font-size: 0.7rem; font-weight: 800; padding: 4px 10px; background: #eef2ff; color: var(--brand); border-radius: 6px; text-transform: uppercase; }
 
-        /* Calculator UI */
         .calc-main { background: var(--surface); padding: 40px; border-radius: 30px; border: 1px solid var(--border); margin: 40px auto; max-width: 650px; box-shadow: 0 20px 50px rgba(0,0,0,0.04); }
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--brand); font-weight: 700; text-decoration: none; margin-bottom: 25px; font-size: 0.9rem; cursor: pointer; border: none; background: none; }
         
@@ -56,12 +52,10 @@
         .result-box p { font-size: 0.9rem; font-weight: 600; opacity: 0.9; margin-bottom: 5px; }
         .result-box h2 { font-size: 3rem; font-weight: 800; margin: 0; letter-spacing: -1px; }
 
-        /* Legal Pages */
         .legal-content { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); }
         .legal-content h1 { margin-bottom: 20px; }
         .legal-content p { margin-bottom: 15px; color: var(--text-muted); }
 
-        /* Footer */
         footer { border-top: 1px solid var(--border); padding: 50px 0; margin-top: 60px; text-align: center; }
         .f-links { margin-bottom: 15px; }
         .f-links a { margin: 0 15px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; }
@@ -83,18 +77,18 @@
             <a href="index.html" class="logo">🚀 CreatorProfitLab</a>
             <input type="text" id="toolSearch" placeholder="Search 50+ tools..." onkeyup="doSearch()">
         </div>
-        <div class="tabs-container" id="tabs">
-            </div>
+        <div class="tabs-container" id="tabs"></div>
     </div>
 </header>
 
-<div id="view" class="container">
-    </div>
+<div id="view" class="container"></div>
 
 <footer>
     <div class="container">
         <div class="f-links">
             <a href="index.html">Home</a>
+            <a href="?page=about">About Us</a>
+            <a href="?page=contact">Contact</a>
             <a href="?page=privacy">Privacy Policy</a>
             <a href="?page=terms">Terms of Service</a>
         </div>
@@ -171,6 +165,12 @@
         router();
     }
 
+    function updateMeta(title, desc) {
+        document.title = title + " | CreatorProfitLab";
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute("content", desc);
+    }
+
     function renderTabs() {
         const categories = [...new Set(TOOLS.map(t => t.cat))];
         document.getElementById('tabs').innerHTML = categories.map(cat => 
@@ -181,9 +181,9 @@
     function setCategory(cat) {
         currentCat = cat;
         renderTabs();
-        // Clear search and URL
         document.getElementById('toolSearch').value = '';
         window.history.pushState({}, '', 'index.html');
+        updateMeta("CreatorProfitLab", "50+ Free professional calculators for Creators, Finance, and Health.");
         renderHome();
     }
 
@@ -206,6 +206,7 @@
 
     function renderTool(tool) {
         if(!tool) { renderHome(); return; }
+        updateMeta(`Free ${tool.name} Calculator`, `Calculate ${tool.name} instantly. ${tool.desc} Fast and accurate.`);
         document.getElementById('tabs').style.display = 'none';
         view.innerHTML = `
             <div class="calc-main">
@@ -224,69 +225,5 @@
                     <p>Estimated Result</p>
                     <h2 id="res">--</h2>
                 </div>
-                
-                <p style="font-size:0.75rem; color:#94a3b8; text-align:center;">
-                    Standardized estimate using global industry averages. Results may vary.
-                </p>
-            </div>`;
-        window.activeTool = tool;
-        calc();
-    }
 
-    function calc() {
-        const t = window.activeTool;
-        if (!t) return;
-        let expr = t.formula;
-        t.inputs.forEach(i => {
-            const val = parseFloat(document.getElementById(i.id).value) || 0;
-            expr = expr.replace(new RegExp(`\\b${i.id}\\b`, 'g'), val);
-        });
-        try {
-            const result = eval(expr);
-            const formatted = result.toLocaleString(undefined, {maximumFractionDigits: 2});
-            document.getElementById('res').innerText = (t.unit.includes('$') ? '$' : '') + formatted + (!t.unit.includes('$') ? t.unit : '');
-        } catch (e) {
-            document.getElementById('res').innerText = "0";
-        }
-    }
-
-    function doSearch() {
-        const q = document.getElementById('toolSearch').value.toLowerCase();
-        if(q.length > 0) {
-            document.getElementById('tabs').style.display = 'none';
-            const matches = TOOLS.filter(t => 
-                t.name.toLowerCase().includes(q) || 
-                t.cat.toLowerCase().includes(q) ||
-                t.desc.toLowerCase().includes(q)
-            );
-            view.innerHTML = `<div class="grid">${matches.map(t => `<a href="?id=${t.id}" class="card"><span class="badge">${t.cat}</span><h3>${t.name}</h3><p>${t.desc}</p></a>`).join('')}</div>`;
-        } else {
-            renderTabs();
-            renderHome();
-        }
-    }
-
-    function router() {
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get('id');
-        const page = params.get('page');
-
-        if(id) {
-            const tool = TOOLS.find(t => t.id === id);
-            renderTool(tool);
-        } else if (page === 'privacy') {
-            document.getElementById('tabs').style.display = 'none';
-            view.innerHTML = `<div class="legal-content"><h1>Privacy Policy</h1><p>At CreatorProfitLab, we value your privacy. This site performs all calculations locally in your browser using JavaScript. We do not store, collect, or share the data you input into our calculators.</p><p>We use standard log files and cookies for basic site performance and Google AdSense optimization.</p></div>`;
-        } else if (page === 'terms') {
-            document.getElementById('tabs').style.display = 'none';
-            view.innerHTML = `<div class="legal-content"><h1>Terms of Service</h1><p>All calculations provided by CreatorProfitLab are estimates. Financial, health, or business decisions should be made with the guidance of certified professionals.</p><p>The service is provided "as is" without warranty of any kind.</p></div>`;
-        } else {
-            renderHome();
-        }
-    }
-
-    window.onpopstate = router;
-    init();
-</script>
-</body>
-</html>
+                <div class="seo-info" style="margin-top: 30px; text-align: left; border-top: 1px solid var(--border); padding-top: 20px;">
