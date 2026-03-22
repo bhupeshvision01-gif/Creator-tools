@@ -1,21 +1,28 @@
 [
   {
     "id": "youtube-money",
-    "title": "YouTube Money Calculator",
-    "category": "Creator Economy",
-    "keywords": "youtube earnings calculator, youtube money per view",
-    "description": "Estimate your YouTube revenue based on views and CPM.",
-    "icon": "📊",
+    "name": "YouTube Money Calculator",
+    "category": "Creator",
+    "desc": "Estimate your YouTube revenue based on views and CPM.",
     "inputs": [
-      {"id": "views", "label": "Daily Views", "type": "number", "default": 10000},
-      {"id": "cpm", "label": "Estimated CPM ($)", "type": "number", "default": 5}
+      {"id": "views", "label": "Daily Views", "type": "number", "val": 10000},
+      {"id": "cpm", "label": "Estimated CPM ($)", "type": "number", "val": 5}
     ],
     "formula": "(views / 1000) * cpm",
     "unit": "$",
-    "content": "<h2>How much does YouTube pay?</h2><p>YouTube creators earn money via the Partner Program...</p>",
-    "faqs": [
-      {"q": "What is CPM?", "a": "Cost Per Mille (1,000 views)."}
+    "article": "<h2>How much do YouTubers make?</h2><p>YouTube pays creators through the AdSense program. Your earnings depend on your niche, audience location, and CPM...</p>"
+  },
+  {
+    "id": "bmi-calc",
+    "name": "BMI Calculator",
+    "category": "Health",
+    "desc": "Check your Body Mass Index (BMI) and health status.",
+    "inputs": [
+      {"id": "weight", "label": "Weight (kg)", "type": "number", "val": 70},
+      {"id": "height", "label": "Height (cm)", "type": "number", "val": 175}
     ],
-    "affiliate": {"name": "TubeBuddy", "link": "https://tubebuddy.com/yourid", "text": "Optimize your channel with TubeBuddy"}
+    "formula": "weight / ((height/100) * (height/100))",
+    "unit": "BMI ",
+    "article": "<h2>Understanding BMI</h2><p>BMI is a useful measure of overweight and obesity. It is calculated from your height and weight...</p>"
   }
 ]
