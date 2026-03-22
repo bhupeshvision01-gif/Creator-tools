@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CreatorProfitLab | 46+ Precision Calculators & Growth Tools</title>
-    <meta name="description" content="Free precision tools for the Creator Economy, Finance, Health, and SEO. Calculate YouTube earnings, Loan EMIs, BMI, and 40+ other metrics.">
+    <meta name="description" content="Free precision tools for the Creator Economy, Finance, Health, and SEO.">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --brand: #4f46e5; --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0; --accent: #10b981; }
+        :root { --brand: #4f46e5; --bg: #f8fafc; --surface: #ffffff; --text: #0f172a; --text-muted: #64748b; --border: #e2e8f0; --accent: #10b981; --warn: #f59e0b; --danger: #ef4444; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
         
@@ -32,16 +32,14 @@
         input, select, textarea { width: 100%; padding: 0.65rem; border-radius: 8px; border: 1px solid var(--border); font-weight: 600; font-size: 0.9rem; outline: none; transition: 0.2s; background: #fff; }
         input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
         .btn-calc { width: 100%; padding: 0.8rem; background: var(--brand); color: white; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; margin-top: auto; }
-        .out-box { margin-top: 1rem; padding: 0.9rem; background: #f5f7ff; border-radius: 10px; text-align: center; font-weight: 800; color: var(--brand); border: 2px dashed #dbeafe; min-height: 54px; display: flex; align-items: center; justify-content: center; }
+        .out-box { margin-top: 1rem; padding: 0.9rem; background: #f5f7ff; border-radius: 10px; text-align: center; font-weight: 800; color: var(--brand); border: 2px dashed #dbeafe; min-height: 54px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
 
-        /* Content Centering (Legal/Guides) */
+        /* Content Centering */
         .content-center { max-width: 850px; margin: 0 auto; background: var(--surface); padding: 3rem; border-radius: 20px; border: 1px solid var(--border); line-height: 1.8; }
-        .content-center h2 { font-size: 2rem; margin-bottom: 1.5rem; text-align: center; color: var(--brand); }
-        .content-center h3 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.25rem; }
         .tab-content { display: none; animation: fadeIn 0.4s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 1024px) { aside { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); } main { margin-left: 0; padding: 1.5rem; } body { flex-direction: column; } }
+        @media (max-width: 1024px) { aside { width: 100%; height: auto; position: relative; border-right: none; } main { margin-left: 0; padding: 1.5rem; } body { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -53,15 +51,10 @@
         <button class="active" onclick="tab(event, 'creator')">Creator Economy</button>
         <button onclick="tab(event, 'finance')">Finance & Money</button>
         <button onclick="tab(event, 'health')">Health & Nutrition</button>
-         <button onclick="tab(event, 'math')">Math & Science</button>
+        <button onclick="tab(event, 'math')">Math & Science</button>
         <button onclick="tab(event, 'utility')">Business & Utility</button>
-        <button onclick="tab(event, 'lifestyle')"Lifestyle & Travel</button>
+        <button onclick="tab(event, 'lifestyle')">Lifestyle & Travel</button>
         <button onclick="tab(event, 'content')">SEO & Content</button>
-        
-        <span class="nav-label">Resources</span>
-        <button onclick="tab(event, 'res-yt')"> Guide</button>
-        <button onclick="tab(event, 'res-fin')">Finance Guide</button>
-        <button onclick="tab(event, 'res-health')">Health Guide</button>
         
         <span class="nav-label">Legal</span>
         <button onclick="tab(event, 'about')">About Us</button>
@@ -72,114 +65,34 @@
 <main>
     <section id="creator" class="tab-content" style="display:block">
         <div class="grid">
-              <div class="card"><h3>YouTube Income</h3><div class="field"><label>Views / CPM ($)</label><div style="display:flex;gap:5px;"><input type="number" id="c1-v" value="100000"><input type="number" id="c1-c" value="5"></div></div><button class="btn-calc" onclick="run('c1')">Estimate Revenue</button><div class="out-box" id="r-c1">$500</div></div>
-            <div class="card"><h3>Instagram Engagement</h3><div class="field"><label>Interactions / Reach</label><div style="display:flex;gap:5px;"><input type="number" id="c2-i" value="500"><input type="number" id="c2-r" value="10000"></div></div><button class="btn-calc" onclick="run('c2')">Calculate Rate</button><div class="out-box" id="r-c2">5.0%</div></div>
-            <div class="card"><h3>TikTok Earnings</h3><div class="field"><label>Views</label><input type="number" id="c3-v" value="1000000"></div><button class="btn-calc" onclick="run('c3')">Estimate Payout</button><div class="out-box" id="r-c3">$30</div></div>
-            <div class="card"><h3>CPM Calculator</h3><div class="field"><label>Cost $ / Impressions</label><div style="display:flex;gap:5px;"><input type="number" id="c4-c" value="1000"><input type="number" id="c4-i" value="200000"></div></div><button class="btn-calc" onclick="run('c4')">Calculate CPM</button><div class="out-box" id="r-c4">$5.00</div></div>
-            <div class="card"><h3>Affiliate Income</h3><div class="field"><label>Clicks / Conv% / Comm$</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="c5-cl" value="1000"><input type="number" id="c5-cr" value="2"><input type="number" id="c5-cm" value="50"></div></div><button class="btn-calc" onclick="run('c5')">Calculate</button><div class="out-box" id="r-c5">$1,000</div></div>
-            <div class="card"><h3>Brand Deal Quote</h3><div class="field"><label>Followers</label><input type="number" id="c6-f" value="50000"></div><button class="btn-calc" onclick="run('c6')">Estimate Quote</button><div class="out-box" id="r-c6">$1,250</div></div>
-            <div class="card"><h3>Creator ROI</h3><div class="field"><label>Revenue / Expenses</label><div style="display:flex;gap:5px;"><input type="number" id="c7-r" value="2000"><input type="number" id="c7-e" value="500"></div></div><button class="btn-calc" onclick="run('c7')">Calculate ROI</button><div class="out-box" id="r-c7">300%</div></div>
-            <div class="card"><h3>Sub Growth Projector</h3><div class="field"><label>Current / Growth %</label><div style="display:flex;gap:5px;"><input type="number" id="c8-c" value="5000"><input type="number" id="c8-g" value="10"></div></div><button class="btn-calc" onclick="run('c8')">Project Next Month</button><div class="out-box" id="r-c8">5,500</div></div>
-            <div class="card"><h3>Video Net Profit</h3><div class="field"><label>Revenue / Production Cost</label><div style="display:flex;gap:5px;"><input type="number" id="c9-r" value="1000"><input type="number" id="c9-c" value="200"></div></div><button class="btn-calc" onclick="run('c9')">Calculate Net</button><div class="out-box" id="r-c9">$800</div></div>
-            <div class="card"><h3>Influencer Rate</h3><div class="field"><label>Avg Post Reach</label><input type="number" id="c10-r" value="100000"></div><button class="btn-calc" onclick="run('c10')">Estimate Rate</button><div class="out-box" id="r-c10">$1,000</div></div>
+            <div class="card"><h3>YouTube Income</h3><div class="field"><label>Views / CPM ($)</label><div style="display:flex;gap:5px;"><input type="number" id="c1-v" value="100000"><input type="number" id="c1-c" value="5"></div></div><button class="btn-calc" onclick="run('c1')">Estimate Revenue</button><div class="out-box" id="r-c1">--</div></div>
+            <div class="card"><h3>CPM Calculator</h3><div class="field"><label>Cost $ / Impressions</label><div style="display:flex;gap:5px;"><input type="number" id="c4-c" value="1000"><input type="number" id="c4-i" value="200000"></div></div><button class="btn-calc" onclick="run('c4')">Calculate CPM</button><div class="out-box" id="r-c4">--</div></div>
+            <div class="card"><h3>Creator ROI</h3><div class="field"><label>Revenue / Expenses</label><div style="display:flex;gap:5px;"><input type="number" id="c7-r" value="2000"><input type="number" id="c7-e" value="500"></div></div><button class="btn-calc" onclick="run('c7')">Calculate ROI</button><div class="out-box" id="r-c7">--</div></div>
+            <div class="card"><h3>Sub Growth Projector</h3><div class="field"><label>Current / Growth %</label><div style="display:flex;gap:5px;"><input type="number" id="c8-c" value="5000"><input type="number" id="c8-g" value="10"></div></div><button class="btn-calc" onclick="run('c8')">Project Next Month</button><div class="out-box" id="r-c8">--</div></div>
+            <div class="card"><h3>Video Net Profit</h3><div class="field"><label>Revenue / Production Cost</label><div style="display:flex;gap:5px;"><input type="number" id="c9-r" value="1000"><input type="number" id="c9-c" value="200"></div></div><button class="btn-calc" onclick="run('c9')">Calculate Net</button><div class="out-box" id="r-c9">--</div></div>
         </div>
     </section>
 
     <section id="finance" class="tab-content">
         <div class="grid">
-            <div class="card"><h3>Loan EMI</h3><div class="field"><label>P / Rate% / Mo</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="f1-p" value="10000"><input type="number" id="f1-r" value="10"><input type="number" id="f1-m" value="12"></div></div><button class="btn-calc" onclick="run('f1')">Calculate</button><div class="out-box" id="r-f1">$879.16</div></div>
-            <div class="card"><h3>Compound Interest</h3><div class="field"><label>P / Rate% / Yrs</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="f5-p" value="5000"><input type="number" id="f5-r" value="10"><input type="number" id="f5-y" value="5"></div></div><button class="btn-calc" onclick="run('f5')">Calculate</button><div class="out-box" id="r-f5">$8,052</div></div>
-            <div class="card"><h3>SIP / Mutual Fund</h3><div class="field"><label>Monthly / Return% / Yrs</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="f6-m" value="500"><input type="number" id="f6-r" value="12"><input type="number" id="f6-y" value="10"></div></div><button class="btn-calc" onclick="run('f6')">Project Wealth</button><div class="out-box" id="r-f6">$116,170</div></div>
-            <div class="card"><h3>GST Calculator (India)</h3><div class="field"><label>Amount / GST%</label><div style="display:flex;gap:5px;"><input type="number" id="f9-a" value="1000"><input type="number" id="f9-g" value="18"></div></div><button class="btn-calc" onclick="run('f9')">Calculate Total</button><div class="out-box" id="r-f9">$1,180</div></div>
-            <div class="card"><h3>Income Tax Estimator</h3><div class="field"><label>Annual Taxable Income</label><input type="number" id="f10-i" value="80000"></div><button class="btn-calc" onclick="run('f10')">Estimate Tax</button><div class="out-box" id="r-f10">$13,000</div></div>
-            <div class="card"><h3>Crypto Profit/Loss</h3><div class="field"><label>Buy $ / Sell $</label><div style="display:flex;gap:5px;"><input type="number" id="f12-b" value="30000"><input type="number" id="f12-s" value="35000"></div></div><button class="btn-calc" onclick="run('f12')">Calculate</button><div class="out-box" id="r-f12">+$5,000</div></div>
+            <div class="card"><h3>GST Calculator (India)</h3><div class="field"><label>Amount / GST%</label><div style="display:flex;gap:5px;"><input type="number" id="f9-a" value="1000"><input type="number" id="f9-g" value="18"></div></div><button class="btn-calc" onclick="run('f9')">Calculate Total</button><div class="out-box" id="r-f9">--</div></div>
+            <div class="card"><h3>Income Tax Estimator</h3><div class="field"><label>Annual Taxable Income</label><input type="number" id="f10-i" value="80000"></div><button class="btn-calc" onclick="run('f10')">Estimate Tax</button><div class="out-box" id="r-f10">--</div></div>
+            <div class="card"><h3>Crypto Profit/Loss</h3><div class="field"><label>Buy Price / Sell Price</label><div style="display:flex;gap:5px;"><input type="number" id="f12-b" value="30000"><input type="number" id="f12-s" value="35000"></div></div><button class="btn-calc" onclick="run('f12')">Calculate</button><div class="out-box" id="r-f12">--</div></div>
         </div>
     </section>
 
-   <section id="health" class="tab-content">
+    <section id="health" class="tab-content">
         <div class="grid">
-            <div class="card"><h3>BMI Calculator</h3><div class="field"><label>W (kg) / H (cm)</label><div style="display:flex;gap:5px;"><input type="number" id="h1-w" value="70"><input type="number" id="h1-h" value="175"></div></div><button class="btn-calc" onclick="run('h1')">Calculate</button><div class="out-box" id="r-h1">22.9</div></div>
-            <div class="card"><h3>BMR (Basal Rate)</h3><div class="field"><label>Age/W(kg)/H(cm)/Gnd</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;"><input type="number" id="h2-a" value="25"><input type="number" id="h2-w" value="70"><input type="number" id="h2-h" value="175"><select id="h2-g"><option value="m">M</option><option value="f">F</option></select></div></div><button class="btn-calc" onclick="run('h2')">Calculate</button><div class="out-box" id="r-h2">1,682 kcal</div></div>
-            <div class="card"><h3>Daily Calories (TDEE)</h3><div class="field"><label>BMR / Activity Factor</label><div style="display:flex;gap:5px;"><input type="number" id="h3-b" value="1600"><input type="number" id="h3-a" value="1.2" step="0.1"></div></div><button class="btn-calc" onclick="run('h3')">Calculate TDEE</button><div class="out-box" id="r-h3">1,920 kcal</div></div>
+            <div class="card"><h3>BMR (Basal Rate)</h3><div class="field"><label>Age/W(kg)/H(cm)/Gnd</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:3px;"><input type="number" id="h2-a" value="25"><input type="number" id="h2-w" value="70"><input type="number" id="h2-h" value="175"><select id="h2-g"><option value="m">M</option><option value="f">F</option></select></div></div><button class="btn-calc" onclick="run('h2')">Calculate</button><div class="out-box" id="r-h2">--</div></div>
             <div class="card"><h3>Pregnancy Due Date</h3><div class="field"><label>Last Period Start</label><input type="date" id="h5-d"></div><button class="btn-calc" onclick="run('h5')">Predict Date</button><div class="out-box" id="r-h5">--</div></div>
-            <div class="card"><h3>Body Fat % (Navy)</h3><div class="field"><label>Waist / Neck / Height (cm)</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;"><input type="number" id="h6-w" value="80"><input type="number" id="h6-n" value="37"><input type="number" id="h6-h" value="175"></div></div><button class="btn-calc" onclick="run('h6')">Estimate %</button><div class="out-box" id="r-h6">-- %</div></div>
-            <div class="card"><h3>Target Heart Rate</h3><div class="field"><label>Age / Resting HR</label><div style="display:flex;gap:5px;"><input type="number" id="h8-a" value="25"><input type="number" id="h8-r" value="60"></div></div><button class="btn-calc" onclick="run('h8')">Zone (70%)</button><div class="out-box" id="r-h8">154 bpm</div></div>
-            <div class="card"><h3>Daily Water Needs</h3><div class="field"><label>Weight (kg)</label><input type="number" id="h7-w" value="70"></div><button class="btn-calc" onclick="run('h7')">Calculate Liters</button><div class="out-box" id="r-h7">2.3 L</div></div>
-        </div>
-    </section>
-
-    <section id="math" class="tab-content">
-        <div class="grid">
-            <div class="card"><h3>Percentage Calc</h3><div class="field"><label>Obtained / Total</label><div style="display:flex;gap:5px;"><input type="number" id="m1-o" value="450"><input type="number" id="m1-t" value="500"></div></div><button class="btn-calc" onclick="run('m1')">Calculate</button><div class="out-box" id="r-m1">90%</div></div>
-            <div class="card"><h3>Age Calculator</h3><div class="field"><label>Date of Birth</label><input type="date" id="m2-d"></div><button class="btn-calc" onclick="run('m2')">Calculate Age</button><div class="out-box" id="r-m2">-- Years</div></div>
-            <div class="card"><h3>Date Difference</h3><div class="field"><label>Start / End Date</label><div style="display:flex;gap:5px;"><input type="date" id="m3-s"><input type="date" id="m3-e"></div></div><button class="btn-calc" onclick="run('m3')">Calculate Days</button><div class="out-box" id="r-m3">0 Days</div></div>
-            <div class="card"><h3>Scientific (Quick)</h3><div class="field"><label>Number / Operation</label><div style="display:flex;gap:5px;"><input type="number" id="m4-v" value="16"><select id="m4-o"><option value="sqrt">Square Root</option><option value="log">Log (10)</option><option value="sin">Sin (rad)</option></select></div></div><button class="btn-calc" onclick="run('m4')">Solve</button><div class="out-box" id="r-m4">4</div></div>
-            <div class="card"><h3>Temp Converter</h3><div class="field"><label>Value / Direction</label><div style="display:flex;gap:5px;"><input type="number" id="m7-v" value="32"><select id="m7-d"><option value="c-f">C to F</option><option value="f-c">F to C</option></select></div></div><button class="btn-calc" onclick="run('m7')">Convert</button><div class="out-box" id="r-m7">89.6 F</div></div>
-            <div class="card"><h3>Unit Converter</h3><div class="field"><label>Val / Category</label><div style="display:flex;gap:5px;"><input type="number" id="m6-v" value="1"><select id="m6-c"><option value="km-mi">Km to Miles</option><option value="kg-lb">Kg to Lbs</option></select></div></div><button class="btn-calc" onclick="run('m6')">Convert</button><div class="out-box" id="r-m6">0.62 mi</div></div>
-        </div>
-    </section>
-
-    <section id="utility" class="tab-content">
-        <div class="grid">
-            <div class="card"><h3>Price Comparison</h3><div class="field"><label>Item A ($/Qty)</label><div style="display:flex;gap:5px;"><input type="number" id="u1-p1" value="10"><input type="number" id="u1-q1" value="2"></div></div><div class="field"><label>Item B ($/Qty)</label><div style="display:flex;gap:5px;"><input type="number" id="u1-p2" value="18"><input type="number" id="u1-q2" value="4"></div></div><button class="btn-calc" onclick="run('u1')">Compare</button><div class="out-box" id="r-u1">Item B is cheaper</div></div>
-            <div class="card"><h3>Break-even</h3><div class="field"><label>Fixed / Price / Var</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="u5-f" value="2000"><input type="number" id="u5-p" value="50"><input type="number" id="u5-v" value="20"></div></div><button class="btn-calc" onclick="run('u5')">Units Needed</button><div class="out-box" id="r-u5">67 Units</div></div>
-            <div class="card"><h3>Startup Valuation</h3><div class="field"><label>Profit (Mo) / Growth %</label><div style="display:flex;gap:5px;"><input type="number" id="u6-p" value="5000"><input type="number" id="u6-g" value="10"></div></div><button class="btn-calc" onclick="run('u6')">Value Est.</button><div class="out-box" id="r-u6">$300,000</div></div>
-            <div class="card"><h3>Discount / Sale</h3><div class="field"><label>Price / Disc %</label><div style="display:flex;gap:5px;"><input type="number" id="u9-p" value="120"><input type="number" id="u9-d" value="25"></div></div><button class="btn-calc" onclick="run('u9')">Final Price</button><div class="out-box" id="r-u9">$90.00</div></div>
-        </div>
-    </section>
-
-    <section id="lifestyle" class="tab-content">
-        <div class="grid">
-            <div class="card"><h3>Carpet / Paint Calc</h3><div class="field"><label>Length (ft) / Width (ft)</label><div style="display:flex;gap:5px;"><input type="number" id="l1-l" value="12"><input type="number" id="l1-w" value="15"></div></div><button class="btn-calc" onclick="run('l1')">Calculate Area</button><div class="out-box" id="r-l1">180 sq ft</div></div>
-            <div class="card"><h3>Room Dimension</h3><div class="field"><label>Room Area / Furniture Area</label><div style="display:flex;gap:5px;"><input type="number" id="l2-r" value="200"><input type="number" id="l2-f" value="50"></div></div><button class="btn-calc" onclick="run('l2')">Check Fit</button><div class="out-box" id="r-l2">25% Occupied</div></div>
-            <div class="card"><h3>Land Converter</h3><div class="field"><label>Value / From</label><div style="display:flex;gap:5px;"><input type="number" id="l3-v" value="1"><select id="l3-f"><option value="ac-sqft">Acres to SqFt</option><option value="sqm-sqft">SqM to SqFt</option></select></div></div><button class="btn-calc" onclick="run('l3')">Convert</button><div class="out-box" id="r-l3">43,560 sq ft</div></div>
-            <div class="card"><h3>Trip Budgeter</h3><div class="field"><label>Fuel + Tolls + Hotel</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;"><input type="number" id="l4-f" value="50"><input type="number" id="l4-t" value="20"><input type="number" id="l4-h" value="150"></div></div><button class="btn-calc" onclick="run('l4')">Total Cost</button><div class="out-box" id="r-l4">$220</div></div>
-            <div class="card"><h3>Maintenance Check</h3><div class="field"><label>Last Service (KM)</label><input type="number" id="l5-k" value="45000"></div><button class="btn-calc" onclick="run('l5')">Check Status</button><div class="out-box" id="r-l5">Service in 5k KM</div></div>
-            <div class="card"><h3>Travel Currency</h3><div class="field"><label>Amt / Rate (1 loc = ?)</label><div style="display:flex;gap:5px;"><input type="number" id="l6-a" value="100"><input type="number" id="l6-r" value="1.1"></div></div><button class="btn-calc" onclick="run('l6')">Convert</button><div class="out-box" id="r-l6">110.00</div></div>
+            <div class="card"><h3>Body Fat % (Navy)</h3><div class="field"><label>Waist / Neck / Height (cm)</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;"><input type="number" id="h6-w" value="80"><input type="number" id="h6-n" value="37"><input type="number" id="h6-h" value="175"></div></div><button class="btn-calc" onclick="run('h6')">Estimate %</button><div class="out-box" id="r-h6">--</div></div>
+            <div class="card"><h3>Target Heart Rate</h3><div class="field"><label>Age / Resting HR</label><div style="display:flex;gap:5px;"><input type="number" id="h8-a" value="25"><input type="number" id="h8-r" value="60"></div></div><button class="btn-calc" onclick="run('h8')">Zone (70%)</button><div class="out-box" id="r-h8">--</div></div>
         </div>
     </section>
 
     <section id="content" class="tab-content">
         <div class="grid">
-            <div class="card"><h3>Keyword Density</h3><div class="field"><label>Text / Keyword</label><textarea id="s1-t" placeholder="Paste text here..." style="height:80px"></textarea><input type="text" id="s1-k" placeholder="Keyword" style="margin-top:5px;"></div><button class="btn-calc" onclick="run('s1')">Calculate %</button><div class="out-box" id="r-s1">0%</div></div>
-        </div>
-    </section>
-
-    <section id="res-yt" class="tab-content">
-        <div class="content-center">
-            <h2>The Creator Economy: Decoding YouTube AdSense</h2>
-            
-            <p>To maximize earnings, creators must understand the difference between <strong>CPM</strong> (what advertisers pay) and <strong>RPM</strong> (what you actually keep). High CPM niches like Finance often pay 5x more than lifestyle vlogs.</p>
-        </div>
-    </section>
-
-    <section id="res-fin" class="tab-content">
-        <div class="content-center">
-            <h2>Mastering Your Money</h2>
-            
-            <p>Compound interest is the foundation of wealth. Starting your investment journey early results in exponential growth that builds long-term security.</p>
-        </div>
-    </section>
-
-    <section id="res-health" class="tab-content">
-        <div class="content-center">
-            <h2>Nutrition & Body Metrics</h2>
-            
-            <p>Health is more than just a number. Using tools like <strong>TDEE</strong> helps you understand the caloric fuel your body needs based on your specific activity levels.</p>
-        </div>
-    </section>
-
-    <section id="about" class="tab-content">
-        <div class="content-center">
-            <h2>About CreatorProfitLab</h2>
-            <p>CreatorProfitLab is a digital toolkit dedicated to transparency and accuracy. Our goal is to provide high-performance calculators that help entrepreneurs and creators make better data-driven decisions.</p>
-        </div>
-    </section>
-
-    <section id="privacy" class="tab-content">
-        <div class="content-center">
-            <h2>Privacy Policy</h2>
-            <p>We respect your privacy. <strong>All calculations are performed on your local machine.</strong> No data entered into these tools is stored on our servers. We use Google AdSense for monetization.</p>
+            <div class="card"><h3>Keyword Density</h3><div class="field"><label>Text / Keyword</label><textarea id="s1-t" placeholder="Paste article text here..." style="height:100px"></textarea><input type="text" id="s1-k" placeholder="Target Keyword" style="margin-top:8px;"></div><button class="btn-calc" onclick="run('s1')">Analyze SEO</button><div class="out-box" id="r-s1">--</div></div>
         </div>
     </section>
 </main>
@@ -194,67 +107,81 @@
     }
 
     function run(t) {
-        // --- CREATOR ---
-        if(t==='c1') document.getElementById('r-c1').innerText = '$' + (document.getElementById('c1-v').value/1000 * document.getElementById('c1-c').value).toLocaleString();
-        if(t==='c2') document.getElementById('r-c2').innerText = (document.getElementById('c2-i').value / document.getElementById('c2-r').value * 100).toFixed(1) + '%';
-        if(t==='c3') document.getElementById('r-c3').innerText = '$' + (document.getElementById('c3-v').value * 0.00003).toLocaleString();
-        if(t==='c5') { let cl = document.getElementById('c5-cl').value, cr = document.getElementById('c5-cr').value/100, cm = document.getElementById('c5-cm').value; document.getElementById('r-c5').innerText = '$' + (cl * cr * cm).toLocaleString(); }
-        if(t==='c6') document.getElementById('r-c6').innerText = '$' + (document.getElementById('c6-f').value * 0.025).toLocaleString();
+        const val = (id) => parseFloat(document.getElementById(id).value) || 0;
+        const out = (id) => document.getElementById('r-' + id);
+
+        // --- CREATOR ECONOMY ---
+        if(t==='c1') out('c1').innerText = '$' + (val('c1-v')/1000 * val('c1-c')).toLocaleString();
+        
+        if(t==='c4') {
+            let cpm = (val('c4-c') / (val('c4-i') / 1000));
+            out('c4').innerText = '$' + cpm.toFixed(2);
+        }
+
+        if(t==='c7') {
+            let roi = ((val('c7-r') - val('c7-e')) / val('c7-e')) * 100;
+            out('c7').innerText = roi.toFixed(1) + '%';
+        }
+
+        if(t==='c8') out('c8').innerText = Math.round(val('c8-c') * (1 + val('c8-g')/100)).toLocaleString();
+        
+        if(t==='c9') out('c9').innerText = '$' + (val('c9-r') - val('c9-c')).toLocaleString();
 
         // --- FINANCE ---
-        if(t==='f1') { let p=document.getElementById('f1-p').value, r=(document.getElementById('f1-r').value/12)/100, n=document.getElementById('f1-m').value; let emi = p * r * (Math.pow(1+r, n) / (Math.pow(1+r, n)-1)); document.getElementById('r-f1').innerText = '$' + emi.toFixed(2); }
-        if(t==='f5') { let p=parseFloat(document.getElementById('f5-p').value), r=document.getElementById('f5-r').value/100, y=document.getElementById('f5-y').value; document.getElementById('r-f5').innerText = '$'+Math.round(p*Math.pow(1+r,y)).toLocaleString(); }
-        if(t==='f6') { let m=document.getElementById('f6-m').value, r=document.getElementById('f6-r').value/12/100, n=document.getElementById('f6-y').value*12; let sip = m * ((Math.pow(1+r, n) - 1) / r) * (1 + r); document.getElementById('r-f6').innerText = '$' + Math.round(sip).toLocaleString(); }
+        if(t==='f9') out('f9').innerText = '$' + (val('f9-a') * (1 + val('f9-g')/100)).toLocaleString();
+
+        if(t==='f10') {
+            let inc = val('f10-i'), tax = 0;
+            if(inc > 150000) tax = inc * 0.35;
+            else if(inc > 50000) tax = inc * 0.25;
+            else tax = inc * 0.10;
+            out('f10').innerText = '$' + tax.toLocaleString();
+        }
+
+        if(t==='f12') {
+            let diff = val('f12-s') - val('f12-b');
+            out('f12').innerText = (diff >= 0 ? 'Profit: $' : 'Loss: $') + Math.abs(diff).toLocaleString();
+            out('f12').style.color = diff >= 0 ? 'var(--accent)' : 'var(--danger)';
+        }
 
         // --- HEALTH ---
-        if(t==='h1') { let w=document.getElementById('h1-w').value, h=document.getElementById('h1-h').value/100; let bmi = (w/(h*h)).toFixed(1); let cat = bmi < 18.5 ? ' (Underweight)' : bmi < 25 ? ' (Normal)' : ' (Overweight)'; document.getElementById('r-h1').innerText = bmi + cat; }
-        if(t==='h7') document.getElementById('r-h7').innerText = (document.getElementById('h7-w').value * 0.033).toFixed(1) + " Liters";
-        if(t==='h3') document.getElementById('r-h3').innerText = Math.round(document.getElementById('h3-b').value * document.getElementById('h3-a').value) + " kcal";
+        if(t==='h2') {
+            let bmr = (10 * val('h2-w')) + (6.25 * val('h2-h')) - (5 * val('h2-a'));
+            bmr = document.getElementById('h2-g').value === 'm' ? bmr + 5 : bmr - 161;
+            out('h2').innerText = Math.round(bmr) + " kcal/day";
+        }
+
+        if(t==='h5') {
+            let lmp = new Date(document.getElementById('h5-d').value);
+            if(!isNaN(lmp)) {
+                lmp.setDate(lmp.getDate() + 280);
+                out('h5').innerText = lmp.toLocaleDateString();
+            }
+        }
+
+        if(t==='h6') {
+            let waist = val('h6-w'), neck = val('h6-n'), height = val('h6-h');
+            let bf = 495 / (1.0324 - 0.19077 * Math.log10(waist - neck) + 0.15456 * Math.log10(height)) - 450;
+            out('h6').innerText = Math.abs(bf).toFixed(1) + "%";
+        }
+
+        if(t==='h8') {
+            let thr = ((220 - val('h8-a') - val('h8-r')) * 0.7) + val('h8-r');
+            out('h8').innerText = Math.round(thr) + " bpm";
+        }
 
         // --- SEO ---
-        if(t==='s1') { let txt = document.getElementById('s1-t').value.toLowerCase(); let kw = document.getElementById('s1-k').value.toLowerCase(); if(!kw) return; let count = txt.split(kw).length - 1; let words = txt.split(/\s+/).length; document.getElementById('r-s1').innerText = ((count/words)*100).toFixed(1) + '%'; }
-
-        // --- MATH & SCIENCE (FIXED) ---
-        if(t==='m1') document.getElementById('r-m1').innerText = (document.getElementById('m1-o').value / document.getElementById('m1-t').value * 100).toFixed(1) + '%';
-        if(t==='m2') { let b = new Date(document.getElementById('m2-d').value); if(!isNaN(b)) document.getElementById('r-m2').innerText = (new Date().getFullYear() - b.getFullYear()) + " Years"; }
-        if(t==='m3') { let s = new Date(document.getElementById('m3-s').value), e = new Date(document.getElementById('m3-e').value); document.getElementById('r-m3').innerText = (Math.abs(e - s) / (86400000)) + " Days"; }
-        if(t==='m4') {
-            let v = parseFloat(document.getElementById('m4-v').value), op = document.getElementById('m4-o').value, res = 0;
-            if(op==='sqrt') res = Math.sqrt(v); if(op==='log') res = Math.log10(v); if(op==='sin') res = Math.sin(v);
-            document.getElementById('r-m4').innerText = res.toFixed(4);
+        if(t==='s1') {
+            let txt = document.getElementById('s1-t').value.toLowerCase();
+            let kw = document.getElementById('s1-k').value.toLowerCase();
+            if(!kw || !txt) { out('s1').innerText = "Enter text/keyword"; return; }
+            let count = txt.split(kw).length - 1;
+            let totalWords = txt.match(/\b\w+\b/g).length;
+            let density = ((count / totalWords) * 100).toFixed(2);
+            out('s1').innerText = density + '%';
+            out('s1').style.color = density > 3 ? 'var(--danger)' : 'var(--brand)';
         }
-        if(t==='m6') { let v = parseFloat(document.getElementById('m6-v').value), c = document.getElementById('m6-c').value; document.getElementById('r-m6').innerText = (c==='km-mi' ? (v*0.62).toFixed(2)+' mi' : (v*2.2).toFixed(2)+' lbs'); }
-        if(t==='m7') {
-            let v = parseFloat(document.getElementById('m7-v').value), d = document.getElementById('m7-d').value;
-            let res = (d === 'c-f') ? (v * 9/5) + 32 : (v - 32) * 5/9;
-            document.getElementById('r-m7').innerText = res.toFixed(1) + (d === 'c-f' ? " F" : " C");
-        }
-
-        // --- BUSINESS & UTILITY ---
-        if(t==='u1') { let u1=document.getElementById('u1-p1').value/document.getElementById('u1-q1').value, u2=document.getElementById('u1-p2').value/document.getElementById('u1-q2').value; document.getElementById('r-u1').innerText = u1 < u2 ? "Item A is cheaper" : "Item B is cheaper"; }
-        if(t==='u5') { let be = document.getElementById('u5-f').value / (document.getElementById('u5-p').value - document.getElementById('u5-v').value); document.getElementById('r-u5').innerText = Math.ceil(be) + " Units"; }
-        if(t==='u6') { let val = (document.getElementById('u6-p').value * 12) * (document.getElementById('u6-g').value / 2); document.getElementById('r-u6').innerText = "$" + Math.round(val).toLocaleString(); }
-        if(t==='u9') { let final = document.getElementById('u9-p').value * (1 - document.getElementById('u9-d').value/100); document.getElementById('r-u9').innerText = "$" + final.toFixed(2); }
-
-        // --- LIFESTYLE & TRAVEL ---
-        if(t==='l1') document.getElementById('r-l1').innerText = (document.getElementById('l1-l').value * document.getElementById('l1-w').value) + " sq ft";
-        if(t==='l2') document.getElementById('r-l2').innerText = Math.round((document.getElementById('l2-f').value / document.getElementById('l2-r').value) * 100) + "% Occupied";
-        if(t==='l3') {
-            let v = document.getElementById('l3-v').value, f = document.getElementById('l3-f').value;
-            document.getElementById('r-l3').innerText = (f==='ac-sqft' ? (v*43560).toLocaleString() : (v*10.764).toFixed(2)) + " sq ft";
-        }
-        if(t==='l4') {
-            let total = parseFloat(document.getElementById('l4-f').value) + parseFloat(document.getElementById('l4-t').value) + parseFloat(document.getElementById('l4-h').value);
-            document.getElementById('r-l4').innerText = "$" + total.toLocaleString();
-        }
-        if(t==='l5') {
-            let next = Math.ceil(document.getElementById('l5-k').value / 5000) * 5000;
-            document.getElementById('r-l5').innerText = "Service in " + (next - document.getElementById('l5-k').value) + " KM";
-        }
-        if(t==='l6') document.getElementById('r-l6').innerText = (document.getElementById('l6-a').value * document.getElementById('l6-r').value).toFixed(2);
-    
-    
-            }
+    }
 </script>
 </body>
 </html>
