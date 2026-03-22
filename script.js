@@ -1,96 +1,56 @@
-const mainView = document.getElementById('main-view');
+async function start() {
+    const res = await fetch('calculators.json');
+    const tools = await res.json();
+    const id = new URLSearchParams(window.location.search).get('id');
 
-async function init() {
-    const response = await fetch('calculators.json');
-    const tools = await response.json();
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const toolId = urlParams.get('id');
-    const page = urlParams.get('page');
-
-    if (toolId) {
-        renderCalculator(tools.find(t => t.id === toolId));
-    } else if (page) {
-        renderStaticPage(page);
+    if (id) {
+        const tool = tools.find(t => t.id === id);
+        renderTool(tool);
     } else {
         renderHome(tools);
     }
 }
 
 function renderHome(tools) {
-    let html = `<section class="hero"><h1>Smart Tools for Smart Creators</h1><p>Maximize your revenue with our data-backed calculators.</p></section>`;
-    html += `<div class="grid">`;
-    tools.forEach(tool => {
-        html += `
-            <a href="?id=${tool.id}" class="card">
-                <small>${tool.category}</small>
-                <h3>${tool.name}</h3>
-                <p>${tool.desc}</p>
-            </a>`;
+    let html = `<h1>All Calculators</h1><div class="grid">`;
+    tools.forEach(t => {
+        html += `<a href="?id=${t.id}" class="card"><span>${t.cat}</span><h3>${t.name}</h3><p>${t.desc || 'Professional precision tool.'}</p></a>`;
     });
-    html += `</div>`;
-    mainView.innerHTML = html;
+    document.getElementById('main-view').innerHTML = html + `</div>`;
 }
 
-function renderCalculator(tool) {
-    if (!tool) return renderHome();
-    
-    // Dynamic SEO
-    document.title = `${tool.name} | CreatorProfitLab`;
-    
-    let html = `
+function renderTool(tool) {
+    if(!tool) return;
+    window.currentTool = tool;
+    document.getElementById('main-view').innerHTML = `
         <div class="calc-wrapper">
             <div class="calc-main">
                 <h1>${tool.name}</h1>
-                <p class="desc">${tool.desc}</p>
-                <div class="ad-slot">IN-CONTENT AD</div>
-                <div class="tool-ui">
-                    ${tool.inputs.map(input => `
-                        <div class="input-group">
-                            <label>${input.label}</label>
-                            <input type="number" id="${input.id}" value="${input.val}" oninput="calculate('${tool.id}')">
-                        </div>
-                    `).join('')}
-                    <div class="result-box">
-                        <label>Your Results</label>
-                        <h3 id="result-val">--</h3>
+                ${tool.inputs.map(i => `
+                    <div class="input-group">
+                        <label>${i.label}</label>
+                        <input type="number" id="${i.id}" value="${i.val}" oninput="runMath()">
                     </div>
-                </div>
-                <article class="seo-article">${tool.article}</article>
+                `).join('')}
+                <div class="result-box"><h3>Result: <span id="res">--</span></h3></div>
+                <div class="seo-article">${tool.article}</div>
             </div>
-            <aside class="sidebar">
-                <div class="ad-slot" style="height:600px">SIDEBAR AD</div>
-                <div class="affiliate-section">
-                    <h4>Best Tool for Creators</h4>
-                    <p>Unlock more growth with TubeBuddy.</p>
-                    <a href="#" class="btn-aff">Get it Now</a>
-                </div>
-            </aside>
-        </div>
-    `;
-    mainView.innerHTML = html;
-    window.currentTool = tool;
-    calculate(tool.id);
+            <aside><div class="ad-slot">Sidebar Ad</div></aside>
+        </div>`;
+    runMath();
 }
 
-function calculate() {
-    const tool = window.currentTool;
-    let formula = tool.formula;
-    tool.inputs.forEach(input => {
-        const value = document.getElementById(input.id).value || 0;
-        formula = formula.replace(new RegExp(input.id, 'g'), value);
+function runMath() {
+    const t = window.currentTool;
+    let expression = t.formula;
+    t.inputs.forEach(i => {
+        const val = document.getElementById(i.id).value || 0;
+        expression = expression.replace(new RegExp(i.id, 'g'), val);
     });
-    const result = eval(formula);
-    document.getElementById('result-val').innerText = tool.unit + result.toLocaleString(undefined, {maximumFractionDigits: 2});
+    // Safe evaluation of the math formula
+    try {
+        const result = Function('"use strict";return (' + expression + ')')();
+        document.getElementById('res').innerText = t.unit + result.toLocaleString(undefined, {maximumFractionDigits: 2});
+    } catch(e) { console.error("Math Error"); }
 }
-
-// Simple search logic
-function searchTools() {
-    let input = document.getElementById('toolSearch').value.toLowerCase();
-    let cards = document.getElementsByClassName('card');
-    for (let card of cards) {
-        card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
-    }
-}
-
-init();
+start();
