@@ -74,8 +74,24 @@
         { id: "sip-calc", cat: "2️⃣ Finance / Money", name: "SIP Calculator", desc: "Recurring investments.", unit: "$", formula: "p*((((1+r/1200)**n)-1)/(r/1200))*(1+r/1200)", inputs: [{id:"p", l:"Monthly ($)", v:200}, {id:"r", l:"Return %", v:10}, {id:"n", l:"Months", v:120}] },
         { id: "crypto-prof", cat: "2️⃣ Finance / Money", name: "Crypto Profit", desc: "Token investment gains.", unit: "$", formula: "(amt/buy)*sell - amt", inputs: [{id:"amt", l:"Invested ($)", v:1000}, {id:"buy", l:"Buy Price ($)", v:30000}, {id:"sell", l:"Sell Price ($)", v:45000}] },
         
-        // 3. HEALTH
-        { id: "bmi-calc", cat: "3️⃣ Health / Fitness", name: "BMI Calculator", desc: "Body Mass Index.", unit: "", formula: "w/((h/100)**2)", inputs: [{id:"w", l:"Weight (kg)", v:70}, {id:"h", l:"Height (cm)", v:175}] },
+       
+       // 3. HEALTH / FITNESS / NUTRITION
+        { id: "bmi-calc", cat: "3️⃣ Health / Fitness", name: "BMI Calculator", desc: "Body Mass Index (Weight/Height ratio).", unit: " BMI", formula: "w/((h/100)**2)", inputs: [{id:"w", l:"Weight (kg)", v:70}, {id:"h", l:"Height (cm)", v:175}] },
+        
+        { id: "bmr-calc", cat: "3️⃣ Health / Fitness", name: "BMR Calculator", desc: "Basal Metabolic Rate (Mifflin-St Jeor).", unit: " kcal", formula: "(10*w) + (6.25*h) - (5*a) + 5", inputs: [{id:"w", l:"Weight (kg)", v:70}, {id:"h", l:"Height (cm)", v:175}, {id:"a", l:"Age", v:25}] },
+        
+        { id: "calorie-calc", cat: "3️⃣ Health / Fitness", name: "Daily Calorie Calc", desc: "Maintenance calories (BMR × Activity).", unit: " kcal", formula: "((10*w) + (6.25*h) - (5*a) + 5) * 1.2", inputs: [{id:"w", l:"Weight (kg)", v:70}, {id:"h", l:"Height (cm)", v:175}, {id:"a", l:"Age", v:25}] },
+        
+        { id: "ideal-weight", cat: "3️⃣ Health / Fitness", name: "Ideal Weight Calc", desc: "Based on Devine Formula (Male standard).", unit: " kg", formula: "50 + (0.9 * (h - 152))", inputs: [{id:"h", l:"Height (cm)", v:175}] },
+        
+        { id: "pregnancy-due", cat: "3️⃣ Health / Fitness", name: "Pregnancy Due Date", desc: "Estimated date (Days from last period).", unit: " Days Left", formula: "280 - d", inputs: [{id:"d", l:"Days since last period", v:30}] },
+        
+        { id: "body-fat", cat: "3️⃣ Health / Fitness", name: "Body Fat Estimator", desc: "Navy Method approximation.", unit: "%", formula: "495 / (1.0324 - 0.19077 * Math.log10(w-n) + 0.15456 * Math.log10(h)) - 450", inputs: [{id:"w", l:"Waist (cm)", v:80}, {id:"n", l:"Neck (cm)", v:37}, {id:"h", l:"Height (cm)", v:175}] },
+        
+        { id: "water-intake", cat: "3️⃣ Health / Fitness", name: "Water Intake Calc", desc: "Recommended daily hydration.", unit: " Liters", formula: "(w * 0.033)", inputs: [{id:"w", l:"Weight (kg)", v:70}] },
+        
+        { id: "heart-rate", cat: "3️⃣ Health / Fitness", name: "Target Heart Rate", desc: "60-80% intensity range.", unit: " bpm", formula: "(220 - a) * 0.7", inputs: [{id:"a", l:"Age", v:25}] },
+
         
         // 5. BUSINESS
         { id: "startup-val", cat: "5️⃣ Business / Marketing", name: "Startup Valuation", desc: "Estimate company value.", unit: "$", formula: "rev*5", inputs: [{id:"rev", l:"Annual Revenue ($)", v:100000}] },
