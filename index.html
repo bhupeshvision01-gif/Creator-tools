@@ -511,6 +511,20 @@
 
             }
 
+// Add this inside your function run(t) { ... }
+if (t === 'c4') {
+    let cost = parseFloat(document.getElementById('c4-c').value) || 0;
+    let impressions = parseFloat(document.getElementById('c4-i').value) || 0;
+    
+    if (impressions > 0) {
+        // Formula: (Cost / Impressions) * 1000
+        let cpm = (cost / impressions) * 1000;
+        document.getElementById('r-c4').innerText = '$' + cpm.toFixed(2);
+    } else {
+        document.getElementById('r-c4').innerText = "Enter Impressions";
+    }
+}
+    
 </script>
 
 </body>
