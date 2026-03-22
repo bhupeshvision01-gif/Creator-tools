@@ -44,6 +44,7 @@
 </section>
 
 
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -97,19 +98,11 @@
         <button onclick="tab(event, 'math')">4. Math & Science</button>
         <button onclick="tab(event, 'utility')">5. Business & Utility</button>
         <button onclick="tab(event, 'lifestyle')">6. Lifestyle & Travel</button>
-
-        <span class="nav-label">Resources</span>
-        <button onclick="tab(event, 'res-yt')"> Guide</button>
-        <button onclick="tab(event, 'res-fin')">Finance Guide</button>
-        <button onclick="tab(event, 'res-health')">Health Guide</button>
-        
-        <span class="nav-label">Legal</span>
-        <button onclick="tab(event, 'about')">About Us</button>
-        <button onclick="tab(event, 'privacy')">Privacy Policy</button>
+        <button onclick="tab(event, 'resources')">📖 Learning Hub</button>
+        <button onclick="tab(event, 'finance-guide')">💰 Finance Masterclass</button>
+        <button onclick="tab(event, 'health-guide')">🥗 Health & Vitality</button>
     </nav>
 </aside>
-
-
 
 <main>
 
@@ -122,7 +115,7 @@
         <h3>1. Understanding BMI vs. Body Fat %</h3>
         <p><strong>Body Mass Index (BMI)</strong> is a simple calculation using your height and weight. While it is a great general starting point, it doesn't account for muscle mass. For a deeper look, use our <strong>Navy Body Fat Calculator</strong>, which uses neck and waist measurements to estimate your actual body composition.</p>
 
-     
+        
 
         <h3>2. What is TDEE?</h3>
         <p>Your <strong>Total Daily Energy Expenditure (TDEE)</strong> is the number of calories you burn in a day. It is calculated by taking your Basal Metabolic Rate (BMR) and multiplying it by an activity factor.</p>
@@ -236,14 +229,7 @@
         </div>
     </article>
 </section>
- 
-
-
-
-    
-
-
-    
+        
     <section id="creator" class="tab-content" style="display:block">
         <div class="grid">
             <div class="card"><h3>YouTube Income</h3><div class="field"><label>Views / CPM ($)</label><div style="display:flex;gap:5px;"><input type="number" id="c1-v" value="100000"><input type="number" id="c1-c" value="5"></div></div><button class="btn-calc" onclick="run('c1')">Estimate Revenue</button><div class="out-box" id="r-c1">$500</div></div>
