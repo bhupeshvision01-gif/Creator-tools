@@ -147,18 +147,19 @@
 
         { id: "discount-calc", cat: "5️⃣ Business / Marketing", name: "Discount/Sale Calc", desc: "Final price after percentage off.", unit: "$ Final", formula: "p - (p*(d/100))", inputs: [{id:"p", l:"Original Price ($)", v:80}, {id:"d", l:"Discount (%)", v:25}] },
 
-        //  LIFESTYLE / REAL ESTATE / TRAVEL
-        { id: "paint-calc", cat: "Lifestyle / Travel", name: "Carpet & Paint Calc", desc: "Area coverage for home renovation.", unit: " sq ft", formula: "l * w", inputs: [{id:"l", l:"Length (ft)", v:15}, {id:"w", l:"Width (ft)", v:12}] },
+      // 6. LIFESTYLE / REAL ESTATE / TRAVEL
+        { id: "paint-calc", cat: "6️⃣ Lifestyle / Travel", name: "Carpet & Paint Calc", desc: "Area coverage for home renovation.", unit: " sq ft", formula: "l * w", inputs: [{id:"l", l:"Length (ft)", v:15}, {id:"w", l:"Width (ft)", v:12}] },
 
-        { id: "room-dim", cat: "Lifestyle / Travel", name: "Room Dimension", desc: "Total volume for AC/Furniture fit.", unit: " cu ft", formula: "l * w * h", inputs: [{id:"l", l:"Length (ft)", v:12}, {id:"w", l:"Width (ft)", v:10}, {id:"h", l:"Height (ft)", v:9}] },
+        { id: "room-dim", cat: "6️⃣ Lifestyle / Travel", name: "Room Dimension", desc: "Total volume for AC/Furniture fit.", unit: " cu ft", formula: "l * w * h", inputs: [{id:"l", l:"Length (ft)", v:12}, {id:"w", l:"Width (ft)", v:10}, {id:"h", l:"Height (ft)", v:9}] },
 
-        { id: "land-conv", cat: "Lifestyle / Travel", name: "Land Area Converter", desc: "Convert Sq Ft to Acres.", unit: " Acres", formula: "s / 43560", inputs: [{id:"s", l:"Area (Sq Ft)", v:10000}] },
+        { id: "land-conv", cat: "6️⃣ Lifestyle / Travel", name: "Land Area Converter", desc: "Convert Sq Ft to Acres.", unit: " Acres", formula: "s / 43560", inputs: [{id:"s", l:"Area (Sq Ft)", v:10000}] },
 
-        { id: "trip-total", cat: "Lifestyle / Travel", name: "Trip Cost Total", desc: "Full budget (Fuel + Tolls + Hotel).", unit: "$ Total", formula: "((dist/mpg)*price) + tolls + hotel", inputs: [{id:"dist", l:"Distance (Miles)", v:500}, {id:"mpg", l:"Fuel Econ (MPG)", v:25}, {id:"price", l:"Fuel Price ($)", v:4}, {id:"tolls", l:"Tolls ($)", v:20}, {id:"hotel", l:"Hotel ($)", v:150}] },
+        { id: "trip-total", cat: "6️⃣ Lifestyle / Travel", name: "Trip Cost Total", desc: "Full budget (Fuel + Tolls + Hotel).", unit: "$ Total", formula: "((dist/mpg)*price) + tolls + hotel", inputs: [{id:"dist", l:"Distance (Miles)", v:500}, {id:"mpg", l:"Fuel Econ (MPG)", v:25}, {id:"price", l:"Fuel Price ($)", v:4}, {id:"tolls", l:"Tolls ($)", v:20}, {id:"hotel", l:"Hotel ($)", v:150}] },
 
-        { id: "tire-maint", cat: "Lifestyle / Travel", name: "Maintenance Calc", desc: "Estimate cost per mile to drive.", unit: "$/Mile", formula: "(gas + serv + ins) / miles", inputs: [{id:"gas", l:"Annual Fuel ($)", v:2000}, {id:"serv", l:"Service ($)", v:500}, {id:"ins", l:"Insurance ($)", v:1200}, {id:"miles", l:"Annual Miles", v:12000}] },
+        { id: "tire-maint", cat: "6️⃣ Lifestyle / Travel", name: "Maintenance Calc", desc: "Estimate cost per mile to drive.", unit: "$/Mile", formula: "(gas + serv + ins) / miles", inputs: [{id:"gas", l:"Annual Fuel ($)", v:2000}, {id:"serv", l:"Service ($)", v:500}, {id:"ins", l:"Insurance ($)", v:1200}, {id:"miles", l:"Annual Miles", v:12000}] },
 
-        { id: "travel-conv", cat: "Lifestyle / Travel", name: "Travel Currency", desc: "Spending power in local currency.", unit: " Local", formula: "amt * rate", inputs: [{id:"amt", l:"Home Currency ($)", v:500}, {id:"rate", l:"Exchange Rate", v:0.92}] },
+        { id: "travel-conv", cat: "6️⃣ Lifestyle / Travel", name: "Travel Currency", desc: "Spending power in local currency.", unit: " Local", formula: "amt * rate", inputs: [{id:"amt", l:"Home Currency ($)", v:500}, {id:"rate", l:"Exchange Rate", v:0.92}] },
+        
     ];
 
     const view = document.getElementById('view');
