@@ -266,5 +266,18 @@ const TOOLS = [
             <h4 style="color: var(--text); margin-bottom: 5px;">💰 Finance & Business</h4>
             <p>Accurate EMI, GST, Startup Valuation, and CAC calculators for data-driven decisions.</p>
         </div>
+
+
+        <script>
+    // Disable Right Click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+
+    // Disable Keyboard Shortcuts (Ctrl+U, Ctrl+Shift+I)
+    document.onkeydown = function(e) {
+        if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 83 || e.keyCode === 123)) {
+            return false;
+        }
+    };
+</script>
     </div>
 </div>
