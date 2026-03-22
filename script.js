@@ -1,69 +1,96 @@
-async function initApp() {
-    const response = await fetch('calculators.json');
-    const calcs = await response.json();
-    
-    const params = new URLSearchParams(window.location.search);
-    const calcId = params.get('id');
+const mainView = document.getElementById('main-view');
 
-    if (calcId) {
-        renderCalculator(calcs.find(c => c.id === calcId));
+async function init() {
+    const response = await fetch('calculators.json');
+    const tools = await response.json();
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const toolId = urlParams.get('id');
+    const page = urlParams.get('page');
+
+    if (toolId) {
+        renderCalculator(tools.find(t => t.id === toolId));
+    } else if (page) {
+        renderStaticPage(page);
     } else {
-        renderHome(calcs);
+        renderHome(tools);
     }
 }
 
-function renderCalculator(data) {
-    if (!data) return;
+function renderHome(tools) {
+    let html = `<section class="hero"><h1>Smart Tools for Smart Creators</h1><p>Maximize your revenue with our data-backed calculators.</p></section>`;
+    html += `<div class="grid">`;
+    tools.forEach(tool => {
+        html += `
+            <a href="?id=${tool.id}" class="card">
+                <small>${tool.category}</small>
+                <h3>${tool.name}</h3>
+                <p>${tool.desc}</p>
+            </a>`;
+    });
+    html += `</div>`;
+    mainView.innerHTML = html;
+}
+
+function renderCalculator(tool) {
+    if (!tool) return renderHome();
     
-    // SEO Injection
-    document.title = `${data.title} - CreatorProfitLab`;
-    document.querySelector('meta[name="description"]').setAttribute("content", data.description);
+    // Dynamic SEO
+    document.title = `${tool.name} | CreatorProfitLab`;
     
-    // UI Injection
-    const app = document.getElementById('app');
-    app.innerHTML = `
-        <nav class="breadcrumb">Home > ${data.category} > ${data.title}</nav>
-        <div class="calc-layout">
-            <div class="main-col">
-                <div class="calc-card">
-                    <h1>${data.title}</h1>
-                    ${data.inputs.map(i => `
+    let html = `
+        <div class="calc-wrapper">
+            <div class="calc-main">
+                <h1>${tool.name}</h1>
+                <p class="desc">${tool.desc}</p>
+                <div class="ad-slot">IN-CONTENT AD</div>
+                <div class="tool-ui">
+                    ${tool.inputs.map(input => `
                         <div class="input-group">
-                            <label>${i.label}</label>
-                            <input type="number" id="${i.id}" value="${i.default}" oninput="calculate()">
+                            <label>${input.label}</label>
+                            <input type="number" id="${input.id}" value="${input.val}" oninput="calculate('${tool.id}')">
                         </div>
                     `).join('')}
                     <div class="result-box">
-                        <p>Estimated Result</p>
-                        <div class="result-val" id="total">${data.unit}0</div>
+                        <label>Your Results</label>
+                        <h3 id="result-val">--</h3>
                     </div>
                 </div>
-                <div class="ad-slot">In-Content Ad</div>
-                <article class="seo-content">${data.content}</article>
-                <div class="faq-section">
-                    ${data.faqs.map(f => `<details><summary>${f.q}</summary><p>${f.a}</p></details>`).join('')}
-                </div>
+                <article class="seo-article">${tool.article}</article>
             </div>
             <aside class="sidebar">
-                <div class="affiliate-card">
-                    <h3>Recommended Tool</h3>
-                    <p>${data.affiliate.text}</p>
-                    <a href="${data.affiliate.link}" class="btn">Get Started</a>
+                <div class="ad-slot" style="height:600px">SIDEBAR AD</div>
+                <div class="affiliate-section">
+                    <h4>Best Tool for Creators</h4>
+                    <p>Unlock more growth with TubeBuddy.</p>
+                    <a href="#" class="btn-aff">Get it Now</a>
                 </div>
-                <div class="ad-slot">Sidebar Ad</div>
             </aside>
         </div>
     `;
-    window.currentCalc = data;
-    calculate();
+    mainView.innerHTML = html;
+    window.currentTool = tool;
+    calculate(tool.id);
 }
 
 function calculate() {
-    const data = window.currentCalc;
-    let formula = data.formula;
-    data.inputs.forEach(i => {
-        const val = document.getElementById(i.id).value;
-        formula = formula.replace(new RegExp(i.id, 'g'), val);
+    const tool = window.currentTool;
+    let formula = tool.formula;
+    tool.inputs.forEach(input => {
+        const value = document.getElementById(input.id).value || 0;
+        formula = formula.replace(new RegExp(input.id, 'g'), value);
     });
-    document.getElementById('total').innerText = data.unit + eval(formula).toLocaleString();
+    const result = eval(formula);
+    document.getElementById('result-val').innerText = tool.unit + result.toLocaleString(undefined, {maximumFractionDigits: 2});
 }
+
+// Simple search logic
+function searchTools() {
+    let input = document.getElementById('toolSearch').value.toLowerCase();
+    let cards = document.getElementsByClassName('card');
+    for (let card of cards) {
+        card.style.display = card.innerText.toLowerCase().includes(input) ? "block" : "none";
+    }
+}
+
+init();
