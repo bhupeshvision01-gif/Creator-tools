@@ -282,15 +282,7 @@
         } else if (page) {
             homeInfo.style.display = 'none';
             document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
-            const titles = {about: "About Us", contact: "Contact", privacy: "This prevents people from suing you if their investments don't go as planned.
-
-1. Informational Purposes Only: All calculators and content on CreatorProfitLab are for educational and informational purposes only. They do not constitute professional financial, investment, or legal advice.
-
-2. Accuracy of Results: While we strive for 100% accuracy, results from our calculators are estimates. Actual financial outcomes depend on market conditions and specific bank terms.
-
-3. Limitation of Liability: CreatorProfitLab shall not be held liable for any financial losses or decisions made based on the use of our tools. We recommend consulting a certified financial advisor before making major investments.
-
-4. Intellectual Property: The design, code, and content of these tools are the property of CreatorProfitLab.", terms: "Terms"};
+            const titles = {about: "About Us", contact: "Contact", privacy: "Privacy Policy", terms: "Terms"};
             view.innerHTML = `<div class="legal-content"><h1>${titles[page] || 'Page'}</h1><p>Content for ${page} goes here.</p></div>`;
         } else {
             renderHome();
