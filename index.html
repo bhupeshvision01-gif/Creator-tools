@@ -111,6 +111,22 @@
         { id: "water-intake", cat: "3️⃣ Health / Fitness", name: "Water Intake Calc", desc: "Recommended daily hydration.", unit: " Liters", formula: "(w * 0.033)", inputs: [{id:"w", l:"Weight (kg)", v:70}] },
         
          { id: "heart-rate", cat: "3️⃣ Health / Fitness", name: "Target Heart Rate", desc: "Karvonen Formula (70% Intensity).", unit: " bpm", formula: "((220 - a - r) * 0.7) + r", inputs: [{id:"a", l:"Age", v:25}, {id:"r", l:"Resting Heart Rate", v:70}] },
+
+
+        // 4. MATH / EDUCATION / SCIENCE
+        { id: "percent-calc", cat: "4️⃣ Math / Education", name: "Percentage Calc", desc: "Calculate marks, grades, or ratios.", unit: "%", formula: "(score/total)*100", inputs: [{id:"score", l:"Obtained Marks", v:450}, {id:"total", l:"Total Marks", v:600}] },
+
+        { id: "age-calc", cat: "4️⃣ Math / Education", name: "Age Calculator", desc: "Exact age based on birth year.", unit: " Years", formula: "2026 - y", inputs: [{id:"y", l:"Birth Year", v:1998}] },
+
+        { id: "date-diff", cat: "4️⃣ Math / Education", name: "Date Difference", desc: "Days between two dates (approx).", unit: " Days", formula: "Math.abs(d2 - d1)", inputs: [{id:"d1", l:"Start Day (1-365)", v:1}, {id:"d2", l:"End Day (1-365)", v:100}] },
+
+        { id: "sci-calc", cat: "4️⃣ Math / Education", name: "Scientific Tester", desc: "Trig, Log, and Square Root values.", unit: " Result", formula: "Math.sqrt(v) + Math.sin(v) - Math.sin(v)", inputs: [{id:"v", l:"Input Value (x)", v:25}] },
+
+        { id: "math-compound", cat: "4️⃣ Math / Education", name: "Compound Interest (Math)", desc: "Pure mathematical growth formula.", unit: " Total", formula: "p * Math.pow((1 + (r/100)), t)", inputs: [{id:"p", l:"Principal (P)", v:1000}, {id:"r", l:"Rate (r%)", v:5}, {id:"t", l:"Time (t)", v:3}] },
+
+        { id: "unit-conv", cat: "4️⃣ Math / Education", name: "Unit Converter (Length)", desc: "Convert Meters to Feet.", unit: " Feet", formula: "m * 3.28084", inputs: [{id:"m", l:"Value in Meters", v:10}] },
+
+        { id: "temp-conv", cat: "4️⃣ Math / Education", name: "Temperature Calc", desc: "Celsius to Fahrenheit conversion.", unit: " °F", formula: "(c * 9/5) + 32", inputs: [{id:"c", l:"Temp in Celsius", v:37}] },
         
     // 5. BUSINESS / MARKETING / UTILITY
         { id: "price-comp", cat: "5️⃣ Business / Marketing", name: "Price Comparison", desc: "Compare unit price of two products.", unit: "$ Savings", formula: "(p2/q2 > p1/q1) ? (p2/q2 - p1/q1) : (p1/q1 - p2/q2)", inputs: [{id:"p1", l:"Price Product A ($)", v:10}, {id:"q1", l:"Quantity A (units/kg)", v:1}, {id:"p2", l:"Price Product B ($)", v:18}, {id:"q2", l:"Quantity B (units/kg)", v:2}] },
