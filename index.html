@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CreatorProfitLab | 50+ Free YouTube & Finance Calculators</title>
+    <meta name="description" content="Calculate YouTube revenue, CPM, and finance metrics with 50+ free tools.">
     <link rel="icon" href="data:,">
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -34,10 +35,14 @@
         .legal-content h1 { color: var(--brand); margin-bottom: 20px; }
         footer { border-top: 1px solid var(--border); padding: 50px 0; margin-top: 60px; text-align: center; }
         .f-links a { margin: 0 15px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; cursor: pointer; }
-        .faq-section { padding: 60px 20px; max-width: 800px; margin: auto; border-top: 1px solid var(--border); }
-        .faq-item { margin-bottom: 30px; }
-        .faq-item h3 { color: var(--text); margin-bottom: 10px; font-size: 1.1rem; }
-        .faq-item p { color: var(--text-muted); }
+        
+        /* New SEO Section Styles */
+        .related-section { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+        .links-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .links-list a { color: var(--brand); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .blog-preview { background: var(--accent); padding: 30px; border-radius: 20px; margin-top: 40px; }
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .article-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
     </style>
 </head>
 <body>
@@ -54,21 +59,51 @@
 
 <div id="view" class="container"></div>
 
-<div id="home-info" class="container" style="margin-top: 60px; padding: 40px; background: #fff; border-radius: 20px; border: 1px solid var(--border);">
-    <h2 style="margin-bottom: 15px;">Professional Tools for the Modern Creator Economy</h2>
-    <p style="color: var(--text-muted); margin-bottom: 20px;">
-        Welcome to <strong>CreatorProfitLab</strong>, your primary destination for high-precision digital tools.
+<div id="seo-intro" class="container" style="margin-top: 40px; display: none;">
+    <h2 style="margin-bottom: 10px;">Maximize Your Creator Revenue</h2>
+    <p style="color: var(--text-muted); max-width: 800px;">
+        Use our <strong>YouTube money calculator</strong> and <strong>CPM estimator</strong> to forecast your channel's potential. Understanding your <strong>YouTube earnings per view</strong> is the key to a sustainable creator business in 2026.
     </p>
+</div>
+
+<div id="home-info" class="container" style="margin-top: 30px; padding: 40px; background: #fff; border-radius: 20px; border: 1px solid var(--border);">
+    <h2 style="margin-bottom: 15px;">Professional Tools for the Modern Creator Economy</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">Welcome to <strong>CreatorProfitLab</strong>, your primary destination for high-precision digital tools.</p>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; font-size: 0.9rem; color: var(--text-muted);">
         <div><h4 style="color: var(--text); margin-bottom: 5px;">📈 Creator & Social</h4><p>Calculate YouTube CPM and Brand Deal valuations.</p></div>
         <div><h4 style="color: var(--text); margin-bottom: 5px;">💰 Finance & Business</h4><p>Accurate EMI, GST, and SIP calculators.</p></div>
     </div>
 </div>
 
-<section id="faq-display" class="faq-section container">
+<div id="extra-content" class="container">
+    <div class="related-section" id="related-tools-area" style="display:none;">
+        <h3 style="margin-bottom: 15px;">Suggested Tools</h3>
+        <ul id="links-list" class="links-list"></ul>
+    </div>
+
+    <div class="blog-preview" id="blog-area" style="display:none;">
+        <h3 style="text-align: center;">Latest Creator Guides</h3>
+        <div class="article-grid">
+            <div class="article-card">
+                <h4>YouTube Pay for 1M Views?</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0;">Learn how your niche affects your final payout...</p>
+                <a href="?page=about" style="color: var(--brand); font-weight: 700; font-size: 0.8rem; text-decoration: none;">READ GUIDE →</a>
+            </div>
+            <div class="article-card">
+                <h4>Sponsorship Pricing Guide</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0;">Don't leave money on the table. Price your deals right...</p>
+                <a href="?page=about" style="color: var(--brand); font-weight: 700; font-size: 0.8rem; text-decoration: none;">READ GUIDE →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="faq-display" class="container" style="padding: 60px 0; border-top: 1px solid var(--border); margin-top: 40px;">
     <h2 style="margin-bottom: 30px; text-align: center;">Frequently Asked Questions</h2>
-    <div class="faq-item"><h3>What is a good SIP amount for creators?</h3><p>Starting with $50 a month can build massive wealth due to compound interest.</p></div>
-    <div class="faq-item"><h3>Can I plan gear upgrades?</h3><p>Yes, use our SIP tool to estimate savings for cameras and studio gear over 2-3 years.</p></div>
+    <div style="max-width: 800px; margin: auto;">
+        <div style="margin-bottom: 20px;"><h3>What is a good SIP amount for creators?</h3><p style="color: var(--text-muted);">Starting with $50 a month can build massive wealth due to compound interest.</p></div>
+        <div><h3>Can I plan gear upgrades?</h3><p style="color: var(--text-muted);">Yes, use our SIP tool to estimate savings for cameras and studio gear over 2-3 years.</p></div>
+    </div>
 </section>
 
 <footer>
@@ -85,7 +120,6 @@
 </footer>
 
 <script>
-    // FULL DATA ARRAY RESTORED
     const _0x4f22 = ['yt-income', 'Creator', 'YouTube Revenue', '(v/1000)*c*a', 'tk-earn', 'TikTok Fund', '(v/1000000)*35', 'ig-eng', 'InstaGram Engagement', '((l+c)/r)*100', 'aff-income', 'Affiliate Sales', 'cl*(cr/100)*com', 'spon-post', 'Sponsorship Rate', '(r/1000)*25', 'twitch-earn', 'Twitch Revenue', '(s*2.5)+(b*0.01)', 'cpm-calc', 'CPM Calculator', '(cost/views)*1000', 'brand-deal', 'Brand Deal Estimator', 'f*(r/100)', 'creator-roi', 'Creator ROI', 'rev/(hours*rate)', 'sub-growth', 'Growth Projection', 'c+(g*m)', 'vid-profit', 'Video Net Profit', 'r-(e+p+m)', 'inf-rate', 'Ideal Influencer Rate', '(v*0.03)+(e*0.50)', 'x-post-calc', 'X Post Value', '((i/1000)*c)+((e+r)*a)', 'emi-calc', 'Finance', 'Loan EMI', '(p*(r/1200)*((1+r/1200)**n))/(((1+r/1200)**n)-1)', 'sip-calc', 'SIP / Mutual Fund', 'p*((((1+r/1200)**n)-1)/(r/1200))*(1+r/1200)', 'crypto-roi', 'Crypto ROI', '(amt/buy)*sell - amt', 'fd-calc', 'Fixed Deposit', 'p+(p*r*t/100)', 'gst-calc', 'Tax / GST', 'p+(p*t/100)', 'compound-int', 'Compound Interest', 'p*(1+(r/100))**t', 'inflation-calc', 'Inflation', 'p/(1+(r/100))**t', 'mortgage-calc', 'Mortgage', '((p-d)*(r/1200)*((1+r/1200)**n))/(((1+r/1200)**n)-1)', 'bmi-calc', 'Health', 'BMI Calculator', 'w/((h/100)**2)', 'bmr-calc', 'BMR (Calories)', '(10*w)+(6.25*h)-(5*a)+5', 'water-goal', 'Daily Water', 'w*0.033', 'max-hr', 'Max Heart Rate', '220-a', 'ideal-weight', 'Ideal Weight', '50+2.3*((h/2.54)-60)', 'startup-val', 'Business', 'Valuation', 'r*m', 'cac-calc', 'CAC', 's/c', 'break-even', 'Break-Even', 'f/(s-v)', 'roas-calc', 'ROAS', 'r/s', 'profit-margin', 'Net Margin', '((r-c)/r)*100', 'clv-calc', 'CLV', 'v*t', 'trip-calc', 'Lifestyle', 'Trip Budget', '((d/m)*p)+h', 'acre-sqft', 'Land Convert', 'a*43560', 'temp-conv', 'Celsius to F', '(c*9/5)+32', 'km-miles', 'KM to Miles', 'k*0.621', 'kg-lbs', 'Weight Convert', 'k*2.204', 'hourly-sal', 'Sal to Hourly', 's/2080', 'tip-split', 'Tip & Split', '(b*(1+t/100))/p', 'age-days', 'Age in Days', 'y*365', 'perc-diff', 'Math', 'Perc. Change', '((n-o)/o)*100', 'prob-calc', 'Probability', '(s/t)*100', 'avg-calc', 'Average', '(a+b+c)/3', 'sq-root', 'Square Root', 'Math.sqrt(n)', 'perc-of', 'X of Y', '(p/100)*t'];
     
     const TOOLS = [
@@ -140,6 +174,9 @@
     const view = document.getElementById('view');
     const homeInfo = document.getElementById('home-info');
     const faqDisplay = document.getElementById('faq-display');
+    const extraContent = document.getElementById('extra-content');
+    const relatedArea = document.getElementById('related-tools-area');
+    const blogArea = document.getElementById('blog-area');
 
     function init() {
         renderTabs();
@@ -168,6 +205,9 @@
     function renderHome() {
         homeInfo.style.display = 'block';
         faqDisplay.style.display = 'block';
+        document.getElementById('seo-intro').style.display = 'block';
+        relatedArea.style.display = 'none';
+        blogArea.style.display = 'none';
         document.getElementById('tabs').parentElement.parentElement.style.display = 'block';
         
         const filtered = TOOLS.filter(t => t.cat === currentCat);
@@ -187,7 +227,9 @@
         if(!tool) { navigate(''); return; }
         homeInfo.style.display = 'none';
         faqDisplay.style.display = 'none';
+        document.getElementById('seo-intro').style.display = 'none';
         document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+        
         view.innerHTML = `
             <div class="calc-main">
                 <a href="./" class="back-btn" onclick="event.preventDefault(); navigate('')">← Back to Explore</a>
@@ -203,6 +245,9 @@
             </div>`;
         window.activeTool = tool;
         calc();
+        
+        // SEO: Inject Related Links and Blog guide based on category
+        injectRelated(tool.cat);
     }
 
     function calc() {
@@ -219,11 +264,27 @@
         } catch(e) { document.getElementById('res').innerText = "0"; }
     }
 
+    function injectRelated(category) {
+        relatedArea.style.display = 'block';
+        blogArea.style.display = 'block';
+        const list = document.getElementById('links-list');
+        list.innerHTML = '';
+        
+        // Pick 3 tools from the same category to link internally (Fixed 404 by using ?id=)
+        const related = TOOLS.filter(t => t.cat === category && t.id !== window.activeTool.id).slice(0, 3);
+        related.forEach(t => {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="?id=${t.id}" onclick="event.preventDefault(); navigate('id=${t.id}')">→ ${t.name}</a>`;
+            list.appendChild(li);
+        });
+    }
+
     function doSearch() {
         const q = document.getElementById('toolSearch').value.toLowerCase();
         if(q.length > 0) {
             homeInfo.style.display = 'none';
             faqDisplay.style.display = 'none';
+            document.getElementById('seo-intro').style.display = 'none';
             document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
             const matches = TOOLS.filter(t => t.name.toLowerCase().includes(q) || t.cat.toLowerCase().includes(q));
             view.innerHTML = `<div class="grid">${matches.map(t => `<a href="?id=${t.id}" class="card" onclick="event.preventDefault(); navigate('id=${t.id}')"><span class="badge">${t.cat}</span><h3>${t.name}</h3><p>${t.desc}</p></a>`).join('')}</div>`;
@@ -234,7 +295,6 @@
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
         const page = params.get('page');
-
         window.scrollTo(0,0);
 
         if (id) {
@@ -242,13 +302,15 @@
         } else if (page) {
             homeInfo.style.display = 'none';
             faqDisplay.style.display = 'none';
+            document.getElementById('seo-intro').style.display = 'none';
+            relatedArea.style.display = 'none';
+            blogArea.style.display = 'none';
             document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
-            
             const content = {
-                about: `<h1>About Us</h1><p>Welcome to <strong>CreatorProfitLab</strong>, the toolkit for digital entrepreneurs. We provide calculators for YouTubers and freelancers to turn passion into business.</p>`,
+                about: `<h1>About Us</h1><p>CreatorProfitLab provides professional tools for digital entrepreneurs.</p>`,
                 contact: `<h1>Contact</h1><p>Email: support@creatorprofitlab.com</p>`,
-                privacy: `<h1>Privacy</h1><p>We don't store your data. Calculations are local.</p>`,
-                terms: `<h1>Terms</h1><p>For educational use only.</p>`
+                privacy: `<h1>Privacy</h1><p>Calculations are processed locally in your browser.</p>`,
+                terms: `<h1>Terms</h1><p>Tools are for educational purposes.</p>`
             };
             view.innerHTML = `<div class="legal-content">${content[page] || '<h1>Not Found</h1>'}</div>`;
         } else {
@@ -260,108 +322,16 @@
     init();
 </script>
 
-<script>
-    // Dynamic Meta Tag Updater (Optional helper)
-    document.title = "YouTube Revenue Calculator 2026 | Estimate Your CPM & Earnings";
-</script>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "YouTube Revenue & CPM Calculator",
+  "name": "CreatorProfitLab",
   "operatingSystem": "Any",
   "applicationCategory": "FinanceApplication",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1240" },
-  "description": "A free tool for creators to estimate YouTube earnings based on views and CPM rates in 2026."
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 }
 </script>
 
-<section id="seo-intro" style="max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; font-family: sans-serif; color: #444;">
-    <h2 style="color: #222;">Maximize Your Creator Revenue</h2>
-    <p>
-        Ready to stop guessing and start growing? Our <strong>YouTube money calculator</strong> and <strong>CPM estimator</strong> help you forecast your channel's potential with precision. Understanding your <strong>YouTube earnings per view</strong> is the key to a sustainable business. 
-    </p>
-    <p>
-        Use this <strong>creator revenue tool</strong> to simulate different scenarios, from niche-based CPM shifts to engagement growth. Stop leaving your financial future to chance—get your instant breakdown below.
-    </p>
-</section>
-
-<hr style="border: 0; border-top: 1px solid #eee; margin: 50px 0;">
-
-<section class="links-and-articles" style="max-width: 1000px; margin: 0 auto; padding: 20px; font-family: sans-serif;">
-    
-    <div id="dynamic-related-links" style="margin-bottom: 40px;">
-        <h3 style="color: #333;">Related Tools & Calculators</h3>
-        <ul id="links-list" style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
-            </ul>
-    </div>
-
-    <div class="blog-preview" style="background: #f9f9f9; padding: 30px; border-radius: 12px;">
-        <h3 style="text-align: center; margin-bottom: 25px;">Latest Creator Guides</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            
-            <article style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                <h4 style="margin-top: 0;">How much does YouTube pay for 1M views?</h4>
-                <p style="font-size: 14px; color: #666;">Understand the breakdown of CPM, RPM, and how your niche affects your final payout...</p>
-                <a href="/blog/youtube-earnings-explained" style="color: #ff0000; font-weight: bold; text-decoration: none; font-size: 14px;">Read Full Guide &rarr;</a>
-            </article>
-
-            <article style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                <h4 style="margin-top: 0;">How to calculate your sponsorship price</h4>
-                <p style="font-size: 14px; color: #666;">Don't leave money on the table. Learn how to price your brand deals based on engagement data...</p>
-                <a href="/blog/sponsorship-pricing-guide" style="color: #ff0000; font-weight: bold; text-decoration: none; font-size: 14px;">Read Full Guide &rarr;</a>
-            </article>
-
-        </div>
-    </div>
-</section>
-
-<script>
-    const toolData = {
-        'youtube': [
-            { name: 'YouTube CPM Calculator', url: 'youtube-cpm.html' },
-            { name: 'Video Profit Estimator', url: 'video-profit.html' },
-            { name: 'Sponsorship Price Tool', url: 'brand-deals.html' }
-        ],
-        'instagram': [
-            { name: 'Engagement Rate Tool', url: 'ig-engagement.html' },
-            { name: 'Influencer Rate Card', url: 'rate-card.html' },
-            { name: 'Hashtag Reach Calc', url: 'hashtag-tool.html' }
-        ],
-        'finance': [
-            { name: 'Affiliate Income Calc', url: 'affiliate.html' },
-            { name: 'Ad Spend ROI Tool', url: 'roi-calc.html' },
-            { name: 'Tax Reserve Calc', url: 'tax-tool.html' }
-        ]
-    };
-
-    function injectRelatedLinks() {
-        const listContainer = document.getElementById('links-list');
-        const currentPath = window.location.pathname.toLowerCase();
-        let selectedCategory = 'finance'; // Default
-
-        if (currentPath.includes('youtube')) selectedCategory = 'youtube';
-        if (currentPath.includes('instagram') || currentPath.includes('ig')) selectedCategory = 'instagram';
-
-        listContainer.innerHTML = ''; 
-        toolData[selectedCategory].forEach(tool => {
-            const li = document.createElement('li');
-            li.innerHTML = `<a href="${tool.url}" style="color: #007bff; text-decoration: none; font-weight: 500; font-size: 15px;">&rarr; ${tool.name}</a>`;
-            listContainer.appendChild(li);
-        });
-    }
-
-    // Initialize when DOM is ready
-    document.addEventListener('DOMContentLoaded', injectRelatedLinks);
-</script>
-
-<style>
-    #links-list li a:hover { text-decoration: underline; color: #0056b3; }
-    .blog-preview article:hover { transform: translateY(-3px); transition: all 0.3s ease; }
-</style>
-
-    
 </body>
 </html>
