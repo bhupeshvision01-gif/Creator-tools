@@ -23,6 +23,11 @@
         .card:hover { transform: translateY(-5px); border-color: var(--brand); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
         .badge { align-self: flex-start; font-size: 0.65rem; font-weight: 800; padding: 4px 10px; background: #eef2ff; color: var(--brand); border-radius: 6px; text-transform: uppercase; margin-bottom: 10px; }
         
+        /* AD STYLES */
+        .ad-card { background: var(--accent); border: 2px dashed var(--border); display: flex; align-items: center; justify-content: center; text-align: center; min-height: 250px; border-radius: 20px; color: var(--text-muted); font-size: 0.8rem; position: relative; }
+        .ad-tag { position: absolute; top: 10px; right: 10px; font-size: 0.6rem; font-weight: 800; opacity: 0.5; }
+        .calc-banner-ad { background: var(--accent); border-radius: 15px; padding: 20px; text-align: center; margin-bottom: 25px; color: var(--text-muted); border: 1px solid var(--border); }
+
         .content-page { background: var(--surface); padding: 40px; border-radius: 30px; border: 1px solid var(--border); margin: 40px auto; max-width: 800px; }
         .content-page h1 { font-size: 2.5rem; margin-bottom: 20px; color: var(--brand); }
         .content-page h2, .content-page h3 { margin: 25px 0 15px; }
@@ -186,7 +191,6 @@
             `<button class="tab-btn ${c === currentCat ? 'active' : ''}" onclick="setCat('${c}')">${c}</button>`
         ).join('');
         
-        // ADD BLOG TAB
         tabsHtml += `<button class="tab-btn ${currentCat === 'Blogs' ? 'active' : ''}" onclick="setCat('Blogs')">Blogs</button>`;
         
         document.getElementById('tabs').innerHTML = tabsHtml;
@@ -217,12 +221,29 @@
 
     function renderGrid(toolsList) {
         const view = document.getElementById('view');
-        view.innerHTML = `<div class="grid">${toolsList.map(t => `
+        let gridHtml = '';
+        
+        toolsList.forEach((t, i) => {
+            // Insert an Ad slot after every 3 items
+            if (i > 0 && i % 3 === 0) {
+                gridHtml += `
+                <div class="ad-card">
+                    <span class="ad-tag">SPONSORED</span>
+                    <div>
+                        <strong>AD SPACE</strong><br>
+                        <small>Native Display Ad</small>
+                    </div>
+                </div>`;
+            }
+            gridHtml += `
             <div class="card" onclick="navigate('id=${t.id}')">
                 <span class="badge">${t.cat}</span>
                 <h3>${t.name}</h3>
                 <div style="color:var(--brand); font-weight:700; margin-top:auto; font-size:0.8rem;">USE CALCULATOR →</div>
-            </div>`).join('')}</div>`;
+            </div>`;
+        });
+        
+        view.innerHTML = `<div class="grid">${gridHtml}</div>`;
     }
 
     function renderBlogGrid() {
@@ -242,6 +263,14 @@
             <div class="calc-main">
                 <div class="back-link" onclick="navigate('')">← Back to ${t.cat}</div>
                 <h1>${t.name}</h1>
+
+                <div class="calc-banner-ad">
+                    <span style="font-size:0.6rem; font-weight:800; display:block; margin-bottom:5px;">ADVERTISEMENT</span>
+                    <div style="height:90px; border:1px dashed #cbd5e1; display:flex; align-items:center; justify-content:center;">
+                        728 x 90 Leaderboard Placeholder
+                    </div>
+                </div>
+
                 <div class="formula-box">📊 Formula: ${t.formula.replace(/\*/g,'×').replace(/\//g,'÷')}</div>
                 ${t.inputs.map(i => `
                     <div class="input-group">
