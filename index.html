@@ -33,10 +33,11 @@
         .result-box h2 { font-size: 2.5rem; font-weight: 800; margin: 0; }
         .legal-content { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); text-align: left; }
         .legal-content h1 { color: var(--brand); margin-bottom: 20px; }
+        .legal-content p { margin-bottom: 15px; }
+        .legal-content ul { margin: 15px 0 15px 20px; }
         footer { border-top: 1px solid var(--border); padding: 50px 0; margin-top: 60px; text-align: center; }
         .f-links a { margin: 0 15px; text-decoration: none; color: var(--text-muted); font-weight: 600; font-size: 0.9rem; cursor: pointer; }
         
-        /* New SEO Section Styles */
         .related-section { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
         .links-list { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
         .links-list a { color: var(--brand); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
@@ -87,12 +88,12 @@
             <div class="article-card">
                 <h4>YouTube Pay for 1M Views?</h4>
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0;">Learn how your niche affects your final payout...</p>
-                <a href="?page=about" style="color: var(--brand); font-weight: 700; font-size: 0.8rem; text-decoration: none;">READ GUIDE →</a>
+                <a href="?page=yt-payout" onclick="event.preventDefault(); navigate('page=yt-payout')" style="color: var(--brand); font-weight: 700; font-size: 0.8rem; text-decoration: none;">READ GUIDE →</a>
             </div>
             <div class="article-card">
                 <h4>Sponsorship Pricing Guide</h4>
                 <p style="font-size: 0.85rem; color: var(--text-muted); margin: 10px 0;">Don't leave money on the table. Price your deals right...</p>
-                <a href="?page=about" style="color: var(--brand); font-weight: 700; font-size: 0.8rem; text-decoration: none;">READ GUIDE →</a>
+                <a href="?page=spon-pricing" onclick="event.preventDefault(); navigate('page=spon-pricing')" style="color: var(--brand); font-weight: 700; font-size: 0.8rem; text-decoration: none;">READ GUIDE →</a>
             </div>
         </div>
     </div>
@@ -207,7 +208,7 @@
         faqDisplay.style.display = 'block';
         document.getElementById('seo-intro').style.display = 'block';
         relatedArea.style.display = 'none';
-        blogArea.style.display = 'none';
+        blogArea.style.display = 'block';
         document.getElementById('tabs').parentElement.parentElement.style.display = 'block';
         
         const filtered = TOOLS.filter(t => t.cat === currentCat);
@@ -245,8 +246,6 @@
             </div>`;
         window.activeTool = tool;
         calc();
-        
-        // SEO: Inject Related Links and Blog guide based on category
         injectRelated(tool.cat);
     }
 
@@ -270,7 +269,6 @@
         const list = document.getElementById('links-list');
         list.innerHTML = '';
         
-        // Pick 3 tools from the same category to link internally (Fixed 404 by using ?id=)
         const related = TOOLS.filter(t => t.cat === category && t.id !== window.activeTool.id).slice(0, 3);
         related.forEach(t => {
             const li = document.createElement('li');
@@ -306,11 +304,28 @@
             relatedArea.style.display = 'none';
             blogArea.style.display = 'none';
             document.getElementById('tabs').parentElement.parentElement.style.display = 'none';
+            
             const content = {
                 about: `<h1>About Us</h1><p>CreatorProfitLab provides professional tools for digital entrepreneurs.</p>`,
                 contact: `<h1>Contact</h1><p>Email: support@creatorprofitlab.com</p>`,
                 privacy: `<h1>Privacy</h1><p>Calculations are processed locally in your browser.</p>`,
-                terms: `<h1>Terms</h1><p>Tools are for educational purposes.</p>`
+                terms: `<h1>Terms</h1><p>Tools are for educational purposes.</p>`,
+                'yt-payout': `<h1>How much does YouTube pay for 1M views?</h1>
+                    <p>In 2026, the payout for 1 million views is highly dependent on your audience location and niche.</p>
+                    <p><b>Average Estimates:</b></p>
+                    <ul>
+                        <li><b>Finance & Tech:</b> $8,000 - $25,000</li>
+                        <li><b>Lifestyle & Vlogs:</b> $3,000 - $7,000</li>
+                        <li><b>Gaming & Entertainment:</b> $1,000 - $3,000</li>
+                    </ul>
+                    <p>The key metric is CPM (Cost Per Mille). High-ticket niches attract premium advertisers, resulting in higher earnings even with fewer views.</p>`,
+                'spon-pricing': `<h1>Sponsorship Pricing Guide</h1>
+                    <p>Determining your worth as a creator is the first step toward a sustainable career. Use the following industry standard formulas:</p>
+                    <h3>The Baseline Formula</h3>
+                    <p>Standard Rate = (Average Views / 1000) × $25</p>
+                    <h3>The Engagement Premium</h3>
+                    <p>If your engagement rate is above 5%, add a 20-30% "trust premium" to your baseline. Brands pay more for audiences that actually take action.</p>
+                    <p>Always consider the production time required and whether the brand wants usage rights for the footage.</p>`
             };
             view.innerHTML = `<div class="legal-content">${content[page] || '<h1>Not Found</h1>'}</div>`;
         } else {
