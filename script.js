@@ -4,14 +4,6 @@
  */
 
 // 1. DATABASE: Tool Definitions
-const TOOLS = [
-    { id: 'yt-income', name: 'YouTube Revenue', cat: 'Creator', desc: 'Net income after 45% platform cut', formula: 'Views * (CPM/1000) * 0.55', inputs: [{l:'Monthly Views', v:100000, id:'v'}, {l:'CPM ($)', v:4, id:'cpm'}] },
-    { id: 'emi-calc', name: 'Loan EMI', cat: 'Finance', desc: 'Equated Monthly Installment plan', formula: 'P * r * (1+r)^n / ((1+r)^n - 1)', inputs: [{l:'Loan Amount', v:50000, id:'p'}, {l:'Interest %', v:8.5, id:'r'}, {l:'Years', v:5, id:'n'}] },
-    { id: 'ig-eng', name: 'IG Engagement', cat: 'Creator', desc: 'Engagement rate based on reach', formula: '(Engagements / Reach) * 100', inputs: [{l:'Likes + Saves', v:1200, id:'e'}, {l:'Total Reach', v:25000, id:'r'}] },
-    { id: 'bmi-calc', name: 'BMI Calculator', cat: 'Health', desc: 'Body Mass Index (Metric)', formula: 'Weight / (Height/100)^2', inputs: [{l:'Weight (kg)', v:70, id:'w'}, {l:'Height (cm)', v:175, id:'h'}] },
-    { id: 'roi-calc', name: 'Business ROI', cat: 'Business', desc: 'Return on Investment percentage', formula: '((Gain - Cost) / Cost) * 100', inputs: [{l:'Total Gain ($)', v:5000, id:'g'}, {l:'Total Cost ($)', v:2000, id:'c'}] }
-];
-
 
 const TOOLS = [
     { 
