@@ -1,6 +1,6 @@
 /**
  * CreatorProfitLab 2026 - Master Application Script
- * Features: Dynamic SEO, SPA Routing, AdSense Ready, 52+ Tool Support
+ * Features: Deep-Linking Fix, Dynamic SEO, SPA Routing, AdSense Ready
  */
 
 // 1. DATABASE: Tool Definitions
@@ -10,7 +10,6 @@ const TOOLS = [
     { id: 'ig-eng', name: 'IG Engagement', cat: 'Creator', desc: 'Engagement rate based on reach', formula: '(Engagements / Reach) * 100', inputs: [{l:'Likes + Saves', v:1200, id:'e'}, {l:'Total Reach', v:25000, id:'r'}] },
     { id: 'bmi-calc', name: 'BMI Calculator', cat: 'Health', desc: 'Body Mass Index (Metric)', formula: 'Weight / (Height/100)^2', inputs: [{l:'Weight (kg)', v:70, id:'w'}, {l:'Height (cm)', v:175, id:'h'}] },
     { id: 'roi-calc', name: 'Business ROI', cat: 'Business', desc: 'Return on Investment percentage', formula: '((Gain - Cost) / Cost) * 100', inputs: [{l:'Total Gain ($)', v:5000, id:'g'}, {l:'Total Cost ($)', v:2000, id:'c'}] }
-    // Add your remaining 47 tools here following this exact structure
 ];
 
 // 2. DATABASE: SEO & Legal Content
@@ -50,17 +49,23 @@ const SEO_DATA = {
 let currentCat = "All";
 window.activeTool = null;
 
+/**
+ * FIXED INIT: Handles deep-linking and hero visibility
+ */
 function init() {
     const params = new URLSearchParams(window.location.search);
     const toolId = params.get('id');
+    const hero = document.getElementById('hero-wrapper');
     
     if (toolId) {
         const tool = TOOLS.find(t => t.id === toolId);
-        if (tool) renderTool(tool);
-        else renderGrid();
-    } else {
-        renderGrid();
-    }
+        if (tool) {
+            if(hero) hero.style.display = "none"; 
+            renderTool(tool);
+            return; 
+        }
+    } 
+    renderGrid();
 }
 
 // 4. RENDERING LOGIC
@@ -70,7 +75,6 @@ function setCat(cat) {
     document.getElementById('toolSearch').value = "";
     document.getElementById('hero-wrapper').style.display = "block";
     
-    // Clear URL parameter when going back to home
     window.history.pushState({}, '', window.location.pathname);
     renderGrid();
 }
@@ -93,7 +97,7 @@ function renderGrid() {
 }
 
 function renderTool(t) {
-    // SYNC URL & SEO (Crucial for AdSense & Google Ranking)
+    // SYNC URL & SEO
     const newUrl = `${window.location.protocol}//${window.location.host}${window.location.pathname}?id=${t.id}`;
     window.history.pushState({path:newUrl}, '', newUrl);
     document.title = `${t.name} Calculator | CreatorProfitLab 2026`;
@@ -189,7 +193,6 @@ function calc() {
             res = ((g - c) / c) * 100;
         }
 
-        // Formatting results based on category
         const display = document.getElementById('res');
         if (t.cat === 'Finance' || t.id.includes('income')) {
             display.innerText = "$" + res.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
@@ -203,7 +206,7 @@ function calc() {
     }
 }
 
-// 6. UTILITIES (Search, Content, etc)
+// 6. UTILITIES
 function doSearch() {
     const q = document.getElementById('toolSearch').value.toLowerCase();
     const hero = document.getElementById('hero-wrapper');
@@ -229,7 +232,6 @@ function renderContent(type) {
     const view = document.getElementById('view');
     view.innerHTML = `<div class="content-page">${SEO_DATA[type]}</div>`;
     window.scrollTo(0,0);
-    // Update Title for legal pages
     document.title = type.charAt(0).toUpperCase() + type.slice(1) + " | CreatorProfitLab";
 }
 
