@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /config/
 
-# Sitemap location for 2026 indexing
 Sitemap: https://creatorprofitlab.com/sitemap.xml
