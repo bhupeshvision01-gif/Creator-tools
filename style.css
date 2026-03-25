@@ -119,3 +119,11 @@ padding:20px;
 .calc-main .grid {
     gap: 12px;
 }
+
+
+    .result-box h2 {
+    transition: all 0.2s ease-in-out;
+}
+.result-box:active h2 {
+    transform: scale(1.05);
+}
