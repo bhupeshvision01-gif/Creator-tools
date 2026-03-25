@@ -1,1 +1,67 @@
-const _0x39dd2a=_0x4ce9;(function(_0x23fb0c,_0x21b509){const _0x57205d=_0x4ce9,_0xe9889=_0x23fb0c();while(!![]){try{const _0x3bda67=-parseInt(_0x57205d(0xed))/0x1*(-parseInt(_0x57205d(0xd0))/0x2)+-parseInt(_0x57205d(0xd5))/0x3*(parseInt(_0x57205d(0xba))/0x4)+parseInt(_0x57205d(0xd2))/0x5+-parseInt(_0x57205d(0xb8))/0x6+parseInt(_0x57205d(0xc4))/0x7*(parseInt(_0x57205d(0xad))/0x8)+-parseInt(_0x57205d(0xe4))/0x9*(parseInt(_0x57205d(0xaf))/0xa)+-parseInt(_0x57205d(0xeb))/0xb*(-parseInt(_0x57205d(0xdd))/0xc);if(_0x3bda67===_0x21b509)break;else _0xe9889['push'](_0xe9889['shift']());}catch(_0x5064f0){_0xe9889['push'](_0xe9889['shift']());}}}(_0x2345,0x4358d));const TOOLS=[];let currentCat='Creator';function _0x2345(){const _0x3501db=['meta[property=\x22og:title\x22]','includes','9ANdGaw','\x20instantly.\x20','innerHTML','cat','<button\x20class=\x22tab-btn\x20','tabs','join','3831949epeXKi','50+\x20Free\x20professional\x20calculators\x20for\x20Creators,\x20Finance,\x20and\x20Health.','47xKxoYe','toolSearch','pushState','</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22color:var(--brand);\x20font-weight:700;\x20font-size:0.8rem;\x22>USE\x20TOOL\x20→</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>','Calculate\x20','574888BOarsS','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22calc-main\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22window.location.href=\x27index.html\x27\x22\x20class=\x22back-btn\x22>←\x20Back\x20to\x20Explore</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h1>','2695540cBvWqe','active','\x20Fast,\x20accurate,\x20and\x20free\x20online\x20tool.','content','inputs','filter','\x27)\x22>','title','<div\x20class=\x22grid\x22>','3032064hiKhzN','res','449644fEBTWk','unit','flex','innerText','map','get','value','style','location','display','28KVsLhX','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3>','onpopstate','none','Free\x20','\x20|\x20CreatorProfitLab','find','activeTool','index.html','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22?id=','getElementById','\x22\x20value=\x22','22782wQRGXy','replace','1084020QVTeHw','meta[name=\x22description\x22]','setAttribute','9dknKPx','name','querySelector','</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>','</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22color:var(--text-muted);\x20margin-bottom:30px;\x22>','desc','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22input-group\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label>','search','12uDSuyi','\x22\x20oninput=\x22calc()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22\x20class=\x22card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22badge\x22>','formula','</div>'];_0x2345=function(){return _0x3501db;};return _0x2345();}const view=document[_0x39dd2a(0xce)]('view');function _0x4ce9(_0x1add56,_0x1673a7){_0x1add56=_0x1add56-0xaa;const _0x2345ab=_0x2345();let _0x4ce936=_0x2345ab[_0x1add56];return _0x4ce936;}function init(){renderTabs(),router();}function updateMeta(_0x208773,_0x2ab378){const _0x261a17=_0x39dd2a;document[_0x261a17(0xb6)]=_0x208773+_0x261a17(0xc9);const _0x352147=document['querySelector'](_0x261a17(0xd3));if(_0x352147)_0x352147['setAttribute'](_0x261a17(0xb2),_0x2ab378);const _0x1b0c1c=document[_0x261a17(0xd7)](_0x261a17(0xe2));if(_0x1b0c1c)_0x1b0c1c[_0x261a17(0xd4)](_0x261a17(0xb2),_0x208773);}function renderTabs(){const _0x4d8618=_0x39dd2a,_0x239335=[...new Set(TOOLS[_0x4d8618(0xbe)](_0x55429c=>_0x55429c[_0x4d8618(0xe7)]))];document['getElementById']('tabs')['innerHTML']=_0x239335[_0x4d8618(0xbe)](_0x186272=>_0x4d8618(0xe8)+(_0x186272===currentCat?_0x4d8618(0xb0):'')+'\x22\x20onclick=\x22setCategory(\x27'+_0x186272+_0x4d8618(0xb5)+_0x186272+'</button>')[_0x4d8618(0xea)]('');}function setCategory(_0x43c303){const _0x32929e=_0x39dd2a;currentCat=_0x43c303,renderTabs(),document[_0x32929e(0xce)](_0x32929e(0xee))[_0x32929e(0xc0)]='',window['history'][_0x32929e(0xaa)]({},'',_0x32929e(0xcc)),updateMeta('CreatorProfitLab',_0x32929e(0xec)),renderHome();}function renderHome(){const _0x23c71c=_0x39dd2a;document[_0x23c71c(0xce)]('tabs')['style'][_0x23c71c(0xc3)]=_0x23c71c(0xbc);const _0x3c0263=TOOLS[_0x23c71c(0xb4)](_0x6a2a53=>_0x6a2a53['cat']===currentCat);let _0x3351a6=_0x23c71c(0xb7);_0x3351a6+=_0x3c0263[_0x23c71c(0xbe)](_0x39045b=>_0x23c71c(0xcd)+_0x39045b['id']+_0x23c71c(0xdf)+_0x39045b[_0x23c71c(0xe7)]+_0x23c71c(0xc5)+_0x39045b[_0x23c71c(0xd6)]+_0x23c71c(0xd8)+_0x39045b[_0x23c71c(0xda)]+_0x23c71c(0xab))[_0x23c71c(0xea)](''),_0x3351a6+=_0x23c71c(0xe1),view[_0x23c71c(0xe6)]=_0x3351a6;}function renderTool(_0x37cc02){const _0x27dcd1=_0x39dd2a;if(!_0x37cc02){renderHome();return;}updateMeta(_0x27dcd1(0xc8)+_0x37cc02[_0x27dcd1(0xd6)]+'\x20Calculator',_0x27dcd1(0xac)+_0x37cc02[_0x27dcd1(0xd6)]+_0x27dcd1(0xe5)+_0x37cc02[_0x27dcd1(0xda)]+_0x27dcd1(0xb1)),document[_0x27dcd1(0xce)](_0x27dcd1(0xe9))[_0x27dcd1(0xc1)][_0x27dcd1(0xc3)]=_0x27dcd1(0xc7),view[_0x27dcd1(0xe6)]=_0x27dcd1(0xae)+_0x37cc02[_0x27dcd1(0xd6)]+_0x27dcd1(0xd9)+_0x37cc02['desc']+'</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+_0x37cc02['inputs']['map'](_0x371405=>_0x27dcd1(0xdb)+_0x371405['l']+'</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20id=\x22'+_0x371405['id']+_0x27dcd1(0xcf)+_0x371405['v']+_0x27dcd1(0xde))[_0x27dcd1(0xea)]('')+'\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22result-box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p>Estimated\x20Result</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20id=\x22res\x22>--</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>',window[_0x27dcd1(0xcb)]=_0x37cc02,calc();}function calc(){const _0x2f4d07=_0x39dd2a,_0x326938=window[_0x2f4d07(0xcb)];if(!_0x326938)return;let _0x5c0c29=_0x326938[_0x2f4d07(0xe0)];_0x326938[_0x2f4d07(0xb3)]['forEach'](_0x526b3f=>{const _0x1238f9=_0x2f4d07,_0x183396=parseFloat(document[_0x1238f9(0xce)](_0x526b3f['id'])[_0x1238f9(0xc0)])||0x0;_0x5c0c29=_0x5c0c29[_0x1238f9(0xd1)](new RegExp('\x5cb'+_0x526b3f['id']+'\x5cb','g'),_0x183396);});try{const _0x3f0dd9=eval(_0x5c0c29),_0x4c3ef8=_0x3f0dd9['toLocaleString'](undefined,{'maximumFractionDigits':0x2});document[_0x2f4d07(0xce)](_0x2f4d07(0xb9))[_0x2f4d07(0xbd)]=(_0x326938[_0x2f4d07(0xbb)]['includes']('$')?'$':'')+_0x4c3ef8+(!_0x326938[_0x2f4d07(0xbb)][_0x2f4d07(0xe3)]('$')?_0x326938[_0x2f4d07(0xbb)]:'');}catch(_0x146fda){document[_0x2f4d07(0xce)]('res')[_0x2f4d07(0xbd)]='0';}}function router(){const _0x16dcc9=_0x39dd2a,_0x28e654=new URLSearchParams(window[_0x16dcc9(0xc2)][_0x16dcc9(0xdc)]),_0x106189=_0x28e654[_0x16dcc9(0xbf)]('id');_0x106189?renderTool(TOOLS[_0x16dcc9(0xca)](_0x103d56=>_0x103d56['id']===_0x106189)):renderHome();}window[_0x39dd2a(0xc6)]=router,init();
+// 1. Add the SEO Content Database
+const SEO_DATA = {
+    'yt-income': `<h3>How to Increase YouTube Revenue</h3><p>To maximize your 2026 earnings, focus on <strong>High-CPM niches</strong> like Finance, Technology, and Business. Our YouTube Income Calculator uses the latest platform algorithms to estimate your take-home pay after the 45% platform cut. Adding mid-roll ads on videos over 8 minutes can increase your RPM by up to 35%.</p>`,
+    'emi-calc': `<h3>Understanding Your Loan EMI</h3><p>Your Equated Monthly Installment (EMI) consists of both principal and interest. In the early years of a loan, the interest component is higher. Use our calculator to plan your prepayments—even a 10% increase in monthly payments can save you thousands in interest over a 20-year tenure.</p>`,
+    'ig-eng': `<h3>What is a Good Engagement Rate?</h3><p>For influencers in 2026, an engagement rate between 2% and 5% is considered healthy. Brands now prioritize <strong>Saves</strong> and <strong>Shares</strong> over Likes. Our tool calculates engagement based on reach to give you the most accurate media kit data.</p>`,
+    'bmi-calc': `<h3>BMI and Your Health Goals</h3><p>The Body Mass Index is a standard measurement used by healthcare providers to assess weight categories. While useful, it doesn't account for muscle mass. Use this in conjunction with our BMR calculator to determine your daily caloric maintenance levels.</p>`,
+    'roi-calc': `<h3>Calculating Marketing ROI</h3><p>Return on Investment is the ultimate metric for business success. A "Good" ROI depends on your industry, but a 3:1 ratio (earning $3 for every $1 spent) is generally the baseline for a sustainable scaling strategy.</p>`
+};
+
+// 2. Updated renderTool Function with Ads & SEO
+function renderTool(t) {
+    const view = document.getElementById('view');
+    const seoText = SEO_DATA[t.id] || `<h3>About the ${t.name}</h3><p>This professional tool helps you calculate ${t.desc} with high precision using verified 2026 industry formulas.</p>`;
+
+    view.innerHTML = `
+        <div class="calc-main">
+            <div class="ad-placeholder" style="margin-bottom:20px;">
+                <small>Sponsored Content</small>
+                <div id="ad-top-slot"></div> 
+                </div>
+
+            <div class="back-link" onclick="navigate('')">← Back to ${t.cat}</div>
+            <h1>${t.name}</h1>
+            <div class="formula-box">📊 Formula: ${t.formula.replace(/\*/g,'×').replace(/\//g,'÷')}</div>
+            
+            ${t.inputs.map(i => `
+                <div class="input-group">
+                    <label>${i.l}</label>
+                    <input type="number" id="${i.id}" value="${i.v}" oninput="calc()">
+                </div>`).join('')}
+
+            <div class="result-box">
+                <small>CALCULATED RESULT</small>
+                <h2 id="res">--</h2>
+            </div>
+
+            <div class="ad-placeholder" style="margin-top:25px; background:#fffbe8; border:1px dashed #eab308;">
+                <div id="ad-result-slot">
+                   <p style="font-size:11px; color:#854d0e;">ADSense: Below Result Placement</p>
+                </div>
+            </div>
+
+            <div class="content-page" style="margin-top:40px; padding:0; border:none;">
+                <hr style="border:0; border-top:1px solid var(--border); margin-bottom:30px;">
+                ${seoText}
+                <div class="cta-box">
+                    <strong>Pro Tip:</strong> Bookmark this tool for your weekly ${t.cat} tracking.
+                </div>
+            </div>
+
+            <div style="margin-top:40px;">
+                <h4>Related ${t.cat}</h4>
+                <div class="grid" style="grid-template-columns: 1fr 1fr; margin-top:10px;">
+                    ${TOOLS.filter(item => item.cat === t.cat && item.id !== t.id).slice(0, 2).map(rt => `
+                        <div class="card" style="padding:15px;" onclick="navigate('id=${rt.id}')">
+                            <small>${rt.name}</small>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>`;
+    
+    window.activeTool = t;
+    calc();
+    // Initializing Ads (if using Auto-Ads or manual push)
+    // (adsbygoogle = window.adsbygoogle || []).push({});
+}
