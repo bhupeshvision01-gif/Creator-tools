@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="meta-title">CreatorProfitLab | 100+ Professional Tools & Guides 2026</title>
-    <meta name="description" id="meta-desc" content="The ultimate hub for creators. 100+ tools for YouTube, Finance, Health, and Marketing with professional SEO guides.">
+    <title id="meta-title">CreatorProfitLab | 100+ Tools & SEO Guides 2026</title>
+    <meta name="description" id="meta-desc" content="The ultimate creator toolkit. 100+ calculators for YouTube, Finance, and Business with expert SEO guides.">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root { --brand: #4f46e5; --bg: #f8fafc; --text: #0f172a; --border: #e2e8f0; }
@@ -16,24 +16,21 @@
         .logo { font-family: 'Lexend', sans-serif; font-size: 1.5rem; color: var(--brand); cursor: pointer; text-decoration: none; font-weight: 800; }
         #toolSearch { width: 100%; max-width: 400px; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border); outline: none; }
         #hero-wrapper { text-align: center; padding: 60px 0 40px; background: radial-gradient(circle at top, #eef2ff 0%, #f8fafc 100%); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
         .card { background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.2s; }
-        .card:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .card h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .card:hover { border-color: var(--brand); transform: translateY(-3px); }
         .card-cat { font-size: 0.7rem; font-weight: 800; color: var(--brand); text-transform: uppercase; }
-        .calc-main { max-width: 800px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 24px; border: 1px solid var(--border); }
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; font-weight: 600; margin-bottom: 5px; }
-        .input-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); font-size: 1rem; }
-        .result-box { background: #f5f3ff; padding: 20px; border-radius: 12px; text-align: center; margin: 20px 0; border: 1px solid #ddd6fe; }
+        .calc-main, .blog-content { max-width: 800px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 24px; border: 1px solid var(--border); }
+        .blog-content h2 { margin: 20px 0 10px; font-family: Lexend; }
+        .blog-content p { margin-bottom: 15px; color: #475569; }
+        .result-box { background: #f5f3ff; padding: 20px; border-radius: 12px; text-align: center; margin: 20px 0; }
         .result-box h2 { font-size: 2.5rem; color: var(--brand); font-family: 'Lexend', sans-serif; }
         .tabs { display: flex; justify-content: center; gap: 8px; margin: 20px 0; flex-wrap: wrap; }
-        .tab { padding: 6px 15px; border-radius: 20px; border: 1px solid var(--border); background: #fff; cursor: pointer; font-size: 0.9rem; }
+        .tab { padding: 6px 15px; border-radius: 20px; border: 1px solid var(--border); background: #fff; cursor: pointer; }
         .tab.active { background: var(--brand); color: #fff; }
-        .blog-section { margin-top: 60px; padding-top: 40px; border-top: 2px solid var(--border); }
+        .blog-section { margin-top: 60px; }
         .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .blog-card { padding: 15px; border-bottom: 1px solid var(--border); cursor: pointer; }
-        .blog-card:hover h4 { color: var(--brand); }
+        .blog-card { padding: 20px; background: #fff; border-radius: 12px; border: 1px solid var(--border); cursor: pointer; }
         footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border); margin-top: 80px; }
     </style>
 </head>
@@ -42,22 +39,20 @@
 <header>
     <div class="container nav-flex">
         <a href="/" class="logo" onclick="event.preventDefault(); resetHome();">CreatorProfitLab.</a>
-        <input type="text" id="toolSearch" placeholder="Search 100+ calculators & blogs..." oninput="doSearch()">
+        <input type="text" id="toolSearch" placeholder="Search 100+ tools & blogs..." oninput="doSearch()">
     </div>
 </header>
 
 <main id="app">
     <section id="hero-wrapper">
         <div class="container">
-            <h1>The Professional Creator Engine.</h1>
-            <p>100+ Tools & SEO Guides for Growth in 2026.</p>
+            <h1>Expert Creator & Finance Hub.</h1>
+            <p>100+ Professional Tools. No Hidden Fees. 2026 Ready.</p>
             <div class="tabs">
                 <button class="tab active" onclick="setCat('All', this)">All Tools</button>
                 <button class="tab" onclick="setCat('Creator', this)">Creator</button>
                 <button class="tab" onclick="setCat('Finance', this)">Finance</button>
-                <button class="tab" onclick="setCat('Business', this)">Business</button>
                 <button class="tab" onclick="setCat('Health', this)">Health</button>
-                <button class="tab" onclick="setCat('Utility', this)">Utility</button>
             </div>
         </div>
     </section>
@@ -65,17 +60,17 @@
     <div class="container" id="view"></div>
 
     <section class="container blog-section" id="blog-container">
-        <h2 style="font-family:Lexend; margin-bottom:30px;">Professional SEO Guides</h2>
+        <h2 style="font-family:Lexend; margin-bottom:30px;">Educational SEO Guides</h2>
         <div class="blog-grid" id="blog-grid"></div>
     </section>
 </main>
 
 <footer>
-    <p>&copy; 2026 CreatorProfitLab. Optimized for Google AdSense.</p>
+    <p>&copy; 2026 CreatorProfitLab. The Elite Toolkit for Growth.</p>
 </footer>
 
 <script>
-    // 1. COMPREHENSIVE TOOL LIST (100+ CALCULATORS)
+      // 1. COMPREHENSIVE TOOL LIST (100+ CALCULATORS)
     const TOOLS = [
         // Creator
         { id: 'yt-revenue', name: 'YouTube Revenue Calculator', cat: 'Creator', f: (v, c) => v * (c/1000) * 0.55, i: [{l:'Views', v:100000}, {l:'CPM ($)', v:5}] },
@@ -111,17 +106,24 @@
         { cat: 'Marketing', title: 'LTV vs CAC: The Only Metrics That Matter', slug: 'ltv-cac-guide' }
     ];
 
-    let currentCat = "All";
-
-    window.onload = () => {
-        renderGrid();
-        renderBlogs();
-    };
+    const BLOGS = [
+        { 
+            id: 'blog-yt-pay', 
+            title: 'How Much YouTube Pays Per 1000 Views', 
+            cat: 'Creator',
+            content: `<h2>The Truth About YouTube Earnings</h2><p>In 2026, YouTube revenue is determined by <strong>RPM (Revenue Per Mille)</strong>. On average, creators earn between $2 and $12 per 1000 views.</p><h2>Key Factors</h2><p>1. <strong>Niche:</strong> Finance and Tech channels have higher CPMs.<br>2. <strong>Location:</strong> Tier 1 countries pay significantly more.<br>3. <strong>Watch Time:</strong> Longer videos allow for mid-roll ads.</p>`
+        },
+        { 
+            id: 'blog-emi', 
+            title: 'How EMI Is Calculated', 
+            cat: 'Finance',
+            content: `<h2>Understanding EMI Mathematics</h2><p>Equated Monthly Installments (EMI) consist of both principal and interest. In the early stages of a loan, your EMI mostly pays off the interest.</p><h2>The Formula</h2><p>EMI = [P x R x (1+R)^N]/[(1+R)^N-1]. Using our calculator above, you can skip the manual math and see your monthly budget instantly.</p>`
+        }
+    ];
 
     function renderGrid() {
         const view = document.getElementById('view');
-        const filtered = currentCat === "All" ? TOOLS : TOOLS.filter(t => t.cat === currentCat);
-        view.innerHTML = `<div class="grid">${filtered.map(t => `
+        view.innerHTML = `<div class="grid">${TOOLS.map(t => `
             <div class="card" onclick="showTool('${t.id}')">
                 <div class="card-cat">${t.cat}</div>
                 <h3>${t.name}</h3>
@@ -131,11 +133,25 @@
     function renderBlogs() {
         const grid = document.getElementById('blog-grid');
         grid.innerHTML = BLOGS.map(b => `
-            <div class="blog-card" onclick="alert('Blog loading... SEO Content for ${b.title}')">
+            <div class="blog-card" onclick="showBlog('${b.id}')">
                 <div class="card-cat">${b.cat}</div>
                 <h4>${b.title}</h4>
-                <p style="font-size:0.8rem; color:#666;">Read our professional 2026 guide on ${b.title.toLowerCase()}.</p>
+                <p>Learn the metrics behind the math...</p>
             </div>`).join('');
+    }
+
+    function showBlog(id) {
+        const b = BLOGS.find(x => x.id === id);
+        document.getElementById('hero-wrapper').style.display = 'none';
+        document.getElementById('blog-container').style.display = 'none';
+        const view = document.getElementById('view');
+        view.innerHTML = `
+            <div class="blog-content">
+                <a href="#" onclick="resetHome()" style="color:var(--brand); text-decoration:none;">← Back to Hub</a>
+                <h1 style="margin-top:20px; font-family:Lexend;">${b.title}</h1>
+                <div style="margin-top:30px;">${b.content}</div>
+            </div>`;
+        window.scrollTo(0,0);
     }
 
     function showTool(id) {
@@ -143,29 +159,13 @@
         document.getElementById('hero-wrapper').style.display = 'none';
         document.getElementById('blog-container').style.display = 'none';
         const view = document.getElementById('view');
-        
         view.innerHTML = `
             <div class="calc-main">
-                <a href="#" onclick="resetHome()" style="color:var(--brand); text-decoration:none; font-weight:600;">← Back to All Tools</a>
-                <h1 style="margin-top:20px; font-family:Lexend;">${t.name}</h1>
-                <div style="margin-top:25px;">
-                    ${t.i.map((input, idx) => `
-                        <div class="input-group">
-                            <label>${input.l}</label>
-                            <input type="number" id="in-${idx}" value="${input.v}" oninput="runLogic('${t.id}')">
-                        </div>
-                    `).join('')}
-                </div>
-                <div class="result-box">
-                    <small>RESULT</small>
-                    <h2 id="res-val">--</h2>
-                </div>
-                <div style="margin-top:30px; border-top:1px solid #eee; padding-top:20px;">
-                    <h3>What is ${t.name}?</h3>
-                    <p>This professional ${t.cat} tool helps you calculate precision metrics for your business or personal growth in 2026.</p>
-                </div>
+                <a href="#" onclick="resetHome()" style="color:var(--brand); text-decoration:none;">← Back to Hub</a>
+                <h1 style="margin-top:20px;">${t.name}</h1>
+                ${t.i.map((input, idx) => `<div class="input-group"><label>${input.l}</label><input type="number" id="in-${idx}" value="${input.v}" oninput="runLogic('${t.id}')"></div>`).join('')}
+                <div class="result-box"><small>ESTIMATED RESULT</small><h2 id="res-val">--</h2></div>
             </div>`;
-        window.activeId = id;
         runLogic(id);
     }
 
@@ -176,28 +176,16 @@
         document.getElementById('res-val').innerText = result.toLocaleString(undefined, {maximumFractionDigits: 2});
     }
 
-    function setCat(cat, btn) {
-        currentCat = cat;
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        btn.classList.add('active');
-        renderGrid();
-    }
-
     function resetHome() {
         document.getElementById('hero-wrapper').style.display = 'block';
         document.getElementById('blog-container').style.display = 'block';
         renderGrid();
+        renderBlogs();
     }
 
-    function doSearch() {
-        const q = document.getElementById('toolSearch').value.toLowerCase();
-        const filtered = TOOLS.filter(t => t.name.toLowerCase().includes(q));
-        document.getElementById('view').innerHTML = `<div class="grid">${filtered.map(t => `
-            <div class="card" onclick="showTool('${t.id}')">
-                <div class="card-cat">${t.cat}</div>
-                <h3>${t.name}</h3>
-            </div>`).join('')}</div>`;
-    }
+    window.onload = resetHome;
 </script>
 </body>
 </html>
+
+  
