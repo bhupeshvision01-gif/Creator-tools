@@ -108,3 +108,11 @@ function renderTool(t) {
     // Initializing Ads (if using Auto-Ads or manual push)
     // (adsbygoogle = window.adsbygoogle || []).push({});
 }
+
+
+function updateMeta(title) {
+    document.title = title + " | CreatorProfitLab";
+    // This makes the browser history "clean" for Google
+    const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + (window.activeTool ? window.activeTool.id : "");
+    window.history.pushState({path:newUrl},'',newUrl);
+}
