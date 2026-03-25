@@ -127,3 +127,15 @@ padding:20px;
 .result-box:active h2 {
     transform: scale(1.05);
 }
+
+
+.content-page {
+    max-width: 800px;
+    margin: 40px auto;
+    line-height: 1.8;
+    color: var(--text);
+}
+.content-page h1 { font-size: 2.5rem; margin-bottom: 20px; color: var(--brand); }
+.content-page h3 { margin-top: 30px; font-size: 1.5rem; }
+.content-page ul { margin-left: 20px; margin-bottom: 20px; }
+.content-page li { margin-bottom: 10px; }
