@@ -80,3 +80,42 @@ text-align:center;
 padding:20px;
 
 }
+
+/* AdSense Styling */
+.ad-placeholder {
+    background: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.ad-placeholder small {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+/* SEO Content Typography */
+.content-page h3 {
+    font-size: 1.5rem;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.content-page p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+/* Related Tools Grid Adjustment */
+.calc-main .grid {
+    gap: 12px;
+}
