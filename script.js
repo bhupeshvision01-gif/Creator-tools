@@ -116,3 +116,14 @@ function updateMeta(title) {
     const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?id=" + (window.activeTool ? window.activeTool.id : "");
     window.history.pushState({path:newUrl},'',newUrl);
 }
+
+
+function updatePageSEO(tool) {
+    if (tool) {
+        document.title = `${tool.name} Calculator - CreatorProfitLab 2026`;
+        document.querySelector('meta[name="description"]').setAttribute("content", `Calculate your ${tool.name} with our professional 2026 ${tool.cat} tool. High precision formulas for creators and businesses.`);
+    } else {
+        document.title = "CreatorProfitLab | 50+ Professional SaaS Calculators";
+        document.querySelector('meta[name="description"]').setAttribute("content", "The elite toolkit for the creator economy. 52+ professional-grade calculators for YouTube, Finance, and Business Growth.");
+    }
+}
