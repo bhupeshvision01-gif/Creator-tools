@@ -1,59 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.creatorprofitlab.com/</loc><priority>1.0</priority></url>
-  
-  <url><loc>https://www.creatorprofitlab.com/?page=about</loc><priority>0.5</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?page=privacy</loc><priority>0.5</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?page=terms</loc><priority>0.5</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?page=contact</loc><priority>0.5</priority></url>
+  <url><loc>https://creatorprofitlab.com/</loc><priority>1.0</priority><changefreq>daily</changefreq></url>
 
-  <url><loc>https://www.creatorprofitlab.com/?id=yt-income</loc><priority>0.9</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=tk-earn</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=ig-eng</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=aff-income</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=spon-post</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=twitch-earn</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=cpm-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=brand-deal</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=creator-roi</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=sub-growth</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=vid-profit</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=inf-rate</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=x-post-calc</loc><priority>0.9</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=yt-income</loc><priority>0.9</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=yt-cpm</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=yt-rpm</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=yt-shorts</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=ig-eng</loc><priority>0.9</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=tk-earn</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=inf-rate</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=aff-income</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=creator-roi</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=vid-profit</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=podcast-rev</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=news-rev</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=digi-prod</loc><priority>0.7</priority></url>
 
-  <url><loc>https://www.creatorprofitlab.com/?id=emi-calc</loc><priority>0.9</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=sip-calc</loc><priority>0.9</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=crypto-roi</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=fd-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=gst-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=compound-int</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=inflation-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=mortgage-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=emi-calc</loc><priority>0.9</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=loan-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=comp-int</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=sip-calc</loc><priority>0.9</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=retire-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=cc-int</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=debt-pay</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=prof-marg</loc><priority>0.7</priority></url>
 
-  <url><loc>https://www.creatorprofitlab.com/?id=bmi-calc</loc><priority>0.9</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=bmr-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=water-goal</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=max-hr</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=ideal-weight</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=roi-calc</loc><priority>0.9</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=bus-cpm</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=cpc-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=conv-rate</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=cac-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=cpl-calc</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=mkt-budget</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=rev-growth</loc><priority>0.7</priority></url>
 
-  <url><loc>https://www.creatorprofitlab.com/?id=startup-val</loc><priority>0.8</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=cac-calc</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=break-even</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=roas-calc</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=profit-margin</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=clv-calc</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=bmi-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=bmr-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=cal-calc</loc><priority>0.8</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=bodyfat</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=water-in</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=prot-in</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=macro-calc</loc><priority>0.7</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=hr-calc</loc><priority>0.7</priority></url>
 
-  <url><loc>https://www.creatorprofitlab.com/?id=trip-calc</loc><priority>0.7</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=acre-sqft</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=temp-conv</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=km-miles</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=kg-lbs</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=hourly-sal</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=tip-split</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=age-days</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=perc-diff</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=prob-calc</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=avg-calc</loc><priority>0.6</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=sq-root</loc><priority>0.5</priority></url>
-  <url><loc>https://www.creatorprofitlab.com/?id=perc-of</loc><priority>0.6</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=perc-calc</loc><priority>0.6</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=age-calc</loc><priority>0.5</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=time-dur</loc><priority>0.5</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=disc-calc</loc><priority>0.6</priority></url>
+  <url><loc>https://creatorprofitlab.com/?id=unit-conv</loc><priority>0.5</priority></url>
+
+  <url><loc>https://creatorprofitlab.com/#about</loc><priority>0.4</priority></url>
+  <url><loc>https://creatorprofitlab.com/#privacy</loc><priority>0.3</priority></url>
+  <url><loc>https://creatorprofitlab.com/#terms</loc><priority>0.3</priority></url>
 </urlset>
