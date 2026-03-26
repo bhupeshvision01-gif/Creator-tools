@@ -322,3 +322,16 @@ function renderContent(type) {
 
 // 7. INITIALIZE
 window.onload = init;
+
+
+// This ensures that when the page loads (or refreshes), 
+// the routing engine immediately identifies the correct tool to show.
+window.addEventListener('DOMContentLoaded', () => {
+    handleRouting();
+});
+
+// Update the handleItemClick to ensure it pushes the state correctly
+function handleItemClick(id) {
+    window.history.pushState({id: id}, '', `/${id}`);
+    handleRouting();
+}
