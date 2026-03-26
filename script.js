@@ -1,79 +1,66 @@
 const DATABASE = [
-    // TOOLS
-    { id: 'youtubeincomecalculator', name: 'YouTube Income Calculator', cat: 'Creator', type: 'calc', inputs: ['Monthly Views', 'RPM ($)'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate YouTube take-home pay with 2026 benchmarks.' },
-    { id: 'instagramengagementcalculator', name: 'Instagram Engagement Rate', cat: 'Creator', type: 'calc', inputs: ['Likes + Comments', 'Followers'], calc: (i) => (i[0]/i[1])*100, seo: 'Analyze account health for brand sponsorships.' },
-    { id: 'emicalculator', name: 'Loan EMI Calculator', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => { let r=i[1]/12/100, n=i[2]*12; return (i[0]*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1); }, seo: 'Standard loan repayment math.' },
-    { id: 'roicalculator', name: 'Marketing ROI Calculator', cat: 'Business', type: 'calc', inputs: ['Revenue ($)', 'Cost ($)'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'Calculate campaign profitability.' },
-    { id: 'bmicalculator', name: 'BMI Health Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)'], calc: (i) => i[0]/((i[1]/100)**2), seo: 'Standard Body Mass Index.' },
+    // --- CREATOR SECTION ---
+    { id: 'youtubeincomecalculator', name: 'YouTube Income', cat: 'Creator', type: 'calc', inputs: ['Monthly Views', 'RPM ($)'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate total YouTube take-home pay.' },
+    { id: 'youtubecpmcalculator', name: 'YouTube CPM', cat: 'Creator', type: 'calc', inputs: ['Cost ($)', 'Views'], calc: (i) => (i[0]/i[1])*1000, seo: 'Calculate Cost Per Mille for advertisers.' },
+    { id: 'youtuberpmcalculator', name: 'YouTube RPM', cat: 'Creator', type: 'calc', inputs: ['Earnings ($)', 'Views'], calc: (i) => (i[0]/i[1])*1000, seo: 'Revenue Per Mille for creators.' },
+    { id: 'youtubeshortscalculator', name: 'Shorts Fund Calc', cat: 'Creator', type: 'calc', inputs: ['Shorts Views', 'RPM (0.01-0.07)'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate YouTube Shorts revenue.' },
+    { id: 'instagramengagementcalculator', name: 'IG Engagement', cat: 'Creator', type: 'calc', inputs: ['Interactions', 'Followers'], calc: (i) => (i[0]/i[1])*100, seo: 'Standard Instagram engagement rate.' },
+    { id: 'tiktokearningscalculator', name: 'TikTok Rewards', cat: 'Creator', type: 'calc', inputs: ['Qualified Views', 'RPM ($)'], calc: (i) => (i[0]/1000)*i[1], seo: 'TikTok Creator Rewards Program estimator.' },
+    { id: 'influencerratecalculator', name: 'Influencer Rate', cat: 'Creator', type: 'calc', inputs: ['Followers', 'Rate Per 1k'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate what to charge for a post.' },
+    { id: 'affiliateincomecalculator', name: 'Affiliate Income', cat: 'Creator', type: 'calc', inputs: ['Clicks', 'Conv %', 'Commission ($)'], calc: (i) => i[0]*(i[1]/100)*i[2], seo: 'Project affiliate marketing earnings.' },
+    { id: 'creatorroicalculator', name: 'Creator ROI', cat: 'Creator', type: 'calc', inputs: ['Sponsorship ($)', 'Production Cost ($)'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'Net profit on content creation.' },
+    { id: 'videoprofitcalculator', name: 'Video Profit', cat: 'Creator', type: 'calc', inputs: ['Total Rev ($)', 'Expenses ($)'], calc: (i) => i[0]-i[1], seo: 'Simple video production net profit.' },
+    { id: 'podcastrevenuecalculator', name: 'Podcast Revenue', cat: 'Creator', type: 'calc', inputs: ['Downloads', 'Ad CPM ($)'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate podcast sponsorship income.' },
+    { id: 'newsletterrevenuecalculator', name: 'Newsletter Rev', cat: 'Creator', type: 'calc', inputs: ['Subscribers', 'Sponsorship ($)'], calc: (i) => i[0]*(i[1]/1000), seo: 'Calculate email newsletter earnings.' },
+    { id: 'digitalproductrevenuecalculator', name: 'Digital Product', cat: 'Creator', type: 'calc', inputs: ['Traffic', 'Conv %', 'Price ($)'], calc: (i) => i[0]*(i[1]/100)*i[2], seo: 'Project sales for courses/ebooks.' },
 
-  
-    { 
-        id: 'compoundinterestcalculator', 
-        name: 'Compound Interest', 
-        cat: 'Finance', 
-        type: 'calc', 
-        inputs: ['Principal ($)', 'Annual %', 'Years'], 
-        calc: (i) => i[0] * Math.pow((1 + (i[1] / 100)), i[2]), 
-        seo: 'Visualize long-term wealth growth through compounding interest.' 
-    },
-    { 
-        id: 'cryptoprofitcalculator', 
-        name: 'Crypto Profit/Loss', 
-        cat: 'Finance', 
-        type: 'calc', 
-        inputs: ['Invested ($)', 'Buy Price', 'Sell Price'], 
-        calc: (i) => (i[0] / i[1]) * i[2] - i[0], 
-        seo: 'Calculate net profit or loss on cryptocurrency trades after price movement.' 
-    },
+    // --- FINANCE SECTION ---
+    { id: 'emicalculator', name: 'EMI Calculator', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => { let r=i[1]/12/100, n=i[2]*12; return (i[0]*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1); }, seo: 'Standard monthly loan repayment.' },
+    { id: 'loancalculator', name: 'Total Loan Cost', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => { let r=i[1]/12/100, n=i[2]*12; let emi=(i[0]*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1); return (emi*n)-i[0]; }, seo: 'Total interest paid over loan life.' },
+    { id: 'compoundinterestcalculator', name: 'Compound Interest', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => i[0]*Math.pow((1+i[1]/100), i[2]), seo: 'Long term investment growth.' },
+    { id: 'sipcalculator', name: 'SIP Calculator', cat: 'Finance', type: 'calc', inputs: ['Monthly Invest', 'Rate %', 'Years'], calc: (i) => { let r=i[1]/12/100, n=i[2]*12; return i[0]*((Math.pow(1+r,n)-1)/r)*(1+r); }, seo: 'Systematic Investment Plan growth.' },
+    { id: 'retirementcalculator', name: 'Retirement Fund', cat: 'Finance', type: 'calc', inputs: ['Current Savings', 'Monthly Cont', 'Years'], calc: (i) => i[0] + (i[1]*12*i[2]), seo: 'Project future retirement savings.' },
+    { id: 'creditcardinterestcalculator', name: 'CC Interest', cat: 'Finance', type: 'calc', inputs: ['Balance ($)', 'APR %'], calc: (i) => (i[0]*(i[1]/100))/12, seo: 'Monthly credit card interest cost.' },
+    { id: 'debtpayoffcalculator', name: 'Debt Payoff', cat: 'Finance', type: 'calc', inputs: ['Debt Amount', 'Monthly Payment'], calc: (i) => i[0]/i[1], seo: 'Months required to be debt free.' },
+    { id: 'profitmargincalculator', name: 'Profit Margin', cat: 'Finance', type: 'calc', inputs: ['Cost ($)', 'Sell Price ($)'], calc: (i) => ((i[1]-i[0])/i[1])*100, seo: 'Business net margin percentage.' },
 
-   
-    { 
-        id: 'caccalculator', 
-        name: 'Customer Acquisition (CAC)', 
-        cat: 'Business', 
-        type: 'calc', 
-        inputs: ['Total Marketing ($)', 'New Customers'], 
-        calc: (i) => i[0] / i[1], 
-        seo: 'Measure the cost effectiveness of acquiring new customers.' 
-    },
-    { 
-        id: 'freelanceratecalculator', 
-        name: 'Freelance Hourly Rate', 
-        cat: 'Business', 
-        type: 'calc', 
-        inputs: ['Desired Monthly ($)', 'Billable Hours/Week'], 
-        calc: (i) => (i[0] * 12) / (i[1] * 52), 
-        seo: 'Calculate what you should charge per hour to meet your annual income goals.' 
-    },
+    // --- BUSINESS SECTION ---
+    { id: 'roicalculator', name: 'Marketing ROI', cat: 'Business', type: 'calc', inputs: ['Revenue ($)', 'Ad Cost ($)'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'Return on marketing investment.' },
+    { id: 'cpmcalculator', name: 'Ad CPM', cat: 'Business', type: 'calc', inputs: ['Total Spend ($)', 'Impressions'], calc: (i) => (i[0]/i[1])*1000, seo: 'Cost per 1000 impressions.' },
+    { id: 'cpccalculator', name: 'Ad CPC', cat: 'Business', type: 'calc', inputs: ['Total Spend ($)', 'Clicks'], calc: (i) => i[0]/i[1], seo: 'Cost per single click.' },
+    { id: 'conversionratecalculator', name: 'Conv. Rate %', cat: 'Business', type: 'calc', inputs: ['Conversions', 'Total Visitors'], calc: (i) => (i[0]/i[1])*100, seo: 'Website conversion efficiency.' },
+    { id: 'caccalculator', name: 'CAC Calculator', cat: 'Business', type: 'calc', inputs: ['Marketing Spend', 'New Customers'], calc: (i) => i[0]/i[1], seo: 'Customer Acquisition Cost.' },
+    { id: 'costperleadcalculator', name: 'CPL Calculator', cat: 'Business', type: 'calc', inputs: ['Ad Spend', 'Leads Generated'], calc: (i) => i[0]/i[1], seo: 'Cost per lead generated.' },
+    { id: 'marketingbudgetcalculator', name: 'Marketing Budget', cat: 'Business', type: 'calc', inputs: ['Target Revenue', 'Ideal %'], calc: (i) => i[0]*(i[1]/100), seo: 'Suggested ad spend budget.' },
+    { id: 'revenuegrowthcalculator', name: 'Revenue Growth', cat: 'Business', type: 'calc', inputs: ['New Rev', 'Old Rev'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'Percentage growth over time.' },
 
-    // --- HEALTH & WELLNESS ---
-    { 
-        id: 'bmicalculator', 
-        name: 'BMI Health Calculator', 
-        cat: 'Health', 
-        type: 'calc', 
-        inputs: ['Weight (kg)', 'Height (cm)'], 
-        calc: (i) => i[0] / ((i[1] / 100) ** 2), 
-        seo: 'Calculate your Body Mass Index (BMI) using standard health metrics.' 
-    },
-    { 
-        id: 'waterintakecalculator', 
-        name: 'Daily Water Intake', 
-        cat: 'Health', 
-        type: 'calc', 
-        inputs: ['Weight (kg)'], 
-        calc: (i) => i[0] * 0.033, 
-        seo: 'Determine your recommended daily water intake in Liters based on body weight.' 
-    },
+    // --- HEALTH SECTION ---
+    { id: 'bmicalculator', name: 'BMI Calc', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)'], calc: (i) => i[0]/((i[1]/100)**2), seo: 'Body Mass Index health check.' },
+    { id: 'bmrcalculator', name: 'BMR (Basal)', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)', 'Age'], calc: (i) => (10*i[0]) + (6.25*i[1]) - (5*i[2]) + 5, seo: 'Basal Metabolic Rate.' },
+    { id: 'caloriecalculator', name: 'Daily Calories', cat: 'Health', type: 'calc', inputs: ['BMR', 'Activity (1.2-1.9)'], calc: (i) => i[0]*i[1], seo: 'Maintenance calorie needs.' },
+    { id: 'bodyfatcalculator', name: 'Body Fat %', cat: 'Health', type: 'calc', inputs: ['Waist (cm)', 'Neck (cm)', 'Height'], calc: (i) => 495/(1.03-0.19*Math.log10(i[0]-i[1]) + 0.15*Math.log10(i[2]))-450, seo: 'Estimate body fat percentage.' },
+    { id: 'waterintakecalculator', name: 'Water Intake', cat: 'Health', type: 'calc', inputs: ['Weight (kg)'], calc: (i) => i[0]*0.033, seo: 'Recommended daily water (L).' },
+    { id: 'proteinintakecalculator', name: 'Protein Needs', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Goal (1.2-2.2)'], calc: (i) => i[0]*i[1], seo: 'Daily protein grams required.' },
+    { id: 'macrocalculator', name: 'Macros (Fat)', cat: 'Health', type: 'calc', inputs: ['Total Cals', '% Fat Goal'], calc: (i) => (i[0]*(i[1]/100))/9, seo: 'Grams of fat needed per day.' },
+    { id: 'targetheartratecalculator', name: 'Heart Rate', cat: 'Health', type: 'calc', inputs: ['Age', 'Intensity %'], calc: (i) => (220-i[0])*(i[1]/100), seo: 'Target BPM for exercise.' },
 
-    // --- PAGES & LEGAL ---
-    { id: 'about-us', name: 'About Us', cat: 'Blog', type: 'blog', content: '<h2>About CreatorProfitLab</h2><p>Founded in 2026, we provide high-precision analytical tools to help digital entrepreneurs make data-driven decisions.</p>' },
-    { id: 'contact-us', name: 'Contact Support', cat: 'Blog', type: 'blog', content: '<h2>Contact Us</h2><p>Email: <b>support@creatorprofitlab.com</b></p><p>Typical response time: 24 hours.</p>' },
-    { id: 'privacy-policy', name: 'Privacy Policy', cat: 'Blog', type: 'blog', content: '<h2>Privacy Policy</h2><p>We use Google AdSense cookies. No personal input data is ever stored on our servers.</p>' },
-    { id: 'terms-of-service', name: 'Terms of Service', cat: 'Blog', type: 'blog', content: '<h2>Terms of Service</h2><p>Calculations are for informational purposes. Results are projections, not financial advice.</p>' }
-    
+    // --- UTILITY SECTION ---
+    { id: 'percentagecalculator', name: '% Calculator', cat: 'Utility', type: 'calc', inputs: ['Is What %', 'Of This'], calc: (i) => (i[0]/i[1])*100, seo: 'General percentage solver.' },
+    { id: 'agecalculator', name: 'Age in Days', cat: 'Utility', type: 'calc', inputs: ['Years Old'], calc: (i) => i[0]*365, seo: 'Convert age to days.' },
+    { id: 'timedurationcalculator', name: 'Time to Min', cat: 'Utility', type: 'calc', inputs: ['Hours'], calc: (i) => i[0]*60, seo: 'Quick hour to minute converter.' },
+    { id: 'discountcalculator', name: 'Discount Calc', cat: 'Utility', type: 'calc', inputs: ['Original Price', 'Off %'], calc: (i) => i[0]-(i[0]*(i[1]/100)), seo: 'Calculate sale price.' },
+    { id: 'unitconverter', name: 'Km to Miles', cat: 'Utility', type: 'calc', inputs: ['Kilometers'], calc: (i) => i[0]*0.621371, seo: 'Simple distance converter.' },
 
-    // PAGES (Ensure IDs match the footer exactly)
+    // --- BLOG GUIDES ---
+    { id: 'youtubecpmguide', name: 'CPM Guide', cat: 'Blog', type: 'blog', content: '<h2>Understanding CPM</h2><p>CPM stands for Cost Per Mille...</p>' },
+    { id: 'youtubeincomeguide', name: 'Income Guide', cat: 'Blog', type: 'blog', content: '<h2>YouTube Pay</h2><p>Creators earn through Adsense, sponsors...</p>' },
+    { id: 'influencerpricingguide', name: 'Pricing Guide', cat: 'Blog', type: 'blog', content: '<h2>What to Charge</h2><p>Pricing depends on engagement rates...</p>' },
+    { id: 'affiliateincomeguide', name: 'Affiliate 101', cat: 'Blog', type: 'blog', content: '<h2>Affiliate Marketing</h2><p>Focus on high-ticket items...</p>' },
+    { id: 'roiexplained', name: 'ROI Explained', cat: 'Blog', type: 'blog', content: '<h2>Marketing ROI</h2><p>Profit minus cost divided by cost...</p>' },
+    { id: 'emiexplained', name: 'EMI Explained', cat: 'Blog', type: 'blog', content: '<h2>How EMI Works</h2><p>Interest and Principal are split monthly...</p>' },
+    { id: 'bmiexplained', name: 'BMI Explained', cat: 'Blog', type: 'blog', content: '<h2>Health Metrics</h2><p>BMI is a general screening tool...</p>' }
+
+  // PAGES (Ensure IDs match the footer exactly)
     { 
         id: 'about-us', 
         name: 'About CreatorProfitLab', 
@@ -106,7 +93,12 @@ const DATABASE = [
         type: 'blog', 
         content: `<h2>Terms of Service</h2><p>Calculators are provided "as-is" for informational purposes only. Always consult a professional for financial or medical decisions.</p>` 
     }
+    
 ];
+
+
+
+  
 
 function handleRouting() {
     const params = new URLSearchParams(window.location.search);
