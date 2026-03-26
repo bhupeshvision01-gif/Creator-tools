@@ -51,157 +51,82 @@ const DATABASE = [
     { id: 'discountcalculator', name: 'Discount Calc', cat: 'Utility', type: 'calc', inputs: ['Original Price', 'Off %'], calc: (i) => i[0]-(i[0]*(i[1]/100)), seo: 'Calculate sale price.' },
     { id: 'unitconverter', name: 'Km to Miles', cat: 'Utility', type: 'calc', inputs: ['Kilometers'], calc: (i) => i[0]*0.621371, seo: 'Simple distance converter.' },
 
-    // --- BLOG GUIDES ---
+    // --- BLOGS & LEGAL ---
     { id: 'youtubecpmguide', name: 'CPM Guide', cat: 'Blog', type: 'blog', content: '<h2>Understanding CPM</h2><p>CPM stands for Cost Per Mille (thousand). It represents how much an advertiser pays for 1,000 views on your video.</p>' },
-    { id: 'youtubeincomeguide', name: 'Income Guide', cat: 'Blog', type: 'blog', content: '<h2>YouTube Pay Structures</h2><p>Creators earn through Adsense, sponsorships, and affiliate links. Most successful creators diversify their revenue streams.</p>' },
-    { id: 'influencerpricingguide', name: 'Pricing Guide', cat: 'Blog', type: 'blog', content: '<h2>What to Charge</h2><p>Pricing depends on engagement rates, niche authority, and production costs. Use our Influencer Rate calculator to get a baseline.</p>' },
-    { id: 'affiliateincomeguide', name: 'Affiliate 101', cat: 'Blog', type: 'blog', content: '<h2>Affiliate Marketing</h2><p>Focus on high-ticket items or high-frequency products to maximize your commission percentage.</p>' },
-    { id: 'roiexplained', name: 'ROI Explained', cat: 'Blog', type: 'blog', content: '<h2>Marketing ROI</h2><p>Profit minus cost divided by cost. A 5:1 ratio is generally considered strong in digital marketing.</p>' },
-    { id: 'emiexplained', name: 'EMI Explained', cat: 'Blog', type: 'blog', content: '<h2>How EMI Works</h2><p>Interest and Principal are split monthly. Initially, your payments go mostly toward interest.</p>' },
-    { id: 'bmiexplained', name: 'BMI Explained', cat: 'Blog', type: 'blog', content: '<h2>Health Metrics</h2><p>BMI is a general screening tool. It does not account for muscle mass or fat distribution.</p>' },
-
-    // --- LEGAL & SUPPORT PAGES ---
-
-    { 
-    id: 'terms-of-service', 
-    name: 'Terms of Service', 
-    cat: 'Blog', 
-    type: 'blog', 
-    content: `
-        <p style="color:var(--text-light); margin-bottom: 20px;">Effective Date: January 1, 2026</p>
-        <h3>1. Accuracy of Estimates</h3>
-        <p>The results provided by CreatorProfitLab calculators are <strong>estimations only</strong>. Currency rates, tax laws, and platform algorithms (YouTube/TikTok/IG) change daily. Do not base legal or high-stakes financial decisions solely on these results.</p>
-        
-        <h3>2. No Financial Advice</h3>
-        <p>We are a toolset, not a financial advisor. For tax, investment, or legal business advice, please consult with a certified professional (CPA or Attorney).</p>
-
-        <h3>3. Intellectual Property</h3>
-        <p>The code and design of CreatorProfitLab are protected. You may use our tools for personal and professional growth, but scraping our data for use on competing "calculator" sites is prohibited.</p>
-
-        <h3>4. Limitation of Liability</h3>
-        <p>CreatorProfitLab is provided "as-is." We are not liable for any financial losses or incorrect data resulting from the use of our software.</p>
-    ` 
-},
-
-
-    { 
-    id: 'about-us', 
-    name: 'The Lab Story', 
-    cat: 'Blog', 
-    type: 'blog', 
-    content: `
-        <h3>The Mission</h3>
-        <p>In the "Wild West" of the creator economy, most influencers are guessing their worth. We founded <strong>CreatorProfitLab</strong> to replace "gut feelings" with cold, hard data.</p>
-        
-        <p>Whether you are calculating your first YouTube Adsense check or negotiating a $50k brand deal, we provide the precision tools you need to stay profitable.</p>
-
-        <div style="background:var(--brand-light); padding:20px; border-radius:12px; margin-top:20px;">
-            <h4 style="color:var(--brand)">Why choose the Lab?</h4>
-            <ul style="margin-top:10px;">
-                <li><strong>No Accounts:</strong> Start calculating immediately.</li>
-                <li><strong>Zero Cost:</strong> 100% free professional tools.</li>
-                <li><strong>High Speed:</strong> Built on ultra-light 2026 web architecture.</li>
-            </ul>
-        </div>
-    ` 
-},
-
-
-{ 
-    id: 'privacy-policy', 
-    name: 'Privacy & Cookies', 
-    cat: 'Blog', 
-    type: 'blog', 
-    content: `
-        <p style="color:var(--text-light); margin-bottom: 20px;">Last Updated: March 2026</p>
-        <h3>1. Data Collection</h3>
-        <p>CreatorProfitLab is a <strong>privacy-first</strong> platform. We do not store, save, or transmit any data you enter into our calculators. All mathematical processing happens locally on your device (Client-Side).</p>
-        
-        <h3>2. Cookies & Analytics</h3>
-        <p>We use minimal cookies to improve your experience:</p>
-        <ul>
-            <li><strong>Functional:</strong> To remember your theme preferences.</li>
-            <li><strong>Analytics:</strong> We use anonymized Google Analytics to see which tools are most popular.</li>
-            <li><strong>Advertising:</strong> Google AdSense may use cookies to serve relevant ads based on your interests.</li>
-        </ul>
-
-        <h3>3. Third-Party Links</h3>
-        <p>Our tools may contain affiliate links. If you click a link and make a purchase, we may receive a small commission at no extra cost to you.</p>
-    ` 
-}
-    
+    { id: 'youtubeincomeguide', name: 'Income Guide', cat: 'Blog', type: 'blog', content: '<h2>YouTube Pay Structures</h2><p>Creators earn through Adsense, sponsorships, and affiliate links.</p>' },
+    { id: 'influencerpricingguide', name: 'Pricing Guide', cat: 'Blog', type: 'blog', content: '<h2>What to Charge</h2><p>Pricing depends on engagement rates and niche authority.</p>' },
+    { id: 'terms-of-service', name: 'Terms of Service', cat: 'Blog', type: 'blog', content: '<h3>Accuracy</h3><p>Results are estimations only. Consult a professional for financial advice.</p>' },
+    { id: 'about-us', name: 'The Lab Story', cat: 'Blog', type: 'blog', content: '<h3>The Mission</h3><p>We provide cold, hard data for the creator economy.</p>' },
+    { id: 'privacy-policy', name: 'Privacy & Cookies', cat: 'Blog', type: 'blog', content: '<h3>Data Collection</h3><p>We do not store your calculation data. Processing is local.</p>' }
 ];
 
-// --- CORE NAVIGATION & RENDERING ---
-
+// --- NAVIGATION CORE ---
 function handleRouting() {
-    const params = new URLSearchParams(window.location.search);
-    const toolId = params.get('id');
-    const path = window.location.pathname.replace(/^\/|\/$/g, '');
-    const targetId = toolId || path;
+    const hash = window.location.hash.replace('#', '');
+    
+    // Reset views
+    document.getElementById('home-view').style.display = 'none';
+    document.getElementById('calculator-view').style.display = 'none';
+    document.getElementById('blog-view').style.display = 'none';
 
-    if (!targetId || targetId === "" || targetId === "index.html") {
+    if (!hash || hash === "") {
         showHomeView();
     } else {
-        const item = DATABASE.find(x => x.id === targetId);
+        const item = DATABASE.find(x => x.id === hash);
         if (item) {
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('calculator-view').style.display = 'none';
-            document.getElementById('blog-view').style.display = 'none';
-            
-            if (item.type === 'calc') {
-                renderCalc(item);
-            } else {
-                renderBlog(item);
-            }
-        } else { 
-            showHomeView(); 
+            item.type === 'calc' ? renderCalc(item) : renderBlog(item);
+        } else {
+            showHomeView();
         }
     }
+
+    // SPA AdSense Refresh
+    try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) { console.info("AdSense readying..."); }
 }
 
 function showHomeView() {
     document.getElementById('home-view').style.display = 'block';
-    document.getElementById('calculator-view').style.display = 'none';
-    document.getElementById('blog-view').style.display = 'none';
     document.title = "CreatorProfitLab | 100+ Professional Tools";
-    renderGrid(DATABASE, false); // Default: show all tools except blogs
+    renderGrid(DATABASE.filter(i => i.type === 'calc')); // Show all calcs on home
 }
 
-function handleItemClick(id) {
-    window.history.pushState({id: id}, '', `/${id}`);
-    handleRouting();
-}
-
-function renderGrid(data, showBlogs = false) {
-    const filtered = data.filter(i => showBlogs ? i.cat === 'Blog' : i.cat !== 'Blog');
+function renderGrid(data) {
     const container = document.getElementById('main-grid');
-    
-    if (filtered.length === 0) {
+    if (data.length === 0) {
         container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px;">No results found.</div>`;
         return;
     }
-
-    container.innerHTML = filtered.map(i => `
-        <div class="card" onclick="handleItemClick('${i.id}')">
+    container.innerHTML = data.map(i => `
+        <a href="#${i.id}" class="card">
             <div class="card-cat">${i.cat} ${i.type === 'blog' ? '• Guide' : ''}</div>
             <h3>${i.name}</h3>
-        </div>`).join('');
+        </a>`).join('');
 }
 
 function renderCalc(item) {
     document.getElementById('calculator-view').style.display = 'block';
     document.title = `${item.name} | CreatorProfitLab`;
-    let html = `<h1 style="font-family:'Lexend'; margin-bottom:10px;">${item.name}</h1><p style="color:var(--text-light); margin-bottom: 25px;">${item.seo}</p><div class="input-grid">`;
+    
+    let html = `<h1 style="font-family:'Lexend'; margin-bottom:10px;">${item.name}</h1>
+                <p style="color:var(--text-light); margin-bottom: 25px;">${item.seo}</p>
+                <div class="input-grid">`;
     
     item.inputs.forEach((l, idx) => {
-        html += `<div class="input-group">
-                    <label>${l}</label>
-                    <input type="number" id="v-${idx}" value="100" oninput="runMath('${item.id}')">
-                 </div>`;
+        html += `<div class="input-group"><label>${l}</label>
+                 <input type="number" id="v-${idx}" value="100" oninput="runMath('${item.id}')"></div>`;
     });
     
     html += `</div><div class="result-card"><small>Calculated Result</small><h2 id="res">--</h2></div>`;
+    
+    // AdSense Slot
+    html += `<div style="margin-top:30px; text-align:center; min-height:250px;">
+                <small style="display:block; color:var(--text-light); margin-bottom:10px; font-size:10px; text-transform:uppercase;">Advertisement</small>
+                <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="YOUR_SLOT_ID"></ins>
+             </div>`;
+    
     document.getElementById('calc-content').innerHTML = html;
     runMath(item.id);
     window.scrollTo(0,0);
@@ -212,90 +137,45 @@ function renderBlog(item) {
     document.title = `${item.name} | CreatorProfitLab`;
     document.getElementById('blog-content').innerHTML = `
         <h1 style="font-family:'Lexend'; margin-bottom: 25px;">${item.name}</h1>
-        <div class="blog-body" style="font-size: 1.1rem; line-height: 1.8;">${item.content}</div>
-    `;
+        <div class="blog-body" style="font-size: 1.1rem; line-height: 1.8;">${item.content}</div>`;
     window.scrollTo(0,0);
 }
 
 function runMath(id) {
     const item = DATABASE.find(x => x.id === id);
-    if (!item || item.type !== 'calc') return;
-    
-    const inputs = item.inputs.map((_, idx) => {
-        const val = parseFloat(document.getElementById(`v-${idx}`).value);
-        return isNaN(val) ? 0 : val;
-    });
-
+    if (!item) return;
+    const inputs = item.inputs.map((_, idx) => parseFloat(document.getElementById(`v-${idx}`).value) || 0);
     const result = item.calc(inputs);
     const display = document.getElementById('res');
     
-    const formatted = result.toLocaleString(undefined, {
-        maximumFractionDigits: 2,
-        minimumFractionDigits: 0
-    });
-    
-    // Check if it should be currency or percentage
-    const isMoney = item.cat === 'Finance' || 
-                   item.id.includes('income') || 
-                   item.id.includes('revenue') || 
-                   item.id.includes('earnings') || 
-                   item.id.includes('budget') ||
-                   item.id.includes('cost') ||
-                   item.id.includes('spend');
-                   
-    const isPercent = item.id.includes('engagement') || 
-                     item.id.includes('roi') || 
-                     item.id.includes('rate') || 
-                     item.id.includes('growth') || 
-                     item.id.includes('percentage') ||
-                     item.id.includes('margin');
+    const formatted = result.toLocaleString(undefined, { maximumFractionDigits: 2 });
 
-    if (isMoney) {
-        display.innerText = "$" + formatted;
-    } else if (isPercent) {
-        display.innerText = formatted + "%";
-    } else {
-        display.innerText = formatted;
-    }
+    // Formatting Logic
+    const isMoney = ['Finance', 'Creator'].includes(item.cat) && !item.id.includes('engagement') && !item.id.includes('rate');
+    const isPercent = item.id.includes('engagement') || item.id.includes('roi') || item.id.includes('growth') || item.id.includes('percentage');
+
+    if (isMoney) display.innerText = "$" + formatted;
+    else if (isPercent) display.innerText = formatted + "%";
+    else display.innerText = formatted;
 }
 
 function filterCat(cat) {
-    // Reset search bar
-    document.getElementById('searchBar').value = "";
-    
-    // UI Tab highlighting
+    window.location.hash = ""; // Return home
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    if(event && event.target.classList.contains('tab')) {
-        event.target.classList.add('active');
-    }
+    if(event) event.target.classList.add('active');
 
-    if (cat === 'Blog') {
-        renderGrid(DATABASE, true); 
-    } else if (cat === 'All') {
-        renderGrid(DATABASE, false);
-    } else {
-        const specificData = DATABASE.filter(i => i.cat === cat);
-        renderGrid(specificData, false);
-    }
+    const filtered = (cat === 'All') ? DATABASE.filter(i => i.type === 'calc') : 
+                     (cat === 'Blog') ? DATABASE.filter(i => i.cat === 'Blog') :
+                     DATABASE.filter(i => i.cat === cat);
+    renderGrid(filtered);
 }
 
 function doSearch() {
     const q = document.getElementById('searchBar').value.toLowerCase();
-    if (!q) {
-        renderGrid(DATABASE, false);
-        return;
-    }
-    // Search shows matching items regardless of type
-    const results = DATABASE.filter(i => 
-        i.name.toLowerCase().includes(q) || 
-        i.cat.toLowerCase().includes(q)
-    );
-    renderGrid(results, results.every(r => r.cat === 'Blog')); 
+    const results = DATABASE.filter(i => i.name.toLowerCase().includes(q) || i.cat.toLowerCase().includes(q));
+    renderGrid(results);
 }
 
-// Update copyright year
-const yearSpan = document.getElementById('year');
-if(yearSpan) yearSpan.textContent = new Date().getFullYear();
-
-window.onpopstate = handleRouting;
+// Init
+window.addEventListener('hashchange', handleRouting);
 window.onload = handleRouting;
