@@ -219,3 +219,14 @@ function doSearch() {
     const filtered = DATABASE.filter(i => i.name.toLowerCase().includes(q));
     renderGrid(filtered);
 }
+
+<div class="footer-col">
+    <h4>Platform</h4>
+    <a href="javascript:void(0)" class="footer-link" onclick="handleItemClick('about-us')">About Our Lab</a>
+    <a href="javascript:void(0)" class="footer-link" onclick="handleItemClick('contact-us')">Contact Support</a>
+</div>
+<div class="footer-col">
+    <h4>Legal</h4>
+    <a href="javascript:void(0)" class="footer-link" onclick="handleItemClick('privacy-policy')">Privacy Policy</a>
+    <a href="javascript:void(0)" class="footer-link" onclick="handleItemClick('terms-of-service')">Terms of Service</a>
+</div>
