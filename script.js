@@ -58,47 +58,16 @@ const DATABASE = [
     { id: 'affiliateincomeguide', name: 'Affiliate 101', cat: 'Blog', type: 'blog', content: '<h2>Affiliate Marketing</h2><p>Focus on high-ticket items...</p>' },
     { id: 'roiexplained', name: 'ROI Explained', cat: 'Blog', type: 'blog', content: '<h2>Marketing ROI</h2><p>Profit minus cost divided by cost...</p>' },
     { id: 'emiexplained', name: 'EMI Explained', cat: 'Blog', type: 'blog', content: '<h2>How EMI Works</h2><p>Interest and Principal are split monthly...</p>' },
-    { id: 'bmiexplained', name: 'BMI Explained', cat: 'Blog', type: 'blog', content: '<h2>Health Metrics</h2><p>BMI is a general screening tool...</p>' }
+    { id: 'bmiexplained', name: 'BMI Explained', cat: 'Blog', type: 'blog', content: '<h2>Health Metrics</h2><p>BMI is a general screening tool...</p>' },
 
-  // PAGES (Ensure IDs match the footer exactly)
-    { 
-        id: 'about-us', 
-        name: 'About CreatorProfitLab', 
-        cat: 'Blog', 
-        type: 'blog', 
-        content: `<h2>Precision Tools</h2><p>Founded in 2026, we provide high-precision SaaS tools for creators and digital entrepreneurs.</p>` 
-    },
-    { 
-        id: 'contact-us', 
-        name: 'Contact Support', 
-        cat: 'Blog', 
-        type: 'blog', 
-        content: `<h2>Contact Our Team</h2><p>Need help with a formula or want to report a bug? Reach out to us below:</p>
-                  <div style="background:#f1f5f9; padding:20px; border-radius:12px; margin-top:20px;">
-                    <p><strong>Email:</strong> support@creatorprofitlab.com</p>
-                    <p><strong>Response Time:</strong> 24-48 Hours</p>
-                  </div>` 
-    },
-    { 
-        id: 'privacy-policy', 
-        name: 'Privacy Policy', 
-        cat: 'Blog', 
-        type: 'blog', 
-        content: `<h2>Privacy Policy</h2><p>We use Google AdSense cookies to serve ads. We do not store or collect any data entered into our calculators.</p>` 
-    },
-    { 
-        id: 'terms-of-service', 
-        name: 'Terms of Service', 
-        cat: 'Blog', 
-        type: 'blog', 
-        content: `<h2>Terms of Service</h2><p>Calculators are provided "as-is" for informational purposes only. Always consult a professional for financial or medical decisions.</p>` 
-    }
-    
+    // --- LEGAL & SUPPORT PAGES ---
+    { id: 'about-us', name: 'About CreatorProfitLab', cat: 'Blog', type: 'blog', content: `<h2>Precision Tools</h2><p>Founded in 2026, we provide high-precision SaaS tools for creators and digital entrepreneurs.</p>` },
+    { id: 'contact-us', name: 'Contact Support', cat: 'Blog', type: 'blog', content: `<h2>Contact Our Team</h2><p>Need help? Reach out to support@creatorprofitlab.com</p>` },
+    { id: 'privacy-policy', name: 'Privacy Policy', cat: 'Blog', type: 'blog', content: `<h2>Privacy Policy</h2><p>We do not store or collect any data entered into our calculators.</p>` },
+    { id: 'terms-of-service', name: 'Terms of Service', cat: 'Blog', type: 'blog', content: `<h2>Terms of Service</h2><p>Calculators are for informational purposes only.</p>` }
 ];
 
-
-
-  
+// --- CORE NAVIGATION & RENDERING ---
 
 function handleRouting() {
     const params = new URLSearchParams(window.location.search);
@@ -111,12 +80,9 @@ function handleRouting() {
     } else {
         const item = DATABASE.find(x => x.id === targetId);
         if (item) {
-            // Hide everything else first
             document.getElementById('home-view').style.display = 'none';
             document.getElementById('calculator-view').style.display = 'none';
             document.getElementById('blog-view').style.display = 'none';
-            
-            // Render the correct item
             item.type === 'calc' ? renderCalc(item) : renderBlog(item);
         } else { 
             showHomeView(); 
@@ -129,7 +95,7 @@ function showHomeView() {
     document.getElementById('calculator-view').style.display = 'none';
     document.getElementById('blog-view').style.display = 'none';
     document.title = "CreatorProfitLab | 100+ Professional Tools";
-    renderGrid(DATABASE);
+    renderGrid(DATABASE, false); // Default: show all tools except blogs
 }
 
 function handleItemClick(id) {
@@ -137,17 +103,12 @@ function handleItemClick(id) {
     handleRouting();
 }
 
-function navigateToHome(e) {
-    if(e) e.preventDefault();
-    window.history.pushState({}, '', '/');
-    showHomeView();
-}
-
-function renderGrid(data) {
-    const filtered = data.filter(i => i.cat !== 'Blog' || i.id === 'about-us');
+function renderGrid(data, showBlogs = false) {
+    const filtered = data.filter(i => showBlogs ? i.cat === 'Blog' : i.cat !== 'Blog');
+    
     document.getElementById('main-grid').innerHTML = filtered.map(i => `
         <div class="card" onclick="handleItemClick('${i.id}')">
-            <div class="card-cat">${i.cat}</div>
+            <div class="card-cat">${i.cat} ${i.type === 'blog' ? '• Guide' : ''}</div>
             <h3>${i.name}</h3>
         </div>`).join('');
 }
@@ -172,28 +133,45 @@ function renderBlog(item) {
 
 function runMath(id) {
     const item = DATABASE.find(x => x.id === id);
+    if (!item || item.type !== 'calc') return;
     const inputs = item.inputs.map((_, idx) => parseFloat(document.getElementById(`v-${idx}`).value) || 0);
     const result = item.calc(inputs);
     const display = document.getElementById('res');
     
-    if (item.cat === 'Finance' || item.id.includes('income')) {
-        display.innerText = "$" + result.toLocaleString(undefined, {maximumFractionDigits:2});
-    } else if (item.id.includes('engagement') || item.id.includes('roi')) {
-        display.innerText = result.toFixed(2) + "%";
+    const formatted = result.toLocaleString(undefined, {maximumFractionDigits:2});
+    
+    // Check if it should be currency or percentage
+    const isMoney = item.cat === 'Finance' || item.id.includes('income') || item.id.includes('revenue') || item.id.includes('earnings') || item.id.includes('budget');
+    const isPercent = item.id.includes('engagement') || item.id.includes('roi') || item.id.includes('rate') || item.id.includes('growth') || item.id.includes('percentage');
+
+    if (isMoney) {
+        display.innerText = "$" + formatted;
+    } else if (isPercent) {
+        display.innerText = formatted + "%";
     } else {
-        display.innerText = result.toLocaleString(undefined, {maximumFractionDigits:2});
+        display.innerText = formatted;
     }
 }
 
 function filterCat(cat) {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
     if(event) event.target.classList.add('active');
-    renderGrid(cat === 'All' ? DATABASE : DATABASE.filter(i => i.cat === cat));
+
+    if (cat === 'Blog') {
+        renderGrid(DATABASE, true); // Shows guides
+    } else if (cat === 'All') {
+        renderGrid(DATABASE, false); // Shows all calculators
+    } else {
+        const specificData = DATABASE.filter(i => i.cat === cat);
+        renderGrid(specificData, false);
+    }
 }
 
 function doSearch() {
     const q = document.getElementById('searchBar').value.toLowerCase();
-    renderGrid(DATABASE.filter(i => i.name.toLowerCase().includes(q)));
+    // Search shows both tools and blogs together
+    const results = DATABASE.filter(i => i.name.toLowerCase().includes(q));
+    renderGrid(results, results.some(r => r.cat === 'Blog' && results.length < 5)); 
 }
 
 window.onpopstate = handleRouting;
