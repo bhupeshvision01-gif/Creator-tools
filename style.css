@@ -139,3 +139,26 @@ padding:20px;
 .content-page h3 { margin-top: 30px; font-size: 1.5rem; }
 .content-page ul { margin-left: 20px; margin-bottom: 20px; }
 .content-page li { margin-bottom: 10px; }
+
+
+/* This makes the empty ad slot visible for testing */
+.adsbygoogle-debug-container {
+    margin: 20px auto;
+    min-height: 280px;
+    width: 100%;
+    max-width: 336px;
+    background-color: #fff9c4; /* Light yellow to stand out */
+    border: 2px dashed #fbc02d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.adsbygoogle-debug-container::before {
+    content: "AD SLOT READY";
+    color: #f57f17;
+    font-weight: bold;
+    font-size: 12px;
+}
