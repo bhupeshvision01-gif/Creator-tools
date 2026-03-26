@@ -6,6 +6,73 @@ const DATABASE = [
     { id: 'roicalculator', name: 'Marketing ROI Calculator', cat: 'Business', type: 'calc', inputs: ['Revenue ($)', 'Cost ($)'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'Calculate campaign profitability.' },
     { id: 'bmicalculator', name: 'BMI Health Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)'], calc: (i) => i[0]/((i[1]/100)**2), seo: 'Standard Body Mass Index.' },
 
+  
+    { 
+        id: 'compoundinterestcalculator', 
+        name: 'Compound Interest', 
+        cat: 'Finance', 
+        type: 'calc', 
+        inputs: ['Principal ($)', 'Annual %', 'Years'], 
+        calc: (i) => i[0] * Math.pow((1 + (i[1] / 100)), i[2]), 
+        seo: 'Visualize long-term wealth growth through compounding interest.' 
+    },
+    { 
+        id: 'cryptoprofitcalculator', 
+        name: 'Crypto Profit/Loss', 
+        cat: 'Finance', 
+        type: 'calc', 
+        inputs: ['Invested ($)', 'Buy Price', 'Sell Price'], 
+        calc: (i) => (i[0] / i[1]) * i[2] - i[0], 
+        seo: 'Calculate net profit or loss on cryptocurrency trades after price movement.' 
+    },
+
+   
+    { 
+        id: 'caccalculator', 
+        name: 'Customer Acquisition (CAC)', 
+        cat: 'Business', 
+        type: 'calc', 
+        inputs: ['Total Marketing ($)', 'New Customers'], 
+        calc: (i) => i[0] / i[1], 
+        seo: 'Measure the cost effectiveness of acquiring new customers.' 
+    },
+    { 
+        id: 'freelanceratecalculator', 
+        name: 'Freelance Hourly Rate', 
+        cat: 'Business', 
+        type: 'calc', 
+        inputs: ['Desired Monthly ($)', 'Billable Hours/Week'], 
+        calc: (i) => (i[0] * 12) / (i[1] * 52), 
+        seo: 'Calculate what you should charge per hour to meet your annual income goals.' 
+    },
+
+    // --- HEALTH & WELLNESS ---
+    { 
+        id: 'bmicalculator', 
+        name: 'BMI Health Calculator', 
+        cat: 'Health', 
+        type: 'calc', 
+        inputs: ['Weight (kg)', 'Height (cm)'], 
+        calc: (i) => i[0] / ((i[1] / 100) ** 2), 
+        seo: 'Calculate your Body Mass Index (BMI) using standard health metrics.' 
+    },
+    { 
+        id: 'waterintakecalculator', 
+        name: 'Daily Water Intake', 
+        cat: 'Health', 
+        type: 'calc', 
+        inputs: ['Weight (kg)'], 
+        calc: (i) => i[0] * 0.033, 
+        seo: 'Determine your recommended daily water intake in Liters based on body weight.' 
+    },
+
+    // --- PAGES & LEGAL ---
+    { id: 'about-us', name: 'About Us', cat: 'Blog', type: 'blog', content: '<h2>About CreatorProfitLab</h2><p>Founded in 2026, we provide high-precision analytical tools to help digital entrepreneurs make data-driven decisions.</p>' },
+    { id: 'contact-us', name: 'Contact Support', cat: 'Blog', type: 'blog', content: '<h2>Contact Us</h2><p>Email: <b>support@creatorprofitlab.com</b></p><p>Typical response time: 24 hours.</p>' },
+    { id: 'privacy-policy', name: 'Privacy Policy', cat: 'Blog', type: 'blog', content: '<h2>Privacy Policy</h2><p>We use Google AdSense cookies. No personal input data is ever stored on our servers.</p>' },
+    { id: 'terms-of-service', name: 'Terms of Service', cat: 'Blog', type: 'blog', content: '<h2>Terms of Service</h2><p>Calculations are for informational purposes. Results are projections, not financial advice.</p>' }
+    
+
     // PAGES (Ensure IDs match the footer exactly)
     { 
         id: 'about-us', 
