@@ -121,11 +121,13 @@ function renderCalc(item) {
     html += `</div><div class="result-card"><small>Calculated Result</small><h2 id="res">--</h2></div>`;
     
     // AdSense Slot
-    html += `<div style="margin-top:30px; text-align:center; min-height:250px;">
-                <small style="display:block; color:var(--text-light); margin-bottom:10px; font-size:10px; text-transform:uppercase;">Advertisement</small>
-                <ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px"
-                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="YOUR_SLOT_ID"></ins>
-             </div>`;
+   html += `<div style="margin-top:30px; text-align:center; min-height:280px; background: #f1f5f9; border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            <small style="display:block; color:var(--text-light); margin-bottom:10px; font-size:10px; text-transform:uppercase;">Advertisement Placeholder</small>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="YOUR_SLOT_ID"></ins>
+         </div>`;
     
     document.getElementById('calc-content').innerHTML = html;
     runMath(item.id);
