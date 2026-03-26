@@ -1,224 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="dynamic-title">CreatorProfitLab | 100+ Professional Tools</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --brand: #4f46e5; --brand-light: #f5f3ff; --bg: #f8fafc; --text: #0f172a; --text-light: #64748b; --border: #e2e8f0; --white: #ffffff; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: var(--white); border-bottom: 1px solid var(--border); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Lexend', sans-serif; font-size: 1.5rem; color: var(--brand); cursor: pointer; font-weight: 800; text-decoration: none; }
-        #searchBar { width: 280px; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border); outline: none; }
-        .ad-slot { background: #f1f5f9; border: 1px dashed #cbd5e1; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 0.7rem; margin: 20px 0; }
-        .ad-top { height: 90px; width: 100%; max-width: 728px; margin: 20px auto; }
-        #hero-wrapper { text-align: center; padding: 50px 0; background: var(--white); border-bottom: 1px solid var(--border); }
-        .tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 25px; }
-        .tab { padding: 8px 18px; border-radius: 50px; border: 1px solid var(--border); background: var(--white); cursor: pointer; font-weight: 600; font-size: 0.85rem; }
-        .tab.active { background: var(--brand); color: var(--white); border-color: var(--brand); }
-        .main-layout { display: flex; gap: 30px; padding: 30px 0; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; flex: 1; }
-        .card { background: var(--white); border: 1px solid var(--border); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.2s; }
-        .card:hover { border-color: var(--brand); transform: translateY(-3px); }
-        .card-cat { font-size: 0.65rem; font-weight: 800; color: var(--brand); text-transform: uppercase; margin-bottom: 8px; }
-        .page-view { display: none; background: var(--white); padding: 40px; border-radius: 20px; border: 1px solid var(--border); margin-top: 20px; }
-        .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
-        .input-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); }
-        .result-card { background: var(--brand); color: var(--white); padding: 30px; border-radius: 15px; text-align: center; }
-        .result-card h2 { font-size: 3rem; font-family: 'Lexend'; }
-        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: var(--text-light); border-top: 1px solid var(--border); margin-top: 60px; }
-    </style>
+    <meta charset="utf-8">
+    <title>Redirecting... | CreatorProfitLab</title>
+    <script type="text/javascript">
+        // This script takes the current path and converts it into a query parameter
+        // so that your main index.html script can read it and show the right tool.
+        var pathSegmentsToKeep = 0;
+
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?id=' +
+            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+            l.hash
+        );
+    </script>
 </head>
 <body>
-
-<header>
-    <div class="container nav-flex">
-        <div class="logo" onclick="navigateToHome(event)">CreatorProfitLab.</div>
-        <input type="text" id="searchBar" placeholder="Search 50+ tools..." oninput="doSearch()">
+    <div style="font-family: sans-serif; text-align: center; padding-top: 50px;">
+        <h1>Loading Tool...</h1>
+        <p>Redirecting you to the requested calculator.</p>
     </div>
-</header>
-
-<div class="container"><div class="ad-slot ad-top">Advertisement Space</div></div>
-
-<div id="home-view">
-    <section id="hero-wrapper">
-        <div class="container">
-            <h1>Professional Multi-Tool Hub</h1>
-            <div class="tabs">
-                <button class="tab active" onclick="filterCat('All')">All</button>
-                <button class="tab" onclick="filterCat('Creator')">Creator</button>
-                <button class="tab" onclick="filterCat('Finance')">Finance</button>
-                <button class="tab" onclick="filterCat('Business')">Business</button>
-                <button class="tab" onclick="filterCat('Health')">Health</button>
-                <button class="tab" onclick="filterCat('Utility')">Utility</button>
-                <button class="tab" onclick="filterCat('Blog')">Guides</button>
-            </div>
-        </div>
-    </section>
-    <div class="container"><div class="main-layout"><div class="grid" id="main-grid"></div></div></div>
-</div>
-
-<div class="container">
-    <div id="calculator-view" class="page-view">
-        <button onclick="navigateToHome(event)" style="cursor:pointer; background:none; border:none; color:var(--brand); font-weight:700; margin-bottom:20px;">← BACK</button>
-        <div id="calc-content"></div>
-    </div>
-    <div id="blog-view" class="page-view">
-        <button onclick="navigateToHome(event)" style="cursor:pointer; background:none; border:none; color:var(--brand); font-weight:700; margin-bottom:20px;">← BACK</button>
-        <div id="blog-content"></div>
-    </div>
-</div>
-
-<footer>&copy; 2026 CreatorProfitLab. All formulas verified for accuracy.</footer>
-
-<script>
-    const DB = [
-        // CREATOR
-        { id: 'youtubeincomecalculator', name: 'YouTube Income Calculator', cat: 'Creator', type: 'calc', inputs: ['Monthly Views', 'RPM ($)'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate YouTube take-home pay.' },
-        { id: 'youtubecpmcalculator', name: 'YouTube CPM Calculator', cat: 'Creator', type: 'calc', inputs: ['Ad Revenue ($)', 'Ad Impressions'], calc: (i) => (i[0]/i[1])*1000, seo: 'Calculate Cost Per Mille.' },
-        { id: 'youtuberpmcalculator', name: 'YouTube RPM Calculator', cat: 'Creator', type: 'calc', inputs: ['Total Earnings ($)', 'Total Views'], calc: (i) => (i[0]/i[1])*1000, seo: 'True earnings per 1000 views.' },
-        { id: 'youtubeshortscalculator', name: 'YouTube Shorts Calculator', cat: 'Creator', type: 'calc', inputs: ['Shorts Views'], calc: (i) => (i[0]/1000)*0.05, seo: 'Shorts Fund estimation.' },
-        { id: 'instagramengagementcalculator', name: 'Instagram Engagement Rate', cat: 'Creator', type: 'calc', inputs: ['Likes + Comments', 'Followers'], calc: (i) => (i[0]/i[1])*100, seo: 'Analyze account health.' },
-        { id: 'tiktokearningscalculator', name: 'TikTok Earnings Calculator', cat: 'Creator', type: 'calc', inputs: ['Qualified Views'], calc: (i) => (i[0]/1000)*0.90, seo: 'TikTok Creativity Program calc.' },
-        { id: 'influencerratecalculator', name: 'Influencer Rate Calculator', cat: 'Creator', type: 'calc', inputs: ['Avg Views', 'Market Rate ($)'], calc: (i) => i[0]*i[1], seo: 'Fair market value for ads.' },
-        { id: 'affiliateincomecalculator', name: 'Affiliate Income Calculator', cat: 'Creator', type: 'calc', inputs: ['Clicks', 'Conv %', 'Commission ($)'], calc: (i) => i[0]*(i[1]/100)*i[2], seo: 'Forecast affiliate profits.' },
-        { id: 'creatorroicalculator', name: 'Creator ROI Calculator', cat: 'Creator', type: 'calc', inputs: ['Revenue ($)', 'Production Cost ($)'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'Measure project profitability.' },
-        { id: 'videoprofitcalculator', name: 'Video Profit Calculator', cat: 'Creator', type: 'calc', inputs: ['Earnings', 'Costs'], calc: (i) => i[0]-i[1], seo: 'Net profit after expenses.' },
-        { id: 'podcastrevenuecalculator', name: 'Podcast Revenue Calculator', cat: 'Creator', type: 'calc', inputs: ['Downloads', 'Ad CPM ($)'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate podcast earnings.' },
-        { id: 'newsletterrevenuecalculator', name: 'Newsletter Revenue Calculator', cat: 'Creator', type: 'calc', inputs: ['Subscribers', 'Open Rate %', 'Ad Rate'], calc: (i) => (i[0]*(i[1]/100))*i[2], seo: 'Newsletter sponsorship math.' },
-        { id: 'digitalproductrevenuecalculator', name: 'Digital Product Revenue', cat: 'Creator', type: 'calc', inputs: ['Sales', 'Price ($)'], calc: (i) => i[0]*i[1], seo: 'Forecast course/eBook income.' },
-
-        // FINANCE
-        { id: 'emicalculator', name: 'EMI Calculator', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => { let r=i[1]/12/100, n=i[2]*12; return (i[0]*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1); }, seo: 'Standard bank EMI math.' },
-        { id: 'loancalculator', name: 'Loan Payoff Calculator', cat: 'Finance', type: 'calc', inputs: ['Amount', 'Monthly Pay', 'Interest %'], calc: (i) => i[0]/i[1], seo: 'Total months to pay off debt.' },
-        { id: 'compoundinterestcalculator', name: 'Compound Interest Calculator', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => i[0]*Math.pow(1+(i[1]/100), i[2]), seo: 'Wealth growth over time.' },
-        { id: 'sipcalculator', name: 'SIP Calculator', cat: 'Finance', type: 'calc', inputs: ['Monthly Investment', 'Return %', 'Years'], calc: (i) => { let r=i[1]/12/100, n=i[2]*12; return i[0]*((Math.pow(1+r,n)-1)/r)*(1+r); }, seo: 'Mutual fund projections.' },
-        { id: 'retirementcalculator', name: 'Retirement Calculator', cat: 'Finance', type: 'calc', inputs: ['Current Age', 'Retire Age', 'Monthly Save'], calc: (i) => (i[1]-i[0])*i[2]*12, seo: 'Retirement corpus projection.' },
-        { id: 'creditcardinterestcalculator', name: 'Credit Card Interest', cat: 'Finance', type: 'calc', inputs: ['Balance', 'APR %'], calc: (i) => i[0]*(i[1]/100)/12, seo: 'Monthly interest on debt.' },
-        { id: 'debtpayoffcalculator', name: 'Debt Payoff Calculator', cat: 'Finance', type: 'calc', inputs: ['Total Debt', 'Monthly Pay'], calc: (i) => i[0]/i[1], seo: 'Visualize your debt timeline.' },
-        { id: 'profitmargincalculator', name: 'Profit Margin Calculator', cat: 'Finance', type: 'calc', inputs: ['Revenue', 'Cost'], calc: (i) => ((i[0]-i[1])/i[0])*100, seo: 'Net margin percentage.' },
-
-        // BUSINESS
-        { id: 'roicalculator', name: 'ROI Calculator', cat: 'Business', type: 'calc', inputs: ['Gain', 'Investment'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'Return on Investment math.' },
-        { id: 'cpmcalculator', name: 'CPM Calculator', cat: 'Business', type: 'calc', inputs: ['Cost', 'Impressions'], calc: (i) => (i[0]/i[1])*1000, seo: 'Cost Per Mille for ad buyers.' },
-        { id: 'cpccalculator', name: 'CPC Calculator', cat: 'Business', type: 'calc', inputs: ['Total Cost', 'Clicks'], calc: (i) => i[0]/i[1], seo: 'Cost Per Click analysis.' },
-        { id: 'conversionratecalculator', name: 'Conversion Rate Calculator', cat: 'Business', type: 'calc', inputs: ['Conversions', 'Visitors'], calc: (i) => (i[0]/i[1])*100, seo: 'Visitor conversion percentage.' },
-        { id: 'caccalculator', name: 'CAC Calculator', cat: 'Business', type: 'calc', inputs: ['Total Spend', 'New Customers'], calc: (i) => i[0]/i[1], seo: 'Customer Acquisition Cost.' },
-        { id: 'costperleadcalculator', name: 'Cost Per Lead Calculator', cat: 'Business', type: 'calc', inputs: ['Spend', 'Leads'], calc: (i) => i[0]/i[1], seo: 'Lead generation efficiency.' },
-        { id: 'marketingbudgetcalculator', name: 'Marketing Budget Calculator', cat: 'Business', type: 'calc', inputs: ['Revenue Goal', 'CAC'], calc: (i) => i[0]/i[1], seo: 'Budget required for target.' },
-        { id: 'revenuegrowthcalculator', name: 'Revenue Growth Calculator', cat: 'Business', type: 'calc', inputs: ['New Rev', 'Old Rev'], calc: (i) => ((i[0]-i[1])/i[1])*100, seo: 'YoY or MoM growth.' },
-
-        // HEALTH
-        { id: 'bmicalculator', name: 'BMI Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)'], calc: (i) => i[0]/((i[1]/100)**2), seo: 'Body Mass Index.' },
-        { id: 'bmrcalculator', name: 'BMR Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)', 'Age'], calc: (i) => (10*i[0])+(6.25*i[1])-(5*i[2])+5, seo: 'Basal Metabolic Rate.' },
-        { id: 'caloriecalculator', name: 'Calorie Calculator', cat: 'Health', type: 'calc', inputs: ['BMR', 'Activity (1.2-1.9)'], calc: (i) => i[0]*i[1], seo: 'Daily energy expenditure.' },
-        { id: 'bodyfatcalculator', name: 'Body Fat Calculator', cat: 'Health', type: 'calc', inputs: ['Waist (cm)', 'Neck (cm)', 'Height'], calc: (i) => (i[0]-i[1])/i[2], seo: 'Body fat percentage.' },
-        { id: 'waterintakecalculator', name: 'Water Intake Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)'], calc: (i) => i[0]*0.033, seo: 'Daily water in Liters.' },
-        { id: 'proteinintakecalculator', name: 'Protein Intake Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)'], calc: (i) => i[0]*1.8, seo: 'Active protein requirements.' },
-        { id: 'macrocalculator', name: 'Macro Calculator', cat: 'Health', type: 'calc', inputs: ['Calories', 'Protein %'], calc: (i) => (i[0]*(i[1]/100))/4, seo: 'Calorie breakdown.' },
-        { id: 'targetheartratecalculator', name: 'Target Heart Rate', cat: 'Health', type: 'calc', inputs: ['Age', 'Intensity %'], calc: (i) => (220-i[0])*(i[1]/100), seo: 'Target BPM for training.' },
-
-        // UTILITY
-        { id: 'percentagecalculator', name: 'Percentage Calculator', cat: 'Utility', type: 'calc', inputs: ['Part', 'Total'], calc: (i) => (i[0]/i[1])*100, seo: 'Quick percentages.' },
-        { id: 'agecalculator', name: 'Age Calculator', cat: 'Utility', type: 'calc', inputs: ['Birth Year'], calc: (i) => 2026-i[0], seo: 'Simple age check.' },
-        { id: 'timedurationcalculator', name: 'Time Duration Calculator', cat: 'Utility', type: 'calc', inputs: ['Start Year', 'End Year'], calc: (i) => i[1]-i[0], seo: 'Calculate duration.' },
-        { id: 'discountcalculator', name: 'Discount Calculator', cat: 'Utility', type: 'calc', inputs: ['Price', 'Discount %'], calc: (i) => i[0]*(i[1]/100), seo: 'Saved amount.' },
-        { id: 'unitconverter', name: 'Unit Converter (cm to m)', cat: 'Utility', type: 'calc', inputs: ['Centimeters'], calc: (i) => i[0]/100, seo: 'Metric converter.' },
-
-        // BLOGS
-        { id: 'youtubecpmguide', name: 'YouTube CPM Guide 2026', cat: 'Blog', type: 'blog', content: '<h2>Understanding YouTube CPM</h2><p>Average CPM is $7.00. Finance can see $50.00.</p>' },
-        { id: 'youtubeincomeguide', name: 'YouTube Income Guide', cat: 'Blog', type: 'blog', content: '<h2>How YouTube Revenue Works</h2><p>AdSense, memberships, and brand deals.</p>' },
-        { id: 'influencerpricingguide', name: 'Influencer Pricing Guide', cat: 'Blog', type: 'blog', content: '<h2>How to Price Brand Deals</h2><p>Use engagement metrics to justify rates.</p>' },
-        { id: 'affiliateincomeguide', name: 'Affiliate Marketing Guide', cat: 'Blog', type: 'blog', content: '<h2>Scaling Affiliate Profits</h2><p>Optimize for high conversion sources.</p>' },
-        { id: 'roiexplained', name: 'Marketing ROI Explained', cat: 'Blog', type: 'blog', content: '<h2>What is Good ROI?</h2><p>300% is standard for digital products.</p>' },
-        { id: 'emiexplained', name: 'How EMI Is Calculated', cat: 'Blog', type: 'blog', content: '<h2>The Math Behind Loans</h2><p>Reducing balance method explained.</p>' },
-        { id: 'bmiexplained', name: 'BMI & Your Health Guide', cat: 'Blog', type: 'blog', content: '<h2>Beyond the BMI Number</h2><p>Why body composition matters.</p>' }
-    ];
-
-    // ROUTING SYSTEM (GitHub Optimized)
-    function handleRouting() {
-        const path = window.location.pathname.replace(/^\/|\/$/g, '');
-        if (!path || path === "" || path === "index.html") {
-            showHomeView();
-        } else {
-            const item = DB.find(x => x.id === path);
-            if (item) {
-                item.type === 'calc' ? renderCalc(item) : renderBlog(item);
-            } else { showHomeView(); }
-        }
-    }
-
-    function showHomeView() {
-        document.getElementById('home-view').style.display = 'block';
-        document.getElementById('calculator-view').style.display = 'none';
-        document.getElementById('blog-view').style.display = 'none';
-        document.title = "CreatorProfitLab | 100+ Professional Tools";
-        renderGrid(DB);
-    }
-
-    function navigateToHome(e) {
-        if(e) e.preventDefault();
-        window.history.pushState({}, '', '/');
-        showHomeView();
-    }
-
-    function handleItemClick(id) {
-        window.history.pushState({id: id}, '', `/${id}`);
-        handleRouting();
-    }
-
-    function renderGrid(data) {
-        document.getElementById('main-grid').innerHTML = data.map(i => `
-            <div class="card" onclick="handleItemClick('${i.id}')">
-                <div class="card-cat">${i.cat}</div>
-                <h3>${i.name}</h3>
-            </div>`).join('');
-    }
-
-    function renderCalc(item) {
-        document.getElementById('home-view').style.display = 'none';
-        document.getElementById('blog-view').style.display = 'none';
-        document.getElementById('calculator-view').style.display = 'block';
-        document.title = `${item.name} | CreatorProfitLab`;
-        let html = `<h1>${item.name}</h1><div class="input-grid">`;
-        item.inputs.forEach((l, idx) => html += `<div class="input-group"><label>${l}</label><input type="number" id="v-${idx}" value="100" oninput="runMath('${item.id}')"></div>`);
-        html += `</div><div class="result-card"><small>Result</small><h2 id="res">--</h2></div><div style="margin-top:30px;"><h2>About</h2><p>${item.seo}</p></div>`;
-        document.getElementById('calc-content').innerHTML = html;
-        runMath(item.id);
-        window.scrollTo(0,0);
-    }
-
-    function renderBlog(item) {
-        document.getElementById('home-view').style.display = 'none';
-        document.getElementById('calculator-view').style.display = 'none';
-        document.getElementById('blog-view').style.display = 'block';
-        document.getElementById('blog-content').innerHTML = `<h1>${item.name}</h1>${item.content}`;
-        window.scrollTo(0,0);
-    }
-
-    function runMath(id) {
-        const item = DB.find(x => x.id === id);
-        const inputs = item.inputs.map((_, idx) => parseFloat(document.getElementById(`v-${idx}`).value) || 0);
-        document.getElementById('res').innerText = item.calc(inputs).toLocaleString(undefined, {maximumFractionDigits:2});
-    }
-
-    function filterCat(cat) {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        event.target.classList.add('active');
-        renderGrid(cat === 'All' ? DB : DB.filter(i => i.cat === cat));
-    }
-
-    function doSearch() {
-        const q = document.getElementById('searchBar').value.toLowerCase();
-        renderGrid(DB.filter(i => i.name.toLowerCase().includes(q)));
-    }
-
-    window.onpopstate = handleRouting;
-    window.onload = handleRouting;
-</script>
 </body>
 </html>
