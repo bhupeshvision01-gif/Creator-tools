@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <title>Redirecting... | CreatorProfitLab</title>
     <script type="text/javascript">
-        // This script takes the current path and converts it into a query parameter
-        // so that your main index.html script can read it and show the right tool.
+        // This script preserves the path so the Single Page App can load the right tool
         var pathSegmentsToKeep = 0;
-
         var l = window.location;
         l.replace(
             l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
@@ -20,8 +18,8 @@
 </head>
 <body>
     <div style="font-family: sans-serif; text-align: center; padding-top: 50px;">
-        <h1>Loading Tool...</h1>
-        <p>Redirecting you to the requested calculator.</p>
+        <h1>Loading...</h1>
+        <p>Redirecting you to CreatorProfitLab.</p>
     </div>
 </body>
 </html>
