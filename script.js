@@ -120,14 +120,46 @@ function renderCalc(item) {
     
     html += `</div><div class="result-card"><small>Calculated Result</small><h2 id="res">--</h2></div>`;
     
-    // AdSense Slot
-   html += `<div style="margin-top:30px; text-align:center; min-height:280px; background: #f1f5f9; border-radius: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            <small style="display:block; color:var(--text-light); margin-bottom:10px; font-size:10px; text-transform:uppercase;">Advertisement Placeholder</small>
+ function injectAd(parentId) {
+    const container = document.getElementById(parentId);
+    if (!container) return;
+
+    // 1. Create the HTML for the ad
+    container.innerHTML = `
+        <div class="adsbygoogle-debug-container">
             <ins class="adsbygoogle"
-                 style="display:inline-block;width:300px;height:250px"
-                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-                 data-ad-slot="YOUR_SLOT_ID"></ins>
-         </div>`;
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" 
+                 data-ad-slot="YOUR_SLOT_ID"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+    `;
+
+    // 2. Try to push the ad
+    try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        console.log("AdSense: Push successful.");
+    } catch (e) {
+        console.error("AdSense: Push failed!", e);
+    }
+
+    // 3. The "Ghost Check" - runs 3 seconds later
+    setTimeout(() => {
+        const adStatus = container.querySelector('ins').getAttribute('data-ad-status');
+        const adHeight = container.querySelector('ins').clientHeight;
+
+        if (adHeight === 0) {
+            console.warn("DEBUG: Ad container is 0px tall. Check parent CSS!");
+        }
+        
+        if (adStatus === 'unfilled') {
+            console.log("DEBUG: Code is perfect, but Google has no ads for you right now (Common for new sites).");
+        } else if (adStatus === 'filled') {
+            console.log("DEBUG: Ad should be visible now!");
+        }
+    }, 3000);
+}
     
     document.getElementById('calc-content').innerHTML = html;
     runMath(item.id);
