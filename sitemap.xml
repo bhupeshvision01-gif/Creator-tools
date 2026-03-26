@@ -1,35 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://creatorprofitlab.com/</loc>
-    <lastmod>2026-03-26</lastmod>
+    <loc>https://www.creatorprofitlab.com/</loc>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <url>
-    <loc>https://creatorprofitlab.com/?id=youtube-revenue-calculator</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://creatorprofitlab.com/?id=instagram-engagement-calculator</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://www.creatorprofitlab.com/youtubeincomecalculator</loc><priority>0.9</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/youtubecpmcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/youtuberpmcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/youtubeshortscalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/instagramengagementcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/tiktokearningscalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/influencerratecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/affiliateincomecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/creatorroicalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/videoprofitcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/podcastrevenuecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/newsletterrevenuecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/digitalproductrevenuecalculator</loc><priority>0.8</priority></url>
 
-  <url>
-    <loc>https://creatorprofitlab.com/?id=emi-calculator</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://creatorprofitlab.com/?id=roi-calculator</loc>
-    <lastmod>2026-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://www.creatorprofitlab.com/emicalculator</loc><priority>0.9</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/loancalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/compoundinterestcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/sipcalculator</loc><priority>0.9</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/retirementcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/creditcardinterestcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/debtpayoffcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/profitmargincalculator</loc><priority>0.8</priority></url>
+
+  <url><loc>https://www.creatorprofitlab.com/roicalculator</loc><priority>0.9</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/cpmcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/cpccalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/conversionratecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/caccalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/costperleadcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/marketingbudgetcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/revenuegrowthcalculator</loc><priority>0.8</priority></url>
+
+  <url><loc>https://www.creatorprofitlab.com/bmicalculator</loc><priority>0.9</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/bmrcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/caloriecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/bodyfatcalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/waterintakecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/proteinintakecalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/macrocalculator</loc><priority>0.8</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/targetheartratecalculator</loc><priority>0.8</priority></url>
+
+  <url><loc>https://www.creatorprofitlab.com/percentagecalculator</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/agecalculator</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/timedurationcalculator</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/discountcalculator</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/unitconverter</loc><priority>0.7</priority></url>
+
+  <url><loc>https://www.creatorprofitlab.com/youtubecpmguide</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/youtubeincomeguide</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/influencerpricingguide</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/affiliateincomeguide</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/roiexplained</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/emiexplained</loc><priority>0.7</priority></url>
+  <url><loc>https://www.creatorprofitlab.com/bmiexplained</loc><priority>0.7</priority></url>
 </urlset>
