@@ -61,10 +61,75 @@ const DATABASE = [
     { id: 'bmiexplained', name: 'BMI Explained', cat: 'Blog', type: 'blog', content: '<h2>Health Metrics</h2><p>BMI is a general screening tool. It does not account for muscle mass or fat distribution.</p>' },
 
     // --- LEGAL & SUPPORT PAGES ---
-    { id: 'about-us', name: 'About CreatorProfitLab', cat: 'Blog', type: 'blog', content: `<h2>Precision Tools</h2><p>Founded in 2026, we provide high-precision SaaS tools for creators and digital entrepreneurs. No accounts, no fees, just data.</p>` },
-    { id: 'contact-us', name: 'Contact Support', cat: 'Blog', type: 'blog', content: `<h2>Contact Our Team</h2><p>Need help or have a suggestion? Reach out to us at <strong>support@creatorprofitlab.com</strong></p>` },
-    { id: 'privacy-policy', name: 'Privacy Policy', cat: 'Blog', type: 'blog', content: `<h2>Privacy Policy</h2><p>We do not store or collect any data entered into our calculators. All calculations happen locally in your browser.</p>` },
-    { id: 'terms-of-service', name: 'Terms of Service', cat: 'Blog', type: 'blog', content: `<h2>Terms of Service</h2><p>Calculators are for informational purposes only. CreatorProfitLab is not responsible for financial or health outcomes based on estimates.</p>` }
+
+    { 
+    id: 'terms-of-service', 
+    name: 'Terms of Service', 
+    cat: 'Blog', 
+    type: 'blog', 
+    content: `
+        <p style="color:var(--text-light); margin-bottom: 20px;">Effective Date: January 1, 2026</p>
+        <h3>1. Accuracy of Estimates</h3>
+        <p>The results provided by CreatorProfitLab calculators are <strong>estimations only</strong>. Currency rates, tax laws, and platform algorithms (YouTube/TikTok/IG) change daily. Do not base legal or high-stakes financial decisions solely on these results.</p>
+        
+        <h3>2. No Financial Advice</h3>
+        <p>We are a toolset, not a financial advisor. For tax, investment, or legal business advice, please consult with a certified professional (CPA or Attorney).</p>
+
+        <h3>3. Intellectual Property</h3>
+        <p>The code and design of CreatorProfitLab are protected. You may use our tools for personal and professional growth, but scraping our data for use on competing "calculator" sites is prohibited.</p>
+
+        <h3>4. Limitation of Liability</h3>
+        <p>CreatorProfitLab is provided "as-is." We are not liable for any financial losses or incorrect data resulting from the use of our software.</p>
+    ` 
+},
+
+
+    { 
+    id: 'about-us', 
+    name: 'The Lab Story', 
+    cat: 'Blog', 
+    type: 'blog', 
+    content: `
+        <h3>The Mission</h3>
+        <p>In the "Wild West" of the creator economy, most influencers are guessing their worth. We founded <strong>CreatorProfitLab</strong> to replace "gut feelings" with cold, hard data.</p>
+        
+        <p>Whether you are calculating your first YouTube Adsense check or negotiating a $50k brand deal, we provide the precision tools you need to stay profitable.</p>
+
+        <div style="background:var(--brand-light); padding:20px; border-radius:12px; margin-top:20px;">
+            <h4 style="color:var(--brand)">Why choose the Lab?</h4>
+            <ul style="margin-top:10px;">
+                <li><strong>No Accounts:</strong> Start calculating immediately.</li>
+                <li><strong>Zero Cost:</strong> 100% free professional tools.</li>
+                <li><strong>High Speed:</strong> Built on ultra-light 2026 web architecture.</li>
+            </ul>
+        </div>
+    ` 
+},
+
+
+{ 
+    id: 'privacy-policy', 
+    name: 'Privacy & Cookies', 
+    cat: 'Blog', 
+    type: 'blog', 
+    content: `
+        <p style="color:var(--text-light); margin-bottom: 20px;">Last Updated: March 2026</p>
+        <h3>1. Data Collection</h3>
+        <p>CreatorProfitLab is a <strong>privacy-first</strong> platform. We do not store, save, or transmit any data you enter into our calculators. All mathematical processing happens locally on your device (Client-Side).</p>
+        
+        <h3>2. Cookies & Analytics</h3>
+        <p>We use minimal cookies to improve your experience:</p>
+        <ul>
+            <li><strong>Functional:</strong> To remember your theme preferences.</li>
+            <li><strong>Analytics:</strong> We use anonymized Google Analytics to see which tools are most popular.</li>
+            <li><strong>Advertising:</strong> Google AdSense may use cookies to serve relevant ads based on your interests.</li>
+        </ul>
+
+        <h3>3. Third-Party Links</h3>
+        <p>Our tools may contain affiliate links. If you click a link and make a purchase, we may receive a small commission at no extra cost to you.</p>
+    ` 
+}
+    
 ];
 
 // --- CORE NAVIGATION & RENDERING ---
