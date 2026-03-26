@@ -155,7 +155,8 @@ function showHomeView() {
     renderGrid(DATABASE);
 }
 
-function handleItemClick(id) {
+function handleItemClick(id, e) {
+    if (e) e.preventDefault(); // This stops the "opening" of a new page
     window.history.pushState({id: id}, '', `/${id}`);
     handleRouting();
 }
