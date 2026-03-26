@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatorProfitLab | 100+ Professional Tools & SEO Guides</title>
+    <title id="dynamic-title">CreatorProfitLab | 100+ Professional Tools & SEO Guides</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@700;800&display=swap" rel="stylesheet">
     <style>
         :root { --brand: #4f46e5; --bg: #f8fafc; --text: #0f172a; --border: #e2e8f0; }
@@ -12,13 +12,13 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         header { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Lexend', sans-serif; font-size: 1.5rem; color: var(--brand); cursor: pointer; font-weight: 800; }
+        .logo { font-family: 'Lexend', sans-serif; font-size: 1.5rem; color: var(--brand); cursor: pointer; font-weight: 800; text-decoration: none; }
         #hero-wrapper { text-align: center; padding: 50px 0; background: white; border-bottom: 1px solid var(--border); }
         .tabs { display: flex; justify-content: center; gap: 8px; margin: 25px 0; flex-wrap: wrap; }
         .tab { padding: 8px 16px; border-radius: 30px; border: 1px solid var(--border); background: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 600; }
         .tab.active { background: var(--brand); color: #fff; border-color: var(--brand); }
         .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; padding: 30px 0; }
-        .card { background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.2s; }
+        .card { background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.2s; text-align: left; }
         .card:hover { transform: translateY(-3px); border-color: var(--brand); box-shadow: 0 8px 15px rgba(0,0,0,0.05); }
         .card-cat { font-size: 0.65rem; font-weight: 800; color: var(--brand); text-transform: uppercase; margin-bottom: 8px; }
         .content-area { max-width: 800px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 20px; border: 1px solid var(--border); display: none; }
@@ -36,7 +36,7 @@
 
 <header>
     <div class="container nav-flex">
-        <div class="logo" onclick="showHome()">CreatorProfitLab.</div>
+        <a href="/" class="logo" onclick="navigateToHome(event)">CreatorProfitLab.</a>
         <input type="text" id="searchBar" placeholder="Search 100+ tools..." oninput="doSearch()" style="padding:8px; border-radius:5px; border:1px solid #ddd; width:200px;">
     </div>
 </header>
@@ -62,91 +62,123 @@
 
 <div class="container">
     <div id="calculator-view" class="content-area">
-        <button onclick="showHome()" style="color:var(--brand); border:none; background:none; cursor:pointer; font-weight:bold; margin-bottom:20px;">← BACK</button>
+        <button onclick="navigateToHome(event)" style="color:var(--brand); border:none; background:none; cursor:pointer; font-weight:bold; margin-bottom:20px;">← BACK TO TOOLS</button>
         <div id="calc-content"></div>
     </div>
     <div id="blog-view" class="content-area">
-        <button onclick="showHome()" style="color:var(--brand); border:none; background:none; cursor:pointer; font-weight:bold; margin-bottom:20px;">← BACK</button>
+        <button onclick="navigateToHome(event)" style="color:var(--brand); border:none; background:none; cursor:pointer; font-weight:bold; margin-bottom:20px;">← BACK TO GUIDES</button>
         <div id="blog-content" class="blog-text"></div>
     </div>
 </div>
 
+<footer>&copy; 2026 CreatorProfitLab. All Rights Reserved.</footer>
 
 <script>
     const DATABASE = [
-        // CREATOR TOOLS
         { id: 'yt-rev', name: 'YouTube Revenue Calculator', cat: 'Creator', type: 'calc', inputs: ['Monthly Views', 'CPM ($)'], calc: (i) => i[0] * (i[1]/1000) * 0.55 },
         { id: 'yt-shorts', name: 'YouTube Shorts Earnings', cat: 'Creator', type: 'calc', inputs: ['Shorts Views'], calc: (i) => i[0] * 0.00004 },
         { id: 'ig-eng', name: 'Instagram Engagement Rate', cat: 'Creator', type: 'calc', inputs: ['Likes + Comments', 'Followers'], calc: (i) => (i[0]/i[1])*100 },
         { id: 'tk-fund', name: 'TikTok Creator Fund', cat: 'Creator', type: 'calc', inputs: ['Views'], calc: (i) => i[0] * 0.00003 },
         { id: 'aff-inc', name: 'Affiliate Income Calc', cat: 'Creator', type: 'calc', inputs: ['Clicks', 'Conv %', 'Commission ($)'], calc: (i) => i[0] * (i[1]/100) * i[2] },
-
-        // FINANCE TOOLS
         { id: 'emi', name: 'Loan EMI Calculator', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => { let r = i[1]/12/100; let n = i[2]*12; return (i[0]*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1); }},
         { id: 'sip', name: 'SIP Calculator', cat: 'Finance', type: 'calc', inputs: ['Monthly Investment', 'Return %', 'Years'], calc: (i) => { let r=i[1]/12/100; let n=i[2]*12; return i[0]*((Math.pow(1+r,n)-1)/r)*(1+r); }},
         { id: 'roi', name: 'Marketing ROI Calc', cat: 'Business', type: 'calc', inputs: ['Gain ($)', 'Cost ($)'], calc: (i) => ((i[0]-i[1])/i[1])*100 },
-
-        // HEALTH TOOLS
         { id: 'bmi', name: 'BMI Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)'], calc: (i) => i[0]/((i[1]/100)**2) },
         { id: 'water', name: 'Water Intake (L)', cat: 'Health', type: 'calc', inputs: ['Weight (kg)'], calc: (i) => i[0] * 0.033 },
-
-        // UTILITY TOOLS
         { id: 'pct', name: 'Percentage Calculator', cat: 'Utility', type: 'calc', inputs: ['Part', 'Total'], calc: (i) => (i[0]/i[1])*100 },
         { id: 'age', name: 'Age Calculator', cat: 'Utility', type: 'calc', inputs: ['Birth Year'], calc: (i) => 2026 - i[0] },
-
-        // BLOGS (SEO GUIDES)
         { id: 'b-yt-pay', name: 'How Much YouTube Pays Per 1000 Views', cat: 'Blog', type: 'blog', content: '<h2>The 2026 YouTube Economy</h2><p>Average YouTube pay ranges from $1 to $20 CPM. Tech and Finance niches are currently the highest earners.</p>' },
         { id: 'b-emi-how', name: 'How EMI Is Calculated Explained', cat: 'Blog', type: 'blog', content: '<h2>EMI Mechanics</h2><p>Equated Monthly Installments are calculated using the reducing balance method. Interest is paid more at the start of the loan tenure.</p>' }
     ];
 
-    // AUTOMATICALLY GENERATE REMAINING PLACEHOLDERS FOR YOUR 52+ LIST
-    const missingTools = ["YouTube Sponsorship Rate", "Instagram Money Calculator", "Personal Loan Calculator", "Retirement Calculator", "BMI Calculator", "Calorie Needs", "Conversion Rate", "CPC Calculator", "Discount Calculator", "Tip Calculator"];
+    // Placeholder Gen
+    const missingTools = ["YouTube Sponsorship Rate", "Instagram Money Calculator", "Personal Loan Calculator", "Retirement Calculator", "Calorie Needs", "Conversion Rate", "CPC Calculator", "Discount Calculator", "Tip Calculator"];
     missingTools.forEach(name => {
         DATABASE.push({ id: name.toLowerCase().replace(/ /g,'-'), name: name, cat: 'Utility', type: 'calc', inputs: ['Input 1', 'Input 2'], calc: (i) => i[0] + i[1] });
     });
 
-    function init() { renderGrid(DATABASE); }
+    // NAVIGATION LOGIC (The SEO Fix)
+    function handleRouting() {
+        const path = window.location.pathname.substring(1);
+        if (!path || path === "index.html") {
+            showHomeView();
+        } else {
+            const item = DATABASE.find(x => x.id === path);
+            if (item) {
+                if (item.type === 'calc') openCalc(item.id, false);
+                else openBlog(item.id, false);
+            } else {
+                showHomeView();
+            }
+        }
+    }
+
+    function showHomeView() {
+        document.getElementById('home-view').style.display = 'block';
+        document.getElementById('calculator-view').style.display = 'none';
+        document.getElementById('blog-view').style.display = 'none';
+        document.getElementById('dynamic-title').innerText = "CreatorProfitLab | 100+ Professional Tools";
+        renderGrid(DATABASE);
+    }
+
+    function navigateToHome(e) {
+        if(e) e.preventDefault();
+        window.history.pushState({}, '', '/');
+        showHomeView();
+    }
 
     function renderGrid(data) {
         const grid = document.getElementById('main-grid');
-        grid.innerHTML = data.map(i => `<div class="card" onclick="${i.type==='calc'?'openCalc':'openBlog'}('${i.id}')"><div class="card-cat">${i.cat}</div><h3>${i.name}</h3></div>`).join('');
+        grid.innerHTML = data.map(i => `
+            <div class="card" onclick="handleItemClick('${i.id}')">
+                <div class="card-cat">${i.cat}</div>
+                <h3>${i.name}</h3>
+            </div>`).join('');
     }
 
-    function filterCat(cat) {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        event.target.classList.add('active');
-        renderGrid(cat === 'All' ? DATABASE : DATABASE.filter(i => i.cat === cat));
+    function handleItemClick(id) {
+        const item = DATABASE.find(x => x.id === id);
+        window.history.pushState({id: id}, '', `/${id}`);
+        if (item.type === 'calc') openCalc(id, false);
+        else openBlog(id, false);
     }
 
-    function openCalc(id) {
+    function openCalc(id, skipHistory) {
         const item = DATABASE.find(x => x.id === id);
         document.getElementById('home-view').style.display = 'none';
+        document.getElementById('blog-view').style.display = 'none';
         document.getElementById('calculator-view').style.display = 'block';
+        document.getElementById('dynamic-title').innerText = `${item.name} | CreatorProfitLab`;
+
         let html = `<h1>${item.name}</h1>`;
         item.inputs.forEach((l, idx) => html += `<div class="input-group"><label>${l}</label><input type="number" id="v-${idx}" value="100" oninput="doMath('${id}')"></div>`);
         html += `<div class="result-box"><small>RESULT</small><h2 id="res">--</h2></div>`;
         document.getElementById('calc-content').innerHTML = html;
         doMath(id);
+        window.scrollTo(0,0);
     }
 
+    function openBlog(id, skipHistory) {
+        const item = DATABASE.find(x => x.id === id);
+        document.getElementById('home-view').style.display = 'none';
+        document.getElementById('calculator-view').style.display = 'none';
+        document.getElementById('blog-view').style.display = 'block';
+        document.getElementById('dynamic-title').innerText = `${item.name} | SEO Guide`;
+        document.getElementById('blog-content').innerHTML = `<h1>${item.name}</h1>${item.content}`;
+        window.scrollTo(0,0);
+    }
+
+    // Standard Logic Functions
     function doMath(id) {
         const item = DATABASE.find(x => x.id === id);
         const inputs = item.inputs.map((_, idx) => parseFloat(document.getElementById(`v-${idx}`).value) || 0);
         document.getElementById('res').innerText = item.calc(inputs).toLocaleString(undefined, {maximumFractionDigits:2});
     }
 
-    function openBlog(id) {
-        const item = DATABASE.find(x => x.id === id);
-        document.getElementById('home-view').style.display = 'none';
-        document.getElementById('blog-view').style.display = 'block';
-        document.getElementById('blog-content').innerHTML = `<h1>${item.name}</h1>${item.content}`;
-        window.scrollTo(0,0);
-    }
-
-    function showHome() { 
-        document.getElementById('home-view').style.display = 'block'; 
-        document.getElementById('calculator-view').style.display = 'none'; 
-        document.getElementById('blog-view').style.display = 'none'; 
+    function filterCat(cat) {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        event.target.classList.add('active');
+        renderGrid(cat === 'All' ? DATABASE : DATABASE.filter(i => i.cat === cat));
     }
 
     function doSearch() {
@@ -154,141 +186,8 @@
         renderGrid(DATABASE.filter(i => i.name.toLowerCase().includes(q)));
     }
 
-    window.onload = init;
-</script>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CreatorProfitLab | 100+ Professional Tools & SEO Guides</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lexend:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --brand: #4f46e5; --bg: #f8fafc; --text: #0f172a; --border: #e2e8f0; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
-        body { background: var(--bg); color: var(--text); overflow-x: hidden; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        header { background: #fff; border-bottom: 1px solid var(--border); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-family: 'Lexend', sans-serif; font-size: 1.5rem; color: var(--brand); cursor: pointer; font-weight: 800; }
-        #hero-wrapper { text-align: center; padding: 50px 0; background: white; border-bottom: 1px solid var(--border); }
-        .tabs { display: flex; justify-content: center; gap: 8px; margin: 25px 0; flex-wrap: wrap; }
-        .tab { padding: 8px 16px; border-radius: 30px; border: 1px solid var(--border); background: #fff; cursor: pointer; font-size: 0.9rem; font-weight: 600; }
-        .tab.active { background: var(--brand); color: #fff; border-color: var(--brand); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; padding: 30px 0; }
-        .card { background: #fff; border: 1px solid var(--border); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.2s; }
-        .card:hover { transform: translateY(-3px); border-color: var(--brand); box-shadow: 0 8px 15px rgba(0,0,0,0.05); }
-        .card-cat { font-size: 0.65rem; font-weight: 800; color: var(--brand); text-transform: uppercase; margin-bottom: 8px; }
-        .content-area { max-width: 800px; margin: 40px auto; background: #fff; padding: 40px; border-radius: 20px; border: 1px solid var(--border); display: none; }
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; font-weight: 600; margin-bottom: 5px; font-size: 0.9rem; }
-        .input-group input { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid var(--border); font-size: 1rem; }
-        .result-box { background: #f5f3ff; padding: 25px; border-radius: 12px; text-align: center; margin: 20px 0; border: 1px solid #ddd6fe; }
-        .result-box h2 { font-size: 2.5rem; color: var(--brand); font-family: 'Lexend'; }
-        .blog-text h2 { margin: 20px 0 10px; font-family: 'Lexend'; color: var(--brand); font-size: 1.5rem; }
-        .blog-text p { margin-bottom: 15px; line-height: 1.7; color: #444; }
-        footer { text-align: center; padding: 30px; font-size: 0.8rem; color: #666; }
-    </style>
-</head>
-<body>
-
-    </section>
-    <div class="container"><div class="grid" id="main-grid"></div></div>
-</div>
-
-<div class="container">
-    <div id="calculator-view" class="content-area">
-        <button onclick="showHome()" style="color:var(--brand); border:none; background:none; cursor:pointer; font-weight:bold; margin-bottom:20px;">← BACK</button>
-        <div id="calc-content"></div>
-    </div>
-    <div id="blog-view" class="content-area">
-        <button onclick="showHome()" style="color:var(--brand); border:none; background:none; cursor:pointer; font-weight:bold; margin-bottom:20px;">← BACK</button>
-        <div id="blog-content" class="blog-text"></div>
-    </div>
-</div>
-
-
-
-<script>
-    const DATABASE = [
-        // CREATOR TOOLS
-        { id: 'yt-rev', name: 'YouTube Revenue Calculator', cat: 'Creator', type: 'calc', inputs: ['Monthly Views', 'CPM ($)'], calc: (i) => i[0] * (i[1]/1000) * 0.55 },
-        { id: 'yt-shorts', name: 'YouTube Shorts Earnings', cat: 'Creator', type: 'calc', inputs: ['Shorts Views'], calc: (i) => i[0] * 0.00004 },
-        { id: 'ig-eng', name: 'Instagram Engagement Rate', cat: 'Creator', type: 'calc', inputs: ['Likes + Comments', 'Followers'], calc: (i) => (i[0]/i[1])*100 },
-        { id: 'tk-fund', name: 'TikTok Creator Fund', cat: 'Creator', type: 'calc', inputs: ['Views'], calc: (i) => i[0] * 0.00003 },
-        { id: 'aff-inc', name: 'Affiliate Income Calc', cat: 'Creator', type: 'calc', inputs: ['Clicks', 'Conv %', 'Commission ($)'], calc: (i) => i[0] * (i[1]/100) * i[2] },
-
-        // FINANCE TOOLS
-        { id: 'emi', name: 'Loan EMI Calculator', cat: 'Finance', type: 'calc', inputs: ['Principal', 'Rate %', 'Years'], calc: (i) => { let r = i[1]/12/100; let n = i[2]*12; return (i[0]*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1); }},
-        { id: 'sip', name: 'SIP Calculator', cat: 'Finance', type: 'calc', inputs: ['Monthly Investment', 'Return %', 'Years'], calc: (i) => { let r=i[1]/12/100; let n=i[2]*12; return i[0]*((Math.pow(1+r,n)-1)/r)*(1+r); }},
-        { id: 'roi', name: 'Marketing ROI Calc', cat: 'Business', type: 'calc', inputs: ['Gain ($)', 'Cost ($)'], calc: (i) => ((i[0]-i[1])/i[1])*100 },
-
-        // HEALTH TOOLS
-        { id: 'bmi', name: 'BMI Calculator', cat: 'Health', type: 'calc', inputs: ['Weight (kg)', 'Height (cm)'], calc: (i) => i[0]/((i[1]/100)**2) },
-        { id: 'water', name: 'Water Intake (L)', cat: 'Health', type: 'calc', inputs: ['Weight (kg)'], calc: (i) => i[0] * 0.033 },
-
-        // UTILITY TOOLS
-        { id: 'pct', name: 'Percentage Calculator', cat: 'Utility', type: 'calc', inputs: ['Part', 'Total'], calc: (i) => (i[0]/i[1])*100 },
-        { id: 'age', name: 'Age Calculator', cat: 'Utility', type: 'calc', inputs: ['Birth Year'], calc: (i) => 2026 - i[0] },
-
-        // BLOGS (SEO GUIDES)
-        { id: 'b-yt-pay', name: 'How Much YouTube Pays Per 1000 Views', cat: 'Blog', type: 'blog', content: '<h2>The 2026 YouTube Economy</h2><p>Average YouTube pay ranges from $1 to $20 CPM. Tech and Finance niches are currently the highest earners.</p>' },
-        { id: 'b-emi-how', name: 'How EMI Is Calculated Explained', cat: 'Blog', type: 'blog', content: '<h2>EMI Mechanics</h2><p>Equated Monthly Installments are calculated using the reducing balance method. Interest is paid more at the start of the loan tenure.</p>' }
-    ];
-
-    // AUTOMATICALLY GENERATE REMAINING PLACEHOLDERS FOR YOUR 52+ LIST
-    const missingTools = ["YouTube Sponsorship Rate", "Instagram Money Calculator", "Personal Loan Calculator", "Retirement Calculator", "BMI Calculator", "Calorie Needs", "Conversion Rate", "CPC Calculator", "Discount Calculator", "Tip Calculator"];
-    missingTools.forEach(name => {
-        DATABASE.push({ id: name.toLowerCase().replace(/ /g,'-'), name: name, cat: 'Utility', type: 'calc', inputs: ['Input 1', 'Input 2'], calc: (i) => i[0] + i[1] });
-    });
-
-    function init() { renderGrid(DATABASE); }
-
-    function renderGrid(data) {
-        const grid = document.getElementById('main-grid');
-        grid.innerHTML = data.map(i => `<div class="card" onclick="${i.type==='calc'?'openCalc':'openBlog'}('${i.id}')"><div class="card-cat">${i.cat}</div><h3>${i.name}</h3></div>`).join('');
-    }
-
-    function filterCat(cat) {
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        event.target.classList.add('active');
-        renderGrid(cat === 'All' ? DATABASE : DATABASE.filter(i => i.cat === cat));
-    }
-
-    function openCalc(id) {
-        const item = DATABASE.find(x => x.id === id);
-        document.getElementById('home-view').style.display = 'none';
-        document.getElementById('calculator-view').style.display = 'block';
-        let html = `<h1>${item.name}</h1>`;
-        item.inputs.forEach((l, idx) => html += `<div class="input-group"><label>${l}</label><input type="number" id="v-${idx}" value="100" oninput="doMath('${id}')"></div>`);
-        html += `<div class="result-box"><small>RESULT</small><h2 id="res">--</h2></div>`;
-        document.getElementById('calc-content').innerHTML = html;
-        doMath(id);
-    }
-
-    function doMath(id) {
-        const item = DATABASE.find(x => x.id === id);
-        const inputs = item.inputs.map((_, idx) => parseFloat(document.getElementById(`v-${idx}`).value) || 0);
-        document.getElementById('res').innerText = item.calc(inputs).toLocaleString(undefined, {maximumFractionDigits:2});
-    }
-
-    function openBlog(id) {
-        const item = DATABASE.find(x => x.id === id);
-        document.getElementById('home-view').style.display = 'none';
-        document.getElementById('blog-view').style.display = 'block';
-        document.getElementById('blog-content').innerHTML = `<h1>${item.name}</h1>${item.content}`;
-        window.scrollTo(0,0);
-    }
-
-    function showHome() { 
-        document.getElementById('home-view').style.display = 'block'; 
-        document.getElementById('calculator-view').style.display = 'none'; 
-        document.getElementById('blog-view').style.display = 'none'; 
-    }
-
-
-    window.onload = init;
+    window.onpopstate = handleRouting;
+    window.onload = handleRouting;
 </script>
 </body>
 </html>
