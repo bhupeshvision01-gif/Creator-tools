@@ -68,37 +68,7 @@
     <div class="container"><div class="grid" id="main-grid"></div></div>
 </div>
 
-<div class="container">
-    <div id="calculator-view" class="page-view">
-        <button onclick="goHome()" style="background:none; border:none; color:var(--brand); font-weight:700; cursor:pointer; margin-bottom:20px;">← BACK</button>
-        <div id="calc-content"></div>
-    </div>
-    <div id="blog-view" class="page-view">
-        <button onclick="goHome()" style="background:none; border:none; color:var(--brand); font-weight:700; cursor:pointer; margin-bottom:20px;">← BACK</button>
-        <div id="blog-content"></div>
-    </div>
-</div>
 
-<footer>
-    <div class="container footer-grid">
-        <div>
-            <h3 style="font-family:'Lexend'; color:var(--brand); margin-bottom:15px; font-size: 1.6rem;">CreatorProfitLab.</h3>
-            <p style="font-size:0.9rem; color:var(--text-light); max-width: 300px; margin-bottom: 20px;">The laboratory for creator economics. Empowering creators with high-precision analytics.</p>
-            <p style="font-size:0.8rem; font-weight: 700; color: var(--text);">© <span id="year"></span> CreatorProfitLab. All rights reserved.</p>
-        </div>
-        <div>
-            <h4 style="margin-bottom:20px; text-transform: uppercase; font-size: 0.75rem; color: var(--text);">Resources</h4>
-            <a class="footer-link" onclick="handleItemClick('about-us')">The Lab Story</a>
-            <a class="footer-link" onclick="handleItemClick('contact-us')">Partner & Press</a>
-            <a class="footer-link" onclick="filterCat('Blog')">Creator Guides</a>
-        </div>
-        <div>
-            <h4 style="margin-bottom:20px; text-transform: uppercase; font-size: 0.75rem; color: var(--text);">Legal & Trust</h4>
-            <a class="footer-link" onclick="handleItemClick('privacy-policy')">Privacy & Cookies</a>
-            <a class="footer-link" onclick="handleItemClick('terms-of-service')">Terms of Service</a>
-        </div>
-    </div>
-</footer>
 
 <script>
 const DB = [
