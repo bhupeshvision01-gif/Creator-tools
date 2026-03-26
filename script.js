@@ -95,6 +95,36 @@ const DATABASE = [
             type: 'blog', 
             content: `<h2>The 2026 YouTube Economy Breakdown</h2><p>In 2026, YouTube remains the gold standard for long-form monetization. On average, creators earn $3.00 to $7.00 per 1,000 views.</p>` 
         }
+
+{ 
+    id: 'privacy-policy', 
+    name: 'Privacy Policy', 
+    cat: 'Blog', 
+    type: 'blog', 
+    content: `
+        <h2>Privacy Policy for CreatorProfitLab</h2>
+        <p>Last Updated: March 2026</p>
+        <p>At CreatorProfitLab, accessible from creatorprofitlab.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by CreatorProfitLab and how we use it.</p>
+        
+        <h3>Log Files</h3>
+        <p>CreatorProfitLab follows a standard procedure of using log files. These files log visitors when they visit websites. The information collected by log files includes internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks.</p>
+        
+        <h3>Cookies and Web Beacons</h3>
+        <p>Like any other website, CreatorProfitLab uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
+        
+        <h3>Google DoubleClick DART Cookie</h3>
+        <p>Google is one of the third-party vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to our site and other sites on the internet.</p>
+        
+        <h3>Our Advertising Partners</h3>
+        <p>Some of the advertisers on our site may use cookies and web beacons. Our advertising partners include: <b>Google AdSense</b>. Each of our advertising partners has their own Privacy Policy for their policies on user data.</p>
+        
+        <h3>Consent</h3>
+        <p>By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions.</p>
+    `
+},
+
+
+        
     ];
 
 // 2. DATABASE: SEO & Legal Content
