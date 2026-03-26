@@ -3,100 +3,100 @@
  * Features: Deep-Linking Fix, Dynamic SEO, SPA Routing, AdSense Ready
  */
 
-// 1. DATABASE: Tool Definitions
+const DATABASE = [
+        // --- PREVIOUS CREATOR TOOLS ---
+        { 
+            id: 'yt-revenue-calculator', 
+            name: 'YouTube Money Calculator', 
+            cat: 'Creator', 
+            type: 'calc', 
+            inputs: ['Monthly Views', 'Estimated RPM ($)'], 
+            calc: (i) => (i[0] / 1000) * i[1],
+            content: `<h2>How to Calculate Your YouTube Earnings</h2><p>In 2026, YouTube revenue is driven by <strong>RPM (Revenue Per Mille)</strong>. This metric represents how much you earn for every 1,000 views after YouTube takes its 45% share of ad revenue.</p><h2>Factors That Influence Your Pay</h2><ul><li><strong>Niche:</strong> High-ticket niches like Finance and SaaS can see RPMs over $20.</li><li><strong>Audience Location:</strong> Views from the USA, UK, and Canada pay 5x more than Tier 3 countries.</li><li><strong>Watch Time:</strong> Longer videos allow for mid-roll ads, significantly boosting revenue.</li></ul>`
+        },
+        { 
+            id: 'ig-engagement-calculator', 
+            name: 'Instagram Engagement Rate', 
+            cat: 'Creator', 
+            type: 'calc', 
+            inputs: ['Total Likes + Comments', 'Follower Count'], 
+            calc: (i) => (i[0] / i[1]) * 100,
+            content: `<h2>Why Engagement Rate Matters More Than Followers</h2><p>Brands in 2026 look for <strong>Authentic Influence</strong>. An account with 10k followers and a 5% engagement rate is more valuable than an account with 100k followers and a 0.5% rate.</p><h2>The Standard Formula</h2><p>We use the industry-standard formula: <strong>(Total Actions / Followers) x 100</strong>. A "Good" rate for influencers typically falls between 2% and 5%.</p>`
+        },
 
-const TOOLS = [
-    { 
-        id: 'yt-1000-views', 
-        name: 'How Much YouTube Pays Per 1000 Views', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Total Views', 'Average RPM ($)'], 
-        calc: (i) => (i[0] / 1000) * i[1],
-        blog: `<h2>YouTube Pay Per 1000 Views in 2026</h2><p>YouTube earnings are measured by <strong>RPM (Revenue Per Mille)</strong>. While CPM is what advertisers pay, RPM is what you keep after YouTube's 45% cut. High-paying niches like Finance can see $15+, while gaming may see $2.</p>`
-    },
-    { 
-        id: 'yt-cpm-rpm', 
-        name: 'YouTube CPM vs RPM Explained', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Ad Revenue ($)', 'Views'], 
-        calc: (i) => (i[0] / i[1]) * 1000,
-        blog: `<h2>The Difference Between CPM and RPM</h2><p><strong>CPM</strong> is the Cost Per 1,000 ad impressions. <strong>RPM</strong> is your total revenue (including memberships and super chats) divided by total views. RPM is the only metric that truly reflects your take-home pay.</p>`
-    },
-    { 
-        id: 'yt-shorts-mon', 
-        name: 'How YouTube Shorts Monetization Works', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Shorts Views', 'Ad Pool Share %'], 
-        calc: (i) => (i[0] * 0.00005) * (i[1]/100),
-        blog: `<h2>Shorts Ad Revenue Sharing</h2><p>Shorts revenue is pooled and distributed based on your share of total views and music usage. In 2026, expect roughly $0.04 to $0.07 per 1,000 views.</p>`
-    },
-    { 
-        id: 'brand-deal-price', 
-        name: 'How Influencers Price Brand Deals', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Avg. Views', 'Target CPE ($)'], 
-        calc: (i) => i[0] * i[1],
-        blog: `<h2>Pricing Your Influence</h2><p>Most agencies use <strong>CPE (Cost Per Engagement)</strong> or a flat fee based on 20% of your average views. Don't forget to charge extra for usage rights and exclusivity!</p>`
-    },
-    { 
-        id: 'ig-eng-rate', 
-        name: 'Instagram Engagement Rate Explained', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Total Likes + Comments', 'Followers'], 
-        calc: (i) => (i[0] / i[1]) * 100,
-        blog: `<h2>What is a Good Engagement Rate?</h2><p>For accounts under 10k followers, 3% is average. For large accounts, 1% is standard. Brands value engagement over follower count because it proves your audience is real.</p>`
-    },
-    { 
-        id: 'tk-creator-fund', 
-        name: 'How TikTok Creator Fund Works', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Qualified Views'], 
-        calc: (i) => (i[0] / 1000) * 0.03,
-        blog: `<h2>TikTok Creativity Program Pay</h2><p>The "Creator Fund" has evolved. Qualified views (1-minute+ videos) now pay significantly more—up to $1.00 per 1,000 views—compared to the original pennies-per-view model.</p>`
-    },
-    { 
-        id: 'affiliate-income', 
-        name: 'Affiliate Marketing Income Guide', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Link Clicks', 'Conversion Rate %', 'Commission ($)'], 
-        calc: (i) => i[0] * (i[1]/100) * i[2],
-        blog: `<h2>Scaling Affiliate Income</h2><p>Affiliate marketing success depends on <strong>Trust</strong>. Higher conversion rates come from honest reviews and "problem-solution" content rather than spamming links.</p>`
-    },
-    { 
-        id: 'creators-money-online', 
-        name: 'How Creators Make Money Online', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Ad Revenue', 'Sponsorships', 'Digital Products'], 
-        calc: (i) => i[0] + i[1] + i[2],
-        blog: `<h2>The Multiple Streams of Income</h2><p>Top creators never rely on one source. A healthy creator business is split: 30% Ads, 40% Brand Deals, and 30% Direct-to-Consumer (Courses, Merch, Newsletters).</p>`
-    },
-    { 
-        id: 'best-platforms', 
-        name: 'Best Platforms for Creator Monetization', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Audience Size', 'Monetization Score (1-10)'], 
-        calc: (i) => i[0] * i[1],
-        blog: `<h2>Where Should You Post?</h2><p>YouTube is best for long-term passive income. TikTok is best for rapid growth. Newsletter platforms like Substack are best for direct ownership of your audience.</p>`
-    },
-    { 
-        id: 'calc-influencer-rates', 
-        name: 'How to Calculate Influencer Rates', 
-        cat: 'Creator', 
-        type: 'calc', 
-        inputs: ['Base Fee ($)', 'Production Cost ($)', 'Platform Multiplier'], 
-        calc: (i) => (i[0] + i[1]) * i[2],
-        blog: `<h2>Professional Rate Calculation</h2><p>Calculate your rate by adding: <strong>Base Fee (Time) + Production Costs (Gear/Edits) + Usage Rights</strong>. Multiply by platform difficulty (YouTube = 1.5x, IG = 1.0x).</p>`
-    }
-];
+        // --- NEW BUSINESS & MARKETING TOOLS ---
+        { 
+            id: 'marketing-roi-calculator', 
+            name: 'Marketing ROI Calculator', 
+            cat: 'Business', 
+            type: 'calc', 
+            inputs: ['Total Revenue ($)', 'Marketing Cost ($)'], 
+            calc: (i) => ((i[0] - i[1]) / i[1]) * 100,
+            content: `<h2>Calculating Your Marketing ROI</h2><p>Return on Investment (ROI) is the ultimate metric for business growth. It measures the profit you generate relative to the money you spend on advertising.</p><h2>What is a Good Marketing ROI?</h2><p>A 5:1 ratio is considered strong for most industries. This means for every $1 spent, you generate $5 in revenue. Understanding your ROI helps you decide whether to scale your ads or pivot your strategy.</p>`
+        },
+        { 
+            id: 'cpc-advertising-calculator', 
+            name: 'CPC (Cost Per Click) Calc', 
+            cat: 'Business', 
+            type: 'calc', 
+            inputs: ['Total Ad Spend ($)', 'Total Clicks Received'], 
+            calc: (i) => i[0] / i[1],
+            content: `<h2>Optimizing Your CPC Strategy</h2><p>Cost Per Click (CPC) determines the efficiency of your paid traffic. In 2026, high competition in search ads means tracking your CPC daily is essential for maintaining a healthy margin.</p><h2>How to Lower Your CPC</h2><ul><li><strong>Improve Quality Score:</strong> Ensure your landing page matches your ad copy perfectly.</li><li><strong>A/B Testing:</strong> Test different headlines to increase your Click-Through Rate (CTR).</li><li><strong>Negative Keywords:</strong> Filter out irrelevant traffic to ensure you only pay for high-intent clicks.</li></ul>`
+        },
+        { 
+            id: 'affiliate-income-forecaster', 
+            name: 'Affiliate Income Forecaster', 
+            cat: 'Business', 
+            type: 'calc', 
+            inputs: ['Monthly Clicks', 'Conversion Rate (%)', 'Avg. Commission ($)'], 
+            calc: (i) => i[0] * (i[1] / 100) * i[2],
+            content: `<h2>Forecasting Your Affiliate Profits</h2><p>Affiliate marketing is the backbone of passive income for creators. By forecasting your earnings, you can identify which products are worth your promotion time.</p><h2>The Profit Formula</h2><p>Success in affiliate marketing isn't just about traffic; it's about <strong>Conversion</strong>. If you have 1,000 clicks but a 0% conversion rate, you earn nothing. Focus on "Problem-Solution" content to drive higher conversion rates.</p>`
+        },
+
+        // --- PREVIOUS FINANCE & HEALTH TOOLS ---
+        { 
+            id: 'emi-calculator', 
+            name: 'Loan EMI Calculator', 
+            cat: 'Finance', 
+            type: 'calc', 
+            inputs: ['Principal Amount', 'Interest Rate (%)', 'Tenure (Years)'], 
+            calc: (i) => { 
+                let r = i[1]/12/100; let n = i[2]*12; 
+                return (i[0] * r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1); 
+            },
+            content: `<h2>Understanding Your Monthly Loan Payments</h2><p>EMI stands for Equated Monthly Installment. It is the fixed amount you pay back to a lender every month until the loan is fully paid off.</p>`
+        },
+        { 
+            id: 'sip-investment-calculator', 
+            name: 'SIP Return Calculator', 
+            cat: 'Finance', 
+            type: 'calc', 
+            inputs: ['Monthly Investment', 'Expected Return (%)', 'Time Period (Years)'], 
+            calc: (i) => { 
+                let r = i[1]/12/100; let n = i[2]*12; 
+                return i[0] * ((Math.pow(1+r, n) - 1) / r) * (1+r); 
+            },
+            content: `<h2>The Power of Compounding</h2><p>Systematic Investment Plans (SIP) allow you to invest small amounts regularly. Over time, the <strong>Compounding Effect</strong> turns small savings into massive wealth.</p>`
+        },
+        { 
+            id: 'bmi-calculator', 
+            name: 'BMI Health Calculator', 
+            cat: 'Health', 
+            type: 'calc', 
+            inputs: ['Weight (kg)', 'Height (cm)'], 
+            calc: (i) => i[0] / ((i[1]/100)**2),
+            content: `<h2>Is Your Weight in the Healthy Range?</h2><p>Body Mass Index (BMI) is a simple calculation using a person's height and weight. The formula is <strong>kg/m²</strong>.</p>`
+        },
+        // SEO BLOGS
+        { 
+            id: 'how-much-youtube-pays', 
+            name: 'How Much YouTube Pays Per 1000 Views', 
+            cat: 'Blog', 
+            type: 'blog', 
+            content: `<h2>The 2026 YouTube Economy Breakdown</h2><p>In 2026, YouTube remains the gold standard for long-form monetization. On average, creators earn $3.00 to $7.00 per 1,000 views.</p>` 
+        }
+    ];
+
 // 2. DATABASE: SEO & Legal Content
 const SEO_DATA = {
     about: `<h1>Precision Tools for the Digital Frontier</h1>
