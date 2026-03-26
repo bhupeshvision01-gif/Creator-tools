@@ -14,7 +14,7 @@
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: 'Lexend', sans-serif; font-size: 1.5rem; color: var(--brand); cursor: pointer; font-weight: 800; text-decoration: none; }
         #searchBar { width: 280px; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border); outline: none; }
-        .ad-slot { background: #f1f5f9; border: 1px dashed #cbd5e1; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 0.7rem; margin: 20px 0; }
+        .ad-slot { background: #f1f5f9; border: 1px dashed #cbd5e1; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 0.7rem; margin: 20px 0; overflow: hidden; }
         .ad-top { height: 90px; width: 100%; max-width: 728px; margin: 20px auto; }
         #hero-wrapper { text-align: center; padding: 50px 0; background: var(--white); border-bottom: 1px solid var(--border); }
         .tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 25px; }
@@ -42,7 +42,11 @@
     </div>
 </header>
 
-<div class="container"><div class="ad-slot ad-top">Advertisement Space</div></div>
+<div class="container">
+    <div class="ad-slot ad-top">
+        Advertisement Space
+    </div>
+</div>
 
 <div id="home-view">
     <section id="hero-wrapper">
@@ -59,13 +63,20 @@
             </div>
         </div>
     </section>
-    <div class="container"><div class="main-layout"><div class="grid" id="main-grid"></div></div></div>
+    <div class="container">
+        <div class="main-layout">
+            <div class="grid" id="main-grid"></div>
+        </div>
+    </div>
 </div>
 
 <div class="container">
     <div id="calculator-view" class="page-view">
         <button onclick="navigateToHome(event)" style="cursor:pointer; background:none; border:none; color:var(--brand); font-weight:700; margin-bottom:20px;">← BACK</button>
         <div id="calc-content"></div>
+        <div class="ad-slot" style="height:250px; margin-top:30px;">
+            In-Article Advertisement
+        </div>
     </div>
     <div id="blog-view" class="page-view">
         <button onclick="navigateToHome(event)" style="cursor:pointer; background:none; border:none; color:var(--brand); font-weight:700; margin-bottom:20px;">← BACK</button>
@@ -139,7 +150,6 @@
         { id: 'bmiexplained', name: 'BMI & Your Health Guide', cat: 'Blog', type: 'blog', content: '<h2>Beyond the BMI Number</h2><p>Why body composition matters.</p>' }
     ];
 
-    // ROUTING SYSTEM (GitHub Optimized)
     function handleRouting() {
         const path = window.location.pathname.replace(/^\/|\/$/g, '');
         if (!path || path === "" || path === "index.html") {
@@ -208,7 +218,7 @@
 
     function filterCat(cat) {
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        event.target.classList.add('active');
+        if(event) event.target.classList.add('active');
         renderGrid(cat === 'All' ? DB : DB.filter(i => i.cat === cat));
     }
 
