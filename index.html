@@ -13,26 +13,21 @@
         header { background: var(--white); border-bottom: 1px solid var(--border); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo { font-family: 'Lexend', sans-serif; font-size: 1.5rem; color: var(--brand); cursor: pointer; font-weight: 800; text-decoration: none; }
-        #searchBar { width: 280px; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border); outline: none; }
-        .ad-slot { background: #f1f5f9; border: 1px dashed #cbd5e1; display: flex; align-items: center; justify-content: center; color: #94a3b8; font-size: 0.7rem; margin: 20px 0; overflow: hidden; }
-        .ad-top { height: 90px; width: 100%; max-width: 728px; margin: 20px auto; }
+        #searchBar { width: 250px; padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border); outline: none; }
         #hero-wrapper { text-align: center; padding: 50px 0; background: var(--white); border-bottom: 1px solid var(--border); }
         .tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 25px; }
         .tab { padding: 8px 18px; border-radius: 50px; border: 1px solid var(--border); background: var(--white); cursor: pointer; font-weight: 600; font-size: 0.85rem; }
         .tab.active { background: var(--brand); color: var(--white); border-color: var(--brand); }
-        .main-layout { display: flex; gap: 30px; padding: 30px 0; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; flex: 1; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 15px; padding: 30px 0; }
         .card { background: var(--white); border: 1px solid var(--border); padding: 20px; border-radius: 12px; cursor: pointer; transition: 0.2s; }
         .card:hover { border-color: var(--brand); transform: translateY(-3px); }
         .card-cat { font-size: 0.65rem; font-weight: 800; color: var(--brand); text-transform: uppercase; margin-bottom: 8px; }
         .page-view { display: none; background: var(--white); padding: 40px; border-radius: 20px; border: 1px solid var(--border); margin-top: 20px; min-height: 500px; }
         .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
-        .input-group label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 5px; color: var(--text-light); }
-        .input-group input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); }
         .result-card { background: var(--brand); color: var(--white); padding: 30px; border-radius: 15px; text-align: center; margin: 20px 0; }
         .result-card h2 { font-size: 3rem; font-family: 'Lexend'; }
         footer { background: var(--white); padding: 60px 0; border-top: 1px solid var(--border); margin-top: 80px; }
-        @media (max-width: 600px) { .input-grid { grid-template-columns: 1fr; } #searchBar { width: 150px; } }
+        @media (max-width: 600px) { .input-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -44,14 +39,10 @@
     </div>
 </header>
 
-<div class="container">
-    <div class="ad-slot ad-top">Advertisement Space</div>
-</div>
-
 <div id="home-view">
     <section id="hero-wrapper">
         <div class="container">
-            <h1 style="font-family: 'Lexend'; font-size: 2.5rem;">Professional Multi-Tool Hub</h1>
+            <h1 style="font-family: 'Lexend'; font-size: 2.5rem;">Professional Tool Hub</h1>
             <div class="tabs">
                 <button class="tab active" onclick="filterCat('All')">All</button>
                 <button class="tab" onclick="filterCat('Creator')">Creator</button>
@@ -63,9 +54,7 @@
         </div>
     </section>
     <div class="container">
-        <div class="main-layout">
-            <div class="grid" id="main-grid"></div>
-        </div>
+        <div class="grid" id="main-grid"></div>
     </div>
 </div>
 
@@ -80,32 +69,29 @@
     </div>
 </div>
 
-<footer id="main-footer">
+<footer>
     <div class="container">
         <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
             <div style="text-align: left; min-width: 200px;">
-                <h4 style="color: var(--brand); margin-bottom: 10px; font-family: 'Lexend';">CreatorProfitLab.</h4>
-                <p style="font-size: 0.8rem; color: var(--text-light);">Precision tools for the digital frontier.</p>
+                <h4 style="color: var(--brand); margin-bottom: 10px;">CreatorProfitLab.</h4>
+                <p style="font-size: 0.8rem; color: var(--text-light);">Precision tools for creators.</p>
             </div>
             <div style="text-align: left; min-width: 150px;">
                 <h4 style="margin-bottom: 10px;">Quick Links</h4>
-                <p><a href="javascript:void(0)" onclick="handleItemClick('about-us')" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">About Us</a></p>
-                <p><a href="javascript:void(0)" onclick="handleItemClick('contact-us')" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Contact Us</a></p>
+                <p><a href="javascript:void(0)" onclick="handleItemClick('about-us', event)" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">About Us</a></p>
+                <p><a href="javascript:void(0)" onclick="handleItemClick('contact-us', event)" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Contact Us</a></p>
             </div>
             <div style="text-align: left; min-width: 150px;">
                 <h4 style="margin-bottom: 10px;">Legal</h4>
-                <p><a href="javascript:void(0)" onclick="handleItemClick('privacy-policy')" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Privacy Policy</a></p>
-                <p><a href="javascript:void(0)" onclick="handleItemClick('terms-of-service')" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Terms of Service</a></p>
+                <p><a href="javascript:void(0)" onclick="handleItemClick('privacy-policy', event)" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Privacy Policy</a></p>
+                <p><a href="javascript:void(0)" onclick="handleItemClick('terms-of-service', event)" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Terms of Service</a></p>
             </div>
         </div>
-        <p style="font-size: 0.75rem; color: var(--text-light); border-top: 1px solid var(--border); padding-top: 20px;">&copy; 2026 CreatorProfitLab. All rights reserved.</p>
+        <p style="font-size: 0.75rem; color: var(--text-light); border-top: 1px solid var(--border); pt-20">&copy; 2026 CreatorProfitLab.</p>
     </div>
 </footer>
 
 <script>
-/**
- * CreatorProfitLab 2026 - Master Application Script
- */
 const DATABASE = [
         // CREATOR
         { id: 'youtubeincomecalculator', name: 'YouTube Income Calculator', cat: 'Creator', type: 'calc', inputs: ['Monthly Views', 'RPM ($)'], calc: (i) => (i[0]/1000)*i[1], seo: 'Estimate YouTube take-home pay.' },
@@ -171,38 +157,32 @@ const DATABASE = [
 
 
 function handleRouting() {
-    // Check URL query first (for GitHub 404 redirects), then pathname
     const params = new URLSearchParams(window.location.search);
     const toolId = params.get('id');
     const path = window.location.pathname.replace(/^\/|\/$/g, '');
     const targetId = toolId || path;
 
-    const hero = document.getElementById('hero-wrapper');
-    
     if (!targetId || targetId === "" || targetId === "index.html") {
         showHomeView();
     } else {
         const item = DATABASE.find(x => x.id === targetId);
         if (item) {
-            if(hero) hero.style.display = "none";
+            document.getElementById('hero-wrapper').style.display = "none";
             item.type === 'calc' ? renderCalc(item) : renderBlog(item);
-        } else {
-            showHomeView();
-        }
+        } else { showHomeView(); }
     }
 }
 
 function showHomeView() {
-    const hero = document.getElementById('hero-wrapper');
-    if(hero) hero.style.display = "block";
+    document.getElementById('hero-wrapper').style.display = "block";
     document.getElementById('home-view').style.display = 'block';
     document.getElementById('calculator-view').style.display = 'none';
     document.getElementById('blog-view').style.display = 'none';
-    document.title = "CreatorProfitLab | 100+ Professional Tools";
     renderGrid(DATABASE);
 }
 
-function handleItemClick(id) {
+function handleItemClick(id, e) {
+    if(e) e.preventDefault();
     window.history.pushState({id: id}, '', `/${id}`);
     handleRouting();
 }
@@ -214,7 +194,7 @@ function navigateToHome(e) {
 }
 
 function renderGrid(data) {
-    const filtered = data.filter(i => i.cat !== 'Blog' || i.id === 'about-us'); 
+    const filtered = data.filter(i => i.cat !== 'Blog' || i.id === 'about-us');
     document.getElementById('main-grid').innerHTML = filtered.map(i => `
         <div class="card" onclick="handleItemClick('${i.id}')">
             <div class="card-cat">${i.cat}</div>
@@ -226,18 +206,10 @@ function renderCalc(item) {
     document.getElementById('home-view').style.display = 'none';
     document.getElementById('blog-view').style.display = 'none';
     document.getElementById('calculator-view').style.display = 'block';
-    document.title = `${item.name} | CreatorProfitLab`;
-    
-    let html = `<h1>${item.name}</h1><div class="input-grid">`;
-    item.inputs.forEach((label, idx) => {
-        html += `<div class="input-group"><label>${label}</label><input type="number" id="v-${idx}" value="100" oninput="runMath('${item.id}')"></div>`;
-    });
-    html += `</div><div class="result-card"><small>2026 PROJECTION</small><h2 id="res">--</h2></div>
-             <div style="margin-top:30px;"><h3>Expert Insight</h3><p>${item.seo}</p></div>`;
-    
-    document.getElementById('calc-content').innerHTML = html;
+    document.getElementById('calc-content').innerHTML = `<h1>${item.name}</h1><div class="input-grid">` + 
+        item.inputs.map((l, idx) => `<div class="input-group"><label>${l}</label><input type="number" id="v-${idx}" value="100" oninput="runMath('${item.id}')"></div>`).join('') +
+        `</div><div class="result-card"><h2 id="res">--</h2></div>`;
     runMath(item.id);
-    window.scrollTo(0,0);
 }
 
 function renderBlog(item) {
@@ -245,28 +217,12 @@ function renderBlog(item) {
     document.getElementById('calculator-view').style.display = 'none';
     document.getElementById('blog-view').style.display = 'block';
     document.getElementById('blog-content').innerHTML = `<h1>${item.name}</h1><div style="margin-top:20px;">${item.content}</div>`;
-    window.scrollTo(0,0);
 }
 
 function runMath(id) {
     const item = DATABASE.find(x => x.id === id);
     const inputs = item.inputs.map((_, idx) => parseFloat(document.getElementById(`v-${idx}`).value) || 0);
-    const result = item.calc(inputs);
-    const display = document.getElementById('res');
-    
-    if (item.cat === 'Finance' || item.id.includes('income')) {
-        display.innerText = "$" + result.toLocaleString(undefined, {maximumFractionDigits:2});
-    } else if (item.id.includes('engagement') || item.id.includes('roi')) {
-        display.innerText = result.toFixed(2) + "%";
-    } else {
-        display.innerText = result.toLocaleString(undefined, {maximumFractionDigits:2});
-    }
-}
-
-function filterCat(cat) {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    if(event) event.target.classList.add('active');
-    renderGrid(cat === 'All' ? DATABASE : DATABASE.filter(i => i.cat === cat));
+    document.getElementById('res').innerText = item.calc(inputs).toLocaleString();
 }
 
 function doSearch() {
@@ -277,12 +233,5 @@ function doSearch() {
 window.onpopstate = handleRouting;
 window.onload = handleRouting;
 </script>
-
-    <div style="text-align: left; min-width: 150px;">
-    <h4 style="margin-bottom: 10px;">Legal</h4>
-    <p><a href="/privacy-policy" onclick="handleItemClick('privacy-policy', event)" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Privacy Policy</a></p>
-    <p><a href="/terms-of-service" onclick="handleItemClick('terms-of-service', event)" style="color: var(--text-light); text-decoration: none; font-size: 0.8rem;">Terms of Service</a></p>
-</div>
-    
 </body>
 </html>
