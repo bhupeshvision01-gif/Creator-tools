@@ -1145,7 +1145,7 @@ function App() {
           </div>
 
           <div className="flex justify-center gap-x-8 mt-8 text-xs uppercase tracking-widest text-zinc-400">
-            <div>Trusted by MrBeast Team • Ali Abdaal • Marques Brownlee</div>
+            <div>Trusted by top creators and recognized across the global creator community</div>
           </div>
         </div>
 
