@@ -1,0 +1,5 @@
+server {
+    listen 80;
+    server_name www.creatorprofitlab.com;
+    return 301 https://creatorprofitlab.com$request_uri;
+}
