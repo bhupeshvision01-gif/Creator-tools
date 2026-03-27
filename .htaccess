@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.creatorprofitlab\.com [NC]
+RewriteRule ^(.*)$ https://creatorprofitlab.com/$1 [L,R=301]
