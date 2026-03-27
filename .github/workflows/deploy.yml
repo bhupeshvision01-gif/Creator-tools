@@ -2,8 +2,13 @@ name: Build and Deploy
 on:
   push:
     branches: [main]
+
+# Grants the virtual runner permission to write the build to a new branch
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -16,9 +21,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install & Build 🔧
+      - name: Clean Install & Build 🔧
         run: |
-          npm install
+          npm install --frozen-lockfile || npm install
           npx vite build
 
       - name: Deploy 🚀
