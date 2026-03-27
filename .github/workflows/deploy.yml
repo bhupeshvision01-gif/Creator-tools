@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
 
-# Grants the virtual runner permission to write the build to a new branch
+# THIS SECTION IS THE FIX FOR THE PERMISSION DENIED ERROR
 permissions:
   contents: write
   pages: write
@@ -21,9 +21,9 @@ jobs:
         with:
           node-version: 20
 
-      - name: Clean Install & Build 🔧
+      - name: Install & Build 🔧
         run: |
-          npm install --frozen-lockfile || npm install
+          npm install
           npx vite build
 
       - name: Deploy 🚀
