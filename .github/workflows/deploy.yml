@@ -25,7 +25,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          cd Creator-tools # Replace 'my-app' with your actual folder name
+          cd src # Replace 'my-app' with your actual folder name
           npm install
           npm run build
 
