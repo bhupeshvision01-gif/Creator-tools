@@ -1,36 +1,31 @@
-name: Build and Deploy to GitHub Pages
-
+name: Build and Deploy
 on:
   push:
-    branches: ["main"]
-
+    branches: [main]
 permissions:
   contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    # This line tells GitHub to use Node 24 for all actions
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Set up Node.js 24 🟢
+      - name: Setup Node 🟢
         uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: 'npm'
 
-      - name: Install and Build 🔧
+      - name: Install & Build 🔧
         run: |
-          cd src # Replace 'my-app' with your actual folder name
-          npm install
-          npm run build
+          npm ci --force
+          npx vite build # Using npx ensures vite is found even if local install acts up
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # Change this to 'build' if you use React/Create-React-App
+          folder: dist
           branch: gh-pages
