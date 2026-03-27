@@ -2,8 +2,13 @@ name: Build and Deploy
 on:
   push:
     branches: [main]
+
+# THIS BLOCK TELLS GITHUB TO GIVE PERMISSION AUTOMATICALLY
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,8 +26,8 @@ jobs:
 
       - name: Install & Build 🔧
         run: |
-          npm ci --force
-          npx vite build # Using npx ensures vite is found even if local install acts up
+          npm install
+          npx vite build
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
