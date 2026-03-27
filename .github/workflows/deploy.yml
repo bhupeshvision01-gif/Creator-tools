@@ -10,9 +10,18 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # This line tells GitHub to use Node 24 for all actions
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+
+      - name: Set up Node.js 24 🟢
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
 
       - name: Install and Build 🔧
         run: |
@@ -22,5 +31,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # Or "build", depending on your project
+          folder: dist # Change this to 'build' if you use React/Create-React-App
           branch: gh-pages
