@@ -25,6 +25,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
+          cd my-app # Replace 'my-app' with your actual folder name
           npm install
           npm run build
 
