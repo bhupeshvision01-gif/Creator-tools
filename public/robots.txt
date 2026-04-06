@@ -1,11 +1,11 @@
 User-agent: *
 Allow: /
 
-# Specifically for the Google AdSense crawler
+# Specifically allow AdSense bots
 User-agent: Mediapartners-Google
 Allow: /
 
-# Specifically for the ads.txt crawler
+# Specifically allow AdsBot to see your ads.txt
 User-agent: AdsBot-Google
 Allow: /ads.txt
 
