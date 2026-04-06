@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /private/
+
+# This gives Google's Ad bot special permission
+User-agent: Mediapartners-Google
+Allow: /
+
+Sitemap: https://creatorprofitlab.com/sitemap.xml
