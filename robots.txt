@@ -1,9 +1,10 @@
+# Allow all bots to see the site
 User-agent: *
 Allow: /
-Disallow: /private/
 
-# This gives Google's Ad bot special permission
+# Specifically allow Google AdSense crawlers (This fixes your "Blocked" error)
 User-agent: Mediapartners-Google
 Allow: /
 
+# Link to your sitemap
 Sitemap: https://creatorprofitlab.com/sitemap.xml
