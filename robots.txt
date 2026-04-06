@@ -1,10 +1,12 @@
-# Allow all bots to see the site
 User-agent: *
 Allow: /
 
-# Specifically allow Google AdSense crawlers (This fixes your "Blocked" error)
+# Specifically for the Google AdSense crawler
 User-agent: Mediapartners-Google
 Allow: /
 
-# Link to your sitemap
+# Specifically for the ads.txt crawler
+User-agent: AdsBot-Google
+Allow: /ads.txt
+
 Sitemap: https://creatorprofitlab.com/sitemap.xml
