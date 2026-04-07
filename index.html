@@ -34,8 +34,8 @@
     :root {
       --brand-indigo: #4f46e5;
       --text-main: #1f2937;
-      /* BRIGHTEST CONTRAST COLOR */
-      --force-white: #ffffff; 
+      /* BRIGHT CONTRAST FOR DESCRIPTIONS ONLY */
+      --desc-white: #ffffff; 
     }
     
     header { 
@@ -51,23 +51,26 @@
     }
 
     h1 { color: var(--brand-indigo); margin-bottom: 12px; font-size: 2.25rem; font-weight: 800; }
-    p { max-width: 800px; margin: 0 auto; line-height: 1.7; color: var(--text-main); font-size: 1.125rem; }
+    header p { max-width: 800px; margin: 0 auto; line-height: 1.7; color: var(--text-main); font-size: 1.125rem; }
 
-    /* --- THE NUCLEAR ACCESSIBILITY FIX --- */
-    /* This targets EVERY element (*) inside any container with "card" in its class name.
-       It forces color, opacity, and visibility to ensure 4.5:1+ contrast.
-    */
-    [class*="card"] *, 
+    /* --- THE REFINED VISIBILITY FIX --- */
+    /* Only targets the PARAGRAPHS (p) inside cards, leaving titles and buttons alone */
+    [class*="card"] p,
     [class*="calculator"] p,
     .calculator-card-description { 
-      color: var(--force-white) !important; 
+      color: var(--desc-white) !important; 
       opacity: 1 !important;
-      fill: var(--force-white) !important;
       visibility: visible !important;
-      font-weight: 500 !important;
+      font-weight: 400 !important;
+      font-size: 0.95rem !important;
+      line-height: 1.5 !important;
       -webkit-font-smoothing: antialiased;
-      /* High-end contrast booster for dark themes */
-      text-rendering: optimizeLegibility;
+    }
+
+    /* Ensure titles stay dark/visible if the card has a light header area */
+    [class*="card"] h2, 
+    [class*="card"] h3 {
+      color: inherit; 
     }
 
     #root { min-height: 700px; }
@@ -81,8 +84,8 @@
     function loadRrweb(){if(rrwebStarted)return;rrwebStarted=true;var s=document.createElement("script");s.src=RRWEB_CDN;s.onload=function(){var rec=window.rrweb?.record;if(rec)rec({emit:function(e){if(rrwebEvents.length<MAX_RRWEB_EVENTS)rrwebEvents.push(e);}});};document.head.appendChild(s);}
     window.addEventListener("message",function(e){if(e.data?.type==="arena:init")loadRrweb();});
   })();</script>
-  <script type="module" crossorigin src="./assets/index-ChCO15ye.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CXtK-bwc.css">
+  <script type="module" crossorigin src="./assets/index-CQ39Z0sc.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-frHcJjjx.css">
 </head>
 
 <body>
