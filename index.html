@@ -5,7 +5,7 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" fetchpriority="high" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Creator Profit Lab - 100+ Free Calculators for Creators &amp; Entrepreneurs</title>
+  <title>Creator Profit Lab - 50+ Free Calculators for Creators &amp; Entrepreneurs</title>
   <meta name="description" content="Creator Profit Lab offers 100+ free professional calculators for YouTube, Instagram, and SaaS entrepreneurs." />
   <link rel="canonical" href="https://creatorprofitlab.com" />
   <meta name="google-site-verification" content="G-YOUR-ACTUAL-CODE-HERE" />
@@ -34,7 +34,7 @@
     :root {
       --brand-indigo: #4f46e5;
       --text-main: #1f2937;
-      --card-desc-vibrant: #ffffff; /* Switched to Pure White for maximum visibility */
+      --visibility-yellow: #fbbf24; /* High-contrast Amber Yellow */
     }
     
     header { 
@@ -52,16 +52,18 @@
     h1 { color: var(--brand-indigo); margin-bottom: 12px; font-size: 2.25rem; font-weight: 800; }
     p { max-width: 800px; margin: 0 auto; line-height: 1.7; color: var(--text-main); font-size: 1.125rem; }
 
-    /* ULTIMATE VISIBILITY FIX: Targets the card descriptions specifically */
-    #root .card p, 
-    #root [class*="description"],
+    /* --- THE VISIBILITY FIX --- */
+    /* This targets every possible text element inside your cards to force the yellow color */
+    #root div[class*="card"] p, 
+    #root div[class*="description"], 
+    #root .card-body p,
     .calculator-card-description { 
-      color: var(--card-desc-vibrant) !important; 
-      font-weight: 500 !important; /* Slightly bolder for better legibility */
+      color: var(--visibility-yellow) !important; 
+      font-weight: 600 !important; /* Semi-bold for extra punch */
       opacity: 1 !important;
-      filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5)); /* Adds a subtle shadow so white text is readable even on busy backgrounds */
+      visibility: visible !important;
+      display: block !important;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     #root { min-height: 700px; }
@@ -81,7 +83,7 @@
   <header role="banner" aria-label="Creator Profit Lab Header">
     <h1>Creator Profit Lab</h1>
     <p>
-      Welcome to <strong>Creator Profit Lab</strong>, the ultimate resource hub for digital entrepreneurs. Scale your <strong>YouTube</strong>, <strong>Instagram</strong>, and <strong>SaaS</strong> business with data-driven insights.
+      Welcome to <strong>Creator Profit Lab</strong>, the ultimate resource hub for digital entrepreneurs.
     </p>
   </header>
 
