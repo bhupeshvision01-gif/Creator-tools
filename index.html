@@ -34,8 +34,8 @@
     :root {
       --brand-indigo: #4f46e5;
       --text-main: #1f2937;
-      /* BRIGHTEST SILVER-WHITE */
-      --force-visible: #f8fafc; 
+      /* BRIGHTEST CONTRAST COLOR */
+      --force-white: #ffffff; 
     }
     
     header { 
@@ -53,22 +53,21 @@
     h1 { color: var(--brand-indigo); margin-bottom: 12px; font-size: 2.25rem; font-weight: 800; }
     p { max-width: 800px; margin: 0 auto; line-height: 1.7; color: var(--text-main); font-size: 1.125rem; }
 
-    /* --- THE UNIVERSAL OVERRIDE --- */
-    /* This targets EVERYTHING (*) inside any element containing the word "card" */
+    /* --- THE NUCLEAR ACCESSIBILITY FIX --- */
+    /* This targets EVERY element (*) inside any container with "card" in its class name.
+       It forces color, opacity, and visibility to ensure 4.5:1+ contrast.
+    */
     [class*="card"] *, 
-    #root [class*="card"] p,
-    #root [class*="description"] { 
-      color: var(--force-visible) !important; 
-      fill: var(--force-visible) !important; /* Forces icons to be visible too */
+    [class*="calculator"] p,
+    .calculator-card-description { 
+      color: var(--force-white) !important; 
       opacity: 1 !important;
+      fill: var(--force-white) !important;
       visibility: visible !important;
       font-weight: 500 !important;
       -webkit-font-smoothing: antialiased;
-    }
-
-    /* Specifically target the paragraph if it's being stubborn */
-    #root p {
-        color: inherit; /* Allows the card override to flow down */
+      /* High-end contrast booster for dark themes */
+      text-rendering: optimizeLegibility;
     }
 
     #root { min-height: 700px; }
@@ -82,8 +81,8 @@
     function loadRrweb(){if(rrwebStarted)return;rrwebStarted=true;var s=document.createElement("script");s.src=RRWEB_CDN;s.onload=function(){var rec=window.rrweb?.record;if(rec)rec({emit:function(e){if(rrwebEvents.length<MAX_RRWEB_EVENTS)rrwebEvents.push(e);}});};document.head.appendChild(s);}
     window.addEventListener("message",function(e){if(e.data?.type==="arena:init")loadRrweb();});
   })();</script>
-  <script type="module" crossorigin src="./assets/index-CQ39Z0sc.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-frHcJjjx.css">
+  <script type="module" crossorigin src="./assets/index-ChCO15ye.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CXtK-bwc.css">
 </head>
 
 <body>
