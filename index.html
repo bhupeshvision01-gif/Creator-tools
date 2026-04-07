@@ -5,8 +5,8 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" fetchpriority="high" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Creator Profit Lab - 50+ Free Calculators for Creators &amp; Entrepreneurs</title>
-  <meta name="description" content="Creator Profit Lab offers 100+ free professional calculators for YouTube, Instagram, and SaaS entrepreneurs." />
+  <title>Creator Profit Lab - 100+ Free Calculators</title>
+  <meta name="description" content="100+ free professional calculators for YouTube, Instagram, and SaaS entrepreneurs." />
   <link rel="canonical" href="https://creatorprofitlab.com" />
   <meta name="google-site-verification" content="G-YOUR-ACTUAL-CODE-HERE" />
 
@@ -34,7 +34,8 @@
     :root {
       --brand-indigo: #4f46e5;
       --text-main: #1f2937;
-      --visibility-yellow: #fbbf24; /* High-contrast Amber Yellow */
+      /* NEON BRIGHTNESS: This color is designed for dark card visibility */
+      --ultra-visible-text: #e2e8f0; 
     }
     
     header { 
@@ -52,18 +53,19 @@
     h1 { color: var(--brand-indigo); margin-bottom: 12px; font-size: 2.25rem; font-weight: 800; }
     p { max-width: 800px; margin: 0 auto; line-height: 1.7; color: var(--text-main); font-size: 1.125rem; }
 
-    /* --- THE VISIBILITY FIX --- */
-    /* This targets every possible text element inside your cards to force the yellow color */
-    #root div[class*="card"] p, 
-    #root div[class*="description"], 
-    #root .card-body p,
+    /* --- THE PERMANENT FIX --- */
+    /* This targets the exact text path in your React cards to force visibility */
+    #root div[class*="card"] p,
+    #root .card p,
+    #root [class*="description"],
     .calculator-card-description { 
-      color: var(--visibility-yellow) !important; 
-      font-weight: 600 !important; /* Semi-bold for extra punch */
+      color: var(--ultra-visible-text) !important; 
+      font-weight: 500 !important;
       opacity: 1 !important;
       visibility: visible !important;
-      display: block !important;
+      /* Ensures the text has enough thickness to be seen */
       -webkit-font-smoothing: antialiased;
+      display: block !important;
     }
 
     #root { min-height: 700px; }
