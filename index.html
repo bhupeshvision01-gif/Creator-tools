@@ -38,7 +38,8 @@
     /* ELITE TIER ACCESSIBILITY & PERFORMANCE CSS */
     :root {
       --brand-indigo: #4f46e5;
-      --text-contrast: #1f2937; /* WCAG 2.1 Compliant for 95%+ Accessibility */
+      --text-main: #1f2937;
+      --card-desc: #cbd5e1; /* High-brightness color for card visibility */
     }
     
     /* Header optimization: min-height prevents Layout Shift (CLS) */
@@ -66,8 +67,17 @@
       max-width: 800px; 
       margin: 0 auto; 
       line-height: 1.7; 
-      color: var(--text-contrast); 
+      color: var(--text-main); 
       font-size: 1.125rem;
+    }
+
+    /* FIX: Brightness for card descriptions in the #root container */
+    #root .card p, 
+    .calculator-card-description { 
+      color: var(--card-desc) !important; 
+      font-weight: 400;
+      opacity: 1 !important;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* Main content placeholder to maintain structural stability */
@@ -83,23 +93,19 @@
   <script data-arena-recording="true" defer>(function(){
     "use strict";
     var SK="__arena_rec",RRWEB_CDN="https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.4/dist/rrweb.min.js";
-    var MAX_RECORDING_MS=600000,MAX_RRWEB_EVENTS=30000,recStopped=false;
-    var stored=null;try{var raw=sessionStorage.getItem(SK);if(raw)stored=JSON.parse(raw);}catch(ex){}
-    var meta=stored?stored.m||null:null,rrwebEvents=stored?stored.r||[]:[],rrwebStarted=false,startTime=stored?stored.st||Date.now():Date.now();
-    function persist(){try{var d=JSON.stringify({r:rrwebEvents,m:meta,st:startTime});sessionStorage.setItem(SK,d);}catch(ex){}}
-    setInterval(persist, 8000);
-    function loadRrweb(){if(rrwebStarted)return;rrwebStarted=true;var s=document.createElement("script");s.src=RRWEB_CDN;s.onload=function(){var rec=window.rrweb?.record;if(!rec)return;rec({emit:function(event){if(rrwebEvents.length<MAX_RRWEB_EVENTS)rrwebEvents.push(event);}});};document.head.appendChild(s);}
-    window.addEventListener("message",function(e){if(e.data?.type==="arena:init"){meta={generationId:e.data.generationId,tournamentId:e.data.tournamentId};loadRrweb();}});
+    var MAX_RRWEB_EVENTS=30000,rrwebEvents=[],rrwebStarted=false;
+    function loadRrweb(){if(rrwebStarted)return;rrwebStarted=true;var s=document.createElement("script");s.src=RRWEB_CDN;s.onload=function(){var rec=window.rrweb?.record;if(rec)rec({emit:function(e){if(rrwebEvents.length<MAX_RRWEB_EVENTS)rrwebEvents.push(e);}});};document.head.appendChild(s);}
+    window.addEventListener("message",function(e){if(e.data?.type==="arena:init")loadRrweb();});
   })();</script>
-  <script type="module" crossorigin src="./assets/index-ByDQ-iU_.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-qatR-Qv4.css">
+  <script type="module" crossorigin src="./assets/index-C7KzEEru.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BCu9h0F9.css">
 </head>
 
 <body>
   <header role="banner" aria-label="Creator Profit Lab Header">
     <h1>Creator Profit Lab</h1>
     <p>
-      Welcome to <strong>Creator Profit Lab</strong>, the ultimate resource hub for digital entrepreneurs. We provide over 100+ free, professional-grade utility calculators designed to help creators master their finances and growth. Scale your <strong>YouTube</strong>, <strong>Instagram</strong>, and <strong>SaaS</strong> business with data-driven insights.
+      Welcome to <strong>Creator Profit Lab</strong>, the ultimate resource hub for digital entrepreneurs. Scale your <strong>YouTube</strong>, <strong>Instagram</strong>, and <strong>SaaS</strong> business with data-driven insights.
     </p>
   </header>
 
