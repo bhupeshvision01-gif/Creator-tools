@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Creator Profit Lab - 100+ Free Calculators for Creators &amp; Entrepreneurs</title>
-  <meta name="description" content="Creator Profit Lab offers 100+ free professional calculators for YouTube, Instagram, and SaaS entrepreneurs. Calculate earnings, engagement, and business growth instantly." />
+  <meta name="description" content="Creator Profit Lab offers 100+ free professional calculators for YouTube, Instagram, and SaaS entrepreneurs." />
   <link rel="canonical" href="https://creatorprofitlab.com" />
-  
   <meta name="google-site-verification" content="G-YOUR-ACTUAL-CODE-HERE" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,24 +24,19 @@
       script.crossOrigin = "anonymous";
       document.head.appendChild(script);
     }
-    // Load heavy ads only when user interacts (scroll, move, or touch)
     window.addEventListener('scroll', loadAdSense, {once: true, passive: true});
     window.addEventListener('mousemove', loadAdSense, {once: true, passive: true});
     window.addEventListener('touchstart', loadAdSense, {once: true, passive: true});
-    
-    // Safety fallback for bots or idle sessions
     setTimeout(loadAdSense, 7000);
   </script>
 
   <style>
-    /* ELITE TIER ACCESSIBILITY & PERFORMANCE CSS */
     :root {
       --brand-indigo: #4f46e5;
       --text-main: #1f2937;
-      --card-desc: #cbd5e1; /* High-brightness color for card visibility */
+      --card-desc-vibrant: #ffffff; /* Switched to Pure White for maximum visibility */
     }
     
-    /* Header optimization: min-height prevents Layout Shift (CLS) */
     header { 
       padding: 40px 20px; 
       text-align: center; 
@@ -55,39 +49,23 @@
       background: #ffffff;
     }
 
-    h1 { 
-      color: var(--brand-indigo); 
-      margin-bottom: 12px; 
-      font-size: 2.25rem; 
-      font-weight: 800;
-      line-height: 1.2; 
-    }
+    h1 { color: var(--brand-indigo); margin-bottom: 12px; font-size: 2.25rem; font-weight: 800; }
+    p { max-width: 800px; margin: 0 auto; line-height: 1.7; color: var(--text-main); font-size: 1.125rem; }
 
-    p { 
-      max-width: 800px; 
-      margin: 0 auto; 
-      line-height: 1.7; 
-      color: var(--text-main); 
-      font-size: 1.125rem;
-    }
-
-    /* FIX: Brightness for card descriptions in the #root container */
+    /* ULTIMATE VISIBILITY FIX: Targets the card descriptions specifically */
     #root .card p, 
+    #root [class*="description"],
     .calculator-card-description { 
-      color: var(--card-desc) !important; 
-      font-weight: 400;
+      color: var(--card-desc-vibrant) !important; 
+      font-weight: 500 !important; /* Slightly bolder for better legibility */
       opacity: 1 !important;
+      filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5)); /* Adds a subtle shadow so white text is readable even on busy backgrounds */
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Main content placeholder to maintain structural stability */
     #root { min-height: 700px; }
-
-    /* Accessibility: Enhanced focus indicators for keyboard navigation */
-    a:focus, button:focus { 
-      outline: 3px solid var(--brand-indigo); 
-      outline-offset: 2px; 
-    }
+    a:focus, button:focus { outline: 3px solid var(--brand-indigo); outline-offset: 2px; }
   </style>
 
   <script data-arena-recording="true" defer>(function(){
@@ -111,25 +89,5 @@
 
   <script type="module" src="/src/main.tsx" defer></script>
   <link rel="manifest" href="/manifest.json" />
-
-  <script data-element-picker defer>
-  (function () {
-    'use strict';
-    var inspectEnabled = false; var overlay = null;
-    function createOverlay() {
-      if (overlay) return;
-      overlay = document.createElement('div');
-      overlay.id = '__picker-overlay';
-      overlay.style.cssText = 'position:fixed;pointer-events:none;z-index:2147483647;border:2px solid #3b82f6;background:rgba(59,130,246,0.08);display:none;';
-      document.body.appendChild(overlay);
-    }
-    window.addEventListener('message', function (e) {
-      if (e.data.type === 'inspect:mode') {
-        inspectEnabled = !!e.data.enabled;
-        if (inspectEnabled) createOverlay();
-      }
-    });
-  })();
-  </script>
 </body>
 </html>
