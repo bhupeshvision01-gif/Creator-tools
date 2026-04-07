@@ -34,8 +34,8 @@
     :root {
       --brand-indigo: #4f46e5;
       --text-main: #1f2937;
-      /* NEON BRIGHTNESS: This color is designed for dark card visibility */
-      --ultra-visible-text: #e2e8f0; 
+      /* BRIGHTEST SILVER-WHITE */
+      --force-visible: #f8fafc; 
     }
     
     header { 
@@ -53,19 +53,22 @@
     h1 { color: var(--brand-indigo); margin-bottom: 12px; font-size: 2.25rem; font-weight: 800; }
     p { max-width: 800px; margin: 0 auto; line-height: 1.7; color: var(--text-main); font-size: 1.125rem; }
 
-    /* --- THE PERMANENT FIX --- */
-    /* This targets the exact text path in your React cards to force visibility */
-    #root div[class*="card"] p,
-    #root .card p,
-    #root [class*="description"],
-    .calculator-card-description { 
-      color: var(--ultra-visible-text) !important; 
-      font-weight: 500 !important;
+    /* --- THE UNIVERSAL OVERRIDE --- */
+    /* This targets EVERYTHING (*) inside any element containing the word "card" */
+    [class*="card"] *, 
+    #root [class*="card"] p,
+    #root [class*="description"] { 
+      color: var(--force-visible) !important; 
+      fill: var(--force-visible) !important; /* Forces icons to be visible too */
       opacity: 1 !important;
       visibility: visible !important;
-      /* Ensures the text has enough thickness to be seen */
+      font-weight: 500 !important;
       -webkit-font-smoothing: antialiased;
-      display: block !important;
+    }
+
+    /* Specifically target the paragraph if it's being stubborn */
+    #root p {
+        color: inherit; /* Allows the card override to flow down */
     }
 
     #root { min-height: 700px; }
