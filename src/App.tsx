@@ -1596,4 +1596,3 @@ function App() {
     </div>
   );
 }
-
