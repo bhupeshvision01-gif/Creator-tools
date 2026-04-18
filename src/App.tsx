@@ -5,7 +5,6 @@ import {
   BookOpen, X, Play, Award, Target, Zap, Percent, Scale, ArrowUp, Clock, Shield
 } from 'lucide-react';
 
-
 interface InputField {
   name: string;
   label: string;
@@ -1596,3 +1595,5 @@ function App() {
     </div>
   );
 }
+
+export default App;
