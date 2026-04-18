@@ -5,6 +5,16 @@ import {
   BookOpen, X, Play, Award, Target, Zap, Percent, Scale, ArrowUp, Clock, Shield
 } from 'lucide-react';
 
+import BlogPostTaxHacks from "./blog/BlogPostTaxHacks";
+
+<Routes>
+  {/* existing routes */}
+  <Route path="/blog/tax-hacks" element={<BlogPostTaxHacks />} />
+</Routes>
+
+export default App;
+
+
 interface InputField {
   name: string;
   label: string;
@@ -1595,14 +1605,4 @@ function App() {
     </div>
   );
 }
-
-
-import BlogPostTaxHacks from "./blog/BlogPostTaxHacks";
-
-<Routes>
-  {/* existing routes */}
-  <Route path="/blog/tax-hacks" element={<BlogPostTaxHacks />} />
-</Routes>
-
-export default App;
 
