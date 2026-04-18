@@ -7,14 +7,6 @@ import {
 
 import BlogPostTaxHacks from "./blog/BlogPostTaxHacks";
 
-<Routes>
-  {/* existing routes */}
-  <Route path="/blog/tax-hacks" element={<BlogPostTaxHacks />} />
-</Routes>
-
-export default App;
-
-
 interface InputField {
   name: string;
   label: string;
