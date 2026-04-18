@@ -1596,5 +1596,13 @@ function App() {
   );
 }
 
+
+import BlogPostTaxHacks from "./blog/BlogPostTaxHacks";
+
+<Routes>
+  {/* existing routes */}
+  <Route path="/blog/tax-hacks" element={<BlogPostTaxHacks />} />
+</Routes>
+
 export default App;
 
