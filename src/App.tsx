@@ -5,7 +5,6 @@ import {
   BookOpen, X, Play, Award, Target, Zap, Percent, Scale, ArrowUp, Clock, Shield
 } from 'lucide-react';
 
-import BlogPostTaxHacks from "./blog/BlogPostTaxHacks";
 
 interface InputField {
   name: string;
